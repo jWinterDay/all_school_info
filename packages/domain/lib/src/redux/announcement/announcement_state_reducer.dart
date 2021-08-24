@@ -10,9 +10,8 @@ AnnouncementState announcementStateReducer(AnnouncementState s, dynamic a) {
       cleanUp: (_) => s.copyWith(announcementList: <AnnouncementModel>[]),
       // ignore: always_specify_types
       addAnnouncement: (actionEvent) => _addAnnouncement(s, actionEvent.announcement),
-
-      // TODO remove
-      fetchAnnouncements: (_) => _fetchAnnouncements(s),
+      // ignore: always_specify_types
+      addAnnouncementList: (actionEvent) => _addAnnouncementList(s, actionEvent.list),
       orElse: () {
         return s;
       },
@@ -26,35 +25,26 @@ AnnouncementState _addAnnouncement(
   AnnouncementState state,
   AnnouncementModel announcementModel,
 ) {
-  // TODO
-  if (state.announcementList == null) {
-    state.copyWith(
-      announcementList: <AnnouncementModel>[],
-    );
-  }
+  final List<AnnouncementModel> nextList = <AnnouncementModel>[
+    ...state.announcementList ?? <AnnouncementModel>[],
+    announcementModel,
+  ];
 
-  state.announcementList!.add(announcementModel);
-
-  return state;
-  // .copyWith(
-  //   announcementList: state.announcementList.add(announcementModel),
-  // );
+  return state.copyWith(
+    announcementList: nextList,
+  );
 }
 
-AnnouncementState _fetchAnnouncements(
+AnnouncementState _addAnnouncementList(
   AnnouncementState state,
+  Iterable<AnnouncementModel> list,
 ) {
-  // TODO
-  AnnouncementState nextState = state;
+  final List<AnnouncementModel> nextList = <AnnouncementModel>[
+    ...state.announcementList ?? <AnnouncementModel>[],
+    ...list,
+  ];
 
-  nextState = state.copyWith(
-    announcementList: <AnnouncementModel>[
-      AnnouncementModel(
-        content: 'fsdfsd',
-        title: 'title',
-      ),
-    ],
+  return state.copyWith(
+    announcementList: nextList,
   );
-
-  return nextState;
 }

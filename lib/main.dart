@@ -30,9 +30,10 @@ class MyApp extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   AppDomainProvider.appStore.dispatch(
-                    const AnnouncementAction.addAnnouncement(
-                      announcement: AnnouncementModel(title: 'title1', content: 'content1'),
-                    ),
+                    AppDomainProvider.appStore.dispatch(fetchAnnouncementsThunk),
+                    // const AnnouncementAction.addAnnouncement(
+                    //   announcement: AnnouncementModel(title: 'new title', content: 'new content'),
+                    // ),
                   );
                   // AppDomainProvider.appStore.dispatch(
                   //   UserLoggedInAction(loggedIn: !AppDomainProvider.appStore.state.userState.loggedIn),

@@ -12,6 +12,9 @@ abstract class AnnouncementAction with _$AnnouncementAction {
 
   const factory AnnouncementAction.addAnnouncement({required AnnouncementModel announcement}) = _AddAnnouncement;
 
+  const factory AnnouncementAction.addAnnouncementList({required Iterable<AnnouncementModel> list}) =
+      _AddAnnouncementList;
+
   const factory AnnouncementAction.fetchAnnouncements() = _FetchAnnouncements;
 
   const factory AnnouncementAction.cleanUp() = _CleanUp;

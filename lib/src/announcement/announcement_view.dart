@@ -16,9 +16,7 @@ class AnnouncementView extends StatefulWidget {
 class _AnnouncementViewState extends State<AnnouncementView> {
   @override
   void initState() {
-    AppDomainProvider.appStore.dispatch(
-      const AnnouncementAction.fetchAnnouncements(),
-    );
+    AppDomainProvider.appStore.dispatch(fetchAnnouncementsThunk);
 
     super.initState();
   }
