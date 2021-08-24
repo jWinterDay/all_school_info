@@ -18,6 +18,8 @@ void main() {
 
       // print(appState.toJson());
 
+      expect(appState.testMode, isFalse);
+
       expect(appState.userState, isNotNull);
       expect(appState.userState.loggedIn, false);
 

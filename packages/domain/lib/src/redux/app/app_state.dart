@@ -11,6 +11,9 @@ class AppState with _$AppState {
   const AppState._();
 
   const factory AppState({
+    @Default(false) @JsonKey(name: 'test_mode', defaultValue: false) bool testMode,
+
+    //
     @Default(UserState()) @JsonKey(name: 'user_state') UserState userState,
     @Default(AnnouncementState()) @JsonKey(name: 'announcement_state') AnnouncementState announcementState,
   }) = _AppState;

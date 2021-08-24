@@ -8,7 +8,8 @@ export 'src/init_domain.dart';
 export 'src/redux/app/app_state.dart';
 
 // announcement
-export 'src/redux/announcement/announcement_actions.dart';
+export 'src/redux/announcement/models/announcement_model.dart';
+export 'src/redux/announcement/announcement_action.dart';
 export 'src/redux/announcement/announcement_state.dart';
 export 'src/redux/announcement/announcement_state_reducer.dart';
 

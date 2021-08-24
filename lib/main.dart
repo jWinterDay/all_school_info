@@ -1,3 +1,4 @@
+import 'package:all_school_info/src/announcement/announcement.dart';
 import 'package:flutter/material.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter_redux/flutter_redux.dart';
@@ -23,27 +24,40 @@ class MyApp extends StatelessWidget {
           appBar: AppBar(
             title: const Text('All School Info'),
           ),
-          body: GestureDetector(
-            onTap: () {
-              AppDomainProvider.appStore.dispatch(
-                UserLoggedInAction(loggedIn: !AppDomainProvider.appStore.state.userState.loggedIn),
-              );
-            },
-            child: SizedBox(
-              height: 200,
-              width: 200,
-              child: ColoredBox(
-                color: Colors.green,
-                child: StoreConnector<AppState, bool>(
-                  converter: (Store<AppState> store) => store.state.userState.loggedIn,
-                  builder: (_, bool loggedIn) {
-                    return Text(
-                      'logged: $loggedIn',
-                    );
-                  },
+          body: Column(
+            children: <Widget>[
+              // test
+              GestureDetector(
+                onTap: () {
+                  AppDomainProvider.appStore.dispatch(
+                    UserLoggedInAction(loggedIn: !AppDomainProvider.appStore.state.userState.loggedIn),
+                  );
+                },
+                child: SizedBox(
+                  height: 200,
+                  width: 200,
+                  child: ColoredBox(
+                    color: Colors.green,
+                    child: StoreConnector<AppState, bool>(
+                      converter: (Store<AppState> store) => store.state.userState.loggedIn,
+                      builder: (_, bool loggedIn) {
+                        return Text(
+                          'logged: $loggedIn',
+                        );
+                      },
+                    ),
+                  ),
                 ),
               ),
-            ),
+
+              // announcement
+              Expanded(
+                child: Container(
+                  color: Colors.blue,
+                  child: const Announcement(),
+                ),
+              ),
+            ],
           ),
         ),
       ),

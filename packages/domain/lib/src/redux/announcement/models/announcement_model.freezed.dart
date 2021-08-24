@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
-part of 'announcement.dart';
+part of 'announcement_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -12,38 +12,38 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Announcement _$AnnouncementFromJson(Map<String, dynamic> json) {
-  return _Announcement.fromJson(json);
+AnnouncementModel _$AnnouncementModelFromJson(Map<String, dynamic> json) {
+  return _AnnouncementModel.fromJson(json);
 }
 
 /// @nodoc
-class _$AnnouncementTearOff {
-  const _$AnnouncementTearOff();
+class _$AnnouncementModelTearOff {
+  const _$AnnouncementModelTearOff();
 
-  _Announcement call(
+  _AnnouncementModel call(
       {@JsonKey(name: 'title')
           String? title,
       @JsonKey(name: 'content')
           String? content,
       @JsonKey(name: 'user_groups', defaultValue: const <String>[defaultUserGroup])
           List<String> userGroups = const <String>[defaultUserGroup]}) {
-    return _Announcement(
+    return _AnnouncementModel(
       title: title,
       content: content,
       userGroups: userGroups,
     );
   }
 
-  Announcement fromJson(Map<String, Object> json) {
-    return Announcement.fromJson(json);
+  AnnouncementModel fromJson(Map<String, Object> json) {
+    return AnnouncementModel.fromJson(json);
   }
 }
 
 /// @nodoc
-const $Announcement = _$AnnouncementTearOff();
+const $AnnouncementModel = _$AnnouncementModelTearOff();
 
 /// @nodoc
-mixin _$Announcement {
+mixin _$AnnouncementModel {
   @JsonKey(name: 'title')
   String? get title => throw _privateConstructorUsedError;
   @JsonKey(name: 'content')
@@ -53,13 +53,13 @@ mixin _$Announcement {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $AnnouncementCopyWith<Announcement> get copyWith => throw _privateConstructorUsedError;
+  $AnnouncementModelCopyWith<AnnouncementModel> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AnnouncementCopyWith<$Res> {
-  factory $AnnouncementCopyWith(Announcement value, $Res Function(Announcement) then) =
-      _$AnnouncementCopyWithImpl<$Res>;
+abstract class $AnnouncementModelCopyWith<$Res> {
+  factory $AnnouncementModelCopyWith(AnnouncementModel value, $Res Function(AnnouncementModel) then) =
+      _$AnnouncementModelCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: 'title') String? title,
       @JsonKey(name: 'content') String? content,
@@ -67,12 +67,12 @@ abstract class $AnnouncementCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AnnouncementCopyWithImpl<$Res> implements $AnnouncementCopyWith<$Res> {
-  _$AnnouncementCopyWithImpl(this._value, this._then);
+class _$AnnouncementModelCopyWithImpl<$Res> implements $AnnouncementModelCopyWith<$Res> {
+  _$AnnouncementModelCopyWithImpl(this._value, this._then);
 
-  final Announcement _value;
+  final AnnouncementModel _value;
   // ignore: unused_field
-  final $Res Function(Announcement) _then;
+  final $Res Function(AnnouncementModel) _then;
 
   @override
   $Res call({
@@ -98,9 +98,9 @@ class _$AnnouncementCopyWithImpl<$Res> implements $AnnouncementCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$AnnouncementCopyWith<$Res> implements $AnnouncementCopyWith<$Res> {
-  factory _$AnnouncementCopyWith(_Announcement value, $Res Function(_Announcement) then) =
-      __$AnnouncementCopyWithImpl<$Res>;
+abstract class _$AnnouncementModelCopyWith<$Res> implements $AnnouncementModelCopyWith<$Res> {
+  factory _$AnnouncementModelCopyWith(_AnnouncementModel value, $Res Function(_AnnouncementModel) then) =
+      __$AnnouncementModelCopyWithImpl<$Res>;
   @override
   $Res call(
       {@JsonKey(name: 'title') String? title,
@@ -109,13 +109,13 @@ abstract class _$AnnouncementCopyWith<$Res> implements $AnnouncementCopyWith<$Re
 }
 
 /// @nodoc
-class __$AnnouncementCopyWithImpl<$Res> extends _$AnnouncementCopyWithImpl<$Res>
-    implements _$AnnouncementCopyWith<$Res> {
-  __$AnnouncementCopyWithImpl(_Announcement _value, $Res Function(_Announcement) _then)
-      : super(_value, (v) => _then(v as _Announcement));
+class __$AnnouncementModelCopyWithImpl<$Res> extends _$AnnouncementModelCopyWithImpl<$Res>
+    implements _$AnnouncementModelCopyWith<$Res> {
+  __$AnnouncementModelCopyWithImpl(_AnnouncementModel _value, $Res Function(_AnnouncementModel) _then)
+      : super(_value, (v) => _then(v as _AnnouncementModel));
 
   @override
-  _Announcement get _value => super._value as _Announcement;
+  _AnnouncementModel get _value => super._value as _AnnouncementModel;
 
   @override
   $Res call({
@@ -123,7 +123,7 @@ class __$AnnouncementCopyWithImpl<$Res> extends _$AnnouncementCopyWithImpl<$Res>
     Object? content = freezed,
     Object? userGroups = freezed,
   }) {
-    return _then(_Announcement(
+    return _then(_AnnouncementModel(
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -142,8 +142,8 @@ class __$AnnouncementCopyWithImpl<$Res> extends _$AnnouncementCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Announcement extends _Announcement {
-  const _$_Announcement(
+class _$_AnnouncementModel extends _AnnouncementModel {
+  const _$_AnnouncementModel(
       {@JsonKey(name: 'title')
           this.title,
       @JsonKey(name: 'content')
@@ -152,7 +152,7 @@ class _$_Announcement extends _Announcement {
           this.userGroups = const <String>[defaultUserGroup]})
       : super._();
 
-  factory _$_Announcement.fromJson(Map<String, dynamic> json) => _$_$_AnnouncementFromJson(json);
+  factory _$_AnnouncementModel.fromJson(Map<String, dynamic> json) => _$_$_AnnouncementModelFromJson(json);
 
   @override
   @JsonKey(name: 'title')
@@ -166,13 +166,13 @@ class _$_Announcement extends _Announcement {
 
   @override
   String toString() {
-    return 'Announcement(title: $title, content: $content, userGroups: $userGroups)';
+    return 'AnnouncementModel(title: $title, content: $content, userGroups: $userGroups)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Announcement &&
+        (other is _AnnouncementModel &&
             (identical(other.title, title) || const DeepCollectionEquality().equals(other.title, title)) &&
             (identical(other.content, content) || const DeepCollectionEquality().equals(other.content, content)) &&
             (identical(other.userGroups, userGroups) ||
@@ -188,23 +188,24 @@ class _$_Announcement extends _Announcement {
 
   @JsonKey(ignore: true)
   @override
-  _$AnnouncementCopyWith<_Announcement> get copyWith => __$AnnouncementCopyWithImpl<_Announcement>(this, _$identity);
+  _$AnnouncementModelCopyWith<_AnnouncementModel> get copyWith =>
+      __$AnnouncementModelCopyWithImpl<_AnnouncementModel>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_AnnouncementToJson(this);
+    return _$_$_AnnouncementModelToJson(this);
   }
 }
 
-abstract class _Announcement extends Announcement {
-  const factory _Announcement(
+abstract class _AnnouncementModel extends AnnouncementModel {
+  const factory _AnnouncementModel(
           {@JsonKey(name: 'title') String? title,
           @JsonKey(name: 'content') String? content,
           @JsonKey(name: 'user_groups', defaultValue: const <String>[defaultUserGroup]) List<String> userGroups}) =
-      _$_Announcement;
-  const _Announcement._() : super._();
+      _$_AnnouncementModel;
+  const _AnnouncementModel._() : super._();
 
-  factory _Announcement.fromJson(Map<String, dynamic> json) = _$_Announcement.fromJson;
+  factory _AnnouncementModel.fromJson(Map<String, dynamic> json) = _$_AnnouncementModel.fromJson;
 
   @override
   @JsonKey(name: 'title')
@@ -217,5 +218,5 @@ abstract class _Announcement extends Announcement {
   List<String> get userGroups => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$AnnouncementCopyWith<_Announcement> get copyWith => throw _privateConstructorUsedError;
+  _$AnnouncementModelCopyWith<_AnnouncementModel> get copyWith => throw _privateConstructorUsedError;
 }

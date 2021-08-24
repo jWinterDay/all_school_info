@@ -20,9 +20,12 @@ AnnouncementState _$AnnouncementStateFromJson(Map<String, dynamic> json) {
 class _$AnnouncementStateTearOff {
   const _$AnnouncementStateTearOff();
 
-  _AnnouncementState call({@JsonKey(name: 'announcement_list') List<Announcement>? announcementList}) {
+  _AnnouncementState call(
+      {@JsonKey(name: 'announcement_list') List<AnnouncementModel>? announcementList,
+      @JsonKey(name: 'loading', defaultValue: false) bool loading = false}) {
     return _AnnouncementState(
       announcementList: announcementList,
+      loading: loading,
     );
   }
 
@@ -37,7 +40,9 @@ const $AnnouncementState = _$AnnouncementStateTearOff();
 /// @nodoc
 mixin _$AnnouncementState {
   @JsonKey(name: 'announcement_list')
-  List<Announcement>? get announcementList => throw _privateConstructorUsedError;
+  List<AnnouncementModel>? get announcementList => throw _privateConstructorUsedError;
+  @JsonKey(name: 'loading', defaultValue: false)
+  bool get loading => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,7 +53,9 @@ mixin _$AnnouncementState {
 abstract class $AnnouncementStateCopyWith<$Res> {
   factory $AnnouncementStateCopyWith(AnnouncementState value, $Res Function(AnnouncementState) then) =
       _$AnnouncementStateCopyWithImpl<$Res>;
-  $Res call({@JsonKey(name: 'announcement_list') List<Announcement>? announcementList});
+  $Res call(
+      {@JsonKey(name: 'announcement_list') List<AnnouncementModel>? announcementList,
+      @JsonKey(name: 'loading', defaultValue: false) bool loading});
 }
 
 /// @nodoc
@@ -62,12 +69,17 @@ class _$AnnouncementStateCopyWithImpl<$Res> implements $AnnouncementStateCopyWit
   @override
   $Res call({
     Object? announcementList = freezed,
+    Object? loading = freezed,
   }) {
     return _then(_value.copyWith(
       announcementList: announcementList == freezed
           ? _value.announcementList
           : announcementList // ignore: cast_nullable_to_non_nullable
-              as List<Announcement>?,
+              as List<AnnouncementModel>?,
+      loading: loading == freezed
+          ? _value.loading
+          : loading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -77,7 +89,9 @@ abstract class _$AnnouncementStateCopyWith<$Res> implements $AnnouncementStateCo
   factory _$AnnouncementStateCopyWith(_AnnouncementState value, $Res Function(_AnnouncementState) then) =
       __$AnnouncementStateCopyWithImpl<$Res>;
   @override
-  $Res call({@JsonKey(name: 'announcement_list') List<Announcement>? announcementList});
+  $Res call(
+      {@JsonKey(name: 'announcement_list') List<AnnouncementModel>? announcementList,
+      @JsonKey(name: 'loading', defaultValue: false) bool loading});
 }
 
 /// @nodoc
@@ -92,12 +106,17 @@ class __$AnnouncementStateCopyWithImpl<$Res> extends _$AnnouncementStateCopyWith
   @override
   $Res call({
     Object? announcementList = freezed,
+    Object? loading = freezed,
   }) {
     return _then(_AnnouncementState(
       announcementList: announcementList == freezed
           ? _value.announcementList
           : announcementList // ignore: cast_nullable_to_non_nullable
-              as List<Announcement>?,
+              as List<AnnouncementModel>?,
+      loading: loading == freezed
+          ? _value.loading
+          : loading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -105,17 +124,23 @@ class __$AnnouncementStateCopyWithImpl<$Res> extends _$AnnouncementStateCopyWith
 /// @nodoc
 @JsonSerializable()
 class _$_AnnouncementState extends _AnnouncementState {
-  const _$_AnnouncementState({@JsonKey(name: 'announcement_list') this.announcementList}) : super._();
+  const _$_AnnouncementState(
+      {@JsonKey(name: 'announcement_list') this.announcementList,
+      @JsonKey(name: 'loading', defaultValue: false) this.loading = false})
+      : super._();
 
   factory _$_AnnouncementState.fromJson(Map<String, dynamic> json) => _$_$_AnnouncementStateFromJson(json);
 
   @override
   @JsonKey(name: 'announcement_list')
-  final List<Announcement>? announcementList;
+  final List<AnnouncementModel>? announcementList;
+  @override
+  @JsonKey(name: 'loading', defaultValue: false)
+  final bool loading;
 
   @override
   String toString() {
-    return 'AnnouncementState(announcementList: $announcementList)';
+    return 'AnnouncementState(announcementList: $announcementList, loading: $loading)';
   }
 
   @override
@@ -123,11 +148,15 @@ class _$_AnnouncementState extends _AnnouncementState {
     return identical(this, other) ||
         (other is _AnnouncementState &&
             (identical(other.announcementList, announcementList) ||
-                const DeepCollectionEquality().equals(other.announcementList, announcementList)));
+                const DeepCollectionEquality().equals(other.announcementList, announcementList)) &&
+            (identical(other.loading, loading) || const DeepCollectionEquality().equals(other.loading, loading)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(announcementList);
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(announcementList) ^
+      const DeepCollectionEquality().hash(loading);
 
   @JsonKey(ignore: true)
   @override
@@ -141,15 +170,19 @@ class _$_AnnouncementState extends _AnnouncementState {
 }
 
 abstract class _AnnouncementState extends AnnouncementState {
-  const factory _AnnouncementState({@JsonKey(name: 'announcement_list') List<Announcement>? announcementList}) =
-      _$_AnnouncementState;
+  const factory _AnnouncementState(
+      {@JsonKey(name: 'announcement_list') List<AnnouncementModel>? announcementList,
+      @JsonKey(name: 'loading', defaultValue: false) bool loading}) = _$_AnnouncementState;
   const _AnnouncementState._() : super._();
 
   factory _AnnouncementState.fromJson(Map<String, dynamic> json) = _$_AnnouncementState.fromJson;
 
   @override
   @JsonKey(name: 'announcement_list')
-  List<Announcement>? get announcementList => throw _privateConstructorUsedError;
+  List<AnnouncementModel>? get announcementList => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'loading', defaultValue: false)
+  bool get loading => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$AnnouncementStateCopyWith<_AnnouncementState> get copyWith => throw _privateConstructorUsedError;
