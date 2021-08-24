@@ -1,10 +1,24 @@
+import 'dart:async';
+
 import 'package:all_school_info/src/announcement/announcement_view.dart';
 import 'package:flutter/material.dart';
 import 'package:domain/domain.dart';
+import 'package:utils/logger.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  runZonedGuarded<void>(
+    _run,
+    (Object error, StackTrace stackTrace) {
+      logger.e(error, error.toString(), stackTrace);
+    },
+  );
+}
+
+Future<void> _run() async {
   runApp(MyApp());
 }
 
