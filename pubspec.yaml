@@ -13,8 +13,8 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  cupertino_icons: ^1.0.2
-  flutter_bloc: ^7.2.0
+  # cupertino_icons: ^1.0.2
+  # flutter_bloc: ^7.2.0
   flutter_redux: ^0.8.2
 
   # local packages
@@ -31,7 +31,7 @@ dev_dependencies:
   built_value_generator: ^8.0.6
   build: ^2.0.0
   freezed: ^0.14.2
-  pedantic: ^1.11.0
+  # pedantic: ^1.11.0
 
 flutter:
   uses-material-design: true

@@ -31,6 +31,14 @@ class _$AnnouncementActionTearOff {
       announcement: announcement,
     );
   }
+
+  _FetchAnnouncements fetchAnnouncements() {
+    return const _FetchAnnouncements();
+  }
+
+  _CleanUp cleanUp() {
+    return const _CleanUp();
+  }
 }
 
 /// @nodoc
@@ -43,6 +51,8 @@ mixin _$AnnouncementAction {
     required TResult Function() start,
     required TResult Function(bool value) changeLoading,
     required TResult Function(AnnouncementModel announcement) addAnnouncement,
+    required TResult Function() fetchAnnouncements,
+    required TResult Function() cleanUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +60,8 @@ mixin _$AnnouncementAction {
     TResult Function()? start,
     TResult Function(bool value)? changeLoading,
     TResult Function(AnnouncementModel announcement)? addAnnouncement,
+    TResult Function()? fetchAnnouncements,
+    TResult Function()? cleanUp,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -58,6 +70,8 @@ mixin _$AnnouncementAction {
     required TResult Function(_Start value) start,
     required TResult Function(_ChangeLoading value) changeLoading,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
+    required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
+    required TResult Function(_CleanUp value) cleanUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +79,8 @@ mixin _$AnnouncementAction {
     TResult Function(_Start value)? start,
     TResult Function(_ChangeLoading value)? changeLoading,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
+    TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
+    TResult Function(_CleanUp value)? cleanUp,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -122,6 +138,8 @@ class _$_Start implements _Start {
     required TResult Function() start,
     required TResult Function(bool value) changeLoading,
     required TResult Function(AnnouncementModel announcement) addAnnouncement,
+    required TResult Function() fetchAnnouncements,
+    required TResult Function() cleanUp,
   }) {
     return start();
   }
@@ -132,6 +150,8 @@ class _$_Start implements _Start {
     TResult Function()? start,
     TResult Function(bool value)? changeLoading,
     TResult Function(AnnouncementModel announcement)? addAnnouncement,
+    TResult Function()? fetchAnnouncements,
+    TResult Function()? cleanUp,
     required TResult orElse(),
   }) {
     if (start != null) {
@@ -146,6 +166,8 @@ class _$_Start implements _Start {
     required TResult Function(_Start value) start,
     required TResult Function(_ChangeLoading value) changeLoading,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
+    required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
+    required TResult Function(_CleanUp value) cleanUp,
   }) {
     return start(this);
   }
@@ -156,6 +178,8 @@ class _$_Start implements _Start {
     TResult Function(_Start value)? start,
     TResult Function(_ChangeLoading value)? changeLoading,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
+    TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
+    TResult Function(_CleanUp value)? cleanUp,
     required TResult orElse(),
   }) {
     if (start != null) {
@@ -232,6 +256,8 @@ class _$_ChangeLoading implements _ChangeLoading {
     required TResult Function() start,
     required TResult Function(bool value) changeLoading,
     required TResult Function(AnnouncementModel announcement) addAnnouncement,
+    required TResult Function() fetchAnnouncements,
+    required TResult Function() cleanUp,
   }) {
     return changeLoading(value);
   }
@@ -242,6 +268,8 @@ class _$_ChangeLoading implements _ChangeLoading {
     TResult Function()? start,
     TResult Function(bool value)? changeLoading,
     TResult Function(AnnouncementModel announcement)? addAnnouncement,
+    TResult Function()? fetchAnnouncements,
+    TResult Function()? cleanUp,
     required TResult orElse(),
   }) {
     if (changeLoading != null) {
@@ -256,6 +284,8 @@ class _$_ChangeLoading implements _ChangeLoading {
     required TResult Function(_Start value) start,
     required TResult Function(_ChangeLoading value) changeLoading,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
+    required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
+    required TResult Function(_CleanUp value) cleanUp,
   }) {
     return changeLoading(this);
   }
@@ -266,6 +296,8 @@ class _$_ChangeLoading implements _ChangeLoading {
     TResult Function(_Start value)? start,
     TResult Function(_ChangeLoading value)? changeLoading,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
+    TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
+    TResult Function(_CleanUp value)? cleanUp,
     required TResult orElse(),
   }) {
     if (changeLoading != null) {
@@ -356,6 +388,8 @@ class _$_AddAnnouncement implements _AddAnnouncement {
     required TResult Function() start,
     required TResult Function(bool value) changeLoading,
     required TResult Function(AnnouncementModel announcement) addAnnouncement,
+    required TResult Function() fetchAnnouncements,
+    required TResult Function() cleanUp,
   }) {
     return addAnnouncement(announcement);
   }
@@ -366,6 +400,8 @@ class _$_AddAnnouncement implements _AddAnnouncement {
     TResult Function()? start,
     TResult Function(bool value)? changeLoading,
     TResult Function(AnnouncementModel announcement)? addAnnouncement,
+    TResult Function()? fetchAnnouncements,
+    TResult Function()? cleanUp,
     required TResult orElse(),
   }) {
     if (addAnnouncement != null) {
@@ -380,6 +416,8 @@ class _$_AddAnnouncement implements _AddAnnouncement {
     required TResult Function(_Start value) start,
     required TResult Function(_ChangeLoading value) changeLoading,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
+    required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
+    required TResult Function(_CleanUp value) cleanUp,
   }) {
     return addAnnouncement(this);
   }
@@ -390,6 +428,8 @@ class _$_AddAnnouncement implements _AddAnnouncement {
     TResult Function(_Start value)? start,
     TResult Function(_ChangeLoading value)? changeLoading,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
+    TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
+    TResult Function(_CleanUp value)? cleanUp,
     required TResult orElse(),
   }) {
     if (addAnnouncement != null) {
@@ -405,4 +445,191 @@ abstract class _AddAnnouncement implements AnnouncementAction {
   AnnouncementModel get announcement => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$AddAnnouncementCopyWith<_AddAnnouncement> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$FetchAnnouncementsCopyWith<$Res> {
+  factory _$FetchAnnouncementsCopyWith(_FetchAnnouncements value, $Res Function(_FetchAnnouncements) then) =
+      __$FetchAnnouncementsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$FetchAnnouncementsCopyWithImpl<$Res> extends _$AnnouncementActionCopyWithImpl<$Res>
+    implements _$FetchAnnouncementsCopyWith<$Res> {
+  __$FetchAnnouncementsCopyWithImpl(_FetchAnnouncements _value, $Res Function(_FetchAnnouncements) _then)
+      : super(_value, (v) => _then(v as _FetchAnnouncements));
+
+  @override
+  _FetchAnnouncements get _value => super._value as _FetchAnnouncements;
+}
+
+/// @nodoc
+
+class _$_FetchAnnouncements implements _FetchAnnouncements {
+  const _$_FetchAnnouncements();
+
+  @override
+  String toString() {
+    return 'AnnouncementAction.fetchAnnouncements()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _FetchAnnouncements);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() start,
+    required TResult Function(bool value) changeLoading,
+    required TResult Function(AnnouncementModel announcement) addAnnouncement,
+    required TResult Function() fetchAnnouncements,
+    required TResult Function() cleanUp,
+  }) {
+    return fetchAnnouncements();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? start,
+    TResult Function(bool value)? changeLoading,
+    TResult Function(AnnouncementModel announcement)? addAnnouncement,
+    TResult Function()? fetchAnnouncements,
+    TResult Function()? cleanUp,
+    required TResult orElse(),
+  }) {
+    if (fetchAnnouncements != null) {
+      return fetchAnnouncements();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Start value) start,
+    required TResult Function(_ChangeLoading value) changeLoading,
+    required TResult Function(_AddAnnouncement value) addAnnouncement,
+    required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
+    required TResult Function(_CleanUp value) cleanUp,
+  }) {
+    return fetchAnnouncements(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Start value)? start,
+    TResult Function(_ChangeLoading value)? changeLoading,
+    TResult Function(_AddAnnouncement value)? addAnnouncement,
+    TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
+    TResult Function(_CleanUp value)? cleanUp,
+    required TResult orElse(),
+  }) {
+    if (fetchAnnouncements != null) {
+      return fetchAnnouncements(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchAnnouncements implements AnnouncementAction {
+  const factory _FetchAnnouncements() = _$_FetchAnnouncements;
+}
+
+/// @nodoc
+abstract class _$CleanUpCopyWith<$Res> {
+  factory _$CleanUpCopyWith(_CleanUp value, $Res Function(_CleanUp) then) = __$CleanUpCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$CleanUpCopyWithImpl<$Res> extends _$AnnouncementActionCopyWithImpl<$Res> implements _$CleanUpCopyWith<$Res> {
+  __$CleanUpCopyWithImpl(_CleanUp _value, $Res Function(_CleanUp) _then) : super(_value, (v) => _then(v as _CleanUp));
+
+  @override
+  _CleanUp get _value => super._value as _CleanUp;
+}
+
+/// @nodoc
+
+class _$_CleanUp implements _CleanUp {
+  const _$_CleanUp();
+
+  @override
+  String toString() {
+    return 'AnnouncementAction.cleanUp()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _CleanUp);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() start,
+    required TResult Function(bool value) changeLoading,
+    required TResult Function(AnnouncementModel announcement) addAnnouncement,
+    required TResult Function() fetchAnnouncements,
+    required TResult Function() cleanUp,
+  }) {
+    return cleanUp();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? start,
+    TResult Function(bool value)? changeLoading,
+    TResult Function(AnnouncementModel announcement)? addAnnouncement,
+    TResult Function()? fetchAnnouncements,
+    TResult Function()? cleanUp,
+    required TResult orElse(),
+  }) {
+    if (cleanUp != null) {
+      return cleanUp();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Start value) start,
+    required TResult Function(_ChangeLoading value) changeLoading,
+    required TResult Function(_AddAnnouncement value) addAnnouncement,
+    required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
+    required TResult Function(_CleanUp value) cleanUp,
+  }) {
+    return cleanUp(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Start value)? start,
+    TResult Function(_ChangeLoading value)? changeLoading,
+    TResult Function(_AddAnnouncement value)? addAnnouncement,
+    TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
+    TResult Function(_CleanUp value)? cleanUp,
+    required TResult orElse(),
+  }) {
+    if (cleanUp != null) {
+      return cleanUp(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CleanUp implements AnnouncementAction {
+  const factory _CleanUp() = _$_CleanUp;
 }

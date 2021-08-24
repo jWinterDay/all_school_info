@@ -11,4 +11,8 @@ abstract class AnnouncementAction with _$AnnouncementAction {
   const factory AnnouncementAction.changeLoading({required bool value}) = _ChangeLoading;
 
   const factory AnnouncementAction.addAnnouncement({required AnnouncementModel announcement}) = _AddAnnouncement;
+
+  const factory AnnouncementAction.fetchAnnouncements() = _FetchAnnouncements;
+
+  const factory AnnouncementAction.cleanUp() = _CleanUp;
 }

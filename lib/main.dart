@@ -1,4 +1,4 @@
-import 'package:all_school_info/src/announcement/announcement.dart';
+import 'package:all_school_info/src/announcement/announcement_view.dart';
 import 'package:flutter/material.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter_redux/flutter_redux.dart';
@@ -30,8 +30,13 @@ class MyApp extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   AppDomainProvider.appStore.dispatch(
-                    UserLoggedInAction(loggedIn: !AppDomainProvider.appStore.state.userState.loggedIn),
+                    const AnnouncementAction.addAnnouncement(
+                      announcement: AnnouncementModel(title: 'title1', content: 'content1'),
+                    ),
                   );
+                  // AppDomainProvider.appStore.dispatch(
+                  //   UserLoggedInAction(loggedIn: !AppDomainProvider.appStore.state.userState.loggedIn),
+                  // );
                 },
                 child: SizedBox(
                   height: 200,
@@ -54,7 +59,7 @@ class MyApp extends StatelessWidget {
               Expanded(
                 child: Container(
                   color: Colors.blue,
-                  child: const Announcement(),
+                  child: const AnnouncementView(),
                 ),
               ),
             ],
