@@ -1,0 +1,43 @@
+name: all_school_info
+description: A new Flutter project.
+
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  flutter_redux: ^0.8.2
+
+  # local packages
+  domain:
+    path: packages/domain
+  utils:
+    path: packages/utils
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  build_runner: ^2.0.4
+  built_value_generator: ^8.0.6
+  build: ^2.0.0
+  freezed: ^0.14.2
+  pedantic: ^1.11.0
+
+flutter:
+  uses-material-design: true
+
+flutter_intl:
+  enabled: false # Disable when push
+  main_locale: ru
+  arb_dir: lib/src/l10n
+  output_dir: lib/src/generated
+  class_name: AllSchoolInfoIntl
