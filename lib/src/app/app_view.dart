@@ -6,7 +6,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
-class MyApp extends StatelessWidget {
+class AppView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StoreProvider<AppState>(

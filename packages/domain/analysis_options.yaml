@@ -122,6 +122,7 @@ linter:
     avoid_unnecessary_containers: true
     avoid_unused_constructor_parameters: true
     avoid_web_libraries_in_flutter: true
+    await_only_futures: true
     camel_case_extensions: true
     camel_case_types: true
     cancel_subscriptions: true
@@ -201,6 +202,8 @@ linter:
     test_types_in_equals: true
     throw_in_finally: true
     type_init_formals: true
+    unawaited_futures: true
+    unnecessary_await_in_return: false
     unnecessary_brace_in_string_interps: true
     unnecessary_getters_setters: true
     unnecessary_lambdas: true

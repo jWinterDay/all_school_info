@@ -28,7 +28,7 @@ const String _kBody = '''
   И путь опять начнется непрерывный...
   Простись же, сердце, и окрепни снова.''';
 
-class AnnouncementServiceImpl implements AnnouncementService {
+class AnnouncementServiceMock implements AnnouncementService {
   @override
   Future<List<AnnouncementModel>> fetchAnnouncements() async {
     await Future<void>.delayed(const Duration(seconds: 1));

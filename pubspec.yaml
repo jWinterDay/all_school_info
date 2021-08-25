@@ -34,7 +34,7 @@ dev_dependencies:
   built_value_generator: ^8.0.6
   build: ^2.0.0
   freezed: ^0.14.2
-  # pedantic: ^1.11.0
+  get_it: ^7.2.0
 
 flutter:
   uses-material-design: true
