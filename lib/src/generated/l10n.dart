@@ -59,6 +59,16 @@ class AllSchoolInfoIntl {
       args: [],
     );
   }
+
+  /// `Нет объявлений`
+  String get noAnnouncement {
+    return Intl.message(
+      'Нет объявлений',
+      name: 'noAnnouncement',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AllSchoolInfoIntl> {

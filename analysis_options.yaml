@@ -39,7 +39,7 @@ linter:
   rules:
     always_declare_return_types: true
     always_require_non_null_named_parameters: true
-    always_use_package_imports: true
+    always_use_package_imports: false #true
     annotate_overrides: true
     avoid_catching_errors: true
     avoid_double_and_int_checks: true
@@ -122,6 +122,9 @@ linter:
     # - avoid_catches_without_on_clauses
     prefer_const_constructors: true
     always_specify_types: true
+    prefer_const_literals_to_create_immutables: true
+    sort_unnamed_constructors_first: false
+    unnecessary_const: true
     # - use_key_in_widget_constructors
     # - prefer_relative_imports # will produce thousand errors
     prefer_contains: true

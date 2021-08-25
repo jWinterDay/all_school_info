@@ -1,10 +1,6 @@
-import 'package:all_school_info/src/announcement/announcement_view.dart';
-import 'package:domain/domain.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:all_school_info/src/generated/l10n.dart';
-import 'package:flutter_redux/flutter_redux.dart';
-import 'package:redux/redux.dart';
 
 import 'tab_info.dart';
 
@@ -40,47 +36,6 @@ class _HomeViewState extends State<HomeView> {
           items: _tabItemList.map((TabItem e) => e.bottomBarItem).toList(),
         ),
       ),
-      // body: Column(
-      //   children: <Widget>[
-      //     // test
-      //     GestureDetector(
-      //       onTap: () {
-      //         AppDomainProvider.appStore.dispatch(
-      //           AppDomainProvider.appStore.dispatch(fetchAnnouncementsThunk),
-      //           // const AnnouncementAction.addAnnouncement(
-      //           //   announcement: AnnouncementModel(title: 'new title', content: 'new content'),
-      //           // ),
-      //         );
-      //         // AppDomainProvider.appStore.dispatch(
-      //         //   UserLoggedInAction(loggedIn: !AppDomainProvider.appStore.state.userState.loggedIn),
-      //         // );
-      //       },
-      //       child: SizedBox(
-      //         height: 200,
-      //         width: 200,
-      //         child: ColoredBox(
-      //           color: Colors.green,
-      //           child: StoreConnector<AppState, bool>(
-      //             converter: (Store<AppState> store) => store.state.userState.loggedIn,
-      //             builder: (_, bool loggedIn) {
-      //               return Text(
-      //                 'logged: $loggedIn',
-      //               );
-      //             },
-      //           ),
-      //         ),
-      //       ),
-      //     ),
-
-      //     // announcement
-      //     Expanded(
-      //       child: Container(
-      //         color: Colors.blue,
-      //         child: const AnnouncementView(),
-      //       ),
-      //     ),
-      //   ],
-      // ),
     );
   }
 }
