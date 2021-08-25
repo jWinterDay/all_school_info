@@ -1,6 +1,8 @@
-import 'package:domain/domain.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'package:domain/domain.dart';
+import 'package:design/design.dart';
 
 const double kMinHeight = 80;
 
@@ -23,7 +25,7 @@ class AnnouncementCard extends StatelessWidget {
         child: Container(
           constraints: const BoxConstraints(minHeight: kMinHeight, maxHeight: 200),
           decoration: BoxDecoration(
-            color: Colors.blue[200],
+            color: context.palette.background,
             borderRadius: const BorderRadius.all(Radius.circular(8)),
           ),
           child: Column(
@@ -32,18 +34,18 @@ class AnnouncementCard extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 4),
                 child: Container(
-                  color: Colors.green,
+                  color: context.palette.primary,
                   child: Text(
                     announcementModel.title ?? '--',
-                    overflow: TextOverflow.fade, // ellipsis,
+                    overflow: TextOverflow.ellipsis,
                     // softWrap: false,
                     maxLines: 1,
                   ),
                 ),
               ),
-              const Divider(
+              Divider(
                 height: 1,
-                color: Colors.red,
+                color: context.palette.gray22,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8),

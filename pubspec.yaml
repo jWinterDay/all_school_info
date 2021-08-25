@@ -19,6 +19,8 @@ dependencies:
   carousel_slider: ^4.0.0
 
   # local packages
+  design:
+    path: packages/design
   domain:
     path: packages/domain
   utils:
@@ -36,6 +38,9 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/
+    - assets/theme/
 
 flutter_intl:
   enabled: true # Disable when push

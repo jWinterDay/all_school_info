@@ -1,4 +1,5 @@
 import 'package:domain/domain.dart';
+import 'package:design/design.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -49,7 +50,7 @@ class _AnnouncementViewState extends State<AnnouncementView> {
             return Container(
               width: MediaQuery.of(context).size.width,
               margin: const EdgeInsets.symmetric(horizontal: 5),
-              decoration: const BoxDecoration(color: Colors.amber),
+              decoration: BoxDecoration(color: context.palette.primaryLight),
               child: Text(
                 'text $i',
               ),
@@ -74,11 +75,18 @@ class _AnnouncementViewState extends State<AnnouncementView> {
                     ),
 
                     // content
-                    if (announcementState.announcementList == null)
+                    if (announcementState.loading)
+                      const SliverFillRemaining(
+                        child: Center(
+                          child: CupertinoActivityIndicator(),
+                        ),
+                      )
+                    else if (announcementState.announcementList == null)
                       SliverToBoxAdapter(
                         child: Text(AllSchoolInfoIntl.of(context).noAnnouncement),
                       )
                     else
+                      // TODO SliverFixedExtentList
                       SliverList(
                         delegate: SliverChildListDelegate(
                           announcementState.announcementList!.map((AnnouncementModel e) {

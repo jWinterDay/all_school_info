@@ -1,0 +1,29 @@
+{
+  "colors": {
+    "primaryLight": "00CE93",
+    "primary": "009A6E",
+    "primary12": "1FA67F",
+    "primary60": "99D6C5",
+    "primary80": "CCEAE2",
+    "primaryDark": "006A4A",
+    "primaryDark50": "80B4A4",
+    "primaryLight20": "CCF5E9",
+    "white": "FFFFFF",
+    "background": "F4F4F4",
+    "gray12": "E1E1E1",
+    "gray22": "C7C7C7",
+    "gray40": "999999",
+    "gray50": "797979",
+    "gray85": "262626",
+    "black": "000000",
+    "black2": "0E0E0E",
+    "accent": "FFA100",
+    "warning": "FFCB00",
+    "danger": "D51C1C",
+    "dangerLight": "EEA4A4",
+    "startProgress": "79E775",
+    "averageProgress": "FFCC75",
+    "finalProgress": "FFA7A7",
+    "dullOrange": "CB9C2A"
+  }
+}
