@@ -1,6 +1,6 @@
 import 'package:domain/domain.dart';
 
-class AnnouncementBloc {
+class AnnouncementListBloc {
   void refresh() {
     AppDomainProvider.appStore.dispatch(fetchAnnouncementsThunk);
   }

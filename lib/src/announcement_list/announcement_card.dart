@@ -1,3 +1,4 @@
+import 'package:all_school_info/src/routes/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,7 @@ class AnnouncementCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
       child: GestureDetector(
         onTap: () {
-          print('tap');
+          Navigator.of(context, rootNavigator: true).pushNamed(Routes.announcement);
         },
         child: Container(
           constraints: const BoxConstraints(minHeight: kMinHeight, maxHeight: 200),

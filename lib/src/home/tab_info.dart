@@ -1,4 +1,4 @@
-import 'package:all_school_info/src/announcement/announcement_view.dart';
+import 'package:all_school_info/src/announcement_list/announcement_list_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -23,8 +23,7 @@ abstract class TabInfo {
       ),
       tabView: CupertinoTabView(
         builder: (BuildContext context) {
-          return const AnnouncementView();
-          // Text('1');
+          return const AnnouncementListView();
         },
       ),
     ),
@@ -38,7 +37,6 @@ abstract class TabInfo {
       tabView: CupertinoTabView(
         builder: (BuildContext context) {
           return const Text('fsdfs');
-          // Text('1');
         },
       ),
     ),

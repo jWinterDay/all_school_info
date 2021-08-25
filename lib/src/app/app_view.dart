@@ -1,6 +1,8 @@
+import 'package:all_school_info/src/announcement/announcement_view.dart';
 import 'package:all_school_info/src/generated/l10n.dart';
 import 'package:all_school_info/src/home/home_view.dart';
 import 'package:all_school_info/src/routes/routes.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:domain/domain.dart';
@@ -43,6 +45,19 @@ class AppView extends StatelessWidget {
               return MaterialPageRoute<dynamic>(
                 settings: settings,
                 builder: (_) => HomeView(),
+              );
+            case Routes.announcement:
+              return CupertinoPageRoute<dynamic>(
+                settings: settings,
+                builder: (_) => const AnnouncementView(),
+              );
+            default:
+              return CupertinoPageRoute<dynamic>(
+                settings: settings,
+                builder: (_) => const Center(
+                    child: Text(
+                  'Unknown route',
+                )),
               );
           }
         },

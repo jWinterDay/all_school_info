@@ -69,6 +69,16 @@ class AllSchoolInfoIntl {
       args: [],
     );
   }
+
+  /// `Объявление`
+  String get announcementView {
+    return Intl.message(
+      'Объявление',
+      name: 'announcementView',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AllSchoolInfoIntl> {

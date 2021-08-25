@@ -1,14 +1,6 @@
-import 'package:domain/domain.dart';
-import 'package:design/design.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter_redux/flutter_redux.dart';
-import 'package:redux/redux.dart';
 import 'package:all_school_info/src/generated/l10n.dart';
-
-import 'announcement_bloc.dart';
-import 'announcement_card.dart';
 
 class AnnouncementView extends StatefulWidget {
   const AnnouncementView({
@@ -20,90 +12,29 @@ class AnnouncementView extends StatefulWidget {
 }
 
 class _AnnouncementViewState extends State<AnnouncementView> {
-  final AnnouncementBloc _bloc = AnnouncementBloc();
+  // final AnnouncementListBloc _bloc = AnnouncementListBloc();
 
   @override
   void initState() {
     super.initState();
 
-    _bloc.refresh();
+    // _bloc.refresh();
   }
 
   @override
   void dispose() {
-    _bloc.dispose();
+    // _bloc.dispose();
 
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        // top events
-        CarouselSlider(
-          options: CarouselOptions(
-            height: 100,
-            autoPlay: true,
-          ),
-          items: <int>[1, 2, 3, 4, 5].map((int i) {
-            return Container(
-              width: MediaQuery.of(context).size.width,
-              margin: const EdgeInsets.symmetric(horizontal: 5),
-              decoration: BoxDecoration(color: context.palette.primaryLight),
-              child: Text(
-                'text $i',
-              ),
-            );
-          }).toList(),
-        ),
-
-        // scroll content
-        StoreConnector<AppState, AnnouncementState>(
-          converter: (Store<AppState> store) => store.state.announcementState,
-          builder: (_, AnnouncementState announcementState) {
-            return Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 4),
-                child: CustomScrollView(
-                  slivers: <Widget>[
-                    // refresh
-                    CupertinoSliverRefreshControl(
-                      onRefresh: () async {
-                        _bloc.refresh();
-                      },
-                    ),
-
-                    // content
-                    if (announcementState.loading)
-                      const SliverFillRemaining(
-                        child: Center(
-                          child: CupertinoActivityIndicator(),
-                        ),
-                      )
-                    else if (announcementState.announcementList == null)
-                      SliverToBoxAdapter(
-                        child: Text(AllSchoolInfoIntl.of(context).noAnnouncement),
-                      )
-                    else
-                      // TODO SliverFixedExtentList
-                      SliverList(
-                        delegate: SliverChildListDelegate(
-                          announcementState.announcementList!.map((AnnouncementModel e) {
-                            return AnnouncementCard(announcementModel: e);
-                          }).toList(),
-                        ),
-                      ),
-
-                    // padding
-                    const SliverPadding(padding: EdgeInsets.only(bottom: 120))
-                  ],
-                ),
-              ),
-            );
-          },
-        ),
-      ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(AllSchoolInfoIntl.of(context).announcementView),
+      ),
+      body: const Text('announcement'),
     );
   }
 }
