@@ -21,12 +21,42 @@ class AnnouncementCard extends StatelessWidget {
           print('tap');
         },
         child: Container(
-          constraints: const BoxConstraints(minHeight: kMinHeight),
+          constraints: const BoxConstraints(minHeight: kMinHeight, maxHeight: 200),
           decoration: BoxDecoration(
             color: Colors.blue[200],
             borderRadius: const BorderRadius.all(Radius.circular(8)),
           ),
-          child: Text('${announcementModel.title}\n${announcementModel.content}'),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4),
+                child: Container(
+                  color: Colors.green,
+                  child: Text(
+                    announcementModel.title ?? '--',
+                    overflow: TextOverflow.fade, // ellipsis,
+                    // softWrap: false,
+                    maxLines: 1,
+                  ),
+                ),
+              ),
+              const Divider(
+                height: 1,
+                color: Colors.red,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: SizedBox(
+                  child: Text(
+                    announcementModel.content ?? '--',
+                    overflow: TextOverflow.fade,
+                    maxLines: 3,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
