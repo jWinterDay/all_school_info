@@ -12,6 +12,7 @@ class AppState with _$AppState {
 
   const factory AppState({
     @Default(false) @JsonKey(name: 'test_mode', defaultValue: false) bool testMode,
+    @Default(1) @JsonKey(name: 'font_scale', defaultValue: 1) double fontScale,
 
     //
     @Default(UserState()) @JsonKey(name: 'user_state') UserState userState,
