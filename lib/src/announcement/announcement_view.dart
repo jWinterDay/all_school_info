@@ -1,4 +1,3 @@
-// ignore_for_file: always_use_package_imports
 import 'package:domain/domain.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +7,7 @@ import 'package:redux/redux.dart';
 import 'package:all_school_info/src/generated/l10n.dart';
 
 import 'announcement_bloc.dart';
+import 'announcement_card.dart';
 
 class AnnouncementView extends StatefulWidget {
   const AnnouncementView({
@@ -82,10 +82,7 @@ class _AnnouncementViewState extends State<AnnouncementView> {
                       SliverList(
                         delegate: SliverChildListDelegate(
                           announcementState.announcementList!.map((AnnouncementModel e) {
-                            return Container(
-                              height: 100,
-                              child: Text('${e.title} > ${e.content}'),
-                            );
+                            return AnnouncementCard(announcementModel: e);
                           }).toList(),
                         ),
                       ),

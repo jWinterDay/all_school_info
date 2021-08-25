@@ -7,19 +7,11 @@ class AnnouncementServiceImpl implements AnnouncementService {
   Future<List<AnnouncementModel>> fetchAnnouncements() async {
     await Future<void>.delayed(const Duration(seconds: 3));
 
-    return <AnnouncementModel>[
-      const AnnouncementModel(
-        content: 'fsdfsd_0',
-        title: 'title_0',
-      ),
-      const AnnouncementModel(
-        content: 'fsdfsd_1',
-        title: 'title_1',
-      ),
-      const AnnouncementModel(
-        content: 'fsdfsd_2',
-        title: 'title_2',
-      ),
-    ];
+    return List<AnnouncementModel>.generate(15, (int index) {
+      return AnnouncementModel(
+        content: 'fsdfsd_$index',
+        title: 'title_$index',
+      );
+    });
   }
 }
