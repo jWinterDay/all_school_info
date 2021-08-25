@@ -6,23 +6,24 @@ import 'package:all_school_info/src/generated/l10n.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 
+import 'tab_info.dart';
+
 class HomeView extends StatefulWidget {
   @override
   _HomeViewState createState() => _HomeViewState();
 }
 
 class _HomeViewState extends State<HomeView> {
-  final CupertinoTabController _tabController = CupertinoTabController(initialIndex: 0);
-  final List<CupertinoTabView> _tabs = <CupertinoTabView>[];
+  final CupertinoTabController _tabController = CupertinoTabController();
 
-  @override
-  void initState() {
-    super.initState();
+  final List<TabItem> _tabItemList = TabInfo.tabItemList;
 
-// Determine if there is a bottom notch
+  // @override
+  // void initState() {
+  //   super.initState();
 
-    _initTabController();
-  }
+  //   // _initTabController();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -33,13 +34,10 @@ class _HomeViewState extends State<HomeView> {
       body: CupertinoTabScaffold(
         controller: _tabController,
         tabBuilder: (BuildContext context, int index) {
-          return _tabs[index];
+          return _tabItemList[index].tabView;
         },
         tabBar: CupertinoTabBar(
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(icon: Icon(Icons.ac_unit_sharp), label: '1_tab'),
-            BottomNavigationBarItem(icon: Icon(Icons.yard), label: '2_tab'),
-          ],
+          items: _tabItemList.map((TabItem e) => e.bottomBarItem).toList(),
         ),
       ),
       // body: Column(
@@ -84,24 +82,5 @@ class _HomeViewState extends State<HomeView> {
       //   ],
       // ),
     );
-  }
-
-  void _initTabController() {
-    _tabs
-      ..add(
-        CupertinoTabView(
-          builder: (BuildContext context) {
-            return AnnouncementView();
-            // Text('1');
-          },
-        ),
-      )
-      ..add(
-        CupertinoTabView(
-          builder: (BuildContext context) {
-            return Text('2');
-          },
-        ),
-      );
   }
 }
