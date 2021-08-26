@@ -21,7 +21,10 @@ class _HomeViewState extends State<HomeView> {
 
         return Scaffold(
           appBar: AppBar(
-            title: Text(AllSchoolInfoIntl.of(context).mainTitle),
+            title: Text(
+              AllSchoolInfoIntl.of(context).mainTitle,
+              // style: Theme.of(context).appBarTheme.textTheme?.caption,
+            ),
           ),
           body: SizeTransition(
             sizeFactor: animation,

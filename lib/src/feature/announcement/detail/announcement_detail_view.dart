@@ -53,6 +53,8 @@ class _AnnouncementDetailViewState extends State<AnnouncementDetailView> {
               color: context.palette.gray12,
               child: Text(
                 _announcementModel?.title ?? AllSchoolInfoIntl.of(context).unknownAnnouncementTitle,
+                style: Theme.of(context).textTheme.subtitle2,
+                textAlign: TextAlign.center,
               ),
             ),
           ),
@@ -66,6 +68,8 @@ class _AnnouncementDetailViewState extends State<AnnouncementDetailView> {
                   physics: const AlwaysScrollableScrollPhysics(),
                   child: Text(
                     _announcementModel?.content ?? AllSchoolInfoIntl.of(context).unknownAnnouncementContent,
+
+                    // textAlign: TextAlign.center,
                   ),
                 ),
               ),

@@ -53,6 +53,7 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
               decoration: BoxDecoration(color: context.palette.primaryLight),
               child: Text(
                 'text $i',
+                style: Theme.of(context).textTheme.caption,
               ),
             );
           }).toList(),

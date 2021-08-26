@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import 'app_theme.dart';
 
 class AppView extends StatelessWidget {
   final gr.AppRouter _appRouter = gr.AppRouter();
@@ -15,10 +18,7 @@ class AppView extends StatelessWidget {
       store: AppDomainProvider.appStore,
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
+        theme: appTheme,
         supportedLocales: const <Locale>[
           Locale('ru'),
           Locale('en'),
