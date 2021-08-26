@@ -68,8 +68,7 @@ class _AnnouncementDetailViewState extends State<AnnouncementDetailView> {
                   physics: const AlwaysScrollableScrollPhysics(),
                   child: Text(
                     _announcementModel?.content ?? AllSchoolInfoIntl.of(context).unknownAnnouncementContent,
-
-                    // textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.bodyText2,
                   ),
                 ),
               ),

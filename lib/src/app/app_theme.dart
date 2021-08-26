@@ -16,8 +16,9 @@ final ThemeData appTheme = ThemeData(
       // fontSize: 17,
       fontWeight: FontWeight.bold,
     ),
-    bodyText2: GoogleFonts.aclonica(
-      fontSize: 15,
+    bodyText2: GoogleFonts.griffy(
+      //) aclonica(
+      fontSize: 17,
       // fontWeight: FontWeight.bold,
     ),
   )),
