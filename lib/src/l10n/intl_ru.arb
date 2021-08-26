@@ -1,5 +1,7 @@
 {
     "mainTitle": "Школа 67",
     "noAnnouncement": "Нет объявлений",
-    "announcementView": "Объявление"
+    "announcementViewTitle": "Объявление",
+    "announcementsTabTitle": "Объявления",
+    "profileTabTitle": "Профиль"
 }

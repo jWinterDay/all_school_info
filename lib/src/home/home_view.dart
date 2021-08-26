@@ -33,14 +33,14 @@ class _HomeViewState extends State<HomeView> {
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: tabsRouter.activeIndex,
             onTap: tabsRouter.setActiveIndex,
-            items: const <BottomNavigationBarItem>[
+            items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
-                icon: Icon(Icons.g_translate),
-                label: '1_tab',
+                icon: const Icon(Icons.g_translate),
+                label: AllSchoolInfoIntl.of(context).announcementsTabTitle,
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.face_retouching_off_rounded),
-                label: '2_tab',
+                icon: const Icon(Icons.face_retouching_off_rounded),
+                label: AllSchoolInfoIntl.of(context).profileTabTitle,
               ),
             ],
           ),

@@ -1,4 +1,4 @@
-import 'package:domain/domain.dart';
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:all_school_info/src/generated/l10n.dart';
@@ -6,10 +6,10 @@ import 'package:all_school_info/src/generated/l10n.dart';
 class AnnouncementDetailView extends StatefulWidget {
   const AnnouncementDetailView({
     Key? key,
-    required this.announcementModel,
+    @PathParam('id') required this.announcementModelId,
   }) : super(key: key);
 
-  final AnnouncementModel announcementModel;
+  final String announcementModelId;
 
   @override
   _AnnouncementDetailViewState createState() => _AnnouncementDetailViewState();
@@ -36,9 +36,9 @@ class _AnnouncementDetailViewState extends State<AnnouncementDetailView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AllSchoolInfoIntl.of(context).announcementView),
+        title: Text(AllSchoolInfoIntl.of(context).announcementViewTitle),
       ),
-      body: const Text('announcement'),
+      body: Text('announcement id: ${widget.announcementModelId}'),
     );
   }
 }

@@ -21,8 +21,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "announcementView": MessageLookupByLibrary.simpleMessage("Объявление"),
+        "announcementViewTitle":
+            MessageLookupByLibrary.simpleMessage("Объявление"),
+        "announcementsTabTitle":
+            MessageLookupByLibrary.simpleMessage("Объявления"),
         "mainTitle": MessageLookupByLibrary.simpleMessage("Школа 67"),
-        "noAnnouncement": MessageLookupByLibrary.simpleMessage("Нет объявлений")
+        "noAnnouncement":
+            MessageLookupByLibrary.simpleMessage("Нет объявлений"),
+        "profileTabTitle": MessageLookupByLibrary.simpleMessage("Профиль")
       };
 }

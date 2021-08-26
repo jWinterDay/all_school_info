@@ -5,7 +5,6 @@
 // **************************************************************************
 
 import 'package:auto_route/auto_route.dart' as _i1;
-import 'package:domain/domain.dart' as _i7;
 import 'package:flutter/material.dart' as _i2;
 
 import '../feature/announcement/detail/announcement_detail_view.dart' as _i4;
@@ -26,8 +25,10 @@ class AppRouter extends _i1.RootStackRouter {
     AnnouncementDetailViewRoute.name: (routeData) => _i1.CupertinoPageX<Object>(
         routeData: routeData,
         builder: (data) {
-          final args = data.argsAs<AnnouncementDetailViewRouteArgs>();
-          return _i4.AnnouncementDetailView(key: args.key, announcementModel: args.announcementModel);
+          final pathParams = data.pathParams;
+          final args = data.argsAs<AnnouncementDetailViewRouteArgs>(
+              orElse: () => AnnouncementDetailViewRouteArgs(announcementModelId: pathParams.getString('id')));
+          return _i4.AnnouncementDetailView(key: args.key, announcementModelId: args.announcementModelId);
         }),
     AnnouncementListViewRoute.name: (routeData) => _i1.CupertinoPageX<Object>(
         routeData: routeData,
@@ -47,7 +48,7 @@ class AppRouter extends _i1.RootStackRouter {
           _i1.RouteConfig(AnnouncementListViewRoute.name, path: 'announcement-list-view'),
           _i1.RouteConfig(ProfileViewRoute.name, path: 'profile-view')
         ]),
-        _i1.RouteConfig(AnnouncementDetailViewRoute.name, path: '/announcement-detail-view')
+        _i1.RouteConfig(AnnouncementDetailViewRoute.name, path: '/announcement_detail_view/:id')
       ];
 }
 
@@ -58,20 +59,21 @@ class HomeViewRoute extends _i1.PageRouteInfo {
 }
 
 class AnnouncementDetailViewRoute extends _i1.PageRouteInfo<AnnouncementDetailViewRouteArgs> {
-  AnnouncementDetailViewRoute({_i2.Key? key, required _i7.AnnouncementModel announcementModel})
+  AnnouncementDetailViewRoute({_i2.Key? key, required String announcementModelId})
       : super(name,
-            path: '/announcement-detail-view',
-            args: AnnouncementDetailViewRouteArgs(key: key, announcementModel: announcementModel));
+            path: '/announcement_detail_view/:id',
+            args: AnnouncementDetailViewRouteArgs(key: key, announcementModelId: announcementModelId),
+            rawPathParams: {'id': announcementModelId});
 
   static const String name = 'AnnouncementDetailViewRoute';
 }
 
 class AnnouncementDetailViewRouteArgs {
-  const AnnouncementDetailViewRouteArgs({this.key, required this.announcementModel});
+  const AnnouncementDetailViewRouteArgs({this.key, required this.announcementModelId});
 
   final _i2.Key? key;
 
-  final _i7.AnnouncementModel announcementModel;
+  final String announcementModelId;
 }
 
 class AnnouncementListViewRoute extends _i1.PageRouteInfo {

@@ -23,7 +23,7 @@ class AnnouncementCard extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           AutoRouter.of(context).push(gr.AnnouncementDetailViewRoute(
-            announcementModel: announcementModel,
+            announcementModelId: 'id: ${announcementModel.runtimeType}',
           ));
         },
         child: Container(

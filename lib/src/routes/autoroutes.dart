@@ -12,14 +12,17 @@ import 'package:auto_route/auto_route.dart';
 // @CustomAutoRouter
 @CupertinoAutoRouter(
   replaceInRouteName: 'View',
-  routes: <AutoRoute<Object>>[
+  // ignore: always_specify_types
+  routes: [
     // home with tabs
     AutoRoute<Object>(page: HomeView, initial: true, children: <AutoRoute<Object>>[
       AutoRoute<Object>(page: AnnouncementListView),
       AutoRoute<Object>(page: ProfileView),
     ]),
     // announcement detail
-    AutoRoute<Object>(page: AnnouncementDetailView),
+    AutoRoute<Object>(path: '/announcement_detail_view/:id', page: AnnouncementDetailView),
+
+    RedirectRoute(path: '*', redirectTo: '/')
   ],
 )
 class $AppRouter {}
