@@ -1,7 +1,5 @@
-import 'package:all_school_info/src/announcement/announcement_view.dart';
 import 'package:all_school_info/src/generated/l10n.dart';
-import 'package:all_school_info/src/home/home_view.dart';
-import 'package:all_school_info/src/routes/routes.dart';
+import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -9,11 +7,13 @@ import 'package:domain/domain.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
 class AppView extends StatelessWidget {
+  final gr.AppRouter _appRouter = gr.AppRouter();
+
   @override
   Widget build(BuildContext context) {
     return StoreProvider<AppState>(
       store: AppDomainProvider.appStore,
-      child: MaterialApp(
+      child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.blue,
@@ -38,29 +38,8 @@ class AppView extends StatelessWidget {
             child: child ?? const SizedBox(),
           );
         },
-        initialRoute: Routes.home,
-        onGenerateRoute: (RouteSettings settings) {
-          switch (settings.name) {
-            case Routes.home:
-              return MaterialPageRoute<dynamic>(
-                settings: settings,
-                builder: (_) => HomeView(),
-              );
-            case Routes.announcement:
-              return CupertinoPageRoute<dynamic>(
-                settings: settings,
-                builder: (_) => const AnnouncementView(),
-              );
-            default:
-              return CupertinoPageRoute<dynamic>(
-                settings: settings,
-                builder: (_) => const Center(
-                    child: Text(
-                  'Unknown route',
-                )),
-              );
-          }
-        },
+        routerDelegate: _appRouter.delegate(),
+        routeInformationParser: _appRouter.defaultRouteParser(),
       ),
     );
   }

@@ -1,4 +1,5 @@
-import 'package:all_school_info/src/routes/routes.dart';
+import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,9 @@ class AnnouncementCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
       child: GestureDetector(
         onTap: () {
-          Navigator.of(context, rootNavigator: true).pushNamed(Routes.announcement);
+          AutoRouter.of(context).push(gr.AnnouncementDetailViewRoute(
+            announcementModel: announcementModel,
+          ));
         },
         child: Container(
           constraints: const BoxConstraints(minHeight: kMinHeight, maxHeight: 200),

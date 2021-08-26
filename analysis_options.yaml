@@ -10,6 +10,7 @@ analyzer:
     must_be_immutable: ignore
   exclude:
     - lib/**/*.freezed.dart
+    - lib/**/*.gr.dart
     - lib/**/*.g.dart
     - lib/src/generated/**
     - .dart_tool/**
