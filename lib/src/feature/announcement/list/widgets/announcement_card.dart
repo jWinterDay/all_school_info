@@ -1,4 +1,5 @@
 import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
+import 'package:all_school_info/src/generated/l10n.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class AnnouncementCard extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           AutoRouter.of(context).push(gr.AnnouncementDetailViewRoute(
-            announcementModelId: 'id: ${announcementModel.runtimeType}',
+            announcementModelId: announcementModel.id,
           ));
         },
         child: Container(
@@ -40,7 +41,7 @@ class AnnouncementCard extends StatelessWidget {
                 child: Container(
                   color: context.palette.primary,
                   child: Text(
-                    announcementModel.title ?? '--',
+                    announcementModel.title ?? AllSchoolInfoIntl.of(context).unknownAnnouncementTitle,
                     overflow: TextOverflow.ellipsis,
                     // softWrap: false,
                     maxLines: 1,
@@ -55,7 +56,7 @@ class AnnouncementCard extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 8),
                 child: SizedBox(
                   child: Text(
-                    announcementModel.content ?? '--',
+                    announcementModel.content ?? AllSchoolInfoIntl.of(context).unknownAnnouncementContent,
                     overflow: TextOverflow.fade,
                     maxLines: 3,
                   ),

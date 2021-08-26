@@ -15,9 +15,10 @@ dependencies:
 
   # cupertino_icons: ^1.0.2
   # flutter_bloc: ^7.2.0
-  flutter_redux: ^0.8.2
-  carousel_slider: ^4.0.0
   auto_route: ^2.3.0
+  carousel_slider: ^4.0.0
+  collection: ^1.15.0
+  flutter_redux: ^0.8.2
 
   # local packages
   design:

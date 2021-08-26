@@ -3,5 +3,7 @@
     "noAnnouncement": "Нет объявлений",
     "announcementViewTitle": "Объявление",
     "announcementsTabTitle": "Объявления",
-    "profileTabTitle": "Профиль"
+    "profileTabTitle": "Профиль",
+    "unknownAnnouncementTitle": "Объявление не существует",
+    "unknownAnnouncementContent": "-"
 }

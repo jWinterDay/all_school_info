@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 
-import 'announcement_card.dart';
 import 'announcement_list_bloc.dart';
+import 'widgets/announcement_card.dart';
 
 class AnnouncementListView extends StatefulWidget {
   const AnnouncementListView({

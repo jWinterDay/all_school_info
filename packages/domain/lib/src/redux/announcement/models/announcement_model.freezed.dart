@@ -20,14 +20,13 @@ AnnouncementModel _$AnnouncementModelFromJson(Map<String, dynamic> json) {
 class _$AnnouncementModelTearOff {
   const _$AnnouncementModelTearOff();
 
-  _AnnouncementModel call(
-      {@JsonKey(name: 'title')
-          String? title,
-      @JsonKey(name: 'content')
-          String? content,
-      @JsonKey(name: 'user_groups', defaultValue: const <String>[defaultUserGroup])
-          List<String> userGroups = const <String>[defaultUserGroup]}) {
+  _AnnouncementModel call(@JsonKey(name: 'id') String id,
+      {@JsonKey(name: 'title') String? title,
+      @JsonKey(name: 'content') String? content,
+      @JsonKey(name: 'user_groups', defaultValue: const <String>[defaultUserGroup]) List<String> userGroups =
+          const <String>[defaultUserGroup]}) {
     return _AnnouncementModel(
+      id,
       title: title,
       content: content,
       userGroups: userGroups,
@@ -44,6 +43,8 @@ const $AnnouncementModel = _$AnnouncementModelTearOff();
 
 /// @nodoc
 mixin _$AnnouncementModel {
+  @JsonKey(name: 'id')
+  String get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'title')
   String? get title => throw _privateConstructorUsedError;
   @JsonKey(name: 'content')
@@ -61,7 +62,8 @@ abstract class $AnnouncementModelCopyWith<$Res> {
   factory $AnnouncementModelCopyWith(AnnouncementModel value, $Res Function(AnnouncementModel) then) =
       _$AnnouncementModelCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: 'title') String? title,
+      {@JsonKey(name: 'id') String id,
+      @JsonKey(name: 'title') String? title,
       @JsonKey(name: 'content') String? content,
       @JsonKey(name: 'user_groups', defaultValue: const <String>[defaultUserGroup]) List<String> userGroups});
 }
@@ -76,11 +78,16 @@ class _$AnnouncementModelCopyWithImpl<$Res> implements $AnnouncementModelCopyWit
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? title = freezed,
     Object? content = freezed,
     Object? userGroups = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -103,7 +110,8 @@ abstract class _$AnnouncementModelCopyWith<$Res> implements $AnnouncementModelCo
       __$AnnouncementModelCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: 'title') String? title,
+      {@JsonKey(name: 'id') String id,
+      @JsonKey(name: 'title') String? title,
       @JsonKey(name: 'content') String? content,
       @JsonKey(name: 'user_groups', defaultValue: const <String>[defaultUserGroup]) List<String> userGroups});
 }
@@ -119,11 +127,16 @@ class __$AnnouncementModelCopyWithImpl<$Res> extends _$AnnouncementModelCopyWith
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? title = freezed,
     Object? content = freezed,
     Object? userGroups = freezed,
   }) {
     return _then(_AnnouncementModel(
+      id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -143,17 +156,19 @@ class __$AnnouncementModelCopyWithImpl<$Res> extends _$AnnouncementModelCopyWith
 /// @nodoc
 @JsonSerializable()
 class _$_AnnouncementModel extends _AnnouncementModel {
-  const _$_AnnouncementModel(
-      {@JsonKey(name: 'title')
-          this.title,
-      @JsonKey(name: 'content')
-          this.content,
-      @JsonKey(name: 'user_groups', defaultValue: const <String>[defaultUserGroup])
-          this.userGroups = const <String>[defaultUserGroup]})
+  const _$_AnnouncementModel(@JsonKey(name: 'id') this.id,
+      {@JsonKey(name: 'title') this.title,
+      @JsonKey(name: 'content') this.content,
+      @JsonKey(name: 'user_groups', defaultValue: const <String>[defaultUserGroup]) this.userGroups = const <String>[
+        defaultUserGroup
+      ]})
       : super._();
 
   factory _$_AnnouncementModel.fromJson(Map<String, dynamic> json) => _$_$_AnnouncementModelFromJson(json);
 
+  @override
+  @JsonKey(name: 'id')
+  final String id;
   @override
   @JsonKey(name: 'title')
   final String? title;
@@ -166,13 +181,14 @@ class _$_AnnouncementModel extends _AnnouncementModel {
 
   @override
   String toString() {
-    return 'AnnouncementModel(title: $title, content: $content, userGroups: $userGroups)';
+    return 'AnnouncementModel(id: $id, title: $title, content: $content, userGroups: $userGroups)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _AnnouncementModel &&
+            (identical(other.id, id) || const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.title, title) || const DeepCollectionEquality().equals(other.title, title)) &&
             (identical(other.content, content) || const DeepCollectionEquality().equals(other.content, content)) &&
             (identical(other.userGroups, userGroups) ||
@@ -182,6 +198,7 @@ class _$_AnnouncementModel extends _AnnouncementModel {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(title) ^
       const DeepCollectionEquality().hash(content) ^
       const DeepCollectionEquality().hash(userGroups);
@@ -198,7 +215,7 @@ class _$_AnnouncementModel extends _AnnouncementModel {
 }
 
 abstract class _AnnouncementModel extends AnnouncementModel {
-  const factory _AnnouncementModel(
+  const factory _AnnouncementModel(@JsonKey(name: 'id') String id,
           {@JsonKey(name: 'title') String? title,
           @JsonKey(name: 'content') String? content,
           @JsonKey(name: 'user_groups', defaultValue: const <String>[defaultUserGroup]) List<String> userGroups}) =
@@ -207,6 +224,9 @@ abstract class _AnnouncementModel extends AnnouncementModel {
 
   factory _AnnouncementModel.fromJson(Map<String, dynamic> json) = _$_AnnouncementModel.fromJson;
 
+  @override
+  @JsonKey(name: 'id')
+  String get id => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'title')
   String? get title => throw _privateConstructorUsedError;

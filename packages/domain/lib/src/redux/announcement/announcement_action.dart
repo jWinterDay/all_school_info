@@ -5,7 +5,7 @@ import 'models/announcement_model.dart';
 part 'announcement_action.freezed.dart';
 
 @freezed
-abstract class AnnouncementAction with _$AnnouncementAction {
+class AnnouncementAction with _$AnnouncementAction {
   const factory AnnouncementAction.start() = _Start;
 
   const factory AnnouncementAction.changeLoading({required bool value}) = _ChangeLoading;

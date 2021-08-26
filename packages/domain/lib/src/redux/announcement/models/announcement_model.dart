@@ -9,7 +9,8 @@ const String defaultUserGroup = 'broadcast';
 class AnnouncementModel with _$AnnouncementModel {
   const AnnouncementModel._();
 
-  const factory AnnouncementModel({
+  const factory AnnouncementModel(
+    @JsonKey(name: 'id') String id, {
     @JsonKey(name: 'title') String? title,
     @JsonKey(name: 'content') String? content,
     @JsonKey(name: 'user_groups', defaultValue: <String>[defaultUserGroup])

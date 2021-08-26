@@ -99,6 +99,26 @@ class AllSchoolInfoIntl {
       args: [],
     );
   }
+
+  /// `Объявление не существует`
+  String get unknownAnnouncementTitle {
+    return Intl.message(
+      'Объявление не существует',
+      name: 'unknownAnnouncementTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `-`
+  String get unknownAnnouncementContent {
+    return Intl.message(
+      '-',
+      name: 'unknownAnnouncementContent',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AllSchoolInfoIntl> {
