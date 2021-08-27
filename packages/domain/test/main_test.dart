@@ -41,7 +41,7 @@ void main() {
 
       // logged in
       expect(appStore.state.userState.loggedIn, false);
-      appStore.dispatch(const UserLoggedInAction(loggedIn: true));
+      appStore.dispatch(const UserAction.changeLoading(value: true));
       expect(appStore.state.userState.loggedIn, true);
     });
 

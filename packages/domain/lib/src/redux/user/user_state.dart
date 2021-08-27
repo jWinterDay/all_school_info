@@ -22,7 +22,7 @@ class UserState with _$UserState {
     @JsonKey(name: 'token') String? token,
     @JsonKey(name: 'refresh_token') String? refreshToken,
     @JsonKey(name: 'access_groups', defaultValue: initAccesGroups) @Default(initAccesGroups) List<String> accessGroups,
-    @JsonKey(name: 'is_loading', defaultValue: false) @Default(false) bool isLoading,
+    @JsonKey(name: 'loading', defaultValue: false) @Default(false) bool loading,
 
     // additional info
     @JsonKey(name: 'user_type', defaultValue: UserType.learner) @Default(UserType.learner) UserType userType,

@@ -31,14 +31,6 @@ const String _kBody = '''
 class AnnouncementServiceImpl implements AnnouncementService {
   @override
   Future<List<AnnouncementModel>> fetchAnnouncements() async {
-    await Future<void>.delayed(const Duration(seconds: 3));
-
-    return List<AnnouncementModel>.generate(15, (int index) {
-      return AnnouncementModel(
-        '$index',
-        content: '${_kBody}_$index',
-        title: 'looooooooooo oooooooooooo ooooooOOOoo OOOOoooOOoooong_title_$index',
-      );
-    });
+    throw UnimplementedError();
   }
 }

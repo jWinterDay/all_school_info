@@ -15,7 +15,7 @@ export 'src/redux/announcement/announcement_state.dart';
 export 'src/redux/announcement/announcement_state_reducer.dart';
 
 // user
-export 'src/redux/user/user_actions.dart';
+export 'src/redux/user/user_action.dart';
 export 'src/redux/user/user_state.dart';
 export 'src/redux/user/user_state_reducer.dart';
 export 'src/redux/user/thunks/fetch_user_thunk.dart';

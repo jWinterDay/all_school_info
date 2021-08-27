@@ -1,32 +1,46 @@
-import 'package:redux/redux.dart';
+import 'package:domain/src/redux/user/user_action.dart';
+import 'package:domain/src/redux/user/user_state.dart';
 
-import 'user_actions.dart';
-import 'user_state.dart';
+UserState userStateReducer(UserState s, dynamic a) {
+  if (a is UserAction) {
+    return a.maybeMap<UserState>(
+      // ignore: always_specify_types
+      changeLoading: (actionEvent) => s.copyWith(loading: actionEvent.value),
+      // ignore: always_specify_types
+      changeLoggedIn: (actionEvent) => s.copyWith(loggedIn: actionEvent.value),
+      // ignore: always_specify_types
+      updateCreds: (actionEvent) => _updateCreds(s, actionEvent.value),
+      // ignore: always_specify_types
+      updateToken: (actionEvent) => s.copyWith(token: actionEvent.value),
+      // ignore: always_specify_types
+      updateRefreshToken: (actionEvent) => s.copyWith(refreshToken: actionEvent.value),
+      orElse: () {
+        return s;
+      },
+    );
+  }
 
-// ignore: always_specify_types
-final Reducer<UserState> userStateReducer = combineReducers<UserState>(<UserState Function(UserState, dynamic)>[
-  // ignore: always_specify_types
-  TypedReducer<UserState, UserLoggedInAction>((s, a) => s.copyWith(loggedIn: a.loggedIn)),
-  // ignore: always_specify_types
-  TypedReducer<UserState, UserIsLoadingAction>((s, a) => s.copyWith(isLoading: a.loading)),
-  // ignore: always_specify_types
-  TypedReducer<UserState, UserAccessGroupAction>((s, a) => s.copyWith(accessGroups: a.accessGroups)),
-  TypedReducer<UserState, UserCredsAction>(_changedCredsAction),
-  TypedReducer<UserState, UserTokensAction>(_changedTokensAction),
-]);
-
-UserState _changedCredsAction(UserState s, UserCredsAction a) {
-  return s.copyWith(
-    userId: a.userId,
-    firstName: a.firstName,
-    lastName: a.lastName,
-    email: a.email,
-  );
+  return s;
 }
 
-UserState _changedTokensAction(UserState s, UserTokensAction a) {
-  return s.copyWith(
-    token: a.token,
-    refreshToken: a.refreshToken,
+UserState _updateCreds(
+  UserState state,
+  UserState userState,
+) {
+  return state.copyWith(
+    loggedIn: true,
+    userId: userState.userId,
+    firstName: userState.firstName,
+    lastName: userState.lastName,
+    email: userState.email,
+    accessGroups: userState.accessGroups,
+    classLetter: userState.classLetter,
+    classNumber: userState.classNumber,
+    classProfile: userState.classProfile,
+    lessonList: userState.lessonList,
+    phoneNumbers: userState.phoneNumbers,
+    classroomManagement: userState.classroomManagement,
+    refreshToken: userState.refreshToken,
+    token: userState.token,
   );
 }

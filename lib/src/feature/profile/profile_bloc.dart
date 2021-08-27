@@ -5,12 +5,5 @@ class ProfileBloc {
     AppDomainProvider.appStore.dispatch(fetchUserThunk);
   }
 
-  // TODO mock
-  void toggleLogged() {
-    AppDomainProvider.appStore.dispatch(const UserLoggedInAction(loggedIn: true));
-  }
-
-  //AppDomainProvider.appStore.dispatch(fetchAnnouncementsThunk);
-
   void dispose() {}
 }

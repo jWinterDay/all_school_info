@@ -52,14 +52,14 @@ class _ProfileViewState extends State<ProfileView> {
         if (userState.lastName != null)
           UiProfileItem(
             title: userState.lastName!,
-            icon: Icons.near_me_sharp,
+            icon: Icons.h_plus_mobiledata,
           ),
 
         // email
         if (userState.email != null)
           UiProfileItem(
             title: userState.email!,
-            icon: Icons.near_me_sharp,
+            icon: Icons.radar,
           ),
       ]
     ];
@@ -115,7 +115,7 @@ class _ProfileViewState extends State<ProfileView> {
                       ),
 
                       // loading
-                      if (userState.isLoading)
+                      if (userState.loading)
                         const Center(
                           child: CupertinoActivityIndicator(),
                         ),
