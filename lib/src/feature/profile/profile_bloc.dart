@@ -1,7 +1,9 @@
 import 'package:domain/domain.dart';
 
 class ProfileBloc {
-  void refresh() {}
+  void refresh() {
+    AppDomainProvider.appStore.dispatch(fetchUserThunk);
+  }
 
   // TODO mock
   void toggleLogged() {

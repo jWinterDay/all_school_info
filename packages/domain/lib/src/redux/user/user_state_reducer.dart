@@ -8,6 +8,8 @@ final Reducer<UserState> userStateReducer = combineReducers<UserState>(<UserStat
   // ignore: always_specify_types
   TypedReducer<UserState, UserLoggedInAction>((s, a) => s.copyWith(loggedIn: a.loggedIn)),
   // ignore: always_specify_types
+  TypedReducer<UserState, UserIsLoadingAction>((s, a) => s.copyWith(isLoading: a.loading)),
+  // ignore: always_specify_types
   TypedReducer<UserState, UserAccessGroupAction>((s, a) => s.copyWith(accessGroups: a.accessGroups)),
   TypedReducer<UserState, UserCredsAction>(_changedCredsAction),
   TypedReducer<UserState, UserTokensAction>(_changedTokensAction),

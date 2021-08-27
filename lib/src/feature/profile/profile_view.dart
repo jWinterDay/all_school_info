@@ -21,7 +21,9 @@ class _ProfileViewState extends State<ProfileView> {
   void initState() {
     super.initState();
 
-    _bloc.toggleLogged();
+    _bloc.refresh();
+
+    // _bloc.toggleLogged();
   }
 
   @override
@@ -32,8 +34,6 @@ class _ProfileViewState extends State<ProfileView> {
   }
 
   List<UiProfileItem> _itemList(UserState userState) {
-    print('logged = ${userState.loggedIn}');
-
     return <UiProfileItem>[
       if (!userState.loggedIn) ...<UiProfileItem>[
         // not logged in
@@ -48,7 +48,19 @@ class _ProfileViewState extends State<ProfileView> {
             title: userState.firstName!,
             icon: Icons.near_me_sharp,
           ),
-        // second name
+        // last name
+        if (userState.lastName != null)
+          UiProfileItem(
+            title: userState.lastName!,
+            icon: Icons.near_me_sharp,
+          ),
+
+        // email
+        if (userState.email != null)
+          UiProfileItem(
+            title: userState.email!,
+            icon: Icons.near_me_sharp,
+          ),
       ]
     ];
   }
@@ -75,28 +87,38 @@ class _ProfileViewState extends State<ProfileView> {
               return Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(top: 4),
-                  child: CustomScrollView(
-                    slivers: <Widget>[
-                      // refresh
-                      CupertinoSliverRefreshControl(
-                        onRefresh: () async {
-                          _bloc.refresh();
-                        },
-                      ),
-
+                  child: Stack(
+                    children: <Widget>[
                       // content
-                      SliverList(
-                        delegate: SliverChildListDelegate(
-                          _itemList(userState).map((UiProfileItem e) {
-                            return ProfileItem(
-                              uiProfileItem: e,
-                            );
-                          }).toList(),
-                        ),
+                      CustomScrollView(
+                        slivers: <Widget>[
+                          // refresh
+                          CupertinoSliverRefreshControl(
+                            onRefresh: () async {
+                              _bloc.refresh();
+                            },
+                          ),
+
+                          SliverList(
+                            delegate: SliverChildListDelegate(
+                              _itemList(userState).map((UiProfileItem e) {
+                                return ProfileItem(
+                                  uiProfileItem: e,
+                                );
+                              }).toList(),
+                            ),
+                          ),
+
+                          // padding
+                          const SliverPadding(padding: EdgeInsets.only(bottom: 120)),
+                        ],
                       ),
 
-                      // padding
-                      const SliverPadding(padding: EdgeInsets.only(bottom: 120))
+                      // loading
+                      if (userState.isLoading)
+                        const Center(
+                          child: CupertinoActivityIndicator(),
+                        ),
                     ],
                   ),
                 ),

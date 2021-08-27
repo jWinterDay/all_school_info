@@ -10,6 +10,14 @@ class UserLoggedInAction extends UserAction {
   final bool loggedIn;
 }
 
+class UserIsLoadingAction extends UserAction {
+  const UserIsLoadingAction({
+    required this.loading,
+  });
+
+  final bool loading;
+}
+
 class UserAccessGroupAction extends UserAction {
   const UserAccessGroupAction({
     required this.accessGroups,
