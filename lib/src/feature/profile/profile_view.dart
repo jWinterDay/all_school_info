@@ -114,8 +114,11 @@ class _ProfileViewState extends State<ProfileView> {
                           SliverList(
                             delegate: SliverChildListDelegate(
                               _itemList(userState).map((UiProfileItem e) {
-                                return ProfileItem(
-                                  uiProfileItem: e,
+                                return Padding(
+                                  padding: const EdgeInsets.only(bottom: 2),
+                                  child: ProfileItem(
+                                    uiProfileItem: e,
+                                  ),
                                 );
                               }).toList(),
                             ),
