@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'lesson_name_model.freezed.dart';
 part 'lesson_name_model.g.dart';
 
-const String defaultUserGroup = 'broadcast';
+// const String defaultUserGroup = 'broadcast';
 
 @freezed
 class LessonNameModel with _$LessonNameModel {

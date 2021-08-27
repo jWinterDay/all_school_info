@@ -66,38 +66,52 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
             return Expanded(
               child: Padding(
                 padding: const EdgeInsets.only(top: 4),
-                child: CustomScrollView(
-                  slivers: <Widget>[
-                    // refresh
-                    CupertinoSliverRefreshControl(
-                      onRefresh: () async {
-                        _bloc.refresh();
-                      },
+                child: Stack(
+                  children: <Widget>[
+                    // content
+                    CustomScrollView(
+                      slivers: <Widget>[
+                        // refresh
+                        CupertinoSliverRefreshControl(
+                          onRefresh: () async {
+                            _bloc.refresh();
+                          },
+                        ),
+
+                        // content
+                        // if (announcementState.loading)
+                        //   const SliverFillRemaining(
+                        //     child: Center(
+                        //       child: CupertinoActivityIndicator(),
+                        //     ),
+                        //   )
+                        // else
+                        if (announcementState.announcementList == null)
+                          SliverToBoxAdapter(
+                            child: Text(AllSchoolInfoIntl.of(context).noAnnouncement),
+                          )
+                        else
+                          // TODO SliverFixedExtentList
+                          SliverList(
+                            delegate: SliverChildListDelegate(
+                              announcementState.announcementList!.map((AnnouncementModel e) {
+                                return AnnouncementCard(announcementModel: e);
+                              }).toList(),
+                            ),
+                          ),
+
+                        // padding
+                        const SliverPadding(padding: EdgeInsets.only(bottom: 120))
+                      ],
                     ),
 
-                    // content
+                    // loading
                     if (announcementState.loading)
-                      const SliverFillRemaining(
-                        child: Center(
-                          child: CupertinoActivityIndicator(),
-                        ),
-                      )
-                    else if (announcementState.announcementList == null)
-                      SliverToBoxAdapter(
-                        child: Text(AllSchoolInfoIntl.of(context).noAnnouncement),
-                      )
-                    else
-                      // TODO SliverFixedExtentList
-                      SliverList(
-                        delegate: SliverChildListDelegate(
-                          announcementState.announcementList!.map((AnnouncementModel e) {
-                            return AnnouncementCard(announcementModel: e);
-                          }).toList(),
+                      const Center(
+                        child: CupertinoActivityIndicator(
+                          radius: 42,
                         ),
                       ),
-
-                    // padding
-                    const SliverPadding(padding: EdgeInsets.only(bottom: 120))
                   ],
                 ),
               ),

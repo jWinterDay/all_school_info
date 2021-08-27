@@ -61,6 +61,18 @@ class _ProfileViewState extends State<ProfileView> {
             title: userState.email!,
             icon: Icons.radar,
           ),
+
+        if (userState.userType == UserType.learner)
+          UiProfileItem(
+            title: 'Class Number: ${userState.classNumber} (${userState.classLetter})',
+            icon: Icons.format_list_numbered,
+          ),
+
+        // if (userState.userType == UserType.learner)
+        //   UiProfileItem(
+        //     title: 'Phone numbers: ${userState.phoneNumbers?.first.toString()}',
+        //     icon: Icons.format_list_numbered,
+        //   ),
       ]
     ];
   }
@@ -117,7 +129,9 @@ class _ProfileViewState extends State<ProfileView> {
                       // loading
                       if (userState.loading)
                         const Center(
-                          child: CupertinoActivityIndicator(),
+                          child: CupertinoActivityIndicator(
+                            radius: 42,
+                          ),
                         ),
                     ],
                   ),
