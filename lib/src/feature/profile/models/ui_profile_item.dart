@@ -4,18 +4,21 @@ class UiProfileItem {
   UiProfileItem({
     required this.title,
     this.addTitle,
-    required this.icon,
+    this.icon,
     this.trailing,
     this.needArrow = true,
+    this.subItem = false,
   });
 
   final String title;
 
   final String? addTitle;
 
-  final IconData icon;
+  final IconData? icon;
 
   final Widget? trailing;
 
   final bool needArrow;
+
+  final bool subItem;
 }

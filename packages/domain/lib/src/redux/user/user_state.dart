@@ -31,7 +31,7 @@ class UserState with _$UserState {
     @JsonKey(name: 'class_profile', defaultValue: <String>[]) @Default(<String>[]) List<String> classProfile,
 
     // learner
-    @JsonKey(name: 'learner_phone_numbers') List<String>? phoneNumbers,
+    @JsonKey(name: 'phone_numbers') List<String>? phoneNumbers,
 
     // teacher
     @JsonKey(name: 'classroom_management', defaultValue: false) @Default(false) bool classroomManagement,

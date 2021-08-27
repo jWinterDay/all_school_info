@@ -29,10 +29,14 @@ class ProfileItem extends StatelessWidget {
           Expanded(
             child: Row(
               children: <Widget>[
-                Text(
-                  uiProfileItem.title,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+                Padding(
+                  padding: uiProfileItem.subItem ? const EdgeInsets.only(left: 24) : EdgeInsets.zero,
+                  child: Text(
+                    uiProfileItem.title,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: uiProfileItem.subItem ? Theme.of(context).primaryTextTheme.subtitle2 : null,
+                  ),
                 ),
                 if (uiProfileItem.addTitle != null)
                   Text(

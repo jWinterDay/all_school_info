@@ -34,7 +34,7 @@ class _$UserStateTearOff {
       @JsonKey(name: 'class_number', defaultValue: 1) int classNumber = 1,
       @JsonKey(name: 'class_letter') String? classLetter,
       @JsonKey(name: 'class_profile', defaultValue: const <String>[]) List<String> classProfile = const <String>[],
-      @JsonKey(name: 'learner_phone_numbers') List<String>? phoneNumbers,
+      @JsonKey(name: 'phone_numbers') List<String>? phoneNumbers,
       @JsonKey(name: 'classroom_management', defaultValue: false) bool classroomManagement = false,
       @JsonKey(name: 'lesson_list') List<LessonNameModel>? lessonList}) {
     return _UserState(
@@ -93,7 +93,7 @@ mixin _$UserState {
   String? get classLetter => throw _privateConstructorUsedError;
   @JsonKey(name: 'class_profile', defaultValue: const <String>[])
   List<String> get classProfile => throw _privateConstructorUsedError; // learner
-  @JsonKey(name: 'learner_phone_numbers')
+  @JsonKey(name: 'phone_numbers')
   List<String>? get phoneNumbers => throw _privateConstructorUsedError; // teacher
   @JsonKey(name: 'classroom_management', defaultValue: false)
   bool get classroomManagement => throw _privateConstructorUsedError;
@@ -122,7 +122,7 @@ abstract class $UserStateCopyWith<$Res> {
       @JsonKey(name: 'class_number', defaultValue: 1) int classNumber,
       @JsonKey(name: 'class_letter') String? classLetter,
       @JsonKey(name: 'class_profile', defaultValue: const <String>[]) List<String> classProfile,
-      @JsonKey(name: 'learner_phone_numbers') List<String>? phoneNumbers,
+      @JsonKey(name: 'phone_numbers') List<String>? phoneNumbers,
       @JsonKey(name: 'classroom_management', defaultValue: false) bool classroomManagement,
       @JsonKey(name: 'lesson_list') List<LessonNameModel>? lessonList});
 }
@@ -241,7 +241,7 @@ abstract class _$UserStateCopyWith<$Res> implements $UserStateCopyWith<$Res> {
       @JsonKey(name: 'class_number', defaultValue: 1) int classNumber,
       @JsonKey(name: 'class_letter') String? classLetter,
       @JsonKey(name: 'class_profile', defaultValue: const <String>[]) List<String> classProfile,
-      @JsonKey(name: 'learner_phone_numbers') List<String>? phoneNumbers,
+      @JsonKey(name: 'phone_numbers') List<String>? phoneNumbers,
       @JsonKey(name: 'classroom_management', defaultValue: false) bool classroomManagement,
       @JsonKey(name: 'lesson_list') List<LessonNameModel>? lessonList});
 }
@@ -359,7 +359,7 @@ class _$_UserState extends _UserState {
       @JsonKey(name: 'class_number', defaultValue: 1) this.classNumber = 1,
       @JsonKey(name: 'class_letter') this.classLetter,
       @JsonKey(name: 'class_profile', defaultValue: const <String>[]) this.classProfile = const <String>[],
-      @JsonKey(name: 'learner_phone_numbers') this.phoneNumbers,
+      @JsonKey(name: 'phone_numbers') this.phoneNumbers,
       @JsonKey(name: 'classroom_management', defaultValue: false) this.classroomManagement = false,
       @JsonKey(name: 'lesson_list') this.lessonList})
       : super._();
@@ -406,7 +406,7 @@ class _$_UserState extends _UserState {
   @JsonKey(name: 'class_profile', defaultValue: const <String>[])
   final List<String> classProfile;
   @override // learner
-  @JsonKey(name: 'learner_phone_numbers')
+  @JsonKey(name: 'phone_numbers')
   final List<String>? phoneNumbers;
   @override // teacher
   @JsonKey(name: 'classroom_management', defaultValue: false)
@@ -496,7 +496,7 @@ abstract class _UserState extends UserState {
       @JsonKey(name: 'class_number', defaultValue: 1) int classNumber,
       @JsonKey(name: 'class_letter') String? classLetter,
       @JsonKey(name: 'class_profile', defaultValue: const <String>[]) List<String> classProfile,
-      @JsonKey(name: 'learner_phone_numbers') List<String>? phoneNumbers,
+      @JsonKey(name: 'phone_numbers') List<String>? phoneNumbers,
       @JsonKey(name: 'classroom_management', defaultValue: false) bool classroomManagement,
       @JsonKey(name: 'lesson_list') List<LessonNameModel>? lessonList}) = _$_UserState;
   const _UserState._() : super._();
@@ -543,7 +543,7 @@ abstract class _UserState extends UserState {
   @JsonKey(name: 'class_profile', defaultValue: const <String>[])
   List<String> get classProfile => throw _privateConstructorUsedError;
   @override // learner
-  @JsonKey(name: 'learner_phone_numbers')
+  @JsonKey(name: 'phone_numbers')
   List<String>? get phoneNumbers => throw _privateConstructorUsedError;
   @override // teacher
   @JsonKey(name: 'classroom_management', defaultValue: false)

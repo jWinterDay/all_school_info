@@ -34,46 +34,72 @@ class _ProfileViewState extends State<ProfileView> {
   }
 
   List<UiProfileItem> _itemList(UserState userState) {
-    return <UiProfileItem>[
-      if (!userState.loggedIn) ...<UiProfileItem>[
-        // not logged in
+    // logged in
+    if (!userState.loggedIn) {
+      return <UiProfileItem>[
         UiProfileItem(
           title: AllSchoolInfoIntl.of(context).notLoggedIn,
           icon: Icons.login,
         ),
-      ] else ...<UiProfileItem>[
-        // first name
-        if (userState.firstName != null)
-          UiProfileItem(
-            title: userState.firstName!,
-            icon: Icons.near_me_sharp,
-          ),
-        // last name
-        if (userState.lastName != null)
-          UiProfileItem(
-            title: userState.lastName!,
-            icon: Icons.h_plus_mobiledata,
-          ),
+      ];
+    }
 
-        // email
-        if (userState.email != null)
-          UiProfileItem(
-            title: userState.email!,
-            icon: Icons.radar,
-          ),
+    return <UiProfileItem>[
+      // first name
+      if (userState.firstName != null)
+        UiProfileItem(
+          title: userState.firstName!,
+          icon: Icons.near_me_sharp,
+        ),
+      // last name
+      if (userState.lastName != null)
+        UiProfileItem(
+          title: userState.lastName!,
+          icon: Icons.h_plus_mobiledata,
+        ),
 
+      // email
+      if (userState.email != null)
+        UiProfileItem(
+          title: userState.email!,
+          icon: Icons.radar,
+        ),
+
+      if (userState.userType == UserType.learner) ...<UiProfileItem>[
+        // class number
         if (userState.userType == UserType.learner)
           UiProfileItem(
             title: 'Class Number: ${userState.classNumber} (${userState.classLetter})',
             icon: Icons.format_list_numbered,
           ),
+      ],
+      if (userState.classProfile.isNotEmpty)
+        UiProfileItem(
+          title: 'Class profile',
+          icon: Icons.format_list_numbered,
+        ),
 
-        // if (userState.userType == UserType.learner)
-        //   UiProfileItem(
-        //     title: 'Phone numbers: ${userState.phoneNumbers?.first.toString()}',
-        //     icon: Icons.format_list_numbered,
-        //   ),
-      ]
+      if (userState.userType == UserType.learner)
+        ...userState.classProfile.map((String classProfile) {
+          return UiProfileItem(
+            title: classProfile,
+            subItem: true,
+            // icon: Icons.format_list_numbered,
+          );
+        }),
+
+      if (userState.phoneNumbers != null)
+        UiProfileItem(
+          title: 'Phone numbers',
+          icon: Icons.format_list_numbered,
+        ),
+      ...userState.phoneNumbers!.map((String phone) {
+        return UiProfileItem(
+          title: phone,
+          subItem: true,
+          // icon: Icons.format_list_numbered,
+        );
+      }),
     ];
   }
 
@@ -113,11 +139,11 @@ class _ProfileViewState extends State<ProfileView> {
 
                           SliverList(
                             delegate: SliverChildListDelegate(
-                              _itemList(userState).map((UiProfileItem e) {
+                              _itemList(userState).map((UiProfileItem uiProfileItem) {
                                 return Padding(
                                   padding: const EdgeInsets.only(bottom: 2),
                                   child: ProfileItem(
-                                    uiProfileItem: e,
+                                    uiProfileItem: uiProfileItem,
                                   ),
                                 );
                               }).toList(),
