@@ -1,11 +1,13 @@
 import 'package:domain/src/redux/announcement/announcement_state_reducer.dart';
+import 'package:domain/src/redux/settings/settings_reducer.dart';
+import 'package:domain/src/redux/user/user_state_reducer.dart';
 
-import '../user/user_state_reducer.dart';
 import 'app_state.dart';
 
 AppState appReducer(AppState state, dynamic action) {
   return state.copyWith(
-    userState: userStateReducer(state.userState, action),
-    announcementState: announcementStateReducer(state.announcementState, action),
+    settingsState: settingsReducer(state.settingsState, action),
+    userState: userReducer(state.userState, action),
+    announcementState: announcementReducer(state.announcementState, action),
   );
 }

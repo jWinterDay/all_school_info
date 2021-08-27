@@ -33,7 +33,7 @@ class AppView extends StatelessWidget {
         builder: (BuildContext context, Widget? child) {
           return MediaQuery(
             data: MediaQuery.of(context).copyWith(
-              textScaleFactor: AppDomainProvider.appStore.state.fontScale,
+              textScaleFactor: AppDomainProvider.appStore.state.settingsState.fontScale,
             ),
             child: child ?? const SizedBox(),
           );

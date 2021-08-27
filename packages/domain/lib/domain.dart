@@ -7,6 +7,10 @@ export 'src/app_domain_provider.dart';
 export 'src/init_domain.dart';
 export 'src/redux/app/app_state.dart';
 
+// settings
+export 'src/redux/settings/settings_action.dart';
+export 'src/redux/settings/settings_state.dart';
+
 // announcement
 export 'src/redux/announcement/models/announcement_model.dart';
 export 'src/redux/announcement/announcement_action.dart';

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:design/design.dart' as design;
 import 'package:domain/domain.dart' as domain;
+import 'package:domain/domain.dart';
 import 'package:flutter/foundation.dart';
 
 Future<design.Palette> initPalette() async {
@@ -15,8 +16,10 @@ Future<design.Palette> initPalette() async {
 }
 
 Future<void> initDomain() async {
-  // TODO get from global settings
-  const bool useMock = true;
+  // TODO
+  const bool useMock = kDebugMode && true;
 
-  await domain.initDomain(useMock: kDebugMode && useMock);
+  AppDomainProvider.appStore.dispatch(const SettingsAction.changeTestMode(value: useMock));
+
+  await domain.initDomain(useMock: useMock);
 }

@@ -1,4 +1,5 @@
 import 'package:domain/src/redux/announcement/announcement_state.dart';
+import 'package:domain/src/redux/settings/settings_state.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../user/user_state.dart';
@@ -11,10 +12,7 @@ class AppState with _$AppState {
   const AppState._();
 
   const factory AppState({
-    @Default(false) @JsonKey(name: 'test_mode', defaultValue: false) bool testMode,
-    @Default(1.0) @JsonKey(name: 'font_scale', defaultValue: 1.0) double fontScale,
-
-    //
+    @Default(SettingsState()) @JsonKey(name: 'settings_state') SettingsState settingsState,
     @Default(UserState()) @JsonKey(name: 'user_state') UserState userState,
     @Default(AnnouncementState()) @JsonKey(name: 'announcement_state') AnnouncementState announcementState,
   }) = _AppState;

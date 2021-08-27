@@ -2,7 +2,7 @@ import 'announcement_action.dart';
 import 'announcement_state.dart';
 import 'models/announcement_model.dart';
 
-AnnouncementState announcementStateReducer(AnnouncementState s, dynamic a) {
+AnnouncementState announcementReducer(AnnouncementState s, dynamic a) {
   if (a is AnnouncementAction) {
     return a.maybeMap<AnnouncementState>(
       // ignore: always_specify_types

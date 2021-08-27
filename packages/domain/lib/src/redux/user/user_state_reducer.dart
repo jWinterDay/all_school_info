@@ -1,7 +1,7 @@
 import 'package:domain/src/redux/user/user_action.dart';
 import 'package:domain/src/redux/user/user_state.dart';
 
-UserState userStateReducer(UserState s, dynamic a) {
+UserState userReducer(UserState s, dynamic a) {
   if (a is UserAction) {
     return a.maybeMap<UserState>(
       // ignore: always_specify_types
