@@ -5,5 +5,8 @@
     "announcementsTabTitle": "Объявления",
     "profileTabTitle": "Профиль",
     "unknownAnnouncementTitle": "Объявление не существует",
-    "unknownAnnouncementContent": "-"
+    "unknownAnnouncementContent": "-",
+
+    "profileViewTitle": "Профиль пользователя",
+    "notLoggedIn": "Залогиниться"
 }

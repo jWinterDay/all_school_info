@@ -48,7 +48,7 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
           ),
           items: <int>[1, 2, 3, 4, 5].map((int i) {
             return Container(
-              width: MediaQuery.of(context).size.width,
+              width: context.width,
               margin: const EdgeInsets.symmetric(horizontal: 5),
               decoration: BoxDecoration(color: context.palette.primaryLight),
               child: Text(

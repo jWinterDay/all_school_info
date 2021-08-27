@@ -119,6 +119,26 @@ class AllSchoolInfoIntl {
       args: [],
     );
   }
+
+  /// `Профиль пользователя`
+  String get profileViewTitle {
+    return Intl.message(
+      'Профиль пользователя',
+      name: 'profileViewTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Залогиниться`
+  String get notLoggedIn {
+    return Intl.message(
+      'Залогиниться',
+      name: 'notLoggedIn',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AllSchoolInfoIntl> {

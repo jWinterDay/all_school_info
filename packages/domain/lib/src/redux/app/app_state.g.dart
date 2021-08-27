@@ -9,7 +9,7 @@ part of 'app_state.dart';
 _$_AppState _$_$_AppStateFromJson(Map<String, dynamic> json) {
   return _$_AppState(
     testMode: json['test_mode'] as bool? ?? false,
-    fontScale: (json['font_scale'] as num?)?.toDouble() ?? 1,
+    fontScale: (json['font_scale'] as num?)?.toDouble() ?? 1.0,
     userState: UserState.fromJson(json['user_state'] as Map<String, dynamic>),
     announcementState: AnnouncementState.fromJson(json['announcement_state'] as Map<String, dynamic>),
   );

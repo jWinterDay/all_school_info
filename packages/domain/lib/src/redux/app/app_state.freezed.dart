@@ -22,7 +22,7 @@ class _$AppStateTearOff {
 
   _AppState call(
       {@JsonKey(name: 'test_mode', defaultValue: false) bool testMode = false,
-      @JsonKey(name: 'font_scale', defaultValue: 1) double fontScale = 1,
+      @JsonKey(name: 'font_scale', defaultValue: 1.0) double fontScale = 1.0,
       @JsonKey(name: 'user_state') UserState userState = const UserState(),
       @JsonKey(name: 'announcement_state') AnnouncementState announcementState = const AnnouncementState()}) {
     return _AppState(
@@ -45,7 +45,7 @@ const $AppState = _$AppStateTearOff();
 mixin _$AppState {
   @JsonKey(name: 'test_mode', defaultValue: false)
   bool get testMode => throw _privateConstructorUsedError;
-  @JsonKey(name: 'font_scale', defaultValue: 1)
+  @JsonKey(name: 'font_scale', defaultValue: 1.0)
   double get fontScale => throw _privateConstructorUsedError; //
   @JsonKey(name: 'user_state')
   UserState get userState => throw _privateConstructorUsedError;
@@ -62,7 +62,7 @@ abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) = _$AppStateCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: 'test_mode', defaultValue: false) bool testMode,
-      @JsonKey(name: 'font_scale', defaultValue: 1) double fontScale,
+      @JsonKey(name: 'font_scale', defaultValue: 1.0) double fontScale,
       @JsonKey(name: 'user_state') UserState userState,
       @JsonKey(name: 'announcement_state') AnnouncementState announcementState});
 
@@ -126,7 +126,7 @@ abstract class _$AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
   @override
   $Res call(
       {@JsonKey(name: 'test_mode', defaultValue: false) bool testMode,
-      @JsonKey(name: 'font_scale', defaultValue: 1) double fontScale,
+      @JsonKey(name: 'font_scale', defaultValue: 1.0) double fontScale,
       @JsonKey(name: 'user_state') UserState userState,
       @JsonKey(name: 'announcement_state') AnnouncementState announcementState});
 
@@ -177,7 +177,7 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res> impleme
 class _$_AppState extends _AppState {
   const _$_AppState(
       {@JsonKey(name: 'test_mode', defaultValue: false) this.testMode = false,
-      @JsonKey(name: 'font_scale', defaultValue: 1) this.fontScale = 1,
+      @JsonKey(name: 'font_scale', defaultValue: 1.0) this.fontScale = 1.0,
       @JsonKey(name: 'user_state') this.userState = const UserState(),
       @JsonKey(name: 'announcement_state') this.announcementState = const AnnouncementState()})
       : super._();
@@ -188,7 +188,7 @@ class _$_AppState extends _AppState {
   @JsonKey(name: 'test_mode', defaultValue: false)
   final bool testMode;
   @override
-  @JsonKey(name: 'font_scale', defaultValue: 1)
+  @JsonKey(name: 'font_scale', defaultValue: 1.0)
   final double fontScale;
   @override //
   @JsonKey(name: 'user_state')
@@ -236,7 +236,7 @@ class _$_AppState extends _AppState {
 abstract class _AppState extends AppState {
   const factory _AppState(
       {@JsonKey(name: 'test_mode', defaultValue: false) bool testMode,
-      @JsonKey(name: 'font_scale', defaultValue: 1) double fontScale,
+      @JsonKey(name: 'font_scale', defaultValue: 1.0) double fontScale,
       @JsonKey(name: 'user_state') UserState userState,
       @JsonKey(name: 'announcement_state') AnnouncementState announcementState}) = _$_AppState;
   const _AppState._() : super._();
@@ -247,7 +247,7 @@ abstract class _AppState extends AppState {
   @JsonKey(name: 'test_mode', defaultValue: false)
   bool get testMode => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'font_scale', defaultValue: 1)
+  @JsonKey(name: 'font_scale', defaultValue: 1.0)
   double get fontScale => throw _privateConstructorUsedError;
   @override //
   @JsonKey(name: 'user_state')

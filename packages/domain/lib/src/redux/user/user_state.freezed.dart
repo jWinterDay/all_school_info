@@ -21,15 +21,22 @@ class _$UserStateTearOff {
   const _$UserStateTearOff();
 
   _UserState call(
-      {@JsonKey(name: 'logged_in') bool loggedIn = false,
+      {@JsonKey(name: 'logged_in', defaultValue: false) bool loggedIn = false,
       @JsonKey(name: 'user_id') String? userId,
       @JsonKey(name: 'first_name') String? firstName,
       @JsonKey(name: 'last_name') String? lastName,
       @JsonKey(name: 'email') String? email,
       @JsonKey(name: 'token') String? token,
       @JsonKey(name: 'refresh_token') String? refreshToken,
-      @JsonKey(name: 'access_groups') List<String> accessGroups = initAccesGroups,
-      @JsonKey(name: 'is_loading') bool isLoading = false}) {
+      @JsonKey(name: 'access_groups', defaultValue: initAccesGroups) List<String> accessGroups = initAccesGroups,
+      @JsonKey(name: 'is_loading', defaultValue: false) bool isLoading = false,
+      @JsonKey(name: 'user_type', defaultValue: UserType.learner) UserType userType = UserType.learner,
+      @JsonKey(name: 'class_number', defaultValue: 1) int classNumber = 1,
+      @JsonKey(name: 'class_letter') String? classLetter,
+      @JsonKey(name: 'class_profile', defaultValue: const <String>[]) List<String> classProfile = const <String>[],
+      @JsonKey(name: 'learner_phone_numbers') List<String>? phoneNumbers,
+      @JsonKey(name: 'classroom_management', defaultValue: false) bool classroomManagement = false,
+      @JsonKey(name: 'lesson_list') List<LessonNameModel>? lessonList}) {
     return _UserState(
       loggedIn: loggedIn,
       userId: userId,
@@ -40,6 +47,13 @@ class _$UserStateTearOff {
       refreshToken: refreshToken,
       accessGroups: accessGroups,
       isLoading: isLoading,
+      userType: userType,
+      classNumber: classNumber,
+      classLetter: classLetter,
+      classProfile: classProfile,
+      phoneNumbers: phoneNumbers,
+      classroomManagement: classroomManagement,
+      lessonList: lessonList,
     );
   }
 
@@ -53,7 +67,7 @@ const $UserState = _$UserStateTearOff();
 
 /// @nodoc
 mixin _$UserState {
-  @JsonKey(name: 'logged_in')
+  @JsonKey(name: 'logged_in', defaultValue: false)
   bool get loggedIn => throw _privateConstructorUsedError;
   @JsonKey(name: 'user_id')
   String? get userId => throw _privateConstructorUsedError;
@@ -67,10 +81,24 @@ mixin _$UserState {
   String? get token => throw _privateConstructorUsedError;
   @JsonKey(name: 'refresh_token')
   String? get refreshToken => throw _privateConstructorUsedError;
-  @JsonKey(name: 'access_groups')
+  @JsonKey(name: 'access_groups', defaultValue: initAccesGroups)
   List<String> get accessGroups => throw _privateConstructorUsedError;
-  @JsonKey(name: 'is_loading')
-  bool get isLoading => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_loading', defaultValue: false)
+  bool get isLoading => throw _privateConstructorUsedError; // additional info
+  @JsonKey(name: 'user_type', defaultValue: UserType.learner)
+  UserType get userType => throw _privateConstructorUsedError;
+  @JsonKey(name: 'class_number', defaultValue: 1)
+  int get classNumber => throw _privateConstructorUsedError;
+  @JsonKey(name: 'class_letter')
+  String? get classLetter => throw _privateConstructorUsedError;
+  @JsonKey(name: 'class_profile', defaultValue: const <String>[])
+  List<String> get classProfile => throw _privateConstructorUsedError; // learner
+  @JsonKey(name: 'learner_phone_numbers')
+  List<String>? get phoneNumbers => throw _privateConstructorUsedError; // teacher
+  @JsonKey(name: 'classroom_management', defaultValue: false)
+  bool get classroomManagement => throw _privateConstructorUsedError;
+  @JsonKey(name: 'lesson_list')
+  List<LessonNameModel>? get lessonList => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -81,15 +109,22 @@ mixin _$UserState {
 abstract class $UserStateCopyWith<$Res> {
   factory $UserStateCopyWith(UserState value, $Res Function(UserState) then) = _$UserStateCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: 'logged_in') bool loggedIn,
+      {@JsonKey(name: 'logged_in', defaultValue: false) bool loggedIn,
       @JsonKey(name: 'user_id') String? userId,
       @JsonKey(name: 'first_name') String? firstName,
       @JsonKey(name: 'last_name') String? lastName,
       @JsonKey(name: 'email') String? email,
       @JsonKey(name: 'token') String? token,
       @JsonKey(name: 'refresh_token') String? refreshToken,
-      @JsonKey(name: 'access_groups') List<String> accessGroups,
-      @JsonKey(name: 'is_loading') bool isLoading});
+      @JsonKey(name: 'access_groups', defaultValue: initAccesGroups) List<String> accessGroups,
+      @JsonKey(name: 'is_loading', defaultValue: false) bool isLoading,
+      @JsonKey(name: 'user_type', defaultValue: UserType.learner) UserType userType,
+      @JsonKey(name: 'class_number', defaultValue: 1) int classNumber,
+      @JsonKey(name: 'class_letter') String? classLetter,
+      @JsonKey(name: 'class_profile', defaultValue: const <String>[]) List<String> classProfile,
+      @JsonKey(name: 'learner_phone_numbers') List<String>? phoneNumbers,
+      @JsonKey(name: 'classroom_management', defaultValue: false) bool classroomManagement,
+      @JsonKey(name: 'lesson_list') List<LessonNameModel>? lessonList});
 }
 
 /// @nodoc
@@ -111,6 +146,13 @@ class _$UserStateCopyWithImpl<$Res> implements $UserStateCopyWith<$Res> {
     Object? refreshToken = freezed,
     Object? accessGroups = freezed,
     Object? isLoading = freezed,
+    Object? userType = freezed,
+    Object? classNumber = freezed,
+    Object? classLetter = freezed,
+    Object? classProfile = freezed,
+    Object? phoneNumbers = freezed,
+    Object? classroomManagement = freezed,
+    Object? lessonList = freezed,
   }) {
     return _then(_value.copyWith(
       loggedIn: loggedIn == freezed
@@ -149,6 +191,34 @@ class _$UserStateCopyWithImpl<$Res> implements $UserStateCopyWith<$Res> {
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      userType: userType == freezed
+          ? _value.userType
+          : userType // ignore: cast_nullable_to_non_nullable
+              as UserType,
+      classNumber: classNumber == freezed
+          ? _value.classNumber
+          : classNumber // ignore: cast_nullable_to_non_nullable
+              as int,
+      classLetter: classLetter == freezed
+          ? _value.classLetter
+          : classLetter // ignore: cast_nullable_to_non_nullable
+              as String?,
+      classProfile: classProfile == freezed
+          ? _value.classProfile
+          : classProfile // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      phoneNumbers: phoneNumbers == freezed
+          ? _value.phoneNumbers
+          : phoneNumbers // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      classroomManagement: classroomManagement == freezed
+          ? _value.classroomManagement
+          : classroomManagement // ignore: cast_nullable_to_non_nullable
+              as bool,
+      lessonList: lessonList == freezed
+          ? _value.lessonList
+          : lessonList // ignore: cast_nullable_to_non_nullable
+              as List<LessonNameModel>?,
     ));
   }
 }
@@ -158,15 +228,22 @@ abstract class _$UserStateCopyWith<$Res> implements $UserStateCopyWith<$Res> {
   factory _$UserStateCopyWith(_UserState value, $Res Function(_UserState) then) = __$UserStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: 'logged_in') bool loggedIn,
+      {@JsonKey(name: 'logged_in', defaultValue: false) bool loggedIn,
       @JsonKey(name: 'user_id') String? userId,
       @JsonKey(name: 'first_name') String? firstName,
       @JsonKey(name: 'last_name') String? lastName,
       @JsonKey(name: 'email') String? email,
       @JsonKey(name: 'token') String? token,
       @JsonKey(name: 'refresh_token') String? refreshToken,
-      @JsonKey(name: 'access_groups') List<String> accessGroups,
-      @JsonKey(name: 'is_loading') bool isLoading});
+      @JsonKey(name: 'access_groups', defaultValue: initAccesGroups) List<String> accessGroups,
+      @JsonKey(name: 'is_loading', defaultValue: false) bool isLoading,
+      @JsonKey(name: 'user_type', defaultValue: UserType.learner) UserType userType,
+      @JsonKey(name: 'class_number', defaultValue: 1) int classNumber,
+      @JsonKey(name: 'class_letter') String? classLetter,
+      @JsonKey(name: 'class_profile', defaultValue: const <String>[]) List<String> classProfile,
+      @JsonKey(name: 'learner_phone_numbers') List<String>? phoneNumbers,
+      @JsonKey(name: 'classroom_management', defaultValue: false) bool classroomManagement,
+      @JsonKey(name: 'lesson_list') List<LessonNameModel>? lessonList});
 }
 
 /// @nodoc
@@ -188,6 +265,13 @@ class __$UserStateCopyWithImpl<$Res> extends _$UserStateCopyWithImpl<$Res> imple
     Object? refreshToken = freezed,
     Object? accessGroups = freezed,
     Object? isLoading = freezed,
+    Object? userType = freezed,
+    Object? classNumber = freezed,
+    Object? classLetter = freezed,
+    Object? classProfile = freezed,
+    Object? phoneNumbers = freezed,
+    Object? classroomManagement = freezed,
+    Object? lessonList = freezed,
   }) {
     return _then(_UserState(
       loggedIn: loggedIn == freezed
@@ -226,6 +310,34 @@ class __$UserStateCopyWithImpl<$Res> extends _$UserStateCopyWithImpl<$Res> imple
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      userType: userType == freezed
+          ? _value.userType
+          : userType // ignore: cast_nullable_to_non_nullable
+              as UserType,
+      classNumber: classNumber == freezed
+          ? _value.classNumber
+          : classNumber // ignore: cast_nullable_to_non_nullable
+              as int,
+      classLetter: classLetter == freezed
+          ? _value.classLetter
+          : classLetter // ignore: cast_nullable_to_non_nullable
+              as String?,
+      classProfile: classProfile == freezed
+          ? _value.classProfile
+          : classProfile // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      phoneNumbers: phoneNumbers == freezed
+          ? _value.phoneNumbers
+          : phoneNumbers // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      classroomManagement: classroomManagement == freezed
+          ? _value.classroomManagement
+          : classroomManagement // ignore: cast_nullable_to_non_nullable
+              as bool,
+      lessonList: lessonList == freezed
+          ? _value.lessonList
+          : lessonList // ignore: cast_nullable_to_non_nullable
+              as List<LessonNameModel>?,
     ));
   }
 }
@@ -234,21 +346,28 @@ class __$UserStateCopyWithImpl<$Res> extends _$UserStateCopyWithImpl<$Res> imple
 @JsonSerializable()
 class _$_UserState extends _UserState {
   const _$_UserState(
-      {@JsonKey(name: 'logged_in') this.loggedIn = false,
+      {@JsonKey(name: 'logged_in', defaultValue: false) this.loggedIn = false,
       @JsonKey(name: 'user_id') this.userId,
       @JsonKey(name: 'first_name') this.firstName,
       @JsonKey(name: 'last_name') this.lastName,
       @JsonKey(name: 'email') this.email,
       @JsonKey(name: 'token') this.token,
       @JsonKey(name: 'refresh_token') this.refreshToken,
-      @JsonKey(name: 'access_groups') this.accessGroups = initAccesGroups,
-      @JsonKey(name: 'is_loading') this.isLoading = false})
+      @JsonKey(name: 'access_groups', defaultValue: initAccesGroups) this.accessGroups = initAccesGroups,
+      @JsonKey(name: 'is_loading', defaultValue: false) this.isLoading = false,
+      @JsonKey(name: 'user_type', defaultValue: UserType.learner) this.userType = UserType.learner,
+      @JsonKey(name: 'class_number', defaultValue: 1) this.classNumber = 1,
+      @JsonKey(name: 'class_letter') this.classLetter,
+      @JsonKey(name: 'class_profile', defaultValue: const <String>[]) this.classProfile = const <String>[],
+      @JsonKey(name: 'learner_phone_numbers') this.phoneNumbers,
+      @JsonKey(name: 'classroom_management', defaultValue: false) this.classroomManagement = false,
+      @JsonKey(name: 'lesson_list') this.lessonList})
       : super._();
 
   factory _$_UserState.fromJson(Map<String, dynamic> json) => _$_$_UserStateFromJson(json);
 
   @override
-  @JsonKey(name: 'logged_in')
+  @JsonKey(name: 'logged_in', defaultValue: false)
   final bool loggedIn;
   @override
   @JsonKey(name: 'user_id')
@@ -269,15 +388,36 @@ class _$_UserState extends _UserState {
   @JsonKey(name: 'refresh_token')
   final String? refreshToken;
   @override
-  @JsonKey(name: 'access_groups')
+  @JsonKey(name: 'access_groups', defaultValue: initAccesGroups)
   final List<String> accessGroups;
   @override
-  @JsonKey(name: 'is_loading')
+  @JsonKey(name: 'is_loading', defaultValue: false)
   final bool isLoading;
+  @override // additional info
+  @JsonKey(name: 'user_type', defaultValue: UserType.learner)
+  final UserType userType;
+  @override
+  @JsonKey(name: 'class_number', defaultValue: 1)
+  final int classNumber;
+  @override
+  @JsonKey(name: 'class_letter')
+  final String? classLetter;
+  @override
+  @JsonKey(name: 'class_profile', defaultValue: const <String>[])
+  final List<String> classProfile;
+  @override // learner
+  @JsonKey(name: 'learner_phone_numbers')
+  final List<String>? phoneNumbers;
+  @override // teacher
+  @JsonKey(name: 'classroom_management', defaultValue: false)
+  final bool classroomManagement;
+  @override
+  @JsonKey(name: 'lesson_list')
+  final List<LessonNameModel>? lessonList;
 
   @override
   String toString() {
-    return 'UserState(loggedIn: $loggedIn, userId: $userId, firstName: $firstName, lastName: $lastName, email: $email, token: $token, refreshToken: $refreshToken, accessGroups: $accessGroups, isLoading: $isLoading)';
+    return 'UserState(loggedIn: $loggedIn, userId: $userId, firstName: $firstName, lastName: $lastName, email: $email, token: $token, refreshToken: $refreshToken, accessGroups: $accessGroups, isLoading: $isLoading, userType: $userType, classNumber: $classNumber, classLetter: $classLetter, classProfile: $classProfile, phoneNumbers: $phoneNumbers, classroomManagement: $classroomManagement, lessonList: $lessonList)';
   }
 
   @override
@@ -296,7 +436,20 @@ class _$_UserState extends _UserState {
             (identical(other.accessGroups, accessGroups) ||
                 const DeepCollectionEquality().equals(other.accessGroups, accessGroups)) &&
             (identical(other.isLoading, isLoading) ||
-                const DeepCollectionEquality().equals(other.isLoading, isLoading)));
+                const DeepCollectionEquality().equals(other.isLoading, isLoading)) &&
+            (identical(other.userType, userType) || const DeepCollectionEquality().equals(other.userType, userType)) &&
+            (identical(other.classNumber, classNumber) ||
+                const DeepCollectionEquality().equals(other.classNumber, classNumber)) &&
+            (identical(other.classLetter, classLetter) ||
+                const DeepCollectionEquality().equals(other.classLetter, classLetter)) &&
+            (identical(other.classProfile, classProfile) ||
+                const DeepCollectionEquality().equals(other.classProfile, classProfile)) &&
+            (identical(other.phoneNumbers, phoneNumbers) ||
+                const DeepCollectionEquality().equals(other.phoneNumbers, phoneNumbers)) &&
+            (identical(other.classroomManagement, classroomManagement) ||
+                const DeepCollectionEquality().equals(other.classroomManagement, classroomManagement)) &&
+            (identical(other.lessonList, lessonList) ||
+                const DeepCollectionEquality().equals(other.lessonList, lessonList)));
   }
 
   @override
@@ -310,7 +463,14 @@ class _$_UserState extends _UserState {
       const DeepCollectionEquality().hash(token) ^
       const DeepCollectionEquality().hash(refreshToken) ^
       const DeepCollectionEquality().hash(accessGroups) ^
-      const DeepCollectionEquality().hash(isLoading);
+      const DeepCollectionEquality().hash(isLoading) ^
+      const DeepCollectionEquality().hash(userType) ^
+      const DeepCollectionEquality().hash(classNumber) ^
+      const DeepCollectionEquality().hash(classLetter) ^
+      const DeepCollectionEquality().hash(classProfile) ^
+      const DeepCollectionEquality().hash(phoneNumbers) ^
+      const DeepCollectionEquality().hash(classroomManagement) ^
+      const DeepCollectionEquality().hash(lessonList);
 
   @JsonKey(ignore: true)
   @override
@@ -324,21 +484,28 @@ class _$_UserState extends _UserState {
 
 abstract class _UserState extends UserState {
   const factory _UserState(
-      {@JsonKey(name: 'logged_in') bool loggedIn,
+      {@JsonKey(name: 'logged_in', defaultValue: false) bool loggedIn,
       @JsonKey(name: 'user_id') String? userId,
       @JsonKey(name: 'first_name') String? firstName,
       @JsonKey(name: 'last_name') String? lastName,
       @JsonKey(name: 'email') String? email,
       @JsonKey(name: 'token') String? token,
       @JsonKey(name: 'refresh_token') String? refreshToken,
-      @JsonKey(name: 'access_groups') List<String> accessGroups,
-      @JsonKey(name: 'is_loading') bool isLoading}) = _$_UserState;
+      @JsonKey(name: 'access_groups', defaultValue: initAccesGroups) List<String> accessGroups,
+      @JsonKey(name: 'is_loading', defaultValue: false) bool isLoading,
+      @JsonKey(name: 'user_type', defaultValue: UserType.learner) UserType userType,
+      @JsonKey(name: 'class_number', defaultValue: 1) int classNumber,
+      @JsonKey(name: 'class_letter') String? classLetter,
+      @JsonKey(name: 'class_profile', defaultValue: const <String>[]) List<String> classProfile,
+      @JsonKey(name: 'learner_phone_numbers') List<String>? phoneNumbers,
+      @JsonKey(name: 'classroom_management', defaultValue: false) bool classroomManagement,
+      @JsonKey(name: 'lesson_list') List<LessonNameModel>? lessonList}) = _$_UserState;
   const _UserState._() : super._();
 
   factory _UserState.fromJson(Map<String, dynamic> json) = _$_UserState.fromJson;
 
   @override
-  @JsonKey(name: 'logged_in')
+  @JsonKey(name: 'logged_in', defaultValue: false)
   bool get loggedIn => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'user_id')
@@ -359,11 +526,32 @@ abstract class _UserState extends UserState {
   @JsonKey(name: 'refresh_token')
   String? get refreshToken => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'access_groups')
+  @JsonKey(name: 'access_groups', defaultValue: initAccesGroups)
   List<String> get accessGroups => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'is_loading')
+  @JsonKey(name: 'is_loading', defaultValue: false)
   bool get isLoading => throw _privateConstructorUsedError;
+  @override // additional info
+  @JsonKey(name: 'user_type', defaultValue: UserType.learner)
+  UserType get userType => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'class_number', defaultValue: 1)
+  int get classNumber => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'class_letter')
+  String? get classLetter => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'class_profile', defaultValue: const <String>[])
+  List<String> get classProfile => throw _privateConstructorUsedError;
+  @override // learner
+  @JsonKey(name: 'learner_phone_numbers')
+  List<String>? get phoneNumbers => throw _privateConstructorUsedError;
+  @override // teacher
+  @JsonKey(name: 'classroom_management', defaultValue: false)
+  bool get classroomManagement => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'lesson_list')
+  List<LessonNameModel>? get lessonList => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$UserStateCopyWith<_UserState> get copyWith => throw _privateConstructorUsedError;

@@ -28,7 +28,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "mainTitle": MessageLookupByLibrary.simpleMessage("Школа 67"),
         "noAnnouncement":
             MessageLookupByLibrary.simpleMessage("Нет объявлений"),
+        "notLoggedIn": MessageLookupByLibrary.simpleMessage("Залогиниться"),
         "profileTabTitle": MessageLookupByLibrary.simpleMessage("Профиль"),
+        "profileViewTitle":
+            MessageLookupByLibrary.simpleMessage("Профиль пользователя"),
         "unknownAnnouncementContent": MessageLookupByLibrary.simpleMessage("-"),
         "unknownAnnouncementTitle":
             MessageLookupByLibrary.simpleMessage("Объявление не существует")

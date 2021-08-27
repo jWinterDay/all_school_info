@@ -36,7 +36,7 @@ class AnnouncementServiceMock implements AnnouncementService {
     return List<AnnouncementModel>.generate(15, (int index) {
       return AnnouncementModel(
         '$index',
-        content: _kBody.toString(),
+        content: '${_kBody.toString()} >> fsdf',
         title: 'looooooooooo oooooooooooo ooooooOOOoo OOOOoooOOoooong_title_$index',
       );
     });
