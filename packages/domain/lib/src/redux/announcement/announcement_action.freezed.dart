@@ -42,6 +42,16 @@ class _$AnnouncementActionTearOff {
     return const _FetchAnnouncements();
   }
 
+  _SetErrorModel setErrorModel({required ErrorModel value}) {
+    return _SetErrorModel(
+      value: value,
+    );
+  }
+
+  _ClearErrorModel clearErrorModel() {
+    return const _ClearErrorModel();
+  }
+
   _CleanUp cleanUp() {
     return const _CleanUp();
   }
@@ -59,6 +69,8 @@ mixin _$AnnouncementAction {
     required TResult Function(AnnouncementModel announcement) addAnnouncement,
     required TResult Function(Iterable<AnnouncementModel> list) addAnnouncementList,
     required TResult Function() fetchAnnouncements,
+    required TResult Function(ErrorModel value) setErrorModel,
+    required TResult Function() clearErrorModel,
     required TResult Function() cleanUp,
   }) =>
       throw _privateConstructorUsedError;
@@ -69,6 +81,8 @@ mixin _$AnnouncementAction {
     TResult Function(AnnouncementModel announcement)? addAnnouncement,
     TResult Function(Iterable<AnnouncementModel> list)? addAnnouncementList,
     TResult Function()? fetchAnnouncements,
+    TResult Function(ErrorModel value)? setErrorModel,
+    TResult Function()? clearErrorModel,
     TResult Function()? cleanUp,
     required TResult orElse(),
   }) =>
@@ -80,6 +94,8 @@ mixin _$AnnouncementAction {
     required TResult Function(_AddAnnouncement value) addAnnouncement,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
+    required TResult Function(_SetErrorModel value) setErrorModel,
+    required TResult Function(_ClearErrorModel value) clearErrorModel,
     required TResult Function(_CleanUp value) cleanUp,
   }) =>
       throw _privateConstructorUsedError;
@@ -90,6 +106,8 @@ mixin _$AnnouncementAction {
     TResult Function(_AddAnnouncement value)? addAnnouncement,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
+    TResult Function(_SetErrorModel value)? setErrorModel,
+    TResult Function(_ClearErrorModel value)? clearErrorModel,
     TResult Function(_CleanUp value)? cleanUp,
     required TResult orElse(),
   }) =>
@@ -150,6 +168,8 @@ class _$_Start implements _Start {
     required TResult Function(AnnouncementModel announcement) addAnnouncement,
     required TResult Function(Iterable<AnnouncementModel> list) addAnnouncementList,
     required TResult Function() fetchAnnouncements,
+    required TResult Function(ErrorModel value) setErrorModel,
+    required TResult Function() clearErrorModel,
     required TResult Function() cleanUp,
   }) {
     return start();
@@ -163,6 +183,8 @@ class _$_Start implements _Start {
     TResult Function(AnnouncementModel announcement)? addAnnouncement,
     TResult Function(Iterable<AnnouncementModel> list)? addAnnouncementList,
     TResult Function()? fetchAnnouncements,
+    TResult Function(ErrorModel value)? setErrorModel,
+    TResult Function()? clearErrorModel,
     TResult Function()? cleanUp,
     required TResult orElse(),
   }) {
@@ -180,6 +202,8 @@ class _$_Start implements _Start {
     required TResult Function(_AddAnnouncement value) addAnnouncement,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
+    required TResult Function(_SetErrorModel value) setErrorModel,
+    required TResult Function(_ClearErrorModel value) clearErrorModel,
     required TResult Function(_CleanUp value) cleanUp,
   }) {
     return start(this);
@@ -193,6 +217,8 @@ class _$_Start implements _Start {
     TResult Function(_AddAnnouncement value)? addAnnouncement,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
+    TResult Function(_SetErrorModel value)? setErrorModel,
+    TResult Function(_ClearErrorModel value)? clearErrorModel,
     TResult Function(_CleanUp value)? cleanUp,
     required TResult orElse(),
   }) {
@@ -272,6 +298,8 @@ class _$_ChangeLoading implements _ChangeLoading {
     required TResult Function(AnnouncementModel announcement) addAnnouncement,
     required TResult Function(Iterable<AnnouncementModel> list) addAnnouncementList,
     required TResult Function() fetchAnnouncements,
+    required TResult Function(ErrorModel value) setErrorModel,
+    required TResult Function() clearErrorModel,
     required TResult Function() cleanUp,
   }) {
     return changeLoading(value);
@@ -285,6 +313,8 @@ class _$_ChangeLoading implements _ChangeLoading {
     TResult Function(AnnouncementModel announcement)? addAnnouncement,
     TResult Function(Iterable<AnnouncementModel> list)? addAnnouncementList,
     TResult Function()? fetchAnnouncements,
+    TResult Function(ErrorModel value)? setErrorModel,
+    TResult Function()? clearErrorModel,
     TResult Function()? cleanUp,
     required TResult orElse(),
   }) {
@@ -302,6 +332,8 @@ class _$_ChangeLoading implements _ChangeLoading {
     required TResult Function(_AddAnnouncement value) addAnnouncement,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
+    required TResult Function(_SetErrorModel value) setErrorModel,
+    required TResult Function(_ClearErrorModel value) clearErrorModel,
     required TResult Function(_CleanUp value) cleanUp,
   }) {
     return changeLoading(this);
@@ -315,6 +347,8 @@ class _$_ChangeLoading implements _ChangeLoading {
     TResult Function(_AddAnnouncement value)? addAnnouncement,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
+    TResult Function(_SetErrorModel value)? setErrorModel,
+    TResult Function(_ClearErrorModel value)? clearErrorModel,
     TResult Function(_CleanUp value)? cleanUp,
     required TResult orElse(),
   }) {
@@ -408,6 +442,8 @@ class _$_AddAnnouncement implements _AddAnnouncement {
     required TResult Function(AnnouncementModel announcement) addAnnouncement,
     required TResult Function(Iterable<AnnouncementModel> list) addAnnouncementList,
     required TResult Function() fetchAnnouncements,
+    required TResult Function(ErrorModel value) setErrorModel,
+    required TResult Function() clearErrorModel,
     required TResult Function() cleanUp,
   }) {
     return addAnnouncement(announcement);
@@ -421,6 +457,8 @@ class _$_AddAnnouncement implements _AddAnnouncement {
     TResult Function(AnnouncementModel announcement)? addAnnouncement,
     TResult Function(Iterable<AnnouncementModel> list)? addAnnouncementList,
     TResult Function()? fetchAnnouncements,
+    TResult Function(ErrorModel value)? setErrorModel,
+    TResult Function()? clearErrorModel,
     TResult Function()? cleanUp,
     required TResult orElse(),
   }) {
@@ -438,6 +476,8 @@ class _$_AddAnnouncement implements _AddAnnouncement {
     required TResult Function(_AddAnnouncement value) addAnnouncement,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
+    required TResult Function(_SetErrorModel value) setErrorModel,
+    required TResult Function(_ClearErrorModel value) clearErrorModel,
     required TResult Function(_CleanUp value) cleanUp,
   }) {
     return addAnnouncement(this);
@@ -451,6 +491,8 @@ class _$_AddAnnouncement implements _AddAnnouncement {
     TResult Function(_AddAnnouncement value)? addAnnouncement,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
+    TResult Function(_SetErrorModel value)? setErrorModel,
+    TResult Function(_ClearErrorModel value)? clearErrorModel,
     TResult Function(_CleanUp value)? cleanUp,
     required TResult orElse(),
   }) {
@@ -534,6 +576,8 @@ class _$_AddAnnouncementList implements _AddAnnouncementList {
     required TResult Function(AnnouncementModel announcement) addAnnouncement,
     required TResult Function(Iterable<AnnouncementModel> list) addAnnouncementList,
     required TResult Function() fetchAnnouncements,
+    required TResult Function(ErrorModel value) setErrorModel,
+    required TResult Function() clearErrorModel,
     required TResult Function() cleanUp,
   }) {
     return addAnnouncementList(list);
@@ -547,6 +591,8 @@ class _$_AddAnnouncementList implements _AddAnnouncementList {
     TResult Function(AnnouncementModel announcement)? addAnnouncement,
     TResult Function(Iterable<AnnouncementModel> list)? addAnnouncementList,
     TResult Function()? fetchAnnouncements,
+    TResult Function(ErrorModel value)? setErrorModel,
+    TResult Function()? clearErrorModel,
     TResult Function()? cleanUp,
     required TResult orElse(),
   }) {
@@ -564,6 +610,8 @@ class _$_AddAnnouncementList implements _AddAnnouncementList {
     required TResult Function(_AddAnnouncement value) addAnnouncement,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
+    required TResult Function(_SetErrorModel value) setErrorModel,
+    required TResult Function(_ClearErrorModel value) clearErrorModel,
     required TResult Function(_CleanUp value) cleanUp,
   }) {
     return addAnnouncementList(this);
@@ -577,6 +625,8 @@ class _$_AddAnnouncementList implements _AddAnnouncementList {
     TResult Function(_AddAnnouncement value)? addAnnouncement,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
+    TResult Function(_SetErrorModel value)? setErrorModel,
+    TResult Function(_ClearErrorModel value)? clearErrorModel,
     TResult Function(_CleanUp value)? cleanUp,
     required TResult orElse(),
   }) {
@@ -637,6 +687,8 @@ class _$_FetchAnnouncements implements _FetchAnnouncements {
     required TResult Function(AnnouncementModel announcement) addAnnouncement,
     required TResult Function(Iterable<AnnouncementModel> list) addAnnouncementList,
     required TResult Function() fetchAnnouncements,
+    required TResult Function(ErrorModel value) setErrorModel,
+    required TResult Function() clearErrorModel,
     required TResult Function() cleanUp,
   }) {
     return fetchAnnouncements();
@@ -650,6 +702,8 @@ class _$_FetchAnnouncements implements _FetchAnnouncements {
     TResult Function(AnnouncementModel announcement)? addAnnouncement,
     TResult Function(Iterable<AnnouncementModel> list)? addAnnouncementList,
     TResult Function()? fetchAnnouncements,
+    TResult Function(ErrorModel value)? setErrorModel,
+    TResult Function()? clearErrorModel,
     TResult Function()? cleanUp,
     required TResult orElse(),
   }) {
@@ -667,6 +721,8 @@ class _$_FetchAnnouncements implements _FetchAnnouncements {
     required TResult Function(_AddAnnouncement value) addAnnouncement,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
+    required TResult Function(_SetErrorModel value) setErrorModel,
+    required TResult Function(_ClearErrorModel value) clearErrorModel,
     required TResult Function(_CleanUp value) cleanUp,
   }) {
     return fetchAnnouncements(this);
@@ -680,6 +736,8 @@ class _$_FetchAnnouncements implements _FetchAnnouncements {
     TResult Function(_AddAnnouncement value)? addAnnouncement,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
+    TResult Function(_SetErrorModel value)? setErrorModel,
+    TResult Function(_ClearErrorModel value)? clearErrorModel,
     TResult Function(_CleanUp value)? cleanUp,
     required TResult orElse(),
   }) {
@@ -692,6 +750,256 @@ class _$_FetchAnnouncements implements _FetchAnnouncements {
 
 abstract class _FetchAnnouncements implements AnnouncementAction {
   const factory _FetchAnnouncements() = _$_FetchAnnouncements;
+}
+
+/// @nodoc
+abstract class _$SetErrorModelCopyWith<$Res> {
+  factory _$SetErrorModelCopyWith(_SetErrorModel value, $Res Function(_SetErrorModel) then) =
+      __$SetErrorModelCopyWithImpl<$Res>;
+  $Res call({ErrorModel value});
+
+  $ErrorModelCopyWith<$Res> get value;
+}
+
+/// @nodoc
+class __$SetErrorModelCopyWithImpl<$Res> extends _$AnnouncementActionCopyWithImpl<$Res>
+    implements _$SetErrorModelCopyWith<$Res> {
+  __$SetErrorModelCopyWithImpl(_SetErrorModel _value, $Res Function(_SetErrorModel) _then)
+      : super(_value, (v) => _then(v as _SetErrorModel));
+
+  @override
+  _SetErrorModel get _value => super._value as _SetErrorModel;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_SetErrorModel(
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as ErrorModel,
+    ));
+  }
+
+  @override
+  $ErrorModelCopyWith<$Res> get value {
+    return $ErrorModelCopyWith<$Res>(_value.value, (value) {
+      return _then(_value.copyWith(value: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_SetErrorModel implements _SetErrorModel {
+  const _$_SetErrorModel({required this.value});
+
+  @override
+  final ErrorModel value;
+
+  @override
+  String toString() {
+    return 'AnnouncementAction.setErrorModel(value: $value)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _SetErrorModel &&
+            (identical(other.value, value) || const DeepCollectionEquality().equals(other.value, value)));
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+
+  @JsonKey(ignore: true)
+  @override
+  _$SetErrorModelCopyWith<_SetErrorModel> get copyWith =>
+      __$SetErrorModelCopyWithImpl<_SetErrorModel>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() start,
+    required TResult Function(bool value) changeLoading,
+    required TResult Function(AnnouncementModel announcement) addAnnouncement,
+    required TResult Function(Iterable<AnnouncementModel> list) addAnnouncementList,
+    required TResult Function() fetchAnnouncements,
+    required TResult Function(ErrorModel value) setErrorModel,
+    required TResult Function() clearErrorModel,
+    required TResult Function() cleanUp,
+  }) {
+    return setErrorModel(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? start,
+    TResult Function(bool value)? changeLoading,
+    TResult Function(AnnouncementModel announcement)? addAnnouncement,
+    TResult Function(Iterable<AnnouncementModel> list)? addAnnouncementList,
+    TResult Function()? fetchAnnouncements,
+    TResult Function(ErrorModel value)? setErrorModel,
+    TResult Function()? clearErrorModel,
+    TResult Function()? cleanUp,
+    required TResult orElse(),
+  }) {
+    if (setErrorModel != null) {
+      return setErrorModel(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Start value) start,
+    required TResult Function(_ChangeLoading value) changeLoading,
+    required TResult Function(_AddAnnouncement value) addAnnouncement,
+    required TResult Function(_AddAnnouncementList value) addAnnouncementList,
+    required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
+    required TResult Function(_SetErrorModel value) setErrorModel,
+    required TResult Function(_ClearErrorModel value) clearErrorModel,
+    required TResult Function(_CleanUp value) cleanUp,
+  }) {
+    return setErrorModel(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Start value)? start,
+    TResult Function(_ChangeLoading value)? changeLoading,
+    TResult Function(_AddAnnouncement value)? addAnnouncement,
+    TResult Function(_AddAnnouncementList value)? addAnnouncementList,
+    TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
+    TResult Function(_SetErrorModel value)? setErrorModel,
+    TResult Function(_ClearErrorModel value)? clearErrorModel,
+    TResult Function(_CleanUp value)? cleanUp,
+    required TResult orElse(),
+  }) {
+    if (setErrorModel != null) {
+      return setErrorModel(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetErrorModel implements AnnouncementAction {
+  const factory _SetErrorModel({required ErrorModel value}) = _$_SetErrorModel;
+
+  ErrorModel get value => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$SetErrorModelCopyWith<_SetErrorModel> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ClearErrorModelCopyWith<$Res> {
+  factory _$ClearErrorModelCopyWith(_ClearErrorModel value, $Res Function(_ClearErrorModel) then) =
+      __$ClearErrorModelCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$ClearErrorModelCopyWithImpl<$Res> extends _$AnnouncementActionCopyWithImpl<$Res>
+    implements _$ClearErrorModelCopyWith<$Res> {
+  __$ClearErrorModelCopyWithImpl(_ClearErrorModel _value, $Res Function(_ClearErrorModel) _then)
+      : super(_value, (v) => _then(v as _ClearErrorModel));
+
+  @override
+  _ClearErrorModel get _value => super._value as _ClearErrorModel;
+}
+
+/// @nodoc
+
+class _$_ClearErrorModel implements _ClearErrorModel {
+  const _$_ClearErrorModel();
+
+  @override
+  String toString() {
+    return 'AnnouncementAction.clearErrorModel()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _ClearErrorModel);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() start,
+    required TResult Function(bool value) changeLoading,
+    required TResult Function(AnnouncementModel announcement) addAnnouncement,
+    required TResult Function(Iterable<AnnouncementModel> list) addAnnouncementList,
+    required TResult Function() fetchAnnouncements,
+    required TResult Function(ErrorModel value) setErrorModel,
+    required TResult Function() clearErrorModel,
+    required TResult Function() cleanUp,
+  }) {
+    return clearErrorModel();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? start,
+    TResult Function(bool value)? changeLoading,
+    TResult Function(AnnouncementModel announcement)? addAnnouncement,
+    TResult Function(Iterable<AnnouncementModel> list)? addAnnouncementList,
+    TResult Function()? fetchAnnouncements,
+    TResult Function(ErrorModel value)? setErrorModel,
+    TResult Function()? clearErrorModel,
+    TResult Function()? cleanUp,
+    required TResult orElse(),
+  }) {
+    if (clearErrorModel != null) {
+      return clearErrorModel();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Start value) start,
+    required TResult Function(_ChangeLoading value) changeLoading,
+    required TResult Function(_AddAnnouncement value) addAnnouncement,
+    required TResult Function(_AddAnnouncementList value) addAnnouncementList,
+    required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
+    required TResult Function(_SetErrorModel value) setErrorModel,
+    required TResult Function(_ClearErrorModel value) clearErrorModel,
+    required TResult Function(_CleanUp value) cleanUp,
+  }) {
+    return clearErrorModel(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Start value)? start,
+    TResult Function(_ChangeLoading value)? changeLoading,
+    TResult Function(_AddAnnouncement value)? addAnnouncement,
+    TResult Function(_AddAnnouncementList value)? addAnnouncementList,
+    TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
+    TResult Function(_SetErrorModel value)? setErrorModel,
+    TResult Function(_ClearErrorModel value)? clearErrorModel,
+    TResult Function(_CleanUp value)? cleanUp,
+    required TResult orElse(),
+  }) {
+    if (clearErrorModel != null) {
+      return clearErrorModel(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ClearErrorModel implements AnnouncementAction {
+  const factory _ClearErrorModel() = _$_ClearErrorModel;
 }
 
 /// @nodoc
@@ -733,6 +1041,8 @@ class _$_CleanUp implements _CleanUp {
     required TResult Function(AnnouncementModel announcement) addAnnouncement,
     required TResult Function(Iterable<AnnouncementModel> list) addAnnouncementList,
     required TResult Function() fetchAnnouncements,
+    required TResult Function(ErrorModel value) setErrorModel,
+    required TResult Function() clearErrorModel,
     required TResult Function() cleanUp,
   }) {
     return cleanUp();
@@ -746,6 +1056,8 @@ class _$_CleanUp implements _CleanUp {
     TResult Function(AnnouncementModel announcement)? addAnnouncement,
     TResult Function(Iterable<AnnouncementModel> list)? addAnnouncementList,
     TResult Function()? fetchAnnouncements,
+    TResult Function(ErrorModel value)? setErrorModel,
+    TResult Function()? clearErrorModel,
     TResult Function()? cleanUp,
     required TResult orElse(),
   }) {
@@ -763,6 +1075,8 @@ class _$_CleanUp implements _CleanUp {
     required TResult Function(_AddAnnouncement value) addAnnouncement,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
+    required TResult Function(_SetErrorModel value) setErrorModel,
+    required TResult Function(_ClearErrorModel value) clearErrorModel,
     required TResult Function(_CleanUp value) cleanUp,
   }) {
     return cleanUp(this);
@@ -776,6 +1090,8 @@ class _$_CleanUp implements _CleanUp {
     TResult Function(_AddAnnouncement value)? addAnnouncement,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
+    TResult Function(_SetErrorModel value)? setErrorModel,
+    TResult Function(_ClearErrorModel value)? clearErrorModel,
     TResult Function(_CleanUp value)? cleanUp,
     required TResult orElse(),
   }) {

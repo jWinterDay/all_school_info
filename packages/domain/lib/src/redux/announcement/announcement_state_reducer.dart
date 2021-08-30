@@ -12,6 +12,9 @@ AnnouncementState announcementReducer(AnnouncementState s, dynamic a) {
       addAnnouncement: (actionEvent) => _addAnnouncement(s, actionEvent.announcement),
       // ignore: always_specify_types
       addAnnouncementList: (actionEvent) => _addAnnouncementList(s, actionEvent.list),
+      // ignore: always_specify_types
+      setErrorModel: (actionEvent) => s.copyWith(errorModel: actionEvent.value),
+      clearErrorModel: (_) => s.copyWith(errorModel: null),
       orElse: () {
         return s;
       },

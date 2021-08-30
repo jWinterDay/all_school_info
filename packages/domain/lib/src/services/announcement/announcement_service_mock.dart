@@ -32,18 +32,40 @@ const String _kBody = '''
   И путь опять начнется непрерывный...
   Простись же, сердце, и окрепни снова.''';
 
+int _cnt = 0;
+
 Future<void> _someExpensiveMethod() async {
   sleep(const Duration(seconds: 1));
+
+  if (_cnt++ % 2 == 0) {
+    throw const TlsException('fsdfsd>>>>>>>>>> fsd');
+  }
 }
 
 class AnnouncementServiceMock implements AnnouncementService {
   @override
   Future<List<AnnouncementModel>> fetchAnnouncements() async {
-    final Computer computer = getIt.get<Computer>();
+    // final Computer computer = getIt.get<Computer>();
 
-    await computer.compute<void, void>(_someExpensiveMethod);
+    // await computer.compute<void, void>(_someExpensiveMethod);
 
-    return List<AnnouncementModel>.generate(15, (int index) {
+    await Future<void>.delayed(const Duration(seconds: 2));
+
+    int listCount = 0;
+    switch (_cnt++ % 3) {
+      case 0:
+        listCount = 15;
+        break;
+      case 1:
+        listCount = 0;
+        break;
+      case 2:
+        throw const TlsException('test exception');
+      default:
+        listCount = 15;
+    }
+
+    return List<AnnouncementModel>.generate(listCount, (int index) {
       return AnnouncementModel(
         '$index',
         content: '${_kBody.toString()} >> fsdf',

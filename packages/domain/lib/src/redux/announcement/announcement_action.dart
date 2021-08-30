@@ -1,3 +1,4 @@
+import 'package:domain/src/models/error_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'models/announcement_model.dart';
@@ -16,6 +17,10 @@ class AnnouncementAction with _$AnnouncementAction {
       _AddAnnouncementList;
 
   const factory AnnouncementAction.fetchAnnouncements() = _FetchAnnouncements;
+
+  const factory AnnouncementAction.setErrorModel({required ErrorModel value}) = _SetErrorModel;
+
+  const factory AnnouncementAction.clearErrorModel() = _ClearErrorModel;
 
   const factory AnnouncementAction.cleanUp() = _CleanUp;
 }

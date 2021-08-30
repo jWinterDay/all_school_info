@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
+import 'package:utils/utils.dart';
 
 import 'announcement_list_bloc.dart';
 import 'widgets/announcement_card.dart';
@@ -78,20 +79,22 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
                           },
                         ),
 
-                        // content
-                        // if (announcementState.loading)
-                        //   const SliverFillRemaining(
-                        //     child: Center(
-                        //       child: CupertinoActivityIndicator(),
-                        //     ),
-                        //   )
-                        // else
-                        if (announcementState.announcementList == null)
+                        if (announcementState.errorModel != null)
+                          SliverToBoxAdapter(
+                            child: Text(
+                              'Error: ${announcementState.errorModel!.code} >> ${announcementState.errorModel!.message}',
+                            ),
+                          )
+                        else if (announcementState.loading && announcementState.announcementList == null)
+                          const SliverToBoxAdapter(
+                            child: Text('-------first loading'),
+                          )
+                        // after first loaded data list is not null
+                        else if (announcementState.announcementList!.isEmpty)
                           SliverToBoxAdapter(
                             child: Text(AllSchoolInfoIntl.of(context).noAnnouncement),
                           )
-                        else
-                          // TODO SliverFixedExtentList
+                        else //if (announcementState.announcementList != null)
                           SliverList(
                             delegate: SliverChildListDelegate(
                               announcementState.announcementList!.map((AnnouncementModel e) {
@@ -99,6 +102,8 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
                               }).toList(),
                             ),
                           ),
+                        // else
+                        //   const SliverToBoxAdapter(child: SizedBox()),
 
                         // padding
                         const SliverPadding(padding: EdgeInsets.only(bottom: 120))
@@ -107,8 +112,10 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
 
                     // loading
                     if (announcementState.loading)
-                      const Center(
-                        child: CupertinoActivityIndicator(
+                      SizedBox(
+                        width: context.width,
+                        height: context.height,
+                        child: const CupertinoActivityIndicator(
                           radius: 42,
                         ),
                       ),
