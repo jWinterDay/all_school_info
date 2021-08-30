@@ -39,12 +39,7 @@ AnnouncementState _addAnnouncementList(
   AnnouncementState state,
   Iterable<AnnouncementModel> list,
 ) {
-  // final List<AnnouncementModel> nextList = <AnnouncementModel>[
-  //   ...state.announcementList ?? <AnnouncementModel>[],
-  //   ...list,
-  // ];
-
   return state.copyWith(
-    announcementList: list.toList(), //nextList,
+    announcementList: list.toList(),
   );
 }

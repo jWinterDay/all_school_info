@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:computer/computer.dart';
 import 'package:design/design.dart' as design;
 import 'package:domain/domain.dart' as domain;
 import 'package:domain/domain.dart';
@@ -21,5 +22,16 @@ Future<void> initDomain() async {
 
   AppDomainProvider.appStore.dispatch(const SettingsAction.changeTestMode(value: useMock));
 
-  await domain.initDomain(useMock: useMock);
+  // computer
+  final Computer computer = Computer();
+  await computer.turnOn(
+    // workersCount: 3,
+    verbose: true,
+  );
+
+  // domain
+  await domain.initDomain(
+    useMock: useMock,
+    computer: computer,
+  );
 }

@@ -1,3 +1,7 @@
+import 'dart:io';
+
+import 'package:computer/computer.dart';
+import 'package:domain/domain.dart';
 import 'package:domain/src/redux/announcement/models/announcement_model.dart';
 
 import 'announcement_service.dart';
@@ -28,10 +32,16 @@ const String _kBody = '''
   И путь опять начнется непрерывный...
   Простись же, сердце, и окрепни снова.''';
 
+Future<void> _someExpensiveMethod() async {
+  sleep(const Duration(seconds: 1));
+}
+
 class AnnouncementServiceMock implements AnnouncementService {
   @override
   Future<List<AnnouncementModel>> fetchAnnouncements() async {
-    await Future<void>.delayed(const Duration(seconds: 1));
+    final Computer computer = getIt.get<Computer>();
+
+    await computer.compute<void, void>(_someExpensiveMethod);
 
     return List<AnnouncementModel>.generate(15, (int index) {
       return AnnouncementModel(

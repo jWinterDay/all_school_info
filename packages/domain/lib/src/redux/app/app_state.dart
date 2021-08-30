@@ -1,4 +1,5 @@
 import 'package:domain/src/redux/announcement/announcement_state.dart';
+import 'package:domain/src/redux/common/common_state.dart';
 import 'package:domain/src/redux/settings/settings_state.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -15,6 +16,7 @@ class AppState with _$AppState {
     @Default(SettingsState()) @JsonKey(name: 'settings_state') SettingsState settingsState,
     @Default(UserState()) @JsonKey(name: 'user_state') UserState userState,
     @Default(AnnouncementState()) @JsonKey(name: 'announcement_state') AnnouncementState announcementState,
+    @Default(CommonState()) @JsonKey(name: 'common_state') CommonState commonState,
   }) = _AppState;
 
   factory AppState.fromJson(Map<String, dynamic> json) => _$AppStateFromJson(json);
