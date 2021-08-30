@@ -3,7 +3,7 @@ import 'package:collection/collection.dart';
 
 class AnnouncementDetailBloc {
   AnnouncementModel? findAnnouncementById(String announcementId) {
-    final List<AnnouncementModel>? list = AppDomainProvider.appStore.state.announcementState.announcementList;
+    final List<AnnouncementModel>? list = getIt.get<AppDomain>().appStore.state.announcementState.announcementList;
 
     if (list == null) {
       return null;

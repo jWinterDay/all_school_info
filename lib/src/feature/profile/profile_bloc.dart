@@ -2,7 +2,7 @@ import 'package:domain/domain.dart';
 
 class ProfileBloc {
   void refresh() {
-    AppDomainProvider.appStore.dispatch(fetchUserThunk);
+    getIt.get<AppDomain>().appStore.dispatch(fetchUserThunk);
   }
 
   void dispose() {}

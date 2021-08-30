@@ -37,7 +37,7 @@ void main() {
 
   group('domain', () {
     test('user', () async {
-      final Store<AppState> appStore = AppDomainProvider.appStore;
+      final Store<AppState> appStore = getIt.get<AppDomain>().appStore;
 
       // logged in
       expect(appStore.state.userState.loggedIn, false);

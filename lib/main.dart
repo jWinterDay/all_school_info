@@ -19,11 +19,8 @@ void main() {
 }
 
 Future<void> _run() async {
-  // design init
+  await initApp();
   final Palette palette = await initPalette();
-
-  // domain init
-  await initDomain();
 
   runApp(
     Design(

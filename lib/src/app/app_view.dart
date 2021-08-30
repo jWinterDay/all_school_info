@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 
 import 'app_theme.dart';
 
@@ -15,7 +15,7 @@ class AppView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StoreProvider<AppState>(
-      store: AppDomainProvider.appStore,
+      store: getIt.get<AppDomain>().appStore,
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         theme: appTheme,
@@ -33,7 +33,7 @@ class AppView extends StatelessWidget {
         builder: (BuildContext context, Widget? child) {
           return MediaQuery(
             data: MediaQuery.of(context).copyWith(
-              textScaleFactor: AppDomainProvider.appStore.state.settingsState.fontScale,
+              textScaleFactor: getIt.get<AppDomain>().appStore.state.settingsState.fontScale,
             ),
             child: child ?? const SizedBox(),
           );

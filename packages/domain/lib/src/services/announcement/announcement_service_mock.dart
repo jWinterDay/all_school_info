@@ -36,20 +36,13 @@ int _cnt = 0;
 
 Future<void> _someExpensiveMethod() async {
   sleep(const Duration(seconds: 1));
-
-  if (_cnt++ % 2 == 0) {
-    throw const TlsException('fsdfsd>>>>>>>>>> fsd');
-  }
 }
 
 class AnnouncementServiceMock implements AnnouncementService {
   @override
   Future<List<AnnouncementModel>> fetchAnnouncements() async {
-    // final Computer computer = getIt.get<Computer>();
-
-    // await computer.compute<void, void>(_someExpensiveMethod);
-
-    await Future<void>.delayed(const Duration(seconds: 2));
+    final Computer computer = getIt.get<Computer>();
+    await computer.compute<void, void>(_someExpensiveMethod);
 
     int listCount = 0;
     switch (_cnt++ % 3) {

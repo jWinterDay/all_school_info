@@ -3,8 +3,8 @@ library domain;
 // ignore_for_file: directives_ordering
 
 // app
-export 'src/app_domain_provider.dart';
-export 'src/init_domain.dart';
+export 'src/app_domain.dart';
+export 'src/init_domain_di.dart';
 export 'src/redux/app/app_state.dart';
 
 // settings
