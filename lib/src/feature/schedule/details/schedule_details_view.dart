@@ -1,9 +1,12 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:domain/domain.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:all_school_info/src/generated/l10n.dart';
 import 'package:design/design.dart';
 import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:redux/redux.dart';
 
 import 'schedule_details_bloc.dart';
 
@@ -48,7 +51,14 @@ class _ScheduleDetailsViewState extends State<ScheduleDetailsView> {
         //   ),
         // ],
       ),
-      body: const Text('schedule details view'),
+      body: StoreConnector<AppState, ScheduleState>(
+        converter: (Store<AppState> store) => store.state.scheduleState,
+        builder: (_, ScheduleState scheduleState) {
+          return Text('schedule details view : ${scheduleState.loading}');
+        },
+      ),
+
+      //  const Text('schedule details view'),
     );
   }
 
@@ -88,5 +98,7 @@ class _ScheduleDetailsViewState extends State<ScheduleDetailsView> {
         );
       },
     );
+
+    _bloc.refresh();
   }
 }

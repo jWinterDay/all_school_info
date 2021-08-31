@@ -8,7 +8,7 @@ class ScheduleDetailsBloc {
   }
 
   void refresh() {
-    // getIt.get<AppDomain>().appStore.dispatch(fetchUserThunk);
+    getIt.get<AppDomain>().appStore.dispatch(fetchScheduleThunk);
   }
 
   void dispose() {}

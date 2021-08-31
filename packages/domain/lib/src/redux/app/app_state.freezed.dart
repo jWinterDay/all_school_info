@@ -24,12 +24,14 @@ class _$AppStateTearOff {
       {@JsonKey(name: 'settings_state') SettingsState settingsState = const SettingsState(),
       @JsonKey(name: 'user_state') UserState userState = const UserState(),
       @JsonKey(name: 'announcement_state') AnnouncementState announcementState = const AnnouncementState(),
-      @JsonKey(name: 'common_state') CommonState commonState = const CommonState()}) {
+      @JsonKey(name: 'common_state') CommonState commonState = const CommonState(),
+      @JsonKey(name: 'schedule_state') ScheduleState scheduleState = const ScheduleState()}) {
     return _AppState(
       settingsState: settingsState,
       userState: userState,
       announcementState: announcementState,
       commonState: commonState,
+      scheduleState: scheduleState,
     );
   }
 
@@ -51,6 +53,8 @@ mixin _$AppState {
   AnnouncementState get announcementState => throw _privateConstructorUsedError;
   @JsonKey(name: 'common_state')
   CommonState get commonState => throw _privateConstructorUsedError;
+  @JsonKey(name: 'schedule_state')
+  ScheduleState get scheduleState => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -64,12 +68,14 @@ abstract class $AppStateCopyWith<$Res> {
       {@JsonKey(name: 'settings_state') SettingsState settingsState,
       @JsonKey(name: 'user_state') UserState userState,
       @JsonKey(name: 'announcement_state') AnnouncementState announcementState,
-      @JsonKey(name: 'common_state') CommonState commonState});
+      @JsonKey(name: 'common_state') CommonState commonState,
+      @JsonKey(name: 'schedule_state') ScheduleState scheduleState});
 
   $SettingsStateCopyWith<$Res> get settingsState;
   $UserStateCopyWith<$Res> get userState;
   $AnnouncementStateCopyWith<$Res> get announcementState;
   $CommonStateCopyWith<$Res> get commonState;
+  $ScheduleStateCopyWith<$Res> get scheduleState;
 }
 
 /// @nodoc
@@ -86,6 +92,7 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
     Object? userState = freezed,
     Object? announcementState = freezed,
     Object? commonState = freezed,
+    Object? scheduleState = freezed,
   }) {
     return _then(_value.copyWith(
       settingsState: settingsState == freezed
@@ -104,6 +111,10 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
           ? _value.commonState
           : commonState // ignore: cast_nullable_to_non_nullable
               as CommonState,
+      scheduleState: scheduleState == freezed
+          ? _value.scheduleState
+          : scheduleState // ignore: cast_nullable_to_non_nullable
+              as ScheduleState,
     ));
   }
 
@@ -134,6 +145,13 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
       return _then(_value.copyWith(commonState: value));
     });
   }
+
+  @override
+  $ScheduleStateCopyWith<$Res> get scheduleState {
+    return $ScheduleStateCopyWith<$Res>(_value.scheduleState, (value) {
+      return _then(_value.copyWith(scheduleState: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -144,7 +162,8 @@ abstract class _$AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
       {@JsonKey(name: 'settings_state') SettingsState settingsState,
       @JsonKey(name: 'user_state') UserState userState,
       @JsonKey(name: 'announcement_state') AnnouncementState announcementState,
-      @JsonKey(name: 'common_state') CommonState commonState});
+      @JsonKey(name: 'common_state') CommonState commonState,
+      @JsonKey(name: 'schedule_state') ScheduleState scheduleState});
 
   @override
   $SettingsStateCopyWith<$Res> get settingsState;
@@ -154,6 +173,8 @@ abstract class _$AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
   $AnnouncementStateCopyWith<$Res> get announcementState;
   @override
   $CommonStateCopyWith<$Res> get commonState;
+  @override
+  $ScheduleStateCopyWith<$Res> get scheduleState;
 }
 
 /// @nodoc
@@ -170,6 +191,7 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res> impleme
     Object? userState = freezed,
     Object? announcementState = freezed,
     Object? commonState = freezed,
+    Object? scheduleState = freezed,
   }) {
     return _then(_AppState(
       settingsState: settingsState == freezed
@@ -188,6 +210,10 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res> impleme
           ? _value.commonState
           : commonState // ignore: cast_nullable_to_non_nullable
               as CommonState,
+      scheduleState: scheduleState == freezed
+          ? _value.scheduleState
+          : scheduleState // ignore: cast_nullable_to_non_nullable
+              as ScheduleState,
     ));
   }
 }
@@ -199,7 +225,8 @@ class _$_AppState extends _AppState {
       {@JsonKey(name: 'settings_state') this.settingsState = const SettingsState(),
       @JsonKey(name: 'user_state') this.userState = const UserState(),
       @JsonKey(name: 'announcement_state') this.announcementState = const AnnouncementState(),
-      @JsonKey(name: 'common_state') this.commonState = const CommonState()})
+      @JsonKey(name: 'common_state') this.commonState = const CommonState(),
+      @JsonKey(name: 'schedule_state') this.scheduleState = const ScheduleState()})
       : super._();
 
   factory _$_AppState.fromJson(Map<String, dynamic> json) => _$_$_AppStateFromJson(json);
@@ -216,10 +243,13 @@ class _$_AppState extends _AppState {
   @override
   @JsonKey(name: 'common_state')
   final CommonState commonState;
+  @override
+  @JsonKey(name: 'schedule_state')
+  final ScheduleState scheduleState;
 
   @override
   String toString() {
-    return 'AppState(settingsState: $settingsState, userState: $userState, announcementState: $announcementState, commonState: $commonState)';
+    return 'AppState(settingsState: $settingsState, userState: $userState, announcementState: $announcementState, commonState: $commonState, scheduleState: $scheduleState)';
   }
 
   @override
@@ -233,7 +263,9 @@ class _$_AppState extends _AppState {
             (identical(other.announcementState, announcementState) ||
                 const DeepCollectionEquality().equals(other.announcementState, announcementState)) &&
             (identical(other.commonState, commonState) ||
-                const DeepCollectionEquality().equals(other.commonState, commonState)));
+                const DeepCollectionEquality().equals(other.commonState, commonState)) &&
+            (identical(other.scheduleState, scheduleState) ||
+                const DeepCollectionEquality().equals(other.scheduleState, scheduleState)));
   }
 
   @override
@@ -242,7 +274,8 @@ class _$_AppState extends _AppState {
       const DeepCollectionEquality().hash(settingsState) ^
       const DeepCollectionEquality().hash(userState) ^
       const DeepCollectionEquality().hash(announcementState) ^
-      const DeepCollectionEquality().hash(commonState);
+      const DeepCollectionEquality().hash(commonState) ^
+      const DeepCollectionEquality().hash(scheduleState);
 
   @JsonKey(ignore: true)
   @override
@@ -259,7 +292,8 @@ abstract class _AppState extends AppState {
       {@JsonKey(name: 'settings_state') SettingsState settingsState,
       @JsonKey(name: 'user_state') UserState userState,
       @JsonKey(name: 'announcement_state') AnnouncementState announcementState,
-      @JsonKey(name: 'common_state') CommonState commonState}) = _$_AppState;
+      @JsonKey(name: 'common_state') CommonState commonState,
+      @JsonKey(name: 'schedule_state') ScheduleState scheduleState}) = _$_AppState;
   const _AppState._() : super._();
 
   factory _AppState.fromJson(Map<String, dynamic> json) = _$_AppState.fromJson;
@@ -276,6 +310,9 @@ abstract class _AppState extends AppState {
   @override
   @JsonKey(name: 'common_state')
   CommonState get commonState => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'schedule_state')
+  ScheduleState get scheduleState => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$AppStateCopyWith<_AppState> get copyWith => throw _privateConstructorUsedError;

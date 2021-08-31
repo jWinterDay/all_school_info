@@ -30,3 +30,8 @@ export 'src/redux/user/models/lesson_name_model.dart';
 export 'src/redux/user/models/user_relations.dart';
 export 'src/redux/user/models/user_type.dart';
 export 'src/redux/user/thunks/fetch_user_thunk.dart';
+
+// schedule
+export 'src/redux/schedule/schedule_action.dart';
+export 'src/redux/schedule/schedule_state.dart';
+export 'src/redux/schedule/thunks/fetch_schedule_thunk.dart';
