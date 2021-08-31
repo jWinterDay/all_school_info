@@ -61,7 +61,7 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
                 items: uiAnnouncementInfo.topAnnouncementList.map((AnnouncementModel topAnnouncement) {
                   return GestureDetector(
                     onTap: () {
-                      AutoRouter.of(context).push(gr.AnnouncementDetailViewRoute(
+                      AutoRouter.of(context).push(gr.AnnouncementDetailsViewRoute(
                         announcementModelId: topAnnouncement.id,
                       ));
                     },

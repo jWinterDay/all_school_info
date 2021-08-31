@@ -24,7 +24,7 @@ class AnnouncementCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
       child: GestureDetector(
         onTap: () {
-          AutoRouter.of(context).push(gr.AnnouncementDetailViewRoute(
+          AutoRouter.of(context).push(gr.AnnouncementDetailsViewRoute(
             announcementModelId: announcementModel.id,
           ));
         },

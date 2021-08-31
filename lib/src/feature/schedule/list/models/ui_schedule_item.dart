@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' show Color, IconData;
 
 class UiScheduleItem {
@@ -6,6 +7,7 @@ class UiScheduleItem {
     this.addTitle,
     this.icon,
     required this.iconColor,
+    required this.callback,
   });
 
   final String title;
@@ -15,4 +17,6 @@ class UiScheduleItem {
   final IconData? icon;
 
   final Color iconColor;
+
+  final AsyncCallback callback;
 }

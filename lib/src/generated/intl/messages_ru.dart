@@ -21,26 +21,19 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "announcementViewTitle":
-            MessageLookupByLibrary.simpleMessage("Объявление"),
-        "announcementsTabTitle":
-            MessageLookupByLibrary.simpleMessage("Объявления"),
+        "announcementViewTitle": MessageLookupByLibrary.simpleMessage("Объявление"),
+        "announcementsTabTitle": MessageLookupByLibrary.simpleMessage("Объявления"),
         "mainTitle": MessageLookupByLibrary.simpleMessage("Школа 67"),
-        "noAnnouncement":
-            MessageLookupByLibrary.simpleMessage("Нет объявлений"),
+        "noAnnouncement": MessageLookupByLibrary.simpleMessage("Нет объявлений"),
         "notLoggedIn": MessageLookupByLibrary.simpleMessage("Залогиниться"),
         "profileTabTitle": MessageLookupByLibrary.simpleMessage("Профиль"),
-        "profileViewTitle":
-            MessageLookupByLibrary.simpleMessage("Профиль пользователя"),
-        "scheduleHomework":
-            MessageLookupByLibrary.simpleMessage("Домашнее задание"),
-        "scheduleLastNotifications":
-            MessageLookupByLibrary.simpleMessage("Последние уведомления"),
+        "profileViewTitle": MessageLookupByLibrary.simpleMessage("Профиль пользователя"),
+        "scheduleHomework": MessageLookupByLibrary.simpleMessage("Домашнее задание"),
+        "scheduleLastNotifications": MessageLookupByLibrary.simpleMessage("Последние уведомления"),
         "scheduleNews": MessageLookupByLibrary.simpleMessage("Новости"),
         "scheduleRatings": MessageLookupByLibrary.simpleMessage("Оценки"),
         "scheduleViewTitle": MessageLookupByLibrary.simpleMessage("Расписание"),
         "unknownAnnouncementContent": MessageLookupByLibrary.simpleMessage("-"),
-        "unknownAnnouncementTitle":
-            MessageLookupByLibrary.simpleMessage("Объявление не существует")
+        "unknownAnnouncementTitle": MessageLookupByLibrary.simpleMessage("Объявление не существует")
       };
 }

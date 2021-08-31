@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:all_school_info/src/generated/l10n.dart';
 import 'package:design/design.dart';
 
-import 'announcement_detail_bloc.dart';
+import 'announcement_details_bloc.dart';
 
-class AnnouncementDetailView extends StatefulWidget {
-  const AnnouncementDetailView({
+class AnnouncementDetailsView extends StatefulWidget {
+  const AnnouncementDetailsView({
     Key? key,
     @PathParam('id') required this.announcementModelId,
   }) : super(key: key);
@@ -16,11 +16,11 @@ class AnnouncementDetailView extends StatefulWidget {
   final String announcementModelId;
 
   @override
-  _AnnouncementDetailViewState createState() => _AnnouncementDetailViewState();
+  _AnnouncementDetailsViewState createState() => _AnnouncementDetailsViewState();
 }
 
-class _AnnouncementDetailViewState extends State<AnnouncementDetailView> {
-  final AnnouncementDetailBloc _bloc = AnnouncementDetailBloc();
+class _AnnouncementDetailsViewState extends State<AnnouncementDetailsView> {
+  final AnnouncementDetailsBloc _bloc = AnnouncementDetailsBloc();
 
   AnnouncementModel? _announcementModel;
 

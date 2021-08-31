@@ -1,7 +1,7 @@
 import 'package:domain/domain.dart';
 import 'package:collection/collection.dart';
 
-class AnnouncementDetailBloc {
+class AnnouncementDetailsBloc {
   AnnouncementModel? findAnnouncementById(String announcementId) {
     final List<AnnouncementModel>? list = getIt.get<AppDomain>().appStore.state.announcementState.announcementList;
 
