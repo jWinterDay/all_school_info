@@ -63,6 +63,7 @@ class AnnouncementServiceMock implements AnnouncementService {
         '$index',
         content: '${_kBody.toString()} >> fsdf',
         title: 'looooooooooo oooooooooooo ooooooOOOoo OOOOoooOOoooong_title_$index',
+        isTopEvent: index % 2 == 0,
       );
     });
   }

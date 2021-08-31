@@ -16,6 +16,7 @@ class AnnouncementModel with _$AnnouncementModel {
     @JsonKey(name: 'user_groups', defaultValue: <String>[defaultUserGroup])
     @Default(<String>[defaultUserGroup])
         List<String> userGroups,
+    @JsonKey(name: 'is_top_event', defaultValue: false) @Default(false) bool isTopEvent,
   }) = _AnnouncementModel;
 
   factory AnnouncementModel.fromJson(Map<String, dynamic> json) => _$AnnouncementModelFromJson(json);

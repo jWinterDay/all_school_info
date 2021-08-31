@@ -1,4 +1,6 @@
 import 'package:all_school_info/src/generated/l10n.dart';
+import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
+import 'package:auto_route/auto_route.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:design/design.dart';
 import 'package:domain/domain.dart';
@@ -39,32 +41,42 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        // top events
-        CarouselSlider(
-          options: CarouselOptions(
-            height: 100,
-            autoPlay: true,
-          ),
-          items: <int>[1, 2, 3, 4, 5].map((int i) {
-            return Container(
-              width: context.width,
-              margin: const EdgeInsets.symmetric(horizontal: 5),
-              decoration: BoxDecoration(color: context.palette.primaryLight),
-              child: Text(
-                'text $i',
-                style: Theme.of(context).textTheme.caption,
+    return StoreConnector<AppState, AnnouncementState>(
+      converter: (Store<AppState> store) => store.state.announcementState,
+      builder: (_, AnnouncementState announcementState) {
+        return Column(
+          children: <Widget>[
+            // top events
+            if (announcementState.topAnnouncements.isNotEmpty)
+              CarouselSlider(
+                options: CarouselOptions(
+                  height: 100,
+                  autoPlay: true,
+                ),
+                items: announcementState.topAnnouncements.map((AnnouncementModel topAnnouncement) {
+                  // return AnnouncementCard(announcementModel: topAnnouncement);
+                  return GestureDetector(
+                    onTap: () {
+                      AutoRouter.of(context).push(gr.AnnouncementDetailViewRoute(
+                        announcementModelId: topAnnouncement.id,
+                      ));
+                    },
+                    child: Container(
+                      width: context.width,
+                      margin: const EdgeInsets.symmetric(horizontal: 4),
+                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                      decoration: BoxDecoration(color: context.palette.primaryLight),
+                      child: Text(
+                        topAnnouncement.title ?? '',
+                        style: Theme.of(context).textTheme.caption,
+                      ),
+                    ),
+                  );
+                }).toList(),
               ),
-            );
-          }).toList(),
-        ),
 
-        // scroll content
-        StoreConnector<AppState, AnnouncementState>(
-          converter: (Store<AppState> store) => store.state.announcementState,
-          builder: (_, AnnouncementState announcementState) {
-            return Expanded(
+            // scroll content
+            Expanded(
               child: Padding(
                 padding: const EdgeInsets.only(top: 4),
                 child: Stack(
@@ -85,19 +97,19 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
                               'Error: ${announcementState.errorModel!.code} >> ${announcementState.errorModel!.message}',
                             ),
                           )
-                        else if (announcementState.loading && announcementState.announcementList == null)
+                        else if (announcementState.loading && announcementState.isFirstLoading)
                           const SliverToBoxAdapter(
                             child: Text('-------first loading'),
                           )
                         // after first loaded data list is not null
-                        else if (announcementState.announcementList!.isEmpty)
+                        else if (announcementState.announcements.isEmpty)
                           SliverToBoxAdapter(
                             child: Text(AllSchoolInfoIntl.of(context).noAnnouncement),
                           )
                         else //if (announcementState.announcementList != null)
                           SliverList(
                             delegate: SliverChildListDelegate(
-                              announcementState.announcementList!.map((AnnouncementModel e) {
+                              announcementState.announcements.map((AnnouncementModel e) {
                                 return AnnouncementCard(announcementModel: e);
                               }).toList(),
                             ),
@@ -122,10 +134,10 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
                   ],
                 ),
               ),
-            );
-          },
-        ),
-      ],
+            ),
+          ],
+        );
+      },
     );
   }
 }

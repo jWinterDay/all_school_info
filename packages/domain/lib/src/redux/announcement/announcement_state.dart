@@ -17,4 +17,26 @@ class AnnouncementState with _$AnnouncementState {
   }) = _AnnouncementState;
 
   factory AnnouncementState.fromJson(Map<String, dynamic> json) => _$AnnouncementStateFromJson(json);
+
+  List<AnnouncementModel> get topAnnouncements {
+    if (announcementList == null) {
+      return <AnnouncementModel>[];
+    }
+
+    return announcementList!.where((AnnouncementModel item) {
+      return item.isTopEvent;
+    }).toList();
+  }
+
+  bool get isFirstLoading => announcementList == null;
+
+  List<AnnouncementModel> get announcements {
+    if (announcementList == null) {
+      return <AnnouncementModel>[];
+    }
+
+    return announcementList!.where((AnnouncementModel item) {
+      return !item.isTopEvent;
+    }).toList();
+  }
 }
