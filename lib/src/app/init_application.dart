@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:computer/computer.dart';
 import 'package:design/design.dart';
 import 'package:domain/domain.dart';
-import 'package:utils/logger.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';

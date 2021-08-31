@@ -7,6 +7,7 @@ import 'package:redux/redux.dart';
 
 import 'models/ui_schedule_item.dart';
 import 'schedule_bloc.dart';
+import 'widgets/schedule_item.dart';
 
 class ScheduleView extends StatefulWidget {
   @override
@@ -69,20 +70,8 @@ class _ScheduleViewState extends State<ScheduleView> {
         SliverList(
           delegate: SliverChildListDelegate(
             _itemList().map((UiScheduleItem uiScheduleItem) {
-              return Padding(
-                padding: const EdgeInsets.only(bottom: 2, top: 24),
-                child: Row(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                      child: Icon(
-                        uiScheduleItem.icon,
-                        color: uiScheduleItem.iconColor,
-                      ),
-                    ),
-                    Text(uiScheduleItem.title),
-                  ],
-                ),
+              return ScheduleItem(
+                uiScheduleItem: uiScheduleItem,
               );
             }).toList(),
           ),
