@@ -14,6 +14,7 @@ class _HomeViewState extends State<HomeView> {
     return AutoTabsRouter(
       routes: const <PageRouteInfo<dynamic>>[
         gr.AnnouncementListViewRoute(),
+        gr.ScheduleViewRoute(),
         gr.ProfileViewRoute(),
       ],
       builder: (BuildContext context, Widget child, Animation<double> animation) {
@@ -40,6 +41,10 @@ class _HomeViewState extends State<HomeView> {
               BottomNavigationBarItem(
                 icon: const Icon(Icons.g_translate),
                 label: AllSchoolInfoIntl.of(context).announcementsTabTitle,
+              ),
+              BottomNavigationBarItem(
+                icon: const Icon(Icons.yard),
+                label: AllSchoolInfoIntl.of(context).scheduleViewTitle,
               ),
               BottomNavigationBarItem(
                 icon: const Icon(Icons.face_retouching_off_rounded),

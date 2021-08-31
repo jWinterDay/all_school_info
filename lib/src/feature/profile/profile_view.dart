@@ -105,71 +105,69 @@ class _ProfileViewState extends State<ProfileView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: <Widget>[
-          // title
-          Padding(
-            padding: const EdgeInsets.all(8),
-            child: Center(
-              child: Text(
-                AllSchoolInfoIntl.of(context).profileViewTitle,
-              ),
+    return Column(
+      children: <Widget>[
+        // title
+        Padding(
+          padding: const EdgeInsets.all(8),
+          child: Center(
+            child: Text(
+              AllSchoolInfoIntl.of(context).profileViewTitle,
             ),
           ),
+        ),
 
-          // scroll content
-          StoreConnector<AppState, UserState>(
-            converter: (Store<AppState> store) => store.state.userState,
-            builder: (_, UserState userState) {
-              return Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 4),
-                  child: Stack(
-                    children: <Widget>[
-                      // content
-                      CustomScrollView(
-                        slivers: <Widget>[
-                          // refresh
-                          CupertinoSliverRefreshControl(
-                            onRefresh: () async {
-                              _bloc.refresh();
-                            },
-                          ),
+        // scroll content
+        StoreConnector<AppState, UserState>(
+          converter: (Store<AppState> store) => store.state.userState,
+          builder: (_, UserState userState) {
+            return Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 4),
+                child: Stack(
+                  children: <Widget>[
+                    // content
+                    CustomScrollView(
+                      slivers: <Widget>[
+                        // refresh
+                        CupertinoSliverRefreshControl(
+                          onRefresh: () async {
+                            _bloc.refresh();
+                          },
+                        ),
 
-                          SliverList(
-                            delegate: SliverChildListDelegate(
-                              _itemList(userState).map((UiProfileItem uiProfileItem) {
-                                return Padding(
-                                  padding: const EdgeInsets.only(bottom: 2),
-                                  child: ProfileItem(
-                                    uiProfileItem: uiProfileItem,
-                                  ),
-                                );
-                              }).toList(),
-                            ),
-                          ),
-
-                          // padding
-                          const SliverPadding(padding: EdgeInsets.only(bottom: 120)),
-                        ],
-                      ),
-
-                      // loading
-                      if (userState.loading)
-                        const Center(
-                          child: CupertinoActivityIndicator(
-                            radius: 42,
+                        SliverList(
+                          delegate: SliverChildListDelegate(
+                            _itemList(userState).map((UiProfileItem uiProfileItem) {
+                              return Padding(
+                                padding: const EdgeInsets.only(bottom: 2),
+                                child: ProfileItem(
+                                  uiProfileItem: uiProfileItem,
+                                ),
+                              );
+                            }).toList(),
                           ),
                         ),
-                    ],
-                  ),
+
+                        // padding
+                        const SliverPadding(padding: EdgeInsets.only(bottom: 120)),
+                      ],
+                    ),
+
+                    // loading
+                    if (userState.loading)
+                      const Center(
+                        child: CupertinoActivityIndicator(
+                          radius: 42,
+                        ),
+                      ),
+                  ],
                 ),
-              );
-            },
-          ),
-        ],
-      ),
+              ),
+            );
+          },
+        ),
+      ],
     );
   }
 }

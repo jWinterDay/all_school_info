@@ -8,5 +8,11 @@
     "unknownAnnouncementContent": "-",
 
     "profileViewTitle": "Профиль пользователя",
-    "notLoggedIn": "Залогиниться"
+    "notLoggedIn": "Залогиниться",
+
+    "scheduleViewTitle": "Расписание",
+    "scheduleLastNotifications": "Последние уведомления",
+    "scheduleRatings": "Оценки",
+    "scheduleNews": "Новости",
+    "scheduleHomework": "Домашнее задание"
 }

@@ -139,6 +139,56 @@ class AllSchoolInfoIntl {
       args: [],
     );
   }
+
+  /// `Расписание`
+  String get scheduleViewTitle {
+    return Intl.message(
+      'Расписание',
+      name: 'scheduleViewTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Последние уведомления`
+  String get scheduleLastNotifications {
+    return Intl.message(
+      'Последние уведомления',
+      name: 'scheduleLastNotifications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Оценки`
+  String get scheduleRatings {
+    return Intl.message(
+      'Оценки',
+      name: 'scheduleRatings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Новости`
+  String get scheduleNews {
+    return Intl.message(
+      'Новости',
+      name: 'scheduleNews',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Домашнее задание`
+  String get scheduleHomework {
+    return Intl.message(
+      'Домашнее задание',
+      name: 'scheduleHomework',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AllSchoolInfoIntl> {

@@ -1,5 +1,4 @@
 import 'package:all_school_info/src/feature/profile/models/ui_profile_item.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:design/design.dart';
 

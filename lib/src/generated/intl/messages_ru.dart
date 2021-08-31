@@ -32,6 +32,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "profileTabTitle": MessageLookupByLibrary.simpleMessage("Профиль"),
         "profileViewTitle":
             MessageLookupByLibrary.simpleMessage("Профиль пользователя"),
+        "scheduleHomework":
+            MessageLookupByLibrary.simpleMessage("Домашнее задание"),
+        "scheduleLastNotifications":
+            MessageLookupByLibrary.simpleMessage("Последние уведомления"),
+        "scheduleNews": MessageLookupByLibrary.simpleMessage("Новости"),
+        "scheduleRatings": MessageLookupByLibrary.simpleMessage("Оценки"),
+        "scheduleViewTitle": MessageLookupByLibrary.simpleMessage("Расписание"),
         "unknownAnnouncementContent": MessageLookupByLibrary.simpleMessage("-"),
         "unknownAnnouncementTitle":
             MessageLookupByLibrary.simpleMessage("Объявление не существует")

@@ -5,11 +5,13 @@
 // **************************************************************************
 
 import 'package:auto_route/auto_route.dart' as _i1;
+import 'package:flutter/cupertino.dart' as _i8;
 import 'package:flutter/material.dart' as _i2;
 
 import '../feature/announcement/detail/announcement_detail_view.dart' as _i4;
 import '../feature/announcement/list/announcement_list_view.dart' as _i5;
 import '../feature/profile/profile_view.dart' as _i6;
+import '../feature/schedule/schedule_view.dart' as _i7;
 import '../home/home_view.dart' as _i3;
 
 class AppRouter extends _i1.RootStackRouter {
@@ -39,6 +41,11 @@ class AppRouter extends _i1.RootStackRouter {
         routeData: routeData,
         builder: (_) {
           return _i6.ProfileView();
+        }),
+    ScheduleViewRoute.name: (routeData) => _i1.CupertinoPageX<Object>(
+        routeData: routeData,
+        builder: (_) {
+          return _i7.ScheduleView();
         })
   };
 
@@ -46,9 +53,11 @@ class AppRouter extends _i1.RootStackRouter {
   List<_i1.RouteConfig> get routes => [
         _i1.RouteConfig(HomeViewRoute.name, path: '/', children: [
           _i1.RouteConfig(AnnouncementListViewRoute.name, path: 'announcement-list-view'),
-          _i1.RouteConfig(ProfileViewRoute.name, path: 'profile-view')
+          _i1.RouteConfig(ProfileViewRoute.name, path: 'profile-view'),
+          _i1.RouteConfig(ScheduleViewRoute.name, path: 'schedule-view')
         ]),
-        _i1.RouteConfig(AnnouncementDetailViewRoute.name, path: '/announcement_detail_view/:id')
+        _i1.RouteConfig(AnnouncementDetailViewRoute.name, path: '/announcement_detail_view/:id'),
+        _i1.RouteConfig('*#redirect', path: '*', redirectTo: '/', fullMatch: true)
       ];
 }
 
@@ -59,7 +68,7 @@ class HomeViewRoute extends _i1.PageRouteInfo {
 }
 
 class AnnouncementDetailViewRoute extends _i1.PageRouteInfo<AnnouncementDetailViewRouteArgs> {
-  AnnouncementDetailViewRoute({_i2.Key? key, required String announcementModelId})
+  AnnouncementDetailViewRoute({_i8.Key? key, required String announcementModelId})
       : super(name,
             path: '/announcement_detail_view/:id',
             args: AnnouncementDetailViewRouteArgs(key: key, announcementModelId: announcementModelId),
@@ -71,7 +80,7 @@ class AnnouncementDetailViewRoute extends _i1.PageRouteInfo<AnnouncementDetailVi
 class AnnouncementDetailViewRouteArgs {
   const AnnouncementDetailViewRouteArgs({this.key, required this.announcementModelId});
 
-  final _i2.Key? key;
+  final _i8.Key? key;
 
   final String announcementModelId;
 }
@@ -86,4 +95,10 @@ class ProfileViewRoute extends _i1.PageRouteInfo {
   const ProfileViewRoute() : super(name, path: 'profile-view');
 
   static const String name = 'ProfileViewRoute';
+}
+
+class ScheduleViewRoute extends _i1.PageRouteInfo {
+  const ScheduleViewRoute() : super(name, path: 'schedule-view');
+
+  static const String name = 'ScheduleViewRoute';
 }

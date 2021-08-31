@@ -18,7 +18,7 @@ class UiAnnouncementInfo {
     return 'Error: ${announcementState.errorModel!.code} >> ${announcementState.errorModel!.message}';
   }
 
-  //
+  // top announcements taking into limit count
   List<AnnouncementModel> get topAnnouncementList {
     return announcementState.topAnnouncements.take(topAnnouncementCount).toList();
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart' show IconData, Widget;
 
 class UiProfileItem {
-  UiProfileItem({
+  const UiProfileItem({
     required this.title,
     this.addTitle,
     this.icon,
