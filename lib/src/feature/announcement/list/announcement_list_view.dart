@@ -8,9 +8,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
-import 'package:utils/utils.dart';
 
 import 'announcement_list_bloc.dart';
+import 'models/ui_announcement_info.dart';
 import 'widgets/announcement_card.dart';
 
 class AnnouncementListView extends StatefulWidget {
@@ -41,20 +41,24 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
 
   @override
   Widget build(BuildContext context) {
-    return StoreConnector<AppState, AnnouncementState>(
-      converter: (Store<AppState> store) => store.state.announcementState,
-      builder: (_, AnnouncementState announcementState) {
+    return StoreConnector<AppState, UiAnnouncementInfo>(
+      converter: (Store<AppState> store) {
+        return UiAnnouncementInfo(
+          announcementState: store.state.announcementState,
+          topAnnouncementCount: store.state.commonState.topAnnouncementCount,
+        );
+      },
+      builder: (_, UiAnnouncementInfo uiAnnouncementInfo) {
         return Column(
           children: <Widget>[
             // top events
-            if (announcementState.topAnnouncements.isNotEmpty)
+            if (uiAnnouncementInfo.announcementState.topAnnouncements.isNotEmpty)
               CarouselSlider(
                 options: CarouselOptions(
                   height: 100,
                   autoPlay: true,
                 ),
-                items: announcementState.topAnnouncements.map((AnnouncementModel topAnnouncement) {
-                  // return AnnouncementCard(announcementModel: topAnnouncement);
+                items: uiAnnouncementInfo.topAnnouncementList.map((AnnouncementModel topAnnouncement) {
                   return GestureDetector(
                     onTap: () {
                       AutoRouter.of(context).push(gr.AnnouncementDetailViewRoute(
@@ -78,7 +82,7 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
             // scroll content
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.only(top: 4),
+                padding: const EdgeInsets.only(top: 4, left: 4, right: 4),
                 child: Stack(
                   children: <Widget>[
                     // content
@@ -91,31 +95,30 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
                           },
                         ),
 
-                        if (announcementState.errorModel != null)
+                        if (uiAnnouncementInfo.announcementState.errorModel != null)
                           SliverToBoxAdapter(
                             child: Text(
-                              'Error: ${announcementState.errorModel!.code} >> ${announcementState.errorModel!.message}',
+                              'Error: ${uiAnnouncementInfo.errorMessage}',
                             ),
                           )
-                        else if (announcementState.loading && announcementState.isFirstLoading)
+                        else if (uiAnnouncementInfo.announcementState.loading &&
+                            uiAnnouncementInfo.announcementState.isFirstLoading)
                           const SliverToBoxAdapter(
                             child: Text('-------first loading'),
                           )
                         // after first loaded data list is not null
-                        else if (announcementState.announcements.isEmpty)
+                        else if (uiAnnouncementInfo.announcementState.announcements.isEmpty)
                           SliverToBoxAdapter(
                             child: Text(AllSchoolInfoIntl.of(context).noAnnouncement),
                           )
-                        else //if (announcementState.announcementList != null)
+                        else
                           SliverList(
                             delegate: SliverChildListDelegate(
-                              announcementState.announcements.map((AnnouncementModel e) {
+                              uiAnnouncementInfo.announcementState.announcements.map((AnnouncementModel e) {
                                 return AnnouncementCard(announcementModel: e);
                               }).toList(),
                             ),
                           ),
-                        // else
-                        //   const SliverToBoxAdapter(child: SizedBox()),
 
                         // padding
                         const SliverPadding(padding: EdgeInsets.only(bottom: 120))
@@ -123,7 +126,7 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
                     ),
 
                     // loading
-                    if (announcementState.loading)
+                    if (uiAnnouncementInfo.announcementState.loading)
                       SizedBox(
                         width: context.width,
                         height: context.height,

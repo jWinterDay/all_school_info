@@ -8,10 +8,10 @@ part of 'common_state.dart';
 
 _$_CommonState _$_$_CommonStateFromJson(Map<String, dynamic> json) {
   return _$_CommonState(
-    errorModel: json['error_model'] == null ? null : ErrorModel.fromJson(json['error_model'] as Map<String, dynamic>),
+    topAnnouncementCount: json['top_announcement_count'] as int? ?? 5,
   );
 }
 
 Map<String, dynamic> _$_$_CommonStateToJson(_$_CommonState instance) => <String, dynamic>{
-      'error_model': instance.errorModel?.toJson(),
+      'top_announcement_count': instance.topAnnouncementCount,
     };

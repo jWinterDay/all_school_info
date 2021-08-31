@@ -16,14 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$CommonActionTearOff {
   const _$CommonActionTearOff();
 
-  _SetErrorModel setErrorModel({required ErrorModel value}) {
-    return _SetErrorModel(
+  _TopAnnouncementCount topAnnouncementCount({required int value}) {
+    return _TopAnnouncementCount(
       value: value,
     );
-  }
-
-  _ClearErrorModel clearErrorModel() {
-    return const _ClearErrorModel();
   }
 }
 
@@ -32,38 +28,40 @@ const $CommonAction = _$CommonActionTearOff();
 
 /// @nodoc
 mixin _$CommonAction {
+  int get value => throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ErrorModel value) setErrorModel,
-    required TResult Function() clearErrorModel,
+    required TResult Function(int value) topAnnouncementCount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ErrorModel value)? setErrorModel,
-    TResult Function()? clearErrorModel,
+    TResult Function(int value)? topAnnouncementCount,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_SetErrorModel value) setErrorModel,
-    required TResult Function(_ClearErrorModel value) clearErrorModel,
+    required TResult Function(_TopAnnouncementCount value) topAnnouncementCount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_SetErrorModel value)? setErrorModel,
-    TResult Function(_ClearErrorModel value)? clearErrorModel,
+    TResult Function(_TopAnnouncementCount value)? topAnnouncementCount,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $CommonActionCopyWith<CommonAction> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $CommonActionCopyWith<$Res> {
   factory $CommonActionCopyWith(CommonAction value, $Res Function(CommonAction) then) =
       _$CommonActionCopyWithImpl<$Res>;
+  $Res call({int value});
 }
 
 /// @nodoc
@@ -73,63 +71,67 @@ class _$CommonActionCopyWithImpl<$Res> implements $CommonActionCopyWith<$Res> {
   final CommonAction _value;
   // ignore: unused_field
   final $Res Function(CommonAction) _then;
-}
-
-/// @nodoc
-abstract class _$SetErrorModelCopyWith<$Res> {
-  factory _$SetErrorModelCopyWith(_SetErrorModel value, $Res Function(_SetErrorModel) then) =
-      __$SetErrorModelCopyWithImpl<$Res>;
-  $Res call({ErrorModel value});
-
-  $ErrorModelCopyWith<$Res> get value;
-}
-
-/// @nodoc
-class __$SetErrorModelCopyWithImpl<$Res> extends _$CommonActionCopyWithImpl<$Res>
-    implements _$SetErrorModelCopyWith<$Res> {
-  __$SetErrorModelCopyWithImpl(_SetErrorModel _value, $Res Function(_SetErrorModel) _then)
-      : super(_value, (v) => _then(v as _SetErrorModel));
-
-  @override
-  _SetErrorModel get _value => super._value as _SetErrorModel;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_SetErrorModel(
+    return _then(_value.copyWith(
       value: value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as ErrorModel,
+              as int,
     ));
   }
+}
+
+/// @nodoc
+abstract class _$TopAnnouncementCountCopyWith<$Res> implements $CommonActionCopyWith<$Res> {
+  factory _$TopAnnouncementCountCopyWith(_TopAnnouncementCount value, $Res Function(_TopAnnouncementCount) then) =
+      __$TopAnnouncementCountCopyWithImpl<$Res>;
+  @override
+  $Res call({int value});
+}
+
+/// @nodoc
+class __$TopAnnouncementCountCopyWithImpl<$Res> extends _$CommonActionCopyWithImpl<$Res>
+    implements _$TopAnnouncementCountCopyWith<$Res> {
+  __$TopAnnouncementCountCopyWithImpl(_TopAnnouncementCount _value, $Res Function(_TopAnnouncementCount) _then)
+      : super(_value, (v) => _then(v as _TopAnnouncementCount));
 
   @override
-  $ErrorModelCopyWith<$Res> get value {
-    return $ErrorModelCopyWith<$Res>(_value.value, (value) {
-      return _then(_value.copyWith(value: value));
-    });
+  _TopAnnouncementCount get _value => super._value as _TopAnnouncementCount;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_TopAnnouncementCount(
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
   }
 }
 
 /// @nodoc
 
-class _$_SetErrorModel implements _SetErrorModel {
-  const _$_SetErrorModel({required this.value});
+class _$_TopAnnouncementCount implements _TopAnnouncementCount {
+  const _$_TopAnnouncementCount({required this.value});
 
   @override
-  final ErrorModel value;
+  final int value;
 
   @override
   String toString() {
-    return 'CommonAction.setErrorModel(value: $value)';
+    return 'CommonAction.topAnnouncementCount(value: $value)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SetErrorModel &&
+        (other is _TopAnnouncementCount &&
             (identical(other.value, value) || const DeepCollectionEquality().equals(other.value, value)));
   }
 
@@ -138,27 +140,25 @@ class _$_SetErrorModel implements _SetErrorModel {
 
   @JsonKey(ignore: true)
   @override
-  _$SetErrorModelCopyWith<_SetErrorModel> get copyWith =>
-      __$SetErrorModelCopyWithImpl<_SetErrorModel>(this, _$identity);
+  _$TopAnnouncementCountCopyWith<_TopAnnouncementCount> get copyWith =>
+      __$TopAnnouncementCountCopyWithImpl<_TopAnnouncementCount>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ErrorModel value) setErrorModel,
-    required TResult Function() clearErrorModel,
+    required TResult Function(int value) topAnnouncementCount,
   }) {
-    return setErrorModel(value);
+    return topAnnouncementCount(value);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ErrorModel value)? setErrorModel,
-    TResult Function()? clearErrorModel,
+    TResult Function(int value)? topAnnouncementCount,
     required TResult orElse(),
   }) {
-    if (setErrorModel != null) {
-      return setErrorModel(value);
+    if (topAnnouncementCount != null) {
+      return topAnnouncementCount(value);
     }
     return orElse();
   }
@@ -166,113 +166,30 @@ class _$_SetErrorModel implements _SetErrorModel {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_SetErrorModel value) setErrorModel,
-    required TResult Function(_ClearErrorModel value) clearErrorModel,
+    required TResult Function(_TopAnnouncementCount value) topAnnouncementCount,
   }) {
-    return setErrorModel(this);
+    return topAnnouncementCount(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_SetErrorModel value)? setErrorModel,
-    TResult Function(_ClearErrorModel value)? clearErrorModel,
+    TResult Function(_TopAnnouncementCount value)? topAnnouncementCount,
     required TResult orElse(),
   }) {
-    if (setErrorModel != null) {
-      return setErrorModel(this);
+    if (topAnnouncementCount != null) {
+      return topAnnouncementCount(this);
     }
     return orElse();
   }
 }
 
-abstract class _SetErrorModel implements CommonAction {
-  const factory _SetErrorModel({required ErrorModel value}) = _$_SetErrorModel;
+abstract class _TopAnnouncementCount implements CommonAction {
+  const factory _TopAnnouncementCount({required int value}) = _$_TopAnnouncementCount;
 
-  ErrorModel get value => throw _privateConstructorUsedError;
+  @override
+  int get value => throw _privateConstructorUsedError;
+  @override
   @JsonKey(ignore: true)
-  _$SetErrorModelCopyWith<_SetErrorModel> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$ClearErrorModelCopyWith<$Res> {
-  factory _$ClearErrorModelCopyWith(_ClearErrorModel value, $Res Function(_ClearErrorModel) then) =
-      __$ClearErrorModelCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$ClearErrorModelCopyWithImpl<$Res> extends _$CommonActionCopyWithImpl<$Res>
-    implements _$ClearErrorModelCopyWith<$Res> {
-  __$ClearErrorModelCopyWithImpl(_ClearErrorModel _value, $Res Function(_ClearErrorModel) _then)
-      : super(_value, (v) => _then(v as _ClearErrorModel));
-
-  @override
-  _ClearErrorModel get _value => super._value as _ClearErrorModel;
-}
-
-/// @nodoc
-
-class _$_ClearErrorModel implements _ClearErrorModel {
-  const _$_ClearErrorModel();
-
-  @override
-  String toString() {
-    return 'CommonAction.clearErrorModel()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _ClearErrorModel);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ErrorModel value) setErrorModel,
-    required TResult Function() clearErrorModel,
-  }) {
-    return clearErrorModel();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ErrorModel value)? setErrorModel,
-    TResult Function()? clearErrorModel,
-    required TResult orElse(),
-  }) {
-    if (clearErrorModel != null) {
-      return clearErrorModel();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_SetErrorModel value) setErrorModel,
-    required TResult Function(_ClearErrorModel value) clearErrorModel,
-  }) {
-    return clearErrorModel(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_SetErrorModel value)? setErrorModel,
-    TResult Function(_ClearErrorModel value)? clearErrorModel,
-    required TResult orElse(),
-  }) {
-    if (clearErrorModel != null) {
-      return clearErrorModel(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ClearErrorModel implements CommonAction {
-  const factory _ClearErrorModel() = _$_ClearErrorModel;
+  _$TopAnnouncementCountCopyWith<_TopAnnouncementCount> get copyWith => throw _privateConstructorUsedError;
 }

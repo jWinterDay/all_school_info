@@ -5,8 +5,7 @@ CommonState commonReducer(CommonState s, dynamic a) {
   if (a is CommonAction) {
     return a.maybeMap<CommonState>(
       // ignore: always_specify_types
-      setErrorModel: (actionEvent) => s.copyWith(errorModel: actionEvent.value),
-      clearErrorModel: (_) => s.copyWith(errorModel: null),
+      topAnnouncementCount: (actionEvent) => s.copyWith(topAnnouncementCount: actionEvent.value),
       orElse: () {
         return s;
       },

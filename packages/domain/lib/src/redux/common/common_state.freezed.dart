@@ -20,9 +20,9 @@ CommonState _$CommonStateFromJson(Map<String, dynamic> json) {
 class _$CommonStateTearOff {
   const _$CommonStateTearOff();
 
-  _CommonState call({@JsonKey(name: 'error_model') ErrorModel? errorModel}) {
+  _CommonState call({@JsonKey(name: 'top_announcement_count', defaultValue: 5) int topAnnouncementCount = 5}) {
     return _CommonState(
-      errorModel: errorModel,
+      topAnnouncementCount: topAnnouncementCount,
     );
   }
 
@@ -36,8 +36,8 @@ const $CommonState = _$CommonStateTearOff();
 
 /// @nodoc
 mixin _$CommonState {
-  @JsonKey(name: 'error_model')
-  ErrorModel? get errorModel => throw _privateConstructorUsedError;
+  @JsonKey(name: 'top_announcement_count', defaultValue: 5)
+  int get topAnnouncementCount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,9 +47,7 @@ mixin _$CommonState {
 /// @nodoc
 abstract class $CommonStateCopyWith<$Res> {
   factory $CommonStateCopyWith(CommonState value, $Res Function(CommonState) then) = _$CommonStateCopyWithImpl<$Res>;
-  $Res call({@JsonKey(name: 'error_model') ErrorModel? errorModel});
-
-  $ErrorModelCopyWith<$Res>? get errorModel;
+  $Res call({@JsonKey(name: 'top_announcement_count', defaultValue: 5) int topAnnouncementCount});
 }
 
 /// @nodoc
@@ -62,25 +60,14 @@ class _$CommonStateCopyWithImpl<$Res> implements $CommonStateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? errorModel = freezed,
+    Object? topAnnouncementCount = freezed,
   }) {
     return _then(_value.copyWith(
-      errorModel: errorModel == freezed
-          ? _value.errorModel
-          : errorModel // ignore: cast_nullable_to_non_nullable
-              as ErrorModel?,
+      topAnnouncementCount: topAnnouncementCount == freezed
+          ? _value.topAnnouncementCount
+          : topAnnouncementCount // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
-  }
-
-  @override
-  $ErrorModelCopyWith<$Res>? get errorModel {
-    if (_value.errorModel == null) {
-      return null;
-    }
-
-    return $ErrorModelCopyWith<$Res>(_value.errorModel!, (value) {
-      return _then(_value.copyWith(errorModel: value));
-    });
   }
 }
 
@@ -89,10 +76,7 @@ abstract class _$CommonStateCopyWith<$Res> implements $CommonStateCopyWith<$Res>
   factory _$CommonStateCopyWith(_CommonState value, $Res Function(_CommonState) then) =
       __$CommonStateCopyWithImpl<$Res>;
   @override
-  $Res call({@JsonKey(name: 'error_model') ErrorModel? errorModel});
-
-  @override
-  $ErrorModelCopyWith<$Res>? get errorModel;
+  $Res call({@JsonKey(name: 'top_announcement_count', defaultValue: 5) int topAnnouncementCount});
 }
 
 /// @nodoc
@@ -105,13 +89,13 @@ class __$CommonStateCopyWithImpl<$Res> extends _$CommonStateCopyWithImpl<$Res> i
 
   @override
   $Res call({
-    Object? errorModel = freezed,
+    Object? topAnnouncementCount = freezed,
   }) {
     return _then(_CommonState(
-      errorModel: errorModel == freezed
-          ? _value.errorModel
-          : errorModel // ignore: cast_nullable_to_non_nullable
-              as ErrorModel?,
+      topAnnouncementCount: topAnnouncementCount == freezed
+          ? _value.topAnnouncementCount
+          : topAnnouncementCount // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -119,29 +103,30 @@ class __$CommonStateCopyWithImpl<$Res> extends _$CommonStateCopyWithImpl<$Res> i
 /// @nodoc
 @JsonSerializable()
 class _$_CommonState extends _CommonState {
-  const _$_CommonState({@JsonKey(name: 'error_model') this.errorModel}) : super._();
+  const _$_CommonState({@JsonKey(name: 'top_announcement_count', defaultValue: 5) this.topAnnouncementCount = 5})
+      : super._();
 
   factory _$_CommonState.fromJson(Map<String, dynamic> json) => _$_$_CommonStateFromJson(json);
 
   @override
-  @JsonKey(name: 'error_model')
-  final ErrorModel? errorModel;
+  @JsonKey(name: 'top_announcement_count', defaultValue: 5)
+  final int topAnnouncementCount;
 
   @override
   String toString() {
-    return 'CommonState(errorModel: $errorModel)';
+    return 'CommonState(topAnnouncementCount: $topAnnouncementCount)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _CommonState &&
-            (identical(other.errorModel, errorModel) ||
-                const DeepCollectionEquality().equals(other.errorModel, errorModel)));
+            (identical(other.topAnnouncementCount, topAnnouncementCount) ||
+                const DeepCollectionEquality().equals(other.topAnnouncementCount, topAnnouncementCount)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(errorModel);
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(topAnnouncementCount);
 
   @JsonKey(ignore: true)
   @override
@@ -154,14 +139,15 @@ class _$_CommonState extends _CommonState {
 }
 
 abstract class _CommonState extends CommonState {
-  const factory _CommonState({@JsonKey(name: 'error_model') ErrorModel? errorModel}) = _$_CommonState;
+  const factory _CommonState({@JsonKey(name: 'top_announcement_count', defaultValue: 5) int topAnnouncementCount}) =
+      _$_CommonState;
   const _CommonState._() : super._();
 
   factory _CommonState.fromJson(Map<String, dynamic> json) = _$_CommonState.fromJson;
 
   @override
-  @JsonKey(name: 'error_model')
-  ErrorModel? get errorModel => throw _privateConstructorUsedError;
+  @JsonKey(name: 'top_announcement_count', defaultValue: 5)
+  int get topAnnouncementCount => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$CommonStateCopyWith<_CommonState> get copyWith => throw _privateConstructorUsedError;
