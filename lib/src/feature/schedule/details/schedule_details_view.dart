@@ -53,17 +53,17 @@ class _ScheduleDetailsViewState extends State<ScheduleDetailsView> {
                 // content
                 CustomScrollView(
                   slivers: <Widget>[
+                    SliverPersistentHeader(
+                      pinned: true,
+                      floating: true,
+                      delegate: _Delegate(title: _bloc.dateTimeAsStr),
+                    ),
+
                     // refresh
                     CupertinoSliverRefreshControl(
                       onRefresh: () async {
                         _bloc.refresh();
                       },
-                    ),
-
-                    SliverPersistentHeader(
-                      pinned: true,
-                      floating: true,
-                      delegate: _Delegate(title: _bloc.dateTimeAsStr),
                     ),
 
                     // content

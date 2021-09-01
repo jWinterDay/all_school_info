@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 
 class ScheduleDetailsBloc {
   static final DateFormat _dateFormat = DateFormat('dd.MM.yyyy', 'ru');
+  static final DateFormat _dayNameFormat = DateFormat('EEEE', 'ru');
 
   DateTime _date = DateTime.now();
 
@@ -11,7 +12,10 @@ class ScheduleDetailsBloc {
   }
 
   String get dateTimeAsStr {
-    return _dateFormat.format(_date);
+    final String dateStr = _dateFormat.format(_date);
+    final String dayNameStr = _dayNameFormat.format(_date);
+
+    return '$dateStr ($dayNameStr)';
   }
 
   void refresh() {
