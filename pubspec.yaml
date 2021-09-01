@@ -20,6 +20,7 @@ dependencies:
   carousel_slider: ^4.0.0
   collection: ^1.15.0
   firebase_remote_config: ^0.10.0+5
+  firebase_messaging: ^10.0.6
   flutter_redux: ^0.8.2
   google_fonts: ^2.1.0
 
