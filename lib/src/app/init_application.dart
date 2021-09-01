@@ -145,5 +145,5 @@ Future<void> _pushNotifications() async {
 Future<dynamic> _backgroundMessageHandler(RemoteMessage remoteMessage) async {
   await Firebase.initializeApp();
 
-  print('------- backgroundMessageHandler ${remoteMessage}');
+  print('------- backgroundMessageHandler ${remoteMessage.data}');
 }

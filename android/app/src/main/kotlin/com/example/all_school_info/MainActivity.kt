@@ -15,6 +15,12 @@ class MainActivity: FlutterActivity() {
         createNotificationChannel()
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        closeAllNotifications();
+    }
+
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel1 = NotificationChannel("channel_1", "Channel 1", NotificationManager.IMPORTANCE_HIGH)
@@ -28,5 +34,10 @@ class MainActivity: FlutterActivity() {
             notificationManager.createNotificationChannel(channel3)
 
         }
+    }
+
+    private fun closeAllNotifications() {
+        val notificationManager = getSystemService(NotificationManager::class.java)
+        notificationManager.cancelAll()
     }
 }
