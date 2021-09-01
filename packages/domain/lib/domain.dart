@@ -10,6 +10,7 @@ export 'src/redux/app/app_state.dart';
 // common
 export 'src/redux/common/common_action.dart';
 export 'src/redux/common/common_state.dart';
+export 'src/redux/common/models/app_lifecycle.dart';
 
 // settings
 export 'src/redux/settings/settings_action.dart';

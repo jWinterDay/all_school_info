@@ -41,8 +41,49 @@ class _Observer extends AutoRouterObserver {
   }
 }
 
-class AppView extends StatelessWidget {
+class AppView extends StatefulWidget {
+  @override
+  _AppViewState createState() => _AppViewState();
+}
+
+class _AppViewState extends State<AppView> with WidgetsBindingObserver {
   final gr.AppRouter _appRouter = gr.AppRouter();
+
+  @override
+  void initState() {
+    WidgetsBinding.instance?.addObserver(this);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance?.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    AppLifecycle result;
+
+    switch (state) {
+      case AppLifecycleState.resumed:
+        result = AppLifecycle.resumed;
+        break;
+      case AppLifecycleState.inactive:
+        result = AppLifecycle.inactive;
+        break;
+      case AppLifecycleState.paused:
+        result = AppLifecycle.paused;
+        break;
+      case AppLifecycleState.detached:
+        result = AppLifecycle.detached;
+        break;
+      default:
+        result = AppLifecycle.none;
+    }
+
+    getIt.get<AppDomain>().appStore.dispatch(CommonAction.changeAppLyfecycle(value: result));
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -2,8 +2,8 @@ import 'package:domain/domain.dart';
 import 'package:intl/intl.dart';
 
 class ScheduleDetailsBloc {
-  static final DateFormat _dateFormat = DateFormat('dd.MM.yyyy', 'ru');
-  static final DateFormat _dayNameFormat = DateFormat('EEEE', 'ru');
+  static final DateFormat _dateFormat = DateFormat('dd.MM.yyyy');
+  static final DateFormat _dayNameFormat = DateFormat('EEEE');
 
   DateTime _date = DateTime.now();
 
