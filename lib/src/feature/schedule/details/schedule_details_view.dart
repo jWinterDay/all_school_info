@@ -1,3 +1,4 @@
+import 'package:all_school_info/src/feature/schedule/details/widgets/lesson_item.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter/cupertino.dart';
@@ -37,28 +38,77 @@ class _ScheduleDetailsViewState extends State<ScheduleDetailsView> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.date_range),
-        onPressed: () async {
-          await _showDatePicker();
-        },
+        onPressed: _showDatePicker,
       ),
       appBar: AppBar(
         title: Text(AllSchoolInfoIntl.of(context).scheduleViewTitle),
-        // actions: <Widget>[
-        //   IconButton(
-        //     icon: const Icon(Icons.date_range),
-        //     tooltip: 'Open date picker',
-        //     onPressed: _showDatePicker,
-        //   ),
-        // ],
       ),
       body: StoreConnector<AppState, ScheduleState>(
         converter: (Store<AppState> store) => store.state.scheduleState,
         builder: (_, ScheduleState scheduleState) {
-          return Text('schedule details view : ${scheduleState.loading}');
+          return Padding(
+            padding: const EdgeInsets.only(top: 4, left: 4, right: 4),
+            child: Stack(
+              children: <Widget>[
+                // content
+                CustomScrollView(
+                  slivers: <Widget>[
+                    // refresh
+                    CupertinoSliverRefreshControl(
+                      onRefresh: () async {
+                        _bloc.refresh();
+                      },
+                    ),
+
+                    SliverPersistentHeader(
+                      pinned: true,
+                      floating: true,
+                      delegate: _Delegate(title: _bloc.dateTimeAsStr),
+                    ),
+
+                    // content
+                    if (scheduleState.firstLoading)
+                      SliverFillRemaining(
+                        child: Center(
+                          child: Text(AllSchoolInfoIntl.of(context).noContentYet),
+                        ),
+                      )
+                    else if (scheduleState.lessonList.isEmpty)
+                      SliverFillRemaining(
+                        child: Center(
+                          child: Text(AllSchoolInfoIntl.of(context).emptySchedule),
+                        ),
+                      )
+                    else
+                      SliverList(
+                        delegate: SliverChildListDelegate(
+                          scheduleState.lessonList.map(
+                            (LessonModel lessonModel) {
+                              return LessonItem(lessonModel: lessonModel);
+                            },
+                          ).toList(),
+                        ),
+                      ),
+
+                    // padding
+                    const SliverPadding(padding: EdgeInsets.only(bottom: 120))
+                  ],
+                ),
+
+                // loading
+                if (scheduleState.loading)
+                  SizedBox(
+                    width: context.width,
+                    height: context.height,
+                    child: const CupertinoActivityIndicator(
+                      radius: 42,
+                    ),
+                  ),
+              ],
+            ),
+          );
         },
       ),
-
-      //  const Text('schedule details view'),
     );
   }
 
@@ -77,9 +127,7 @@ class _ScheduleDetailsViewState extends State<ScheduleDetailsView> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   CloseButton(
-                    onPressed: () {
-                      AutoRouter.of(context).pop();
-                    },
+                    onPressed: AutoRouter.of(context).pop,
                   ),
                 ],
               ),
@@ -100,5 +148,34 @@ class _ScheduleDetailsViewState extends State<ScheduleDetailsView> {
     );
 
     _bloc.refresh();
+  }
+}
+
+class _Delegate extends SliverPersistentHeaderDelegate {
+  _Delegate({required this.title});
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return ColoredBox(
+      color: context.design.palette.gray12,
+      child: Center(
+        child: Text(
+          title,
+        ),
+      ),
+    );
+  }
+
+  @override
+  double get maxExtent => 40;
+
+  @override
+  double get minExtent => 32;
+
+  @override
+  bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {
+    return true;
   }
 }

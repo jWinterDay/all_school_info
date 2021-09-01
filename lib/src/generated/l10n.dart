@@ -26,7 +26,9 @@ class AllSchoolInfoIntl {
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<AllSchoolInfoIntl> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false) ? locale.languageCode : locale.toString();
+    final name = (locale.countryCode?.isEmpty ?? false)
+        ? locale.languageCode
+        : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -46,6 +48,16 @@ class AllSchoolInfoIntl {
 
   static AllSchoolInfoIntl? maybeOf(BuildContext context) {
     return Localizations.of<AllSchoolInfoIntl>(context, AllSchoolInfoIntl);
+  }
+
+  /// `Еще ничего не загружено`
+  String get noContentYet {
+    return Intl.message(
+      'Еще ничего не загружено',
+      name: 'noContentYet',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Школа 67`
@@ -148,6 +160,16 @@ class AllSchoolInfoIntl {
     );
   }
 
+  /// `Нет расписания в этот день`
+  String get emptySchedule {
+    return Intl.message(
+      'Нет расписания в этот день',
+      name: 'emptySchedule',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Последние уведомления`
   String get scheduleLastNotifications {
     return Intl.message(
@@ -201,7 +223,8 @@ class AppLocalizationDelegate extends LocalizationsDelegate<AllSchoolInfoIntl> {
   @override
   bool isSupported(Locale locale) => _isSupported(locale);
   @override
-  Future<AllSchoolInfoIntl> load(Locale locale) => AllSchoolInfoIntl.load(locale);
+  Future<AllSchoolInfoIntl> load(Locale locale) =>
+      AllSchoolInfoIntl.load(locale);
   @override
   bool shouldReload(AppLocalizationDelegate old) => false;
 

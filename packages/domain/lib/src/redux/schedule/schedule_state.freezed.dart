@@ -20,9 +20,17 @@ ScheduleState _$ScheduleStateFromJson(Map<String, dynamic> json) {
 class _$ScheduleStateTearOff {
   const _$ScheduleStateTearOff();
 
-  _ScheduleState call({@JsonKey(name: 'loading', defaultValue: false) bool loading = false}) {
+  _ScheduleState call(
+      {@JsonKey(name: 'loading', defaultValue: false)
+          bool loading = false,
+      @JsonKey(name: 'first_loading', defaultValue: true)
+          bool firstLoading = true,
+      @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[])
+          List<LessonModel> lessonList = const <LessonModel>[]}) {
     return _ScheduleState(
       loading: loading,
+      firstLoading: firstLoading,
+      lessonList: lessonList,
     );
   }
 
@@ -38,6 +46,10 @@ const $ScheduleState = _$ScheduleStateTearOff();
 mixin _$ScheduleState {
   @JsonKey(name: 'loading', defaultValue: false)
   bool get loading => throw _privateConstructorUsedError;
+  @JsonKey(name: 'first_loading', defaultValue: true)
+  bool get firstLoading => throw _privateConstructorUsedError;
+  @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[])
+  List<LessonModel> get lessonList => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,7 +60,10 @@ mixin _$ScheduleState {
 abstract class $ScheduleStateCopyWith<$Res> {
   factory $ScheduleStateCopyWith(ScheduleState value, $Res Function(ScheduleState) then) =
       _$ScheduleStateCopyWithImpl<$Res>;
-  $Res call({@JsonKey(name: 'loading', defaultValue: false) bool loading});
+  $Res call(
+      {@JsonKey(name: 'loading', defaultValue: false) bool loading,
+      @JsonKey(name: 'first_loading', defaultValue: true) bool firstLoading,
+      @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[]) List<LessonModel> lessonList});
 }
 
 /// @nodoc
@@ -62,12 +77,22 @@ class _$ScheduleStateCopyWithImpl<$Res> implements $ScheduleStateCopyWith<$Res> 
   @override
   $Res call({
     Object? loading = freezed,
+    Object? firstLoading = freezed,
+    Object? lessonList = freezed,
   }) {
     return _then(_value.copyWith(
       loading: loading == freezed
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
               as bool,
+      firstLoading: firstLoading == freezed
+          ? _value.firstLoading
+          : firstLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      lessonList: lessonList == freezed
+          ? _value.lessonList
+          : lessonList // ignore: cast_nullable_to_non_nullable
+              as List<LessonModel>,
     ));
   }
 }
@@ -77,7 +102,10 @@ abstract class _$ScheduleStateCopyWith<$Res> implements $ScheduleStateCopyWith<$
   factory _$ScheduleStateCopyWith(_ScheduleState value, $Res Function(_ScheduleState) then) =
       __$ScheduleStateCopyWithImpl<$Res>;
   @override
-  $Res call({@JsonKey(name: 'loading', defaultValue: false) bool loading});
+  $Res call(
+      {@JsonKey(name: 'loading', defaultValue: false) bool loading,
+      @JsonKey(name: 'first_loading', defaultValue: true) bool firstLoading,
+      @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[]) List<LessonModel> lessonList});
 }
 
 /// @nodoc
@@ -92,12 +120,22 @@ class __$ScheduleStateCopyWithImpl<$Res> extends _$ScheduleStateCopyWithImpl<$Re
   @override
   $Res call({
     Object? loading = freezed,
+    Object? firstLoading = freezed,
+    Object? lessonList = freezed,
   }) {
     return _then(_ScheduleState(
       loading: loading == freezed
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
               as bool,
+      firstLoading: firstLoading == freezed
+          ? _value.firstLoading
+          : firstLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      lessonList: lessonList == freezed
+          ? _value.lessonList
+          : lessonList // ignore: cast_nullable_to_non_nullable
+              as List<LessonModel>,
     ));
   }
 }
@@ -105,28 +143,46 @@ class __$ScheduleStateCopyWithImpl<$Res> extends _$ScheduleStateCopyWithImpl<$Re
 /// @nodoc
 @JsonSerializable()
 class _$_ScheduleState extends _ScheduleState {
-  const _$_ScheduleState({@JsonKey(name: 'loading', defaultValue: false) this.loading = false}) : super._();
+  const _$_ScheduleState(
+      {@JsonKey(name: 'loading', defaultValue: false) this.loading = false,
+      @JsonKey(name: 'first_loading', defaultValue: true) this.firstLoading = true,
+      @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[]) this.lessonList = const <LessonModel>[]})
+      : super._();
 
   factory _$_ScheduleState.fromJson(Map<String, dynamic> json) => _$_$_ScheduleStateFromJson(json);
 
   @override
   @JsonKey(name: 'loading', defaultValue: false)
   final bool loading;
+  @override
+  @JsonKey(name: 'first_loading', defaultValue: true)
+  final bool firstLoading;
+  @override
+  @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[])
+  final List<LessonModel> lessonList;
 
   @override
   String toString() {
-    return 'ScheduleState(loading: $loading)';
+    return 'ScheduleState(loading: $loading, firstLoading: $firstLoading, lessonList: $lessonList)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _ScheduleState &&
-            (identical(other.loading, loading) || const DeepCollectionEquality().equals(other.loading, loading)));
+            (identical(other.loading, loading) || const DeepCollectionEquality().equals(other.loading, loading)) &&
+            (identical(other.firstLoading, firstLoading) ||
+                const DeepCollectionEquality().equals(other.firstLoading, firstLoading)) &&
+            (identical(other.lessonList, lessonList) ||
+                const DeepCollectionEquality().equals(other.lessonList, lessonList)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(loading);
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(loading) ^
+      const DeepCollectionEquality().hash(firstLoading) ^
+      const DeepCollectionEquality().hash(lessonList);
 
   @JsonKey(ignore: true)
   @override
@@ -140,7 +196,11 @@ class _$_ScheduleState extends _ScheduleState {
 }
 
 abstract class _ScheduleState extends ScheduleState {
-  const factory _ScheduleState({@JsonKey(name: 'loading', defaultValue: false) bool loading}) = _$_ScheduleState;
+  const factory _ScheduleState(
+          {@JsonKey(name: 'loading', defaultValue: false) bool loading,
+          @JsonKey(name: 'first_loading', defaultValue: true) bool firstLoading,
+          @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[]) List<LessonModel> lessonList}) =
+      _$_ScheduleState;
   const _ScheduleState._() : super._();
 
   factory _ScheduleState.fromJson(Map<String, dynamic> json) = _$_ScheduleState.fromJson;
@@ -148,6 +208,12 @@ abstract class _ScheduleState extends ScheduleState {
   @override
   @JsonKey(name: 'loading', defaultValue: false)
   bool get loading => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'first_loading', defaultValue: true)
+  bool get firstLoading => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[])
+  List<LessonModel> get lessonList => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ScheduleStateCopyWith<_ScheduleState> get copyWith => throw _privateConstructorUsedError;

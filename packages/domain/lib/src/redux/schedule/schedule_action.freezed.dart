@@ -27,6 +27,18 @@ class _$ScheduleActionTearOff {
       value: value,
     );
   }
+
+  _ChangeFirstLoading changeFirstLoading({required bool value}) {
+    return _ChangeFirstLoading(
+      value: value,
+    );
+  }
+
+  _SetLessonList setLessonList({required List<LessonModel> value}) {
+    return _SetLessonList(
+      value: value,
+    );
+  }
 }
 
 /// @nodoc
@@ -38,12 +50,16 @@ mixin _$ScheduleAction {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime value) fetch,
     required TResult Function(bool value) changeLoading,
+    required TResult Function(bool value) changeFirstLoading,
+    required TResult Function(List<LessonModel> value) setLessonList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime value)? fetch,
     TResult Function(bool value)? changeLoading,
+    TResult Function(bool value)? changeFirstLoading,
+    TResult Function(List<LessonModel> value)? setLessonList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,12 +67,16 @@ mixin _$ScheduleAction {
   TResult map<TResult extends Object?>({
     required TResult Function(_Fetch value) fetch,
     required TResult Function(_ChangeLoading value) changeLoading,
+    required TResult Function(_ChangeFirstLoading value) changeFirstLoading,
+    required TResult Function(_SetLessonList value) setLessonList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     TResult Function(_ChangeLoading value)? changeLoading,
+    TResult Function(_ChangeFirstLoading value)? changeFirstLoading,
+    TResult Function(_SetLessonList value)? setLessonList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -135,6 +155,8 @@ class _$_Fetch implements _Fetch {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime value) fetch,
     required TResult Function(bool value) changeLoading,
+    required TResult Function(bool value) changeFirstLoading,
+    required TResult Function(List<LessonModel> value) setLessonList,
   }) {
     return fetch(value);
   }
@@ -144,6 +166,8 @@ class _$_Fetch implements _Fetch {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime value)? fetch,
     TResult Function(bool value)? changeLoading,
+    TResult Function(bool value)? changeFirstLoading,
+    TResult Function(List<LessonModel> value)? setLessonList,
     required TResult orElse(),
   }) {
     if (fetch != null) {
@@ -157,6 +181,8 @@ class _$_Fetch implements _Fetch {
   TResult map<TResult extends Object?>({
     required TResult Function(_Fetch value) fetch,
     required TResult Function(_ChangeLoading value) changeLoading,
+    required TResult Function(_ChangeFirstLoading value) changeFirstLoading,
+    required TResult Function(_SetLessonList value) setLessonList,
   }) {
     return fetch(this);
   }
@@ -166,6 +192,8 @@ class _$_Fetch implements _Fetch {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     TResult Function(_ChangeLoading value)? changeLoading,
+    TResult Function(_ChangeFirstLoading value)? changeFirstLoading,
+    TResult Function(_SetLessonList value)? setLessonList,
     required TResult orElse(),
   }) {
     if (fetch != null) {
@@ -245,6 +273,8 @@ class _$_ChangeLoading implements _ChangeLoading {
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime value) fetch,
     required TResult Function(bool value) changeLoading,
+    required TResult Function(bool value) changeFirstLoading,
+    required TResult Function(List<LessonModel> value) setLessonList,
   }) {
     return changeLoading(value);
   }
@@ -254,6 +284,8 @@ class _$_ChangeLoading implements _ChangeLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime value)? fetch,
     TResult Function(bool value)? changeLoading,
+    TResult Function(bool value)? changeFirstLoading,
+    TResult Function(List<LessonModel> value)? setLessonList,
     required TResult orElse(),
   }) {
     if (changeLoading != null) {
@@ -267,6 +299,8 @@ class _$_ChangeLoading implements _ChangeLoading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Fetch value) fetch,
     required TResult Function(_ChangeLoading value) changeLoading,
+    required TResult Function(_ChangeFirstLoading value) changeFirstLoading,
+    required TResult Function(_SetLessonList value) setLessonList,
   }) {
     return changeLoading(this);
   }
@@ -276,6 +310,8 @@ class _$_ChangeLoading implements _ChangeLoading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Fetch value)? fetch,
     TResult Function(_ChangeLoading value)? changeLoading,
+    TResult Function(_ChangeFirstLoading value)? changeFirstLoading,
+    TResult Function(_SetLessonList value)? setLessonList,
     required TResult orElse(),
   }) {
     if (changeLoading != null) {
@@ -291,4 +327,240 @@ abstract class _ChangeLoading implements ScheduleAction {
   bool get value => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ChangeLoadingCopyWith<_ChangeLoading> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ChangeFirstLoadingCopyWith<$Res> {
+  factory _$ChangeFirstLoadingCopyWith(_ChangeFirstLoading value, $Res Function(_ChangeFirstLoading) then) =
+      __$ChangeFirstLoadingCopyWithImpl<$Res>;
+  $Res call({bool value});
+}
+
+/// @nodoc
+class __$ChangeFirstLoadingCopyWithImpl<$Res> extends _$ScheduleActionCopyWithImpl<$Res>
+    implements _$ChangeFirstLoadingCopyWith<$Res> {
+  __$ChangeFirstLoadingCopyWithImpl(_ChangeFirstLoading _value, $Res Function(_ChangeFirstLoading) _then)
+      : super(_value, (v) => _then(v as _ChangeFirstLoading));
+
+  @override
+  _ChangeFirstLoading get _value => super._value as _ChangeFirstLoading;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_ChangeFirstLoading(
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangeFirstLoading implements _ChangeFirstLoading {
+  const _$_ChangeFirstLoading({required this.value});
+
+  @override
+  final bool value;
+
+  @override
+  String toString() {
+    return 'ScheduleAction.changeFirstLoading(value: $value)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ChangeFirstLoading &&
+            (identical(other.value, value) || const DeepCollectionEquality().equals(other.value, value)));
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangeFirstLoadingCopyWith<_ChangeFirstLoading> get copyWith =>
+      __$ChangeFirstLoadingCopyWithImpl<_ChangeFirstLoading>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTime value) fetch,
+    required TResult Function(bool value) changeLoading,
+    required TResult Function(bool value) changeFirstLoading,
+    required TResult Function(List<LessonModel> value) setLessonList,
+  }) {
+    return changeFirstLoading(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime value)? fetch,
+    TResult Function(bool value)? changeLoading,
+    TResult Function(bool value)? changeFirstLoading,
+    TResult Function(List<LessonModel> value)? setLessonList,
+    required TResult orElse(),
+  }) {
+    if (changeFirstLoading != null) {
+      return changeFirstLoading(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_ChangeLoading value) changeLoading,
+    required TResult Function(_ChangeFirstLoading value) changeFirstLoading,
+    required TResult Function(_SetLessonList value) setLessonList,
+  }) {
+    return changeFirstLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Fetch value)? fetch,
+    TResult Function(_ChangeLoading value)? changeLoading,
+    TResult Function(_ChangeFirstLoading value)? changeFirstLoading,
+    TResult Function(_SetLessonList value)? setLessonList,
+    required TResult orElse(),
+  }) {
+    if (changeFirstLoading != null) {
+      return changeFirstLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeFirstLoading implements ScheduleAction {
+  const factory _ChangeFirstLoading({required bool value}) = _$_ChangeFirstLoading;
+
+  bool get value => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ChangeFirstLoadingCopyWith<_ChangeFirstLoading> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$SetLessonListCopyWith<$Res> {
+  factory _$SetLessonListCopyWith(_SetLessonList value, $Res Function(_SetLessonList) then) =
+      __$SetLessonListCopyWithImpl<$Res>;
+  $Res call({List<LessonModel> value});
+}
+
+/// @nodoc
+class __$SetLessonListCopyWithImpl<$Res> extends _$ScheduleActionCopyWithImpl<$Res>
+    implements _$SetLessonListCopyWith<$Res> {
+  __$SetLessonListCopyWithImpl(_SetLessonList _value, $Res Function(_SetLessonList) _then)
+      : super(_value, (v) => _then(v as _SetLessonList));
+
+  @override
+  _SetLessonList get _value => super._value as _SetLessonList;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_SetLessonList(
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as List<LessonModel>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SetLessonList implements _SetLessonList {
+  const _$_SetLessonList({required this.value});
+
+  @override
+  final List<LessonModel> value;
+
+  @override
+  String toString() {
+    return 'ScheduleAction.setLessonList(value: $value)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _SetLessonList &&
+            (identical(other.value, value) || const DeepCollectionEquality().equals(other.value, value)));
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+
+  @JsonKey(ignore: true)
+  @override
+  _$SetLessonListCopyWith<_SetLessonList> get copyWith =>
+      __$SetLessonListCopyWithImpl<_SetLessonList>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTime value) fetch,
+    required TResult Function(bool value) changeLoading,
+    required TResult Function(bool value) changeFirstLoading,
+    required TResult Function(List<LessonModel> value) setLessonList,
+  }) {
+    return setLessonList(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime value)? fetch,
+    TResult Function(bool value)? changeLoading,
+    TResult Function(bool value)? changeFirstLoading,
+    TResult Function(List<LessonModel> value)? setLessonList,
+    required TResult orElse(),
+  }) {
+    if (setLessonList != null) {
+      return setLessonList(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_ChangeLoading value) changeLoading,
+    required TResult Function(_ChangeFirstLoading value) changeFirstLoading,
+    required TResult Function(_SetLessonList value) setLessonList,
+  }) {
+    return setLessonList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Fetch value)? fetch,
+    TResult Function(_ChangeLoading value)? changeLoading,
+    TResult Function(_ChangeFirstLoading value)? changeFirstLoading,
+    TResult Function(_SetLessonList value)? setLessonList,
+    required TResult orElse(),
+  }) {
+    if (setLessonList != null) {
+      return setLessonList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetLessonList implements ScheduleAction {
+  const factory _SetLessonList({required List<LessonModel> value}) = _$_SetLessonList;
+
+  List<LessonModel> get value => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$SetLessonListCopyWith<_SetLessonList> get copyWith => throw _privateConstructorUsedError;
 }

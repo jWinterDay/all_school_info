@@ -1,4 +1,5 @@
 {
+    "noContentYet": "Еще ничего не загружено",
     "mainTitle": "Школа 67",
     "noAnnouncement": "Нет объявлений",
     "announcementViewTitle": "Объявление",
@@ -11,6 +12,7 @@
     "notLoggedIn": "Залогиниться",
 
     "scheduleViewTitle": "Расписание",
+    "emptySchedule": "Нет расписания в этот день",
     "scheduleLastNotifications": "Последние уведомления",
     "scheduleRatings": "Оценки",
     "scheduleNews": "Новости",

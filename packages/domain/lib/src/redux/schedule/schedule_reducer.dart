@@ -6,6 +6,10 @@ ScheduleState scheduleReducer(ScheduleState s, dynamic a) {
     return a.maybeMap<ScheduleState>(
       // ignore: always_specify_types
       changeLoading: (actionEvent) => s.copyWith(loading: actionEvent.value),
+      // ignore: always_specify_types
+      changeFirstLoading: (actionEvent) => s.copyWith(firstLoading: actionEvent.value),
+      // ignore: always_specify_types
+      setLessonList: (actionEvent) => s.copyWith(lessonList: actionEvent.value),
       orElse: () {
         return s;
       },

@@ -35,3 +35,4 @@ export 'src/redux/user/thunks/fetch_user_thunk.dart';
 export 'src/redux/schedule/schedule_action.dart';
 export 'src/redux/schedule/schedule_state.dart';
 export 'src/redux/schedule/thunks/fetch_schedule_thunk.dart';
+export 'src/redux/schedule/models/lesson_model.dart';
