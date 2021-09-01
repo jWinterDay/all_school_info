@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">67 School Info</string>
+    <string name="title_activity_main">67 School Info</string>
+    <string name="package_name">com.example.all_school_info</string>
+    <string name="custom_url_scheme">com.example.all_school_info</string>
+    <string name="default_notification_channel_id">com.example.all_school_info</string>
+</resources>

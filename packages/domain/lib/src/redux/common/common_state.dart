@@ -14,6 +14,7 @@ class CommonState with _$CommonState {
     @JsonKey(name: 'app_lifecycle', defaultValue: AppLifecycle.none)
     @Default(AppLifecycle.none)
         AppLifecycle appLifecycle,
+    String? fcmToken,
   }) = _CommonState;
 
   factory CommonState.fromJson(Map<String, dynamic> json) => _$CommonStateFromJson(json);

@@ -8,6 +8,8 @@ CommonState commonReducer(CommonState s, dynamic a) {
       topAnnouncementCount: (actionEvent) => s.copyWith(topAnnouncementCount: actionEvent.value),
       // ignore: always_specify_types
       changeAppLyfecycle: (actionEvent) => s.copyWith(appLifecycle: actionEvent.value),
+      // ignore: always_specify_types
+      setFcmToken: (actionEvent) => s.copyWith(fcmToken: actionEvent.value),
       orElse: () {
         return s;
       },

@@ -27,6 +27,12 @@ class _$CommonActionTearOff {
       value: value,
     );
   }
+
+  _SetFcmToken setFcmToken({required String? value}) {
+    return _SetFcmToken(
+      value: value,
+    );
+  }
 }
 
 /// @nodoc
@@ -38,12 +44,14 @@ mixin _$CommonAction {
   TResult when<TResult extends Object?>({
     required TResult Function(int value) topAnnouncementCount,
     required TResult Function(AppLifecycle value) changeAppLyfecycle,
+    required TResult Function(String? value) setFcmToken,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int value)? topAnnouncementCount,
     TResult Function(AppLifecycle value)? changeAppLyfecycle,
+    TResult Function(String? value)? setFcmToken,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,12 +59,14 @@ mixin _$CommonAction {
   TResult map<TResult extends Object?>({
     required TResult Function(_TopAnnouncementCount value) topAnnouncementCount,
     required TResult Function(_ChangeAppLyfecycle value) changeAppLyfecycle,
+    required TResult Function(_SetFcmToken value) setFcmToken,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TopAnnouncementCount value)? topAnnouncementCount,
     TResult Function(_ChangeAppLyfecycle value)? changeAppLyfecycle,
+    TResult Function(_SetFcmToken value)? setFcmToken,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -139,6 +149,7 @@ class _$_TopAnnouncementCount implements _TopAnnouncementCount {
   TResult when<TResult extends Object?>({
     required TResult Function(int value) topAnnouncementCount,
     required TResult Function(AppLifecycle value) changeAppLyfecycle,
+    required TResult Function(String? value) setFcmToken,
   }) {
     return topAnnouncementCount(value);
   }
@@ -148,6 +159,7 @@ class _$_TopAnnouncementCount implements _TopAnnouncementCount {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int value)? topAnnouncementCount,
     TResult Function(AppLifecycle value)? changeAppLyfecycle,
+    TResult Function(String? value)? setFcmToken,
     required TResult orElse(),
   }) {
     if (topAnnouncementCount != null) {
@@ -161,6 +173,7 @@ class _$_TopAnnouncementCount implements _TopAnnouncementCount {
   TResult map<TResult extends Object?>({
     required TResult Function(_TopAnnouncementCount value) topAnnouncementCount,
     required TResult Function(_ChangeAppLyfecycle value) changeAppLyfecycle,
+    required TResult Function(_SetFcmToken value) setFcmToken,
   }) {
     return topAnnouncementCount(this);
   }
@@ -170,6 +183,7 @@ class _$_TopAnnouncementCount implements _TopAnnouncementCount {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TopAnnouncementCount value)? topAnnouncementCount,
     TResult Function(_ChangeAppLyfecycle value)? changeAppLyfecycle,
+    TResult Function(_SetFcmToken value)? setFcmToken,
     required TResult orElse(),
   }) {
     if (topAnnouncementCount != null) {
@@ -249,6 +263,7 @@ class _$_ChangeAppLyfecycle implements _ChangeAppLyfecycle {
   TResult when<TResult extends Object?>({
     required TResult Function(int value) topAnnouncementCount,
     required TResult Function(AppLifecycle value) changeAppLyfecycle,
+    required TResult Function(String? value) setFcmToken,
   }) {
     return changeAppLyfecycle(value);
   }
@@ -258,6 +273,7 @@ class _$_ChangeAppLyfecycle implements _ChangeAppLyfecycle {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int value)? topAnnouncementCount,
     TResult Function(AppLifecycle value)? changeAppLyfecycle,
+    TResult Function(String? value)? setFcmToken,
     required TResult orElse(),
   }) {
     if (changeAppLyfecycle != null) {
@@ -271,6 +287,7 @@ class _$_ChangeAppLyfecycle implements _ChangeAppLyfecycle {
   TResult map<TResult extends Object?>({
     required TResult Function(_TopAnnouncementCount value) topAnnouncementCount,
     required TResult Function(_ChangeAppLyfecycle value) changeAppLyfecycle,
+    required TResult Function(_SetFcmToken value) setFcmToken,
   }) {
     return changeAppLyfecycle(this);
   }
@@ -280,6 +297,7 @@ class _$_ChangeAppLyfecycle implements _ChangeAppLyfecycle {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TopAnnouncementCount value)? topAnnouncementCount,
     TResult Function(_ChangeAppLyfecycle value)? changeAppLyfecycle,
+    TResult Function(_SetFcmToken value)? setFcmToken,
     required TResult orElse(),
   }) {
     if (changeAppLyfecycle != null) {
@@ -295,4 +313,116 @@ abstract class _ChangeAppLyfecycle implements CommonAction {
   AppLifecycle get value => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ChangeAppLyfecycleCopyWith<_ChangeAppLyfecycle> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$SetFcmTokenCopyWith<$Res> {
+  factory _$SetFcmTokenCopyWith(_SetFcmToken value, $Res Function(_SetFcmToken) then) =
+      __$SetFcmTokenCopyWithImpl<$Res>;
+  $Res call({String? value});
+}
+
+/// @nodoc
+class __$SetFcmTokenCopyWithImpl<$Res> extends _$CommonActionCopyWithImpl<$Res> implements _$SetFcmTokenCopyWith<$Res> {
+  __$SetFcmTokenCopyWithImpl(_SetFcmToken _value, $Res Function(_SetFcmToken) _then)
+      : super(_value, (v) => _then(v as _SetFcmToken));
+
+  @override
+  _SetFcmToken get _value => super._value as _SetFcmToken;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_SetFcmToken(
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SetFcmToken implements _SetFcmToken {
+  const _$_SetFcmToken({required this.value});
+
+  @override
+  final String? value;
+
+  @override
+  String toString() {
+    return 'CommonAction.setFcmToken(value: $value)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _SetFcmToken &&
+            (identical(other.value, value) || const DeepCollectionEquality().equals(other.value, value)));
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+
+  @JsonKey(ignore: true)
+  @override
+  _$SetFcmTokenCopyWith<_SetFcmToken> get copyWith => __$SetFcmTokenCopyWithImpl<_SetFcmToken>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int value) topAnnouncementCount,
+    required TResult Function(AppLifecycle value) changeAppLyfecycle,
+    required TResult Function(String? value) setFcmToken,
+  }) {
+    return setFcmToken(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int value)? topAnnouncementCount,
+    TResult Function(AppLifecycle value)? changeAppLyfecycle,
+    TResult Function(String? value)? setFcmToken,
+    required TResult orElse(),
+  }) {
+    if (setFcmToken != null) {
+      return setFcmToken(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_TopAnnouncementCount value) topAnnouncementCount,
+    required TResult Function(_ChangeAppLyfecycle value) changeAppLyfecycle,
+    required TResult Function(_SetFcmToken value) setFcmToken,
+  }) {
+    return setFcmToken(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_TopAnnouncementCount value)? topAnnouncementCount,
+    TResult Function(_ChangeAppLyfecycle value)? changeAppLyfecycle,
+    TResult Function(_SetFcmToken value)? setFcmToken,
+    required TResult orElse(),
+  }) {
+    if (setFcmToken != null) {
+      return setFcmToken(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetFcmToken implements CommonAction {
+  const factory _SetFcmToken({required String? value}) = _$_SetFcmToken;
+
+  String? get value => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$SetFcmTokenCopyWith<_SetFcmToken> get copyWith => throw _privateConstructorUsedError;
 }

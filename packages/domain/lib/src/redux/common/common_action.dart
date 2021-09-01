@@ -8,4 +8,6 @@ class CommonAction with _$CommonAction {
   const factory CommonAction.topAnnouncementCount({required int value}) = _TopAnnouncementCount;
 
   const factory CommonAction.changeAppLyfecycle({required AppLifecycle value}) = _ChangeAppLyfecycle;
+
+  const factory CommonAction.setFcmToken({required String? value}) = _SetFcmToken;
 }

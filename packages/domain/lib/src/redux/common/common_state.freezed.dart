@@ -22,10 +22,12 @@ class _$CommonStateTearOff {
 
   _CommonState call(
       {@JsonKey(name: 'top_announcement_count', defaultValue: 5) int topAnnouncementCount = 5,
-      @JsonKey(name: 'app_lifecycle', defaultValue: AppLifecycle.none) AppLifecycle appLifecycle = AppLifecycle.none}) {
+      @JsonKey(name: 'app_lifecycle', defaultValue: AppLifecycle.none) AppLifecycle appLifecycle = AppLifecycle.none,
+      String? fcmToken}) {
     return _CommonState(
       topAnnouncementCount: topAnnouncementCount,
       appLifecycle: appLifecycle,
+      fcmToken: fcmToken,
     );
   }
 
@@ -43,6 +45,7 @@ mixin _$CommonState {
   int get topAnnouncementCount => throw _privateConstructorUsedError;
   @JsonKey(name: 'app_lifecycle', defaultValue: AppLifecycle.none)
   AppLifecycle get appLifecycle => throw _privateConstructorUsedError;
+  String? get fcmToken => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -54,7 +57,8 @@ abstract class $CommonStateCopyWith<$Res> {
   factory $CommonStateCopyWith(CommonState value, $Res Function(CommonState) then) = _$CommonStateCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: 'top_announcement_count', defaultValue: 5) int topAnnouncementCount,
-      @JsonKey(name: 'app_lifecycle', defaultValue: AppLifecycle.none) AppLifecycle appLifecycle});
+      @JsonKey(name: 'app_lifecycle', defaultValue: AppLifecycle.none) AppLifecycle appLifecycle,
+      String? fcmToken});
 }
 
 /// @nodoc
@@ -69,6 +73,7 @@ class _$CommonStateCopyWithImpl<$Res> implements $CommonStateCopyWith<$Res> {
   $Res call({
     Object? topAnnouncementCount = freezed,
     Object? appLifecycle = freezed,
+    Object? fcmToken = freezed,
   }) {
     return _then(_value.copyWith(
       topAnnouncementCount: topAnnouncementCount == freezed
@@ -79,6 +84,10 @@ class _$CommonStateCopyWithImpl<$Res> implements $CommonStateCopyWith<$Res> {
           ? _value.appLifecycle
           : appLifecycle // ignore: cast_nullable_to_non_nullable
               as AppLifecycle,
+      fcmToken: fcmToken == freezed
+          ? _value.fcmToken
+          : fcmToken // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -90,7 +99,8 @@ abstract class _$CommonStateCopyWith<$Res> implements $CommonStateCopyWith<$Res>
   @override
   $Res call(
       {@JsonKey(name: 'top_announcement_count', defaultValue: 5) int topAnnouncementCount,
-      @JsonKey(name: 'app_lifecycle', defaultValue: AppLifecycle.none) AppLifecycle appLifecycle});
+      @JsonKey(name: 'app_lifecycle', defaultValue: AppLifecycle.none) AppLifecycle appLifecycle,
+      String? fcmToken});
 }
 
 /// @nodoc
@@ -105,6 +115,7 @@ class __$CommonStateCopyWithImpl<$Res> extends _$CommonStateCopyWithImpl<$Res> i
   $Res call({
     Object? topAnnouncementCount = freezed,
     Object? appLifecycle = freezed,
+    Object? fcmToken = freezed,
   }) {
     return _then(_CommonState(
       topAnnouncementCount: topAnnouncementCount == freezed
@@ -115,6 +126,10 @@ class __$CommonStateCopyWithImpl<$Res> extends _$CommonStateCopyWithImpl<$Res> i
           ? _value.appLifecycle
           : appLifecycle // ignore: cast_nullable_to_non_nullable
               as AppLifecycle,
+      fcmToken: fcmToken == freezed
+          ? _value.fcmToken
+          : fcmToken // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -124,7 +139,8 @@ class __$CommonStateCopyWithImpl<$Res> extends _$CommonStateCopyWithImpl<$Res> i
 class _$_CommonState extends _CommonState {
   const _$_CommonState(
       {@JsonKey(name: 'top_announcement_count', defaultValue: 5) this.topAnnouncementCount = 5,
-      @JsonKey(name: 'app_lifecycle', defaultValue: AppLifecycle.none) this.appLifecycle = AppLifecycle.none})
+      @JsonKey(name: 'app_lifecycle', defaultValue: AppLifecycle.none) this.appLifecycle = AppLifecycle.none,
+      this.fcmToken})
       : super._();
 
   factory _$_CommonState.fromJson(Map<String, dynamic> json) => _$_$_CommonStateFromJson(json);
@@ -135,10 +151,12 @@ class _$_CommonState extends _CommonState {
   @override
   @JsonKey(name: 'app_lifecycle', defaultValue: AppLifecycle.none)
   final AppLifecycle appLifecycle;
+  @override
+  final String? fcmToken;
 
   @override
   String toString() {
-    return 'CommonState(topAnnouncementCount: $topAnnouncementCount, appLifecycle: $appLifecycle)';
+    return 'CommonState(topAnnouncementCount: $topAnnouncementCount, appLifecycle: $appLifecycle, fcmToken: $fcmToken)';
   }
 
   @override
@@ -148,14 +166,16 @@ class _$_CommonState extends _CommonState {
             (identical(other.topAnnouncementCount, topAnnouncementCount) ||
                 const DeepCollectionEquality().equals(other.topAnnouncementCount, topAnnouncementCount)) &&
             (identical(other.appLifecycle, appLifecycle) ||
-                const DeepCollectionEquality().equals(other.appLifecycle, appLifecycle)));
+                const DeepCollectionEquality().equals(other.appLifecycle, appLifecycle)) &&
+            (identical(other.fcmToken, fcmToken) || const DeepCollectionEquality().equals(other.fcmToken, fcmToken)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(topAnnouncementCount) ^
-      const DeepCollectionEquality().hash(appLifecycle);
+      const DeepCollectionEquality().hash(appLifecycle) ^
+      const DeepCollectionEquality().hash(fcmToken);
 
   @JsonKey(ignore: true)
   @override
@@ -170,7 +190,8 @@ class _$_CommonState extends _CommonState {
 abstract class _CommonState extends CommonState {
   const factory _CommonState(
       {@JsonKey(name: 'top_announcement_count', defaultValue: 5) int topAnnouncementCount,
-      @JsonKey(name: 'app_lifecycle', defaultValue: AppLifecycle.none) AppLifecycle appLifecycle}) = _$_CommonState;
+      @JsonKey(name: 'app_lifecycle', defaultValue: AppLifecycle.none) AppLifecycle appLifecycle,
+      String? fcmToken}) = _$_CommonState;
   const _CommonState._() : super._();
 
   factory _CommonState.fromJson(Map<String, dynamic> json) = _$_CommonState.fromJson;
@@ -181,6 +202,8 @@ abstract class _CommonState extends CommonState {
   @override
   @JsonKey(name: 'app_lifecycle', defaultValue: AppLifecycle.none)
   AppLifecycle get appLifecycle => throw _privateConstructorUsedError;
+  @override
+  String? get fcmToken => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$CommonStateCopyWith<_CommonState> get copyWith => throw _privateConstructorUsedError;
