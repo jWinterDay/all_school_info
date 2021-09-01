@@ -15,7 +15,7 @@ void fetchAnnouncementsThunk(Store<AppState> store) async {
 
   try {
     final List<AnnouncementModel> list = await announcementService.fetchAnnouncements();
-    store.dispatch(AnnouncementAction.addAnnouncementList(list: list));
+    store.dispatch(AnnouncementAction.addAnnouncementList(value: list));
   } catch (exc) {
     store.dispatch(
       AnnouncementAction.setErrorModel(
@@ -24,5 +24,9 @@ void fetchAnnouncementsThunk(Store<AppState> store) async {
     );
   } finally {
     store.dispatch(const AnnouncementAction.changeLoading(value: false));
+
+    if (store.state.announcementState.firstLoading) {
+      store.dispatch(const AnnouncementAction.changeFirstLoading(value: false));
+    }
   }
 }

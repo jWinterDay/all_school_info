@@ -9,9 +9,21 @@ class ScheduleServiceMock implements ScheduleService {
     await Future<void>.delayed(const Duration(seconds: 1));
 
     return <LessonModel>[
-      LessonModel('math', date.millisecondsSinceEpoch, 'Ivanova'),
-      LessonModel('rus', date.millisecondsSinceEpoch, 'Petrova'),
-      LessonModel('phys', date.millisecondsSinceEpoch, 'Sidorova'),
+      LessonModel(
+        'math',
+        DateTime(date.year, date.month, date.day, 8, 15).millisecondsSinceEpoch,
+        'Ivanova',
+      ),
+      LessonModel(
+        'rus',
+        DateTime(date.year, date.month, date.day, 9, 25).millisecondsSinceEpoch,
+        'Petrova',
+      ),
+      LessonModel(
+        'phys',
+        DateTime(date.year, date.month, date.day, 10, 45).millisecondsSinceEpoch,
+        'Sidorova',
+      ),
     ];
   }
 }

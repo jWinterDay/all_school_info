@@ -11,32 +11,16 @@ class AnnouncementState with _$AnnouncementState {
   const AnnouncementState._();
 
   const factory AnnouncementState({
-    @JsonKey(name: 'announcement_list') List<AnnouncementModel>? announcementList,
+    @JsonKey(name: 'list', defaultValue: <AnnouncementModel>[])
+    @Default(<AnnouncementModel>[])
+        List<AnnouncementModel> list,
+    @JsonKey(name: 'top_list', defaultValue: <AnnouncementModel>[])
+    @Default(<AnnouncementModel>[])
+        List<AnnouncementModel> topList,
     @JsonKey(name: 'loading', defaultValue: false) @Default(false) bool loading,
+    @JsonKey(name: 'first_loading', defaultValue: true) @Default(true) bool firstLoading,
     @JsonKey(name: 'error_model') ErrorModel? errorModel,
   }) = _AnnouncementState;
 
   factory AnnouncementState.fromJson(Map<String, dynamic> json) => _$AnnouncementStateFromJson(json);
-
-  List<AnnouncementModel> get topAnnouncements {
-    if (announcementList == null) {
-      return <AnnouncementModel>[];
-    }
-
-    return announcementList!.where((AnnouncementModel item) {
-      return item.isTopEvent;
-    }).toList();
-  }
-
-  bool get isFirstLoading => announcementList == null;
-
-  List<AnnouncementModel> get announcements {
-    if (announcementList == null) {
-      return <AnnouncementModel>[];
-    }
-
-    return announcementList!.where((AnnouncementModel item) {
-      return !item.isTopEvent;
-    }).toList();
-  }
 }

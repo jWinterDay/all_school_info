@@ -34,7 +34,10 @@ class LessonItem extends StatelessWidget {
           // date
           Padding(
             padding: const EdgeInsets.only(left: 4, right: 8),
-            child: Text(_format),
+            child: SizedBox(
+              width: 50,
+              child: Text(_format),
+            ),
           ),
 
           // lesson name

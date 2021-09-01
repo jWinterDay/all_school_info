@@ -3,11 +3,12 @@ import 'package:collection/collection.dart';
 
 class AnnouncementDetailsBloc {
   AnnouncementModel? findAnnouncementById(String announcementId) {
-    final List<AnnouncementModel>? list = getIt.get<AppDomain>().appStore.state.announcementState.announcementList;
+    final AnnouncementState state = getIt.get<AppDomain>().appStore.state.announcementState;
 
-    if (list == null) {
-      return null;
-    }
+    final List<AnnouncementModel> list = <AnnouncementModel>[
+      ...state.list,
+      ...state.topList,
+    ];
 
     return list.singleWhereOrNull((AnnouncementModel item) {
       return item.id == announcementId;

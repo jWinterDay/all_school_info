@@ -7,11 +7,13 @@ AnnouncementState announcementReducer(AnnouncementState s, dynamic a) {
     return a.maybeMap<AnnouncementState>(
       // ignore: always_specify_types
       changeLoading: (actionEvent) => s.copyWith(loading: actionEvent.value),
-      cleanUp: (_) => s.copyWith(announcementList: <AnnouncementModel>[]),
       // ignore: always_specify_types
-      addAnnouncement: (actionEvent) => _addAnnouncement(s, actionEvent.announcement),
+      changeFirstLoading: (actionEvent) => s.copyWith(firstLoading: actionEvent.value),
+      cleanUp: (_) => s.copyWith(list: <AnnouncementModel>[]),
       // ignore: always_specify_types
-      addAnnouncementList: (actionEvent) => _addAnnouncementList(s, actionEvent.list),
+      addAnnouncement: (actionEvent) => _addAnnouncement(s, actionEvent.value),
+      // ignore: always_specify_types
+      addAnnouncementList: (actionEvent) => _addAnnouncementList(s, actionEvent.value),
       // ignore: always_specify_types
       setErrorModel: (actionEvent) => s.copyWith(errorModel: actionEvent.value),
       clearErrorModel: (_) => s.copyWith(errorModel: null),
@@ -28,13 +30,21 @@ AnnouncementState _addAnnouncement(
   AnnouncementState state,
   AnnouncementModel announcementModel,
 ) {
-  final List<AnnouncementModel> nextList = <AnnouncementModel>[
-    ...state.announcementList ?? <AnnouncementModel>[],
-    announcementModel,
-  ];
+  // top
+  if (announcementModel.isTopEvent) {
+    return state.copyWith(
+      topList: <AnnouncementModel>[
+        ...state.list,
+        announcementModel,
+      ],
+    );
+  }
 
   return state.copyWith(
-    announcementList: nextList,
+    list: <AnnouncementModel>[
+      ...state.list,
+      announcementModel,
+    ],
   );
 }
 
@@ -43,6 +53,28 @@ AnnouncementState _addAnnouncementList(
   Iterable<AnnouncementModel> list,
 ) {
   return state.copyWith(
-    announcementList: list.toList(),
+    list: list.where((AnnouncementModel e) => !e.isTopEvent).toList(),
+    topList: list.where((AnnouncementModel e) => e.isTopEvent).toList(),
   );
 }
+
+// AnnouncementState _addTopAnnouncement(
+//   AnnouncementState state,
+//   AnnouncementModel announcementModel,
+// ) {
+//   return state.copyWith(
+//     topList: <AnnouncementModel>[
+//       ...state.list,
+//       announcementModel,
+//     ],
+//   );
+// }
+
+// AnnouncementState _addTopAnnouncementList(
+//   AnnouncementState state,
+//   Iterable<AnnouncementModel> list,
+// ) {
+//   return state.copyWith(
+//     topList: list.toList(),
+//   );
+// }

@@ -10,10 +10,10 @@ class AnnouncementAction with _$AnnouncementAction {
   const factory AnnouncementAction.start() = _Start;
 
   const factory AnnouncementAction.changeLoading({required bool value}) = _ChangeLoading;
+  const factory AnnouncementAction.changeFirstLoading({required bool value}) = _ChangeFirstLoading;
 
-  const factory AnnouncementAction.addAnnouncement({required AnnouncementModel announcement}) = _AddAnnouncement;
-
-  const factory AnnouncementAction.addAnnouncementList({required Iterable<AnnouncementModel> list}) =
+  const factory AnnouncementAction.addAnnouncement({required AnnouncementModel value}) = _AddAnnouncement;
+  const factory AnnouncementAction.addAnnouncementList({required Iterable<AnnouncementModel> value}) =
       _AddAnnouncementList;
 
   const factory AnnouncementAction.fetchAnnouncements() = _FetchAnnouncements;

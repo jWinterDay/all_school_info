@@ -20,6 +20,6 @@ class UiAnnouncementInfo {
 
   // top announcements taking into limit count
   List<AnnouncementModel> get topAnnouncementList {
-    return announcementState.topAnnouncements.take(topAnnouncementCount).toList();
+    return announcementState.topList.take(topAnnouncementCount).toList();
   }
 }

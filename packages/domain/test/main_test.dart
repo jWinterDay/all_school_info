@@ -25,7 +25,7 @@ void main() {
 
       expect(appState.announcementState, isNotNull);
 
-      expect(appState.announcementState.announcementList, isNull);
+      expect(appState.announcementState.list, isEmpty);
     });
 
     // test('palette_state', () {

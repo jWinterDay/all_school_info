@@ -52,7 +52,7 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
         return Column(
           children: <Widget>[
             // top events
-            if (uiAnnouncementInfo.announcementState.topAnnouncements.isNotEmpty)
+            if (uiAnnouncementInfo.announcementState.topList.isNotEmpty)
               CarouselSlider(
                 options: CarouselOptions(
                   height: 100,
@@ -101,20 +101,20 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
                               'Error: ${uiAnnouncementInfo.errorMessage}',
                             ),
                           )
-                        else if (uiAnnouncementInfo.announcementState.loading &&
-                            uiAnnouncementInfo.announcementState.isFirstLoading)
-                          const SliverToBoxAdapter(
-                            child: Text('-------first loading'),
+                        else if (uiAnnouncementInfo.announcementState.firstLoading)
+                          SliverFillRemaining(
+                            child: Center(
+                              child: Text(AllSchoolInfoIntl.of(context).noContentYet),
+                            ),
                           )
-                        // after first loaded data list is not null
-                        else if (uiAnnouncementInfo.announcementState.announcements.isEmpty)
+                        else if (uiAnnouncementInfo.announcementState.list.isEmpty)
                           SliverToBoxAdapter(
                             child: Text(AllSchoolInfoIntl.of(context).noAnnouncement),
                           )
                         else
                           SliverList(
                             delegate: SliverChildListDelegate(
-                              uiAnnouncementInfo.announcementState.announcements.map((AnnouncementModel e) {
+                              uiAnnouncementInfo.announcementState.list.map((AnnouncementModel e) {
                                 return AnnouncementCard(announcementModel: e);
                               }).toList(),
                             ),
