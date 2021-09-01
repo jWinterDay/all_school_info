@@ -4,12 +4,11 @@ import 'package:computer/computer.dart';
 import 'package:design/design.dart';
 import 'package:domain/domain.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/foundation.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
 // TODO
-const bool useMock = kDebugMode && true;
+const bool useMock = true; // kDebugMode && true;
 
 Future<Palette> initPalette() async {
   final CustomColors? customColors = await CustomColors.loadAsync('assets/theme/base.json');
@@ -47,7 +46,7 @@ Future<void> _initAppDI() async {
 
   await computer.turnOn(
     workersCount: 1,
-    verbose: true,
+    // verbose: true,
   );
 }
 
@@ -69,14 +68,12 @@ Future<void> _setupRemoteConfig() async {
 
   RemoteConfigValue(null, ValueSource.valueStatic);
 
-  //
+  // apply values to domain
   final AppDomain appDomain = getIt.get<AppDomain>();
   await remoteConfig.fetchAndActivate();
 
   final int topAnnouncementCount = remoteConfig.getInt('top_announcement_count');
   appDomain.appStore.dispatch(CommonAction.topAnnouncementCount(value: topAnnouncementCount));
-
-  // return remoteConfig;
 }
 
 /// `push notifications`
@@ -112,14 +109,14 @@ Future<void> _pushNotifications() async {
     print('Message data: ${message.data}');
 
     if (message.notification != null) {
-      print('Message also contained a notification: ${message.notification}');
+      print('Message also contained a notification: ${message.notification?.title} > ${message.notification?.body}');
     }
   });
 
   // initial message
   final RemoteMessage? remoteMessage = await firebaseMessaging.getInitialMessage();
   if (remoteMessage != null) {
-    print('------- getInitialMessage $remoteMessage');
+    print('------- getInitialMessage ${remoteMessage.data}');
   }
   // .then((RemoteMessage remoteMessage) async {
   //   if (remoteMessage != null) {
@@ -134,12 +131,14 @@ Future<void> _pushNotifications() async {
   await firebaseMessaging.setAutoInitEnabled(true);
 
   // opened app
-  // FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage remoteMessage) {
-  //   print('------- onMessageOpenedApp $remoteMessage');
-  // });
+  FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage remoteMessage) {
+    print('------- onMessageOpenedApp ${remoteMessage.data}');
+  });
 
   // // background message
   FirebaseMessaging.onBackgroundMessage(_backgroundMessageHandler);
+
+  // await firebaseMessaging.subscribeToTopic('test');
 }
 
 Future<dynamic> _backgroundMessageHandler(RemoteMessage remoteMessage) async {
