@@ -49,6 +49,8 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
         );
       },
       builder: (_, UiAnnouncementInfo uiAnnouncementInfo) {
+        final int unreadLen = uiAnnouncementInfo.unreadAnnouncementList.length;
+
         return Column(
           children: <Widget>[
             SizedBox(
@@ -97,8 +99,7 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
                   child: ColoredBox(
                     color: context.design.palette.gray12,
                     child: Text(
-                      AllSchoolInfoIntl.of(context)
-                          .unreadAnnouncements(uiAnnouncementInfo.unreadAnnouncementList.length),
+                      AllSchoolInfoIntl.of(context).unreadAnnouncements(unreadLen),
                     ),
                   ),
                 ),

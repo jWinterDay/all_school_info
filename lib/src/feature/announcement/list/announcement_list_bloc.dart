@@ -38,7 +38,7 @@ class AnnouncementListBloc {
       'fdsfs',
       title: 'title 1',
       content: 'content 1',
-      isTopEvent: true,
+      isTopEvent: false,
     );
 
     getIt.get<AppDomain>().appStore.dispatch(const AnnouncementAction.addUnreadAnnouncement(value: model));

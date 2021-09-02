@@ -72,10 +72,20 @@ AnnouncementState _addUnreadAnnouncement(
   AnnouncementState state,
   AnnouncementModel announcementModel,
 ) {
+  // insert top events directly to topList
+  if (announcementModel.isTopEvent) {
+    return state.copyWith(
+      topList: <AnnouncementModel>[
+        announcementModel,
+        ...state.topList,
+      ],
+    );
+  }
+
   return state.copyWith(
     unreadList: <AnnouncementModel>[
-      ...state.unreadList,
       announcementModel,
+      ...state.unreadList,
     ],
   );
 }
