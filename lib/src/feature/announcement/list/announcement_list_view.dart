@@ -56,7 +56,7 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
             SizedBox(
               height: 36,
               child: GestureDetector(
-                onTap: _bloc.addUnread,
+                onTap: _bloc.testAddUnread,
                 child: const Text('add unread'),
               ),
             ),
@@ -64,7 +64,7 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
             SizedBox(
               height: 36,
               child: GestureDetector(
-                onTap: _bloc.addScheduleUpd,
+                onTap: _bloc.testAddScheduleUpd,
                 child: const Text('add schedule upd'),
               ),
             ),

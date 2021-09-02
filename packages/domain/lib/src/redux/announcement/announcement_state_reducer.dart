@@ -9,7 +9,11 @@ AnnouncementState announcementReducer(AnnouncementState s, dynamic a) {
       changeLoading: (actionEvent) => s.copyWith(loading: actionEvent.value),
       // ignore: always_specify_types
       changeFirstLoading: (actionEvent) => s.copyWith(firstLoading: actionEvent.value),
-      cleanUp: (_) => s.copyWith(list: <AnnouncementModel>[]),
+      cleanUp: (_) => s.copyWith(
+        list: <AnnouncementModel>[],
+        topList: <AnnouncementModel>[],
+        unreadList: <AnnouncementModel>[],
+      ),
       // ignore: always_specify_types
       setErrorModel: (actionEvent) => s.copyWith(errorModel: actionEvent.value),
       clearErrorModel: (_) => s.copyWith(errorModel: null),
@@ -19,12 +23,15 @@ AnnouncementState announcementReducer(AnnouncementState s, dynamic a) {
       addAnnouncement: (actionEvent) => _addAnnouncement(s, actionEvent.value),
       // ignore: always_specify_types
       addAnnouncementList: (actionEvent) => _addAnnouncementList(s, actionEvent.value),
+      // ignore: always_specify_types
+      removeAnnouncementById: (actionEvent) => _removeAnnouncementById(s, actionEvent.value),
+      // ignore: always_specify_types
+      modifyAnnouncementById: (actionEvent) => _modifyAnnouncementById(s, id: actionEvent.id, data: actionEvent.data),
 
       //
       // ignore: always_specify_types
       addUnreadAnnouncement: (actionEvent) => _addUnreadAnnouncement(s, actionEvent.value),
       // ignore: always_specify_types
-      removeUnreadAnnouncement: (actionEvent) => _removeUnreadAnnouncement(s, actionEvent.value),
       clearUnreadAnnouncements: (_) => _clearUnreadAnnouncements(s),
 
       orElse: () {
@@ -34,6 +41,55 @@ AnnouncementState announcementReducer(AnnouncementState s, dynamic a) {
   }
 
   return s;
+}
+
+AnnouncementState _modifyAnnouncementById(
+  AnnouncementState state, {
+  required String id,
+  Map<String, dynamic>? data,
+}) {
+  // TODO remake
+  // if (state.list.any((AnnouncementModel e) => e.id == id)) {
+  //   final List<AnnouncementModel> nextList = <AnnouncementModel>[...state.list];
+  //   nextList.removeWhere((AnnouncementModel e) => e.id == id);
+  //   return state.copyWith(
+  //     list: nextList,
+  //   );
+  // }
+
+  return state;
+}
+
+AnnouncementState _removeAnnouncementById(
+  AnnouncementState state,
+  String id,
+) {
+  // TODO remake
+  if (state.list.any((AnnouncementModel e) => e.id == id)) {
+    final List<AnnouncementModel> nextList = <AnnouncementModel>[...state.list];
+    nextList.removeWhere((AnnouncementModel e) => e.id == id);
+    return state.copyWith(
+      list: nextList,
+    );
+  }
+
+  if (state.topList.any((AnnouncementModel e) => e.id == id)) {
+    final List<AnnouncementModel> nextList = <AnnouncementModel>[...state.topList];
+    nextList.removeWhere((AnnouncementModel e) => e.id == id);
+    return state.copyWith(
+      topList: nextList,
+    );
+  }
+
+  if (state.unreadList.any((AnnouncementModel e) => e.id == id)) {
+    final List<AnnouncementModel> nextList = <AnnouncementModel>[...state.unreadList];
+    nextList.removeWhere((AnnouncementModel e) => e.id == id);
+    return state.copyWith(
+      unreadList: nextList,
+    );
+  }
+
+  return state;
 }
 
 AnnouncementState _addAnnouncement(
@@ -103,21 +159,5 @@ AnnouncementState _clearUnreadAnnouncements(
       ...state.unreadList.where((AnnouncementModel e) => e.isTopEvent).toList(),
       ...state.topList,
     ],
-  );
-}
-
-// TODO remove
-AnnouncementState _removeUnreadAnnouncement(
-  AnnouncementState state,
-  AnnouncementModel announcementModel,
-) {
-  final List<AnnouncementModel> nextList = <AnnouncementModel>[
-    ...state.list,
-  ];
-
-  nextList.remove(announcementModel);
-
-  return state.copyWith(
-    unreadList: nextList,
   );
 }

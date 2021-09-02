@@ -15,7 +15,7 @@ class AnnouncementModel with _$AnnouncementModel {
     @JsonKey(name: 'content') String? content,
     @JsonKey(name: 'user_groups', defaultValue: <String>[defaultUserGroup])
     @Default(<String>[defaultUserGroup])
-        List<String> userGroups,
+        List<String> userGroups, // TODO remove
     @JsonKey(name: 'is_top_event', defaultValue: false) @Default(false) bool isTopEvent,
   }) = _AnnouncementModel;
 

@@ -13,7 +13,7 @@ UserState userReducer(UserState s, dynamic a) {
       // ignore: always_specify_types
       updateToken: (actionEvent) => s.copyWith(token: actionEvent.value),
       // ignore: always_specify_types
-      updateRefreshToken: (actionEvent) => s.copyWith(refreshToken: actionEvent.value),
+      // updateRefreshToken: (actionEvent) => s.copyWith(refreshToken: actionEvent.value),
       orElse: () {
         return s;
       },
@@ -25,22 +25,21 @@ UserState userReducer(UserState s, dynamic a) {
 
 UserState _updateCreds(
   UserState state,
-  UserState userState,
+  UserState nextUserState,
 ) {
   return state.copyWith(
-    loggedIn: true,
-    userId: userState.userId,
-    firstName: userState.firstName,
-    lastName: userState.lastName,
-    email: userState.email,
-    accessGroups: userState.accessGroups,
-    classLetter: userState.classLetter,
-    classNumber: userState.classNumber,
-    classProfile: userState.classProfile,
-    lessonList: userState.lessonList,
-    phoneNumbers: userState.phoneNumbers,
-    classroomManagement: userState.classroomManagement,
-    refreshToken: userState.refreshToken,
-    token: userState.token,
+    loggedIn: state.loggedIn, // save logged in status
+    userId: nextUserState.userId,
+    firstName: nextUserState.firstName,
+    lastName: nextUserState.lastName,
+    email: nextUserState.email,
+    accessGroups: nextUserState.accessGroups,
+    classLetter: nextUserState.classLetter,
+    classNumber: nextUserState.classNumber,
+    classProfile: nextUserState.classProfile,
+    lessonList: nextUserState.lessonList,
+    phoneNumbers: nextUserState.phoneNumbers,
+    classroomManagement: nextUserState.classroomManagement,
+    token: nextUserState.token,
   );
 }

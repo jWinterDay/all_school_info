@@ -56,6 +56,19 @@ class _$AnnouncementActionTearOff {
     );
   }
 
+  _RemoveAnnouncementById removeAnnouncementById({required String value}) {
+    return _RemoveAnnouncementById(
+      value: value,
+    );
+  }
+
+  _ModifyAnnouncement modifyAnnouncementById({required String id, required Map<String, dynamic>? data}) {
+    return _ModifyAnnouncement(
+      id: id,
+      data: data,
+    );
+  }
+
   _AddAnnouncementList addAnnouncementList({required Iterable<AnnouncementModel> value}) {
     return _AddAnnouncementList(
       value: value,
@@ -94,6 +107,8 @@ mixin _$AnnouncementAction {
     required TResult Function() cleanUp,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
+    required TResult Function(String value) removeAnnouncementById,
+    required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
     required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
     required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
@@ -110,6 +125,8 @@ mixin _$AnnouncementAction {
     TResult Function()? cleanUp,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
+    TResult Function(String value)? removeAnnouncementById,
+    TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
     TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
     TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
@@ -127,6 +144,8 @@ mixin _$AnnouncementAction {
     required TResult Function(_CleanUp value) cleanUp,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
+    required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
+    required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
     required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
     required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
@@ -143,6 +162,8 @@ mixin _$AnnouncementAction {
     TResult Function(_CleanUp value)? cleanUp,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
+    TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
+    TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
     TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
     TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
@@ -209,6 +230,8 @@ class _$_Start implements _Start {
     required TResult Function() cleanUp,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
+    required TResult Function(String value) removeAnnouncementById,
+    required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
     required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
     required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
@@ -228,6 +251,8 @@ class _$_Start implements _Start {
     TResult Function()? cleanUp,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
+    TResult Function(String value)? removeAnnouncementById,
+    TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
     TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
     TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
@@ -251,6 +276,8 @@ class _$_Start implements _Start {
     required TResult Function(_CleanUp value) cleanUp,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
+    required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
+    required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
     required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
     required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
@@ -270,6 +297,8 @@ class _$_Start implements _Start {
     TResult Function(_CleanUp value)? cleanUp,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
+    TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
+    TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
     TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
     TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
@@ -355,6 +384,8 @@ class _$_ChangeLoading implements _ChangeLoading {
     required TResult Function() cleanUp,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
+    required TResult Function(String value) removeAnnouncementById,
+    required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
     required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
     required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
@@ -374,6 +405,8 @@ class _$_ChangeLoading implements _ChangeLoading {
     TResult Function()? cleanUp,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
+    TResult Function(String value)? removeAnnouncementById,
+    TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
     TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
     TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
@@ -397,6 +430,8 @@ class _$_ChangeLoading implements _ChangeLoading {
     required TResult Function(_CleanUp value) cleanUp,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
+    required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
+    required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
     required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
     required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
@@ -416,6 +451,8 @@ class _$_ChangeLoading implements _ChangeLoading {
     TResult Function(_CleanUp value)? cleanUp,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
+    TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
+    TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
     TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
     TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
@@ -505,6 +542,8 @@ class _$_ChangeFirstLoading implements _ChangeFirstLoading {
     required TResult Function() cleanUp,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
+    required TResult Function(String value) removeAnnouncementById,
+    required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
     required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
     required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
@@ -524,6 +563,8 @@ class _$_ChangeFirstLoading implements _ChangeFirstLoading {
     TResult Function()? cleanUp,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
+    TResult Function(String value)? removeAnnouncementById,
+    TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
     TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
     TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
@@ -547,6 +588,8 @@ class _$_ChangeFirstLoading implements _ChangeFirstLoading {
     required TResult Function(_CleanUp value) cleanUp,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
+    required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
+    required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
     required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
     required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
@@ -566,6 +609,8 @@ class _$_ChangeFirstLoading implements _ChangeFirstLoading {
     TResult Function(_CleanUp value)? cleanUp,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
+    TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
+    TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
     TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
     TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
@@ -664,6 +709,8 @@ class _$_SetErrorModel implements _SetErrorModel {
     required TResult Function() cleanUp,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
+    required TResult Function(String value) removeAnnouncementById,
+    required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
     required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
     required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
@@ -683,6 +730,8 @@ class _$_SetErrorModel implements _SetErrorModel {
     TResult Function()? cleanUp,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
+    TResult Function(String value)? removeAnnouncementById,
+    TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
     TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
     TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
@@ -706,6 +755,8 @@ class _$_SetErrorModel implements _SetErrorModel {
     required TResult Function(_CleanUp value) cleanUp,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
+    required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
+    required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
     required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
     required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
@@ -725,6 +776,8 @@ class _$_SetErrorModel implements _SetErrorModel {
     TResult Function(_CleanUp value)? cleanUp,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
+    TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
+    TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
     TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
     TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
@@ -791,6 +844,8 @@ class _$_ClearErrorModel implements _ClearErrorModel {
     required TResult Function() cleanUp,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
+    required TResult Function(String value) removeAnnouncementById,
+    required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
     required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
     required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
@@ -810,6 +865,8 @@ class _$_ClearErrorModel implements _ClearErrorModel {
     TResult Function()? cleanUp,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
+    TResult Function(String value)? removeAnnouncementById,
+    TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
     TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
     TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
@@ -833,6 +890,8 @@ class _$_ClearErrorModel implements _ClearErrorModel {
     required TResult Function(_CleanUp value) cleanUp,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
+    required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
+    required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
     required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
     required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
@@ -852,6 +911,8 @@ class _$_ClearErrorModel implements _ClearErrorModel {
     TResult Function(_CleanUp value)? cleanUp,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
+    TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
+    TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
     TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
     TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
@@ -911,6 +972,8 @@ class _$_CleanUp implements _CleanUp {
     required TResult Function() cleanUp,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
+    required TResult Function(String value) removeAnnouncementById,
+    required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
     required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
     required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
@@ -930,6 +993,8 @@ class _$_CleanUp implements _CleanUp {
     TResult Function()? cleanUp,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
+    TResult Function(String value)? removeAnnouncementById,
+    TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
     TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
     TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
@@ -953,6 +1018,8 @@ class _$_CleanUp implements _CleanUp {
     required TResult Function(_CleanUp value) cleanUp,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
+    required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
+    required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
     required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
     required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
@@ -972,6 +1039,8 @@ class _$_CleanUp implements _CleanUp {
     TResult Function(_CleanUp value)? cleanUp,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
+    TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
+    TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
     TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
     TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
@@ -1034,6 +1103,8 @@ class _$_FetchAnnouncements implements _FetchAnnouncements {
     required TResult Function() cleanUp,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
+    required TResult Function(String value) removeAnnouncementById,
+    required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
     required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
     required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
@@ -1053,6 +1124,8 @@ class _$_FetchAnnouncements implements _FetchAnnouncements {
     TResult Function()? cleanUp,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
+    TResult Function(String value)? removeAnnouncementById,
+    TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
     TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
     TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
@@ -1076,6 +1149,8 @@ class _$_FetchAnnouncements implements _FetchAnnouncements {
     required TResult Function(_CleanUp value) cleanUp,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
+    required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
+    required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
     required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
     required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
@@ -1095,6 +1170,8 @@ class _$_FetchAnnouncements implements _FetchAnnouncements {
     TResult Function(_CleanUp value)? cleanUp,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
+    TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
+    TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
     TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
     TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
@@ -1189,6 +1266,8 @@ class _$_AddAnnouncement implements _AddAnnouncement {
     required TResult Function() cleanUp,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
+    required TResult Function(String value) removeAnnouncementById,
+    required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
     required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
     required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
@@ -1208,6 +1287,8 @@ class _$_AddAnnouncement implements _AddAnnouncement {
     TResult Function()? cleanUp,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
+    TResult Function(String value)? removeAnnouncementById,
+    TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
     TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
     TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
@@ -1231,6 +1312,8 @@ class _$_AddAnnouncement implements _AddAnnouncement {
     required TResult Function(_CleanUp value) cleanUp,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
+    required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
+    required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
     required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
     required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
@@ -1250,6 +1333,8 @@ class _$_AddAnnouncement implements _AddAnnouncement {
     TResult Function(_CleanUp value)? cleanUp,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
+    TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
+    TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
     TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
     TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
@@ -1269,6 +1354,332 @@ abstract class _AddAnnouncement implements AnnouncementAction {
   AnnouncementModel get value => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$AddAnnouncementCopyWith<_AddAnnouncement> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$RemoveAnnouncementByIdCopyWith<$Res> {
+  factory _$RemoveAnnouncementByIdCopyWith(_RemoveAnnouncementById value, $Res Function(_RemoveAnnouncementById) then) =
+      __$RemoveAnnouncementByIdCopyWithImpl<$Res>;
+  $Res call({String value});
+}
+
+/// @nodoc
+class __$RemoveAnnouncementByIdCopyWithImpl<$Res> extends _$AnnouncementActionCopyWithImpl<$Res>
+    implements _$RemoveAnnouncementByIdCopyWith<$Res> {
+  __$RemoveAnnouncementByIdCopyWithImpl(_RemoveAnnouncementById _value, $Res Function(_RemoveAnnouncementById) _then)
+      : super(_value, (v) => _then(v as _RemoveAnnouncementById));
+
+  @override
+  _RemoveAnnouncementById get _value => super._value as _RemoveAnnouncementById;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_RemoveAnnouncementById(
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_RemoveAnnouncementById implements _RemoveAnnouncementById {
+  const _$_RemoveAnnouncementById({required this.value});
+
+  @override
+  final String value;
+
+  @override
+  String toString() {
+    return 'AnnouncementAction.removeAnnouncementById(value: $value)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _RemoveAnnouncementById &&
+            (identical(other.value, value) || const DeepCollectionEquality().equals(other.value, value)));
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+
+  @JsonKey(ignore: true)
+  @override
+  _$RemoveAnnouncementByIdCopyWith<_RemoveAnnouncementById> get copyWith =>
+      __$RemoveAnnouncementByIdCopyWithImpl<_RemoveAnnouncementById>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() start,
+    required TResult Function(bool value) changeLoading,
+    required TResult Function(bool value) changeFirstLoading,
+    required TResult Function(ErrorModel value) setErrorModel,
+    required TResult Function() clearErrorModel,
+    required TResult Function() cleanUp,
+    required TResult Function() fetchAnnouncements,
+    required TResult Function(AnnouncementModel value) addAnnouncement,
+    required TResult Function(String value) removeAnnouncementById,
+    required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
+    required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
+    required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
+    required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
+    required TResult Function() clearUnreadAnnouncements,
+  }) {
+    return removeAnnouncementById(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? start,
+    TResult Function(bool value)? changeLoading,
+    TResult Function(bool value)? changeFirstLoading,
+    TResult Function(ErrorModel value)? setErrorModel,
+    TResult Function()? clearErrorModel,
+    TResult Function()? cleanUp,
+    TResult Function()? fetchAnnouncements,
+    TResult Function(AnnouncementModel value)? addAnnouncement,
+    TResult Function(String value)? removeAnnouncementById,
+    TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
+    TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
+    TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
+    TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
+    TResult Function()? clearUnreadAnnouncements,
+    required TResult orElse(),
+  }) {
+    if (removeAnnouncementById != null) {
+      return removeAnnouncementById(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Start value) start,
+    required TResult Function(_ChangeLoading value) changeLoading,
+    required TResult Function(_ChangeFirstLoading value) changeFirstLoading,
+    required TResult Function(_SetErrorModel value) setErrorModel,
+    required TResult Function(_ClearErrorModel value) clearErrorModel,
+    required TResult Function(_CleanUp value) cleanUp,
+    required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
+    required TResult Function(_AddAnnouncement value) addAnnouncement,
+    required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
+    required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
+    required TResult Function(_AddAnnouncementList value) addAnnouncementList,
+    required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
+    required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
+    required TResult Function(_ClearUnreadAnnouncement value) clearUnreadAnnouncements,
+  }) {
+    return removeAnnouncementById(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Start value)? start,
+    TResult Function(_ChangeLoading value)? changeLoading,
+    TResult Function(_ChangeFirstLoading value)? changeFirstLoading,
+    TResult Function(_SetErrorModel value)? setErrorModel,
+    TResult Function(_ClearErrorModel value)? clearErrorModel,
+    TResult Function(_CleanUp value)? cleanUp,
+    TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
+    TResult Function(_AddAnnouncement value)? addAnnouncement,
+    TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
+    TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
+    TResult Function(_AddAnnouncementList value)? addAnnouncementList,
+    TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
+    TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
+    TResult Function(_ClearUnreadAnnouncement value)? clearUnreadAnnouncements,
+    required TResult orElse(),
+  }) {
+    if (removeAnnouncementById != null) {
+      return removeAnnouncementById(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RemoveAnnouncementById implements AnnouncementAction {
+  const factory _RemoveAnnouncementById({required String value}) = _$_RemoveAnnouncementById;
+
+  String get value => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$RemoveAnnouncementByIdCopyWith<_RemoveAnnouncementById> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ModifyAnnouncementCopyWith<$Res> {
+  factory _$ModifyAnnouncementCopyWith(_ModifyAnnouncement value, $Res Function(_ModifyAnnouncement) then) =
+      __$ModifyAnnouncementCopyWithImpl<$Res>;
+  $Res call({String id, Map<String, dynamic>? data});
+}
+
+/// @nodoc
+class __$ModifyAnnouncementCopyWithImpl<$Res> extends _$AnnouncementActionCopyWithImpl<$Res>
+    implements _$ModifyAnnouncementCopyWith<$Res> {
+  __$ModifyAnnouncementCopyWithImpl(_ModifyAnnouncement _value, $Res Function(_ModifyAnnouncement) _then)
+      : super(_value, (v) => _then(v as _ModifyAnnouncement));
+
+  @override
+  _ModifyAnnouncement get _value => super._value as _ModifyAnnouncement;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? data = freezed,
+  }) {
+    return _then(_ModifyAnnouncement(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      data: data == freezed
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ModifyAnnouncement implements _ModifyAnnouncement {
+  const _$_ModifyAnnouncement({required this.id, required this.data});
+
+  @override
+  final String id;
+  @override
+  final Map<String, dynamic>? data;
+
+  @override
+  String toString() {
+    return 'AnnouncementAction.modifyAnnouncementById(id: $id, data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ModifyAnnouncement &&
+            (identical(other.id, id) || const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.data, data) || const DeepCollectionEquality().equals(other.data, data)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(id) ^ const DeepCollectionEquality().hash(data);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ModifyAnnouncementCopyWith<_ModifyAnnouncement> get copyWith =>
+      __$ModifyAnnouncementCopyWithImpl<_ModifyAnnouncement>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() start,
+    required TResult Function(bool value) changeLoading,
+    required TResult Function(bool value) changeFirstLoading,
+    required TResult Function(ErrorModel value) setErrorModel,
+    required TResult Function() clearErrorModel,
+    required TResult Function() cleanUp,
+    required TResult Function() fetchAnnouncements,
+    required TResult Function(AnnouncementModel value) addAnnouncement,
+    required TResult Function(String value) removeAnnouncementById,
+    required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
+    required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
+    required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
+    required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
+    required TResult Function() clearUnreadAnnouncements,
+  }) {
+    return modifyAnnouncementById(id, data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? start,
+    TResult Function(bool value)? changeLoading,
+    TResult Function(bool value)? changeFirstLoading,
+    TResult Function(ErrorModel value)? setErrorModel,
+    TResult Function()? clearErrorModel,
+    TResult Function()? cleanUp,
+    TResult Function()? fetchAnnouncements,
+    TResult Function(AnnouncementModel value)? addAnnouncement,
+    TResult Function(String value)? removeAnnouncementById,
+    TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
+    TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
+    TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
+    TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
+    TResult Function()? clearUnreadAnnouncements,
+    required TResult orElse(),
+  }) {
+    if (modifyAnnouncementById != null) {
+      return modifyAnnouncementById(id, data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Start value) start,
+    required TResult Function(_ChangeLoading value) changeLoading,
+    required TResult Function(_ChangeFirstLoading value) changeFirstLoading,
+    required TResult Function(_SetErrorModel value) setErrorModel,
+    required TResult Function(_ClearErrorModel value) clearErrorModel,
+    required TResult Function(_CleanUp value) cleanUp,
+    required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
+    required TResult Function(_AddAnnouncement value) addAnnouncement,
+    required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
+    required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
+    required TResult Function(_AddAnnouncementList value) addAnnouncementList,
+    required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
+    required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
+    required TResult Function(_ClearUnreadAnnouncement value) clearUnreadAnnouncements,
+  }) {
+    return modifyAnnouncementById(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Start value)? start,
+    TResult Function(_ChangeLoading value)? changeLoading,
+    TResult Function(_ChangeFirstLoading value)? changeFirstLoading,
+    TResult Function(_SetErrorModel value)? setErrorModel,
+    TResult Function(_ClearErrorModel value)? clearErrorModel,
+    TResult Function(_CleanUp value)? cleanUp,
+    TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
+    TResult Function(_AddAnnouncement value)? addAnnouncement,
+    TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
+    TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
+    TResult Function(_AddAnnouncementList value)? addAnnouncementList,
+    TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
+    TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
+    TResult Function(_ClearUnreadAnnouncement value)? clearUnreadAnnouncements,
+    required TResult orElse(),
+  }) {
+    if (modifyAnnouncementById != null) {
+      return modifyAnnouncementById(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ModifyAnnouncement implements AnnouncementAction {
+  const factory _ModifyAnnouncement({required String id, required Map<String, dynamic>? data}) = _$_ModifyAnnouncement;
+
+  String get id => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get data => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ModifyAnnouncementCopyWith<_ModifyAnnouncement> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1339,6 +1750,8 @@ class _$_AddAnnouncementList implements _AddAnnouncementList {
     required TResult Function() cleanUp,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
+    required TResult Function(String value) removeAnnouncementById,
+    required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
     required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
     required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
@@ -1358,6 +1771,8 @@ class _$_AddAnnouncementList implements _AddAnnouncementList {
     TResult Function()? cleanUp,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
+    TResult Function(String value)? removeAnnouncementById,
+    TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
     TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
     TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
@@ -1381,6 +1796,8 @@ class _$_AddAnnouncementList implements _AddAnnouncementList {
     required TResult Function(_CleanUp value) cleanUp,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
+    required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
+    required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
     required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
     required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
@@ -1400,6 +1817,8 @@ class _$_AddAnnouncementList implements _AddAnnouncementList {
     TResult Function(_CleanUp value)? cleanUp,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
+    TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
+    TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
     TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
     TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
@@ -1498,6 +1917,8 @@ class _$_AddUnreadAnnouncement implements _AddUnreadAnnouncement {
     required TResult Function() cleanUp,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
+    required TResult Function(String value) removeAnnouncementById,
+    required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
     required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
     required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
@@ -1517,6 +1938,8 @@ class _$_AddUnreadAnnouncement implements _AddUnreadAnnouncement {
     TResult Function()? cleanUp,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
+    TResult Function(String value)? removeAnnouncementById,
+    TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
     TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
     TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
@@ -1540,6 +1963,8 @@ class _$_AddUnreadAnnouncement implements _AddUnreadAnnouncement {
     required TResult Function(_CleanUp value) cleanUp,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
+    required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
+    required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
     required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
     required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
@@ -1559,6 +1984,8 @@ class _$_AddUnreadAnnouncement implements _AddUnreadAnnouncement {
     TResult Function(_CleanUp value)? cleanUp,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
+    TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
+    TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
     TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
     TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
@@ -1659,6 +2086,8 @@ class _$_RemoveUnreadAnnouncement implements _RemoveUnreadAnnouncement {
     required TResult Function() cleanUp,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
+    required TResult Function(String value) removeAnnouncementById,
+    required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
     required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
     required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
@@ -1678,6 +2107,8 @@ class _$_RemoveUnreadAnnouncement implements _RemoveUnreadAnnouncement {
     TResult Function()? cleanUp,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
+    TResult Function(String value)? removeAnnouncementById,
+    TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
     TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
     TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
@@ -1701,6 +2132,8 @@ class _$_RemoveUnreadAnnouncement implements _RemoveUnreadAnnouncement {
     required TResult Function(_CleanUp value) cleanUp,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
+    required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
+    required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
     required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
     required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
@@ -1720,6 +2153,8 @@ class _$_RemoveUnreadAnnouncement implements _RemoveUnreadAnnouncement {
     TResult Function(_CleanUp value)? cleanUp,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
+    TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
+    TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
     TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
     TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
@@ -1787,6 +2222,8 @@ class _$_ClearUnreadAnnouncement implements _ClearUnreadAnnouncement {
     required TResult Function() cleanUp,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
+    required TResult Function(String value) removeAnnouncementById,
+    required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
     required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
     required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
@@ -1806,6 +2243,8 @@ class _$_ClearUnreadAnnouncement implements _ClearUnreadAnnouncement {
     TResult Function()? cleanUp,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
+    TResult Function(String value)? removeAnnouncementById,
+    TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
     TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
     TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
@@ -1829,6 +2268,8 @@ class _$_ClearUnreadAnnouncement implements _ClearUnreadAnnouncement {
     required TResult Function(_CleanUp value) cleanUp,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
+    required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
+    required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
     required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
     required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
@@ -1848,6 +2289,8 @@ class _$_ClearUnreadAnnouncement implements _ClearUnreadAnnouncement {
     TResult Function(_CleanUp value)? cleanUp,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
+    TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
+    TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
     TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
     TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,

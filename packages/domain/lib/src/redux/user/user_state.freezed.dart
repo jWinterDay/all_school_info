@@ -27,8 +27,7 @@ class _$UserStateTearOff {
       @JsonKey(name: 'last_name') String? lastName,
       @JsonKey(name: 'email') String? email,
       @JsonKey(name: 'token') String? token,
-      @JsonKey(name: 'refresh_token') String? refreshToken,
-      @JsonKey(name: 'access_groups', defaultValue: initAccesGroups) List<String> accessGroups = initAccesGroups,
+      @JsonKey(name: 'access_groups', defaultValue: const <String>[]) List<String> accessGroups = const <String>[],
       @JsonKey(name: 'loading', defaultValue: false) bool loading = false,
       @JsonKey(name: 'user_type', defaultValue: UserType.learner) UserType userType = UserType.learner,
       @JsonKey(name: 'class_number', defaultValue: 1) int classNumber = 1,
@@ -44,7 +43,6 @@ class _$UserStateTearOff {
       lastName: lastName,
       email: email,
       token: token,
-      refreshToken: refreshToken,
       accessGroups: accessGroups,
       loading: loading,
       userType: userType,
@@ -78,10 +76,8 @@ mixin _$UserState {
   @JsonKey(name: 'email')
   String? get email => throw _privateConstructorUsedError;
   @JsonKey(name: 'token')
-  String? get token => throw _privateConstructorUsedError;
-  @JsonKey(name: 'refresh_token')
-  String? get refreshToken => throw _privateConstructorUsedError;
-  @JsonKey(name: 'access_groups', defaultValue: initAccesGroups)
+  String? get token => throw _privateConstructorUsedError; // @JsonKey(name: 'refresh_token') String? refreshToken,
+  @JsonKey(name: 'access_groups', defaultValue: const <String>[])
   List<String> get accessGroups => throw _privateConstructorUsedError;
   @JsonKey(name: 'loading', defaultValue: false)
   bool get loading => throw _privateConstructorUsedError; // additional info
@@ -115,8 +111,7 @@ abstract class $UserStateCopyWith<$Res> {
       @JsonKey(name: 'last_name') String? lastName,
       @JsonKey(name: 'email') String? email,
       @JsonKey(name: 'token') String? token,
-      @JsonKey(name: 'refresh_token') String? refreshToken,
-      @JsonKey(name: 'access_groups', defaultValue: initAccesGroups) List<String> accessGroups,
+      @JsonKey(name: 'access_groups', defaultValue: const <String>[]) List<String> accessGroups,
       @JsonKey(name: 'loading', defaultValue: false) bool loading,
       @JsonKey(name: 'user_type', defaultValue: UserType.learner) UserType userType,
       @JsonKey(name: 'class_number', defaultValue: 1) int classNumber,
@@ -143,7 +138,6 @@ class _$UserStateCopyWithImpl<$Res> implements $UserStateCopyWith<$Res> {
     Object? lastName = freezed,
     Object? email = freezed,
     Object? token = freezed,
-    Object? refreshToken = freezed,
     Object? accessGroups = freezed,
     Object? loading = freezed,
     Object? userType = freezed,
@@ -178,10 +172,6 @@ class _$UserStateCopyWithImpl<$Res> implements $UserStateCopyWith<$Res> {
       token: token == freezed
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
-              as String?,
-      refreshToken: refreshToken == freezed
-          ? _value.refreshToken
-          : refreshToken // ignore: cast_nullable_to_non_nullable
               as String?,
       accessGroups: accessGroups == freezed
           ? _value.accessGroups
@@ -234,8 +224,7 @@ abstract class _$UserStateCopyWith<$Res> implements $UserStateCopyWith<$Res> {
       @JsonKey(name: 'last_name') String? lastName,
       @JsonKey(name: 'email') String? email,
       @JsonKey(name: 'token') String? token,
-      @JsonKey(name: 'refresh_token') String? refreshToken,
-      @JsonKey(name: 'access_groups', defaultValue: initAccesGroups) List<String> accessGroups,
+      @JsonKey(name: 'access_groups', defaultValue: const <String>[]) List<String> accessGroups,
       @JsonKey(name: 'loading', defaultValue: false) bool loading,
       @JsonKey(name: 'user_type', defaultValue: UserType.learner) UserType userType,
       @JsonKey(name: 'class_number', defaultValue: 1) int classNumber,
@@ -262,7 +251,6 @@ class __$UserStateCopyWithImpl<$Res> extends _$UserStateCopyWithImpl<$Res> imple
     Object? lastName = freezed,
     Object? email = freezed,
     Object? token = freezed,
-    Object? refreshToken = freezed,
     Object? accessGroups = freezed,
     Object? loading = freezed,
     Object? userType = freezed,
@@ -297,10 +285,6 @@ class __$UserStateCopyWithImpl<$Res> extends _$UserStateCopyWithImpl<$Res> imple
       token: token == freezed
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
-              as String?,
-      refreshToken: refreshToken == freezed
-          ? _value.refreshToken
-          : refreshToken // ignore: cast_nullable_to_non_nullable
               as String?,
       accessGroups: accessGroups == freezed
           ? _value.accessGroups
@@ -352,8 +336,7 @@ class _$_UserState extends _UserState {
       @JsonKey(name: 'last_name') this.lastName,
       @JsonKey(name: 'email') this.email,
       @JsonKey(name: 'token') this.token,
-      @JsonKey(name: 'refresh_token') this.refreshToken,
-      @JsonKey(name: 'access_groups', defaultValue: initAccesGroups) this.accessGroups = initAccesGroups,
+      @JsonKey(name: 'access_groups', defaultValue: const <String>[]) this.accessGroups = const <String>[],
       @JsonKey(name: 'loading', defaultValue: false) this.loading = false,
       @JsonKey(name: 'user_type', defaultValue: UserType.learner) this.userType = UserType.learner,
       @JsonKey(name: 'class_number', defaultValue: 1) this.classNumber = 1,
@@ -384,11 +367,8 @@ class _$_UserState extends _UserState {
   @override
   @JsonKey(name: 'token')
   final String? token;
-  @override
-  @JsonKey(name: 'refresh_token')
-  final String? refreshToken;
-  @override
-  @JsonKey(name: 'access_groups', defaultValue: initAccesGroups)
+  @override // @JsonKey(name: 'refresh_token') String? refreshToken,
+  @JsonKey(name: 'access_groups', defaultValue: const <String>[])
   final List<String> accessGroups;
   @override
   @JsonKey(name: 'loading', defaultValue: false)
@@ -417,7 +397,7 @@ class _$_UserState extends _UserState {
 
   @override
   String toString() {
-    return 'UserState(loggedIn: $loggedIn, userId: $userId, firstName: $firstName, lastName: $lastName, email: $email, token: $token, refreshToken: $refreshToken, accessGroups: $accessGroups, loading: $loading, userType: $userType, classNumber: $classNumber, classLetter: $classLetter, classProfile: $classProfile, phoneNumbers: $phoneNumbers, classroomManagement: $classroomManagement, lessonList: $lessonList)';
+    return 'UserState(loggedIn: $loggedIn, userId: $userId, firstName: $firstName, lastName: $lastName, email: $email, token: $token, accessGroups: $accessGroups, loading: $loading, userType: $userType, classNumber: $classNumber, classLetter: $classLetter, classProfile: $classProfile, phoneNumbers: $phoneNumbers, classroomManagement: $classroomManagement, lessonList: $lessonList)';
   }
 
   @override
@@ -431,8 +411,6 @@ class _$_UserState extends _UserState {
             (identical(other.lastName, lastName) || const DeepCollectionEquality().equals(other.lastName, lastName)) &&
             (identical(other.email, email) || const DeepCollectionEquality().equals(other.email, email)) &&
             (identical(other.token, token) || const DeepCollectionEquality().equals(other.token, token)) &&
-            (identical(other.refreshToken, refreshToken) ||
-                const DeepCollectionEquality().equals(other.refreshToken, refreshToken)) &&
             (identical(other.accessGroups, accessGroups) ||
                 const DeepCollectionEquality().equals(other.accessGroups, accessGroups)) &&
             (identical(other.loading, loading) || const DeepCollectionEquality().equals(other.loading, loading)) &&
@@ -460,7 +438,6 @@ class _$_UserState extends _UserState {
       const DeepCollectionEquality().hash(lastName) ^
       const DeepCollectionEquality().hash(email) ^
       const DeepCollectionEquality().hash(token) ^
-      const DeepCollectionEquality().hash(refreshToken) ^
       const DeepCollectionEquality().hash(accessGroups) ^
       const DeepCollectionEquality().hash(loading) ^
       const DeepCollectionEquality().hash(userType) ^
@@ -489,8 +466,7 @@ abstract class _UserState extends UserState {
       @JsonKey(name: 'last_name') String? lastName,
       @JsonKey(name: 'email') String? email,
       @JsonKey(name: 'token') String? token,
-      @JsonKey(name: 'refresh_token') String? refreshToken,
-      @JsonKey(name: 'access_groups', defaultValue: initAccesGroups) List<String> accessGroups,
+      @JsonKey(name: 'access_groups', defaultValue: const <String>[]) List<String> accessGroups,
       @JsonKey(name: 'loading', defaultValue: false) bool loading,
       @JsonKey(name: 'user_type', defaultValue: UserType.learner) UserType userType,
       @JsonKey(name: 'class_number', defaultValue: 1) int classNumber,
@@ -521,11 +497,8 @@ abstract class _UserState extends UserState {
   @override
   @JsonKey(name: 'token')
   String? get token => throw _privateConstructorUsedError;
-  @override
-  @JsonKey(name: 'refresh_token')
-  String? get refreshToken => throw _privateConstructorUsedError;
-  @override
-  @JsonKey(name: 'access_groups', defaultValue: initAccesGroups)
+  @override // @JsonKey(name: 'refresh_token') String? refreshToken,
+  @JsonKey(name: 'access_groups', defaultValue: const <String>[])
   List<String> get accessGroups => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'loading', defaultValue: false)

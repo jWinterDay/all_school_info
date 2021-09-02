@@ -52,7 +52,7 @@ mixin _$AnnouncementModel {
   @JsonKey(name: 'content')
   String? get content => throw _privateConstructorUsedError;
   @JsonKey(name: 'user_groups', defaultValue: const <String>[defaultUserGroup])
-  List<String> get userGroups => throw _privateConstructorUsedError;
+  List<String> get userGroups => throw _privateConstructorUsedError; // TODO remove
   @JsonKey(name: 'is_top_event', defaultValue: false)
   bool get isTopEvent => throw _privateConstructorUsedError;
 
@@ -195,7 +195,7 @@ class _$_AnnouncementModel extends _AnnouncementModel {
   @override
   @JsonKey(name: 'user_groups', defaultValue: const <String>[defaultUserGroup])
   final List<String> userGroups;
-  @override
+  @override // TODO remove
   @JsonKey(name: 'is_top_event', defaultValue: false)
   final bool isTopEvent;
 
@@ -259,7 +259,7 @@ abstract class _AnnouncementModel extends AnnouncementModel {
   @override
   @JsonKey(name: 'user_groups', defaultValue: const <String>[defaultUserGroup])
   List<String> get userGroups => throw _privateConstructorUsedError;
-  @override
+  @override // TODO remove
   @JsonKey(name: 'is_top_event', defaultValue: false)
   bool get isTopEvent => throw _privateConstructorUsedError;
   @override

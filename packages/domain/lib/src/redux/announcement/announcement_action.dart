@@ -19,6 +19,9 @@ class AnnouncementAction with _$AnnouncementAction {
   // announcements
   const factory AnnouncementAction.fetchAnnouncements() = _FetchAnnouncements;
   const factory AnnouncementAction.addAnnouncement({required AnnouncementModel value}) = _AddAnnouncement;
+  const factory AnnouncementAction.removeAnnouncementById({required String value}) = _RemoveAnnouncementById;
+  const factory AnnouncementAction.modifyAnnouncementById({required String id, required Map<String, dynamic>? data}) =
+      _ModifyAnnouncement;
   const factory AnnouncementAction.addAnnouncementList({required Iterable<AnnouncementModel> value}) =
       _AddAnnouncementList;
 

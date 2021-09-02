@@ -2,12 +2,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'models/lesson_name_model.dart';
 import 'models/user_type.dart';
-import 'user_access_group.dart';
 
 part 'user_state.freezed.dart';
 part 'user_state.g.dart';
-
-const List<String> initAccesGroups = <String>[UserAccessGroup.user];
 
 @freezed
 class UserState with _$UserState {
@@ -20,8 +17,8 @@ class UserState with _$UserState {
     @JsonKey(name: 'last_name') String? lastName,
     @JsonKey(name: 'email') String? email,
     @JsonKey(name: 'token') String? token,
-    @JsonKey(name: 'refresh_token') String? refreshToken,
-    @JsonKey(name: 'access_groups', defaultValue: initAccesGroups) @Default(initAccesGroups) List<String> accessGroups,
+    // @JsonKey(name: 'refresh_token') String? refreshToken,
+    @JsonKey(name: 'access_groups', defaultValue: <String>[]) @Default(<String>[]) List<String> accessGroups,
     @JsonKey(name: 'loading', defaultValue: false) @Default(false) bool loading,
 
     // additional info
@@ -35,7 +32,7 @@ class UserState with _$UserState {
 
     // teacher
     @JsonKey(name: 'classroom_management', defaultValue: false) @Default(false) bool classroomManagement,
-    @JsonKey(name: 'lesson_list') List<LessonNameModel>? lessonList,
+    @JsonKey(name: 'lesson_list') List<LessonNameModel>? lessonList, // TODO remove
   }) = _UserState;
 
   factory UserState.fromJson(Map<String, dynamic> json) => _$UserStateFromJson(json);

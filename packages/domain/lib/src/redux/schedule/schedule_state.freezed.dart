@@ -64,7 +64,7 @@ mixin _$ScheduleState {
   @JsonKey(name: 'first_loading', defaultValue: true)
   bool get firstLoading => throw _privateConstructorUsedError;
   @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[])
-  List<LessonModel> get lessonList => throw _privateConstructorUsedError; //
+  List<LessonModel> get lessonList => throw _privateConstructorUsedError; // TODO remove to subclass
   @JsonKey(name: 'have_schedule_upd', defaultValue: false)
   bool get haveScheduleUpd => throw _privateConstructorUsedError;
   @JsonKey(name: 'have_last_notifications_upd', defaultValue: false)
@@ -250,7 +250,7 @@ class _$_ScheduleState extends _ScheduleState {
   @override
   @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[])
   final List<LessonModel> lessonList;
-  @override //
+  @override // TODO remove to subclass
   @JsonKey(name: 'have_schedule_upd', defaultValue: false)
   final bool haveScheduleUpd;
   @override
@@ -338,7 +338,7 @@ abstract class _ScheduleState extends ScheduleState {
   @override
   @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[])
   List<LessonModel> get lessonList => throw _privateConstructorUsedError;
-  @override //
+  @override // TODO remove to subclass
   @JsonKey(name: 'have_schedule_upd', defaultValue: false)
   bool get haveScheduleUpd => throw _privateConstructorUsedError;
   @override
