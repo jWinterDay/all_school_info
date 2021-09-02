@@ -57,13 +57,22 @@ class _HomeViewState extends State<HomeView> {
                 ),
                 label: AllSchoolInfoIntl.of(context).announcementsTabTitle,
               ),
+
+              // schedule
               BottomNavigationBarItem(
-                icon: const _TabWidthBadge(
-                  icon: Icons.hvac,
-                  withBadge: false,
+                icon: StoreConnector<AppState, ScheduleState>(
+                  converter: (Store<AppState> store) => store.state.scheduleState,
+                  builder: (_, ScheduleState scheduleState) {
+                    return _TabWidthBadge(
+                      icon: Icons.hvac,
+                      withBadge: scheduleState.hasAnyUpd,
+                    );
+                  },
                 ),
                 label: AllSchoolInfoIntl.of(context).scheduleViewTitle,
               ),
+
+              // profile
               BottomNavigationBarItem(
                 icon: const _TabWidthBadge(
                   icon: Icons.face_retouching_off_rounded,
@@ -106,7 +115,6 @@ class _TabWidthBadge extends StatelessWidget {
                 color: context.palette.danger,
                 borderRadius: const BorderRadius.all(Radius.circular(12)),
               ),
-              // color: Colors.red,
               width: 12,
               height: 12,
             ),

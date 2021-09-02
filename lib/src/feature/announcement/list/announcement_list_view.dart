@@ -61,6 +61,14 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
               ),
             ),
 
+            SizedBox(
+              height: 36,
+              child: GestureDetector(
+                onTap: _bloc.addScheduleUpd,
+                child: const Text('add schedule upd'),
+              ),
+            ),
+
             // top events
             if (uiAnnouncementInfo.announcementState.topList.isNotEmpty)
               CarouselSlider(

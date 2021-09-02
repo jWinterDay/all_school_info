@@ -37,38 +37,52 @@ class _ScheduleViewState extends State<ScheduleView> {
     super.dispose();
   }
 
-  List<UiScheduleItem> _itemList() {
+  List<UiScheduleItem> _itemList(ScheduleState scheduleState) {
     return <UiScheduleItem>[
+      // schedule
       UiScheduleItem(
         title: AllSchoolInfoIntl.of(context).scheduleViewTitle,
         icon: Icons.baby_changing_station,
         iconColor: context.design.palette.primary,
+        showBadge: scheduleState.haveScheduleUpd,
         callback: () async {
           await AutoRouter.of(context).push(const gr.ScheduleDetailsViewRoute());
         },
       ),
+
+      // last notifications
       UiScheduleItem(
         title: AllSchoolInfoIntl.of(context).scheduleLastNotifications,
         icon: Icons.manage_accounts_outlined,
         iconColor: context.design.palette.accent,
+        showBadge: scheduleState.haveLastNotificationsUpd,
         callback: () async {},
       ),
+
+      // ratings
       UiScheduleItem(
         title: AllSchoolInfoIntl.of(context).scheduleRatings,
         icon: Icons.radio_button_unchecked_outlined,
         iconColor: context.design.palette.averageProgress,
+        showBadge: scheduleState.haveRatingsUpd,
         callback: () async {},
       ),
+
+      // news
       UiScheduleItem(
         title: AllSchoolInfoIntl.of(context).scheduleNews,
         icon: Icons.tag_faces,
         iconColor: context.design.palette.danger,
+        showBadge: scheduleState.haveNewsUpd,
         callback: () async {},
       ),
+
+      // homework
       UiScheduleItem(
         title: AllSchoolInfoIntl.of(context).scheduleHomework,
         icon: Icons.elderly,
         iconColor: context.design.palette.primaryDark,
+        showBadge: scheduleState.haveHomeworkUpd,
         callback: () async {},
       ),
     ];
@@ -76,27 +90,29 @@ class _ScheduleViewState extends State<ScheduleView> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: <Widget>[
-        SliverList(
-          delegate: SliverChildListDelegate(
-            _itemList().map((UiScheduleItem uiScheduleItem) {
-              return ScheduleItem(
-                uiScheduleItem: uiScheduleItem,
-              );
-            }).toList(),
-          ),
-        ),
+    return StoreConnector<AppState, ScheduleState>(
+      distinct: true,
+      converter: (Store<AppState> store) => store.state.scheduleState,
+      builder: (_, ScheduleState scheduleState) {
+        return CustomScrollView(
+          physics: const ClampingScrollPhysics(),
+          slivers: <Widget>[
+            // content
+            SliverList(
+              delegate: SliverChildListDelegate(
+                _itemList(scheduleState).map((UiScheduleItem uiScheduleItem) {
+                  return ScheduleItem(
+                    uiScheduleItem: uiScheduleItem,
+                  );
+                }).toList(),
+              ),
+            ),
 
-        // padding
-        const SliverPadding(padding: EdgeInsets.only(bottom: 120)),
-      ],
+            // padding
+            const SliverPadding(padding: EdgeInsets.only(bottom: 120)),
+          ],
+        );
+      },
     );
-    // return StoreConnector<AppState, UserState>(
-    //   converter: (Store<AppState> store) => store.state.userState,
-    //   builder: (_, UserState userState) {
-    //     return const Text('Schedule');
-    //   },
-    // );
   }
 }

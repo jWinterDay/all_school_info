@@ -26,11 +26,26 @@ class _$ScheduleStateTearOff {
       @JsonKey(name: 'first_loading', defaultValue: true)
           bool firstLoading = true,
       @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[])
-          List<LessonModel> lessonList = const <LessonModel>[]}) {
+          List<LessonModel> lessonList = const <LessonModel>[],
+      @JsonKey(name: 'have_schedule_upd', defaultValue: false)
+          bool haveScheduleUpd = false,
+      @JsonKey(name: 'have_last_notifications_upd', defaultValue: false)
+          bool haveLastNotificationsUpd = false,
+      @JsonKey(name: 'have_ratings_upd', defaultValue: false)
+          bool haveRatingsUpd = false,
+      @JsonKey(name: 'have_news_upd', defaultValue: false)
+          bool haveNewsUpd = false,
+      @JsonKey(name: 'have_homework_upd', defaultValue: false)
+          bool haveHomeworkUpd = false}) {
     return _ScheduleState(
       loading: loading,
       firstLoading: firstLoading,
       lessonList: lessonList,
+      haveScheduleUpd: haveScheduleUpd,
+      haveLastNotificationsUpd: haveLastNotificationsUpd,
+      haveRatingsUpd: haveRatingsUpd,
+      haveNewsUpd: haveNewsUpd,
+      haveHomeworkUpd: haveHomeworkUpd,
     );
   }
 
@@ -49,7 +64,17 @@ mixin _$ScheduleState {
   @JsonKey(name: 'first_loading', defaultValue: true)
   bool get firstLoading => throw _privateConstructorUsedError;
   @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[])
-  List<LessonModel> get lessonList => throw _privateConstructorUsedError;
+  List<LessonModel> get lessonList => throw _privateConstructorUsedError; //
+  @JsonKey(name: 'have_schedule_upd', defaultValue: false)
+  bool get haveScheduleUpd => throw _privateConstructorUsedError;
+  @JsonKey(name: 'have_last_notifications_upd', defaultValue: false)
+  bool get haveLastNotificationsUpd => throw _privateConstructorUsedError;
+  @JsonKey(name: 'have_ratings_upd', defaultValue: false)
+  bool get haveRatingsUpd => throw _privateConstructorUsedError;
+  @JsonKey(name: 'have_news_upd', defaultValue: false)
+  bool get haveNewsUpd => throw _privateConstructorUsedError;
+  @JsonKey(name: 'have_homework_upd', defaultValue: false)
+  bool get haveHomeworkUpd => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -63,7 +88,12 @@ abstract class $ScheduleStateCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'loading', defaultValue: false) bool loading,
       @JsonKey(name: 'first_loading', defaultValue: true) bool firstLoading,
-      @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[]) List<LessonModel> lessonList});
+      @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[]) List<LessonModel> lessonList,
+      @JsonKey(name: 'have_schedule_upd', defaultValue: false) bool haveScheduleUpd,
+      @JsonKey(name: 'have_last_notifications_upd', defaultValue: false) bool haveLastNotificationsUpd,
+      @JsonKey(name: 'have_ratings_upd', defaultValue: false) bool haveRatingsUpd,
+      @JsonKey(name: 'have_news_upd', defaultValue: false) bool haveNewsUpd,
+      @JsonKey(name: 'have_homework_upd', defaultValue: false) bool haveHomeworkUpd});
 }
 
 /// @nodoc
@@ -79,6 +109,11 @@ class _$ScheduleStateCopyWithImpl<$Res> implements $ScheduleStateCopyWith<$Res> 
     Object? loading = freezed,
     Object? firstLoading = freezed,
     Object? lessonList = freezed,
+    Object? haveScheduleUpd = freezed,
+    Object? haveLastNotificationsUpd = freezed,
+    Object? haveRatingsUpd = freezed,
+    Object? haveNewsUpd = freezed,
+    Object? haveHomeworkUpd = freezed,
   }) {
     return _then(_value.copyWith(
       loading: loading == freezed
@@ -93,6 +128,26 @@ class _$ScheduleStateCopyWithImpl<$Res> implements $ScheduleStateCopyWith<$Res> 
           ? _value.lessonList
           : lessonList // ignore: cast_nullable_to_non_nullable
               as List<LessonModel>,
+      haveScheduleUpd: haveScheduleUpd == freezed
+          ? _value.haveScheduleUpd
+          : haveScheduleUpd // ignore: cast_nullable_to_non_nullable
+              as bool,
+      haveLastNotificationsUpd: haveLastNotificationsUpd == freezed
+          ? _value.haveLastNotificationsUpd
+          : haveLastNotificationsUpd // ignore: cast_nullable_to_non_nullable
+              as bool,
+      haveRatingsUpd: haveRatingsUpd == freezed
+          ? _value.haveRatingsUpd
+          : haveRatingsUpd // ignore: cast_nullable_to_non_nullable
+              as bool,
+      haveNewsUpd: haveNewsUpd == freezed
+          ? _value.haveNewsUpd
+          : haveNewsUpd // ignore: cast_nullable_to_non_nullable
+              as bool,
+      haveHomeworkUpd: haveHomeworkUpd == freezed
+          ? _value.haveHomeworkUpd
+          : haveHomeworkUpd // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -105,7 +160,12 @@ abstract class _$ScheduleStateCopyWith<$Res> implements $ScheduleStateCopyWith<$
   $Res call(
       {@JsonKey(name: 'loading', defaultValue: false) bool loading,
       @JsonKey(name: 'first_loading', defaultValue: true) bool firstLoading,
-      @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[]) List<LessonModel> lessonList});
+      @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[]) List<LessonModel> lessonList,
+      @JsonKey(name: 'have_schedule_upd', defaultValue: false) bool haveScheduleUpd,
+      @JsonKey(name: 'have_last_notifications_upd', defaultValue: false) bool haveLastNotificationsUpd,
+      @JsonKey(name: 'have_ratings_upd', defaultValue: false) bool haveRatingsUpd,
+      @JsonKey(name: 'have_news_upd', defaultValue: false) bool haveNewsUpd,
+      @JsonKey(name: 'have_homework_upd', defaultValue: false) bool haveHomeworkUpd});
 }
 
 /// @nodoc
@@ -122,6 +182,11 @@ class __$ScheduleStateCopyWithImpl<$Res> extends _$ScheduleStateCopyWithImpl<$Re
     Object? loading = freezed,
     Object? firstLoading = freezed,
     Object? lessonList = freezed,
+    Object? haveScheduleUpd = freezed,
+    Object? haveLastNotificationsUpd = freezed,
+    Object? haveRatingsUpd = freezed,
+    Object? haveNewsUpd = freezed,
+    Object? haveHomeworkUpd = freezed,
   }) {
     return _then(_ScheduleState(
       loading: loading == freezed
@@ -136,6 +201,26 @@ class __$ScheduleStateCopyWithImpl<$Res> extends _$ScheduleStateCopyWithImpl<$Re
           ? _value.lessonList
           : lessonList // ignore: cast_nullable_to_non_nullable
               as List<LessonModel>,
+      haveScheduleUpd: haveScheduleUpd == freezed
+          ? _value.haveScheduleUpd
+          : haveScheduleUpd // ignore: cast_nullable_to_non_nullable
+              as bool,
+      haveLastNotificationsUpd: haveLastNotificationsUpd == freezed
+          ? _value.haveLastNotificationsUpd
+          : haveLastNotificationsUpd // ignore: cast_nullable_to_non_nullable
+              as bool,
+      haveRatingsUpd: haveRatingsUpd == freezed
+          ? _value.haveRatingsUpd
+          : haveRatingsUpd // ignore: cast_nullable_to_non_nullable
+              as bool,
+      haveNewsUpd: haveNewsUpd == freezed
+          ? _value.haveNewsUpd
+          : haveNewsUpd // ignore: cast_nullable_to_non_nullable
+              as bool,
+      haveHomeworkUpd: haveHomeworkUpd == freezed
+          ? _value.haveHomeworkUpd
+          : haveHomeworkUpd // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -146,7 +231,12 @@ class _$_ScheduleState extends _ScheduleState {
   const _$_ScheduleState(
       {@JsonKey(name: 'loading', defaultValue: false) this.loading = false,
       @JsonKey(name: 'first_loading', defaultValue: true) this.firstLoading = true,
-      @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[]) this.lessonList = const <LessonModel>[]})
+      @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[]) this.lessonList = const <LessonModel>[],
+      @JsonKey(name: 'have_schedule_upd', defaultValue: false) this.haveScheduleUpd = false,
+      @JsonKey(name: 'have_last_notifications_upd', defaultValue: false) this.haveLastNotificationsUpd = false,
+      @JsonKey(name: 'have_ratings_upd', defaultValue: false) this.haveRatingsUpd = false,
+      @JsonKey(name: 'have_news_upd', defaultValue: false) this.haveNewsUpd = false,
+      @JsonKey(name: 'have_homework_upd', defaultValue: false) this.haveHomeworkUpd = false})
       : super._();
 
   factory _$_ScheduleState.fromJson(Map<String, dynamic> json) => _$_$_ScheduleStateFromJson(json);
@@ -160,10 +250,25 @@ class _$_ScheduleState extends _ScheduleState {
   @override
   @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[])
   final List<LessonModel> lessonList;
+  @override //
+  @JsonKey(name: 'have_schedule_upd', defaultValue: false)
+  final bool haveScheduleUpd;
+  @override
+  @JsonKey(name: 'have_last_notifications_upd', defaultValue: false)
+  final bool haveLastNotificationsUpd;
+  @override
+  @JsonKey(name: 'have_ratings_upd', defaultValue: false)
+  final bool haveRatingsUpd;
+  @override
+  @JsonKey(name: 'have_news_upd', defaultValue: false)
+  final bool haveNewsUpd;
+  @override
+  @JsonKey(name: 'have_homework_upd', defaultValue: false)
+  final bool haveHomeworkUpd;
 
   @override
   String toString() {
-    return 'ScheduleState(loading: $loading, firstLoading: $firstLoading, lessonList: $lessonList)';
+    return 'ScheduleState(loading: $loading, firstLoading: $firstLoading, lessonList: $lessonList, haveScheduleUpd: $haveScheduleUpd, haveLastNotificationsUpd: $haveLastNotificationsUpd, haveRatingsUpd: $haveRatingsUpd, haveNewsUpd: $haveNewsUpd, haveHomeworkUpd: $haveHomeworkUpd)';
   }
 
   @override
@@ -174,7 +279,17 @@ class _$_ScheduleState extends _ScheduleState {
             (identical(other.firstLoading, firstLoading) ||
                 const DeepCollectionEquality().equals(other.firstLoading, firstLoading)) &&
             (identical(other.lessonList, lessonList) ||
-                const DeepCollectionEquality().equals(other.lessonList, lessonList)));
+                const DeepCollectionEquality().equals(other.lessonList, lessonList)) &&
+            (identical(other.haveScheduleUpd, haveScheduleUpd) ||
+                const DeepCollectionEquality().equals(other.haveScheduleUpd, haveScheduleUpd)) &&
+            (identical(other.haveLastNotificationsUpd, haveLastNotificationsUpd) ||
+                const DeepCollectionEquality().equals(other.haveLastNotificationsUpd, haveLastNotificationsUpd)) &&
+            (identical(other.haveRatingsUpd, haveRatingsUpd) ||
+                const DeepCollectionEquality().equals(other.haveRatingsUpd, haveRatingsUpd)) &&
+            (identical(other.haveNewsUpd, haveNewsUpd) ||
+                const DeepCollectionEquality().equals(other.haveNewsUpd, haveNewsUpd)) &&
+            (identical(other.haveHomeworkUpd, haveHomeworkUpd) ||
+                const DeepCollectionEquality().equals(other.haveHomeworkUpd, haveHomeworkUpd)));
   }
 
   @override
@@ -182,7 +297,12 @@ class _$_ScheduleState extends _ScheduleState {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(loading) ^
       const DeepCollectionEquality().hash(firstLoading) ^
-      const DeepCollectionEquality().hash(lessonList);
+      const DeepCollectionEquality().hash(lessonList) ^
+      const DeepCollectionEquality().hash(haveScheduleUpd) ^
+      const DeepCollectionEquality().hash(haveLastNotificationsUpd) ^
+      const DeepCollectionEquality().hash(haveRatingsUpd) ^
+      const DeepCollectionEquality().hash(haveNewsUpd) ^
+      const DeepCollectionEquality().hash(haveHomeworkUpd);
 
   @JsonKey(ignore: true)
   @override
@@ -197,10 +317,14 @@ class _$_ScheduleState extends _ScheduleState {
 
 abstract class _ScheduleState extends ScheduleState {
   const factory _ScheduleState(
-          {@JsonKey(name: 'loading', defaultValue: false) bool loading,
-          @JsonKey(name: 'first_loading', defaultValue: true) bool firstLoading,
-          @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[]) List<LessonModel> lessonList}) =
-      _$_ScheduleState;
+      {@JsonKey(name: 'loading', defaultValue: false) bool loading,
+      @JsonKey(name: 'first_loading', defaultValue: true) bool firstLoading,
+      @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[]) List<LessonModel> lessonList,
+      @JsonKey(name: 'have_schedule_upd', defaultValue: false) bool haveScheduleUpd,
+      @JsonKey(name: 'have_last_notifications_upd', defaultValue: false) bool haveLastNotificationsUpd,
+      @JsonKey(name: 'have_ratings_upd', defaultValue: false) bool haveRatingsUpd,
+      @JsonKey(name: 'have_news_upd', defaultValue: false) bool haveNewsUpd,
+      @JsonKey(name: 'have_homework_upd', defaultValue: false) bool haveHomeworkUpd}) = _$_ScheduleState;
   const _ScheduleState._() : super._();
 
   factory _ScheduleState.fromJson(Map<String, dynamic> json) = _$_ScheduleState.fromJson;
@@ -214,6 +338,21 @@ abstract class _ScheduleState extends ScheduleState {
   @override
   @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[])
   List<LessonModel> get lessonList => throw _privateConstructorUsedError;
+  @override //
+  @JsonKey(name: 'have_schedule_upd', defaultValue: false)
+  bool get haveScheduleUpd => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'have_last_notifications_upd', defaultValue: false)
+  bool get haveLastNotificationsUpd => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'have_ratings_upd', defaultValue: false)
+  bool get haveRatingsUpd => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'have_news_upd', defaultValue: false)
+  bool get haveNewsUpd => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'have_homework_upd', defaultValue: false)
+  bool get haveHomeworkUpd => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ScheduleStateCopyWith<_ScheduleState> get copyWith => throw _privateConstructorUsedError;

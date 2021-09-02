@@ -8,6 +8,7 @@ class UiScheduleItem {
     this.icon,
     required this.iconColor,
     required this.callback,
+    required this.showBadge,
   });
 
   final String title;
@@ -19,4 +20,6 @@ class UiScheduleItem {
   final Color iconColor;
 
   final AsyncCallback callback;
+
+  final bool showBadge;
 }

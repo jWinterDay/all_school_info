@@ -44,6 +44,17 @@ class AnnouncementListBloc {
     getIt.get<AppDomain>().appStore.dispatch(const AnnouncementAction.addUnreadAnnouncement(value: model));
   }
 
+  bool _lastVal = false;
+  void addScheduleUpd() {
+    getIt.get<AppDomain>().appStore.dispatch(ScheduleAction.changeHaveScheduleUpd(value: _lastVal));
+    getIt.get<AppDomain>().appStore.dispatch(ScheduleAction.changeHaveLastNotificationsUpd(value: _lastVal));
+    getIt.get<AppDomain>().appStore.dispatch(ScheduleAction.changehaveRatingsUpd(value: _lastVal));
+    getIt.get<AppDomain>().appStore.dispatch(ScheduleAction.changehaveNewsUpd(value: _lastVal));
+    getIt.get<AppDomain>().appStore.dispatch(ScheduleAction.changehaveHomeworkUpd(value: _lastVal));
+
+    _lastVal = !_lastVal;
+  }
+
   void clearUnreadAnnouncements() {
     getIt.get<AppDomain>().appStore.dispatch(const AnnouncementAction.clearUnreadAnnouncements());
   }
