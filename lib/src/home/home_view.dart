@@ -28,11 +28,19 @@ class _HomeViewState extends State<HomeView> {
           appBar: AppBar(
             title: Text(
               AllSchoolInfoIntl.of(context).mainTitle,
-
               // style: Theme.of(context).appBarTheme.textTheme?.caption,
             ),
             centerTitle: true,
           ),
+          floatingActionButton: tabsRouter.activeIndex == 0
+              ? FloatingActionButton(
+                  onPressed: () {
+                    //
+                  },
+                  child: const Icon(Icons.add),
+                  backgroundColor: context.design.palette.primary,
+                )
+              : null,
           body: SizeTransition(
             sizeFactor: animation,
             //) FadeTransition(
