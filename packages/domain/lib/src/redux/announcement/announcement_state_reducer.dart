@@ -25,7 +25,7 @@ AnnouncementState announcementReducer(AnnouncementState s, dynamic a) {
       addUnreadAnnouncement: (actionEvent) => _addUnreadAnnouncement(s, actionEvent.value),
       // ignore: always_specify_types
       removeUnreadAnnouncement: (actionEvent) => _removeUnreadAnnouncement(s, actionEvent.value),
-      clearUnreadAnnouncement: (_) => s.copyWith(unreadList: <AnnouncementModel>[]),
+      clearUnreadAnnouncements: (_) => _clearUnreadAnnouncements(s),
 
       orElse: () {
         return s;
@@ -72,13 +72,6 @@ AnnouncementState _addUnreadAnnouncement(
   AnnouncementState state,
   AnnouncementModel announcementModel,
 ) {
-  final nextList = <AnnouncementModel>[
-    ...state.unreadList,
-    announcementModel,
-  ];
-
-  print('reducer next = $nextList');
-
   return state.copyWith(
     unreadList: <AnnouncementModel>[
       ...state.unreadList,
@@ -87,6 +80,23 @@ AnnouncementState _addUnreadAnnouncement(
   );
 }
 
+AnnouncementState _clearUnreadAnnouncements(
+  AnnouncementState state,
+) {
+  return state.copyWith(
+    unreadList: <AnnouncementModel>[],
+    list: <AnnouncementModel>[
+      ...state.unreadList.where((AnnouncementModel e) => !e.isTopEvent).toList(),
+      ...state.list,
+    ],
+    topList: <AnnouncementModel>[
+      ...state.unreadList.where((AnnouncementModel e) => e.isTopEvent).toList(),
+      ...state.topList,
+    ],
+  );
+}
+
+// TODO remove
 AnnouncementState _removeUnreadAnnouncement(
   AnnouncementState state,
   AnnouncementModel announcementModel,

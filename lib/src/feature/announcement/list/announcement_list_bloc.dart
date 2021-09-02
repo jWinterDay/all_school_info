@@ -9,7 +9,7 @@ class AnnouncementListBloc {
     _subscribe();
   }
 
-  final CollectionReference<Map<String, dynamic>> announcements =
+  final CollectionReference<Map<String, dynamic>> _announcements =
       FirebaseFirestore.instance.collection('announcements');
 
   StreamSubscription<QuerySnapshot<Map<String, dynamic>>>? _announcementsSub;
@@ -38,14 +38,19 @@ class AnnouncementListBloc {
       'fdsfs',
       title: 'title 1',
       content: 'content 1',
+      isTopEvent: true,
     );
 
     getIt.get<AppDomain>().appStore.dispatch(const AnnouncementAction.addUnreadAnnouncement(value: model));
   }
 
+  void clearUnreadAnnouncements() {
+    getIt.get<AppDomain>().appStore.dispatch(const AnnouncementAction.clearUnreadAnnouncements());
+  }
+
   void _subscribe() {
     _announcementsSub =
-        announcements.snapshots(includeMetadataChanges: true).listen((QuerySnapshot<Map<String, dynamic>> event) {
+        _announcements.snapshots(includeMetadataChanges: true).listen((QuerySnapshot<Map<String, dynamic>> event) {
       final Iterable<Map<String, dynamic>> data = event.docs.map((QueryDocumentSnapshot<Map<String, dynamic>> e) {
         return e.data();
       });

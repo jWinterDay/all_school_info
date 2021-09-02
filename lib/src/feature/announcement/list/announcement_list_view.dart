@@ -90,12 +90,16 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
               ),
 
             if (uiAnnouncementInfo.unreadAnnouncementList.isNotEmpty)
-              Padding(
-                padding: const EdgeInsets.only(top: 8),
-                child: ColoredBox(
-                  color: context.design.palette.gray12,
-                  child: Text(
-                    AllSchoolInfoIntl.of(context).unreadAnnouncements(uiAnnouncementInfo.unreadAnnouncementList.length),
+              GestureDetector(
+                onTap: _bloc.clearUnreadAnnouncements,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 8),
+                  child: ColoredBox(
+                    color: context.design.palette.gray12,
+                    child: Text(
+                      AllSchoolInfoIntl.of(context)
+                          .unreadAnnouncements(uiAnnouncementInfo.unreadAnnouncementList.length),
+                    ),
                   ),
                 ),
               ),
