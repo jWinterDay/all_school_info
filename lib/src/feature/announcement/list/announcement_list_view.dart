@@ -53,21 +53,21 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
 
         return Column(
           children: <Widget>[
-            SizedBox(
-              height: 36,
-              child: GestureDetector(
-                onTap: _bloc.testAddUnread,
-                child: const Text('add unread'),
-              ),
-            ),
+            // SizedBox(
+            //   height: 36,
+            //   child: GestureDetector(
+            //     onTap: _bloc.testAddUnread,
+            //     child: const Text('add unread'),
+            //   ),
+            // ),
 
-            SizedBox(
-              height: 36,
-              child: GestureDetector(
-                onTap: _bloc.testAddScheduleUpd,
-                child: const Text('add schedule upd'),
-              ),
-            ),
+            // SizedBox(
+            //   height: 36,
+            //   child: GestureDetector(
+            //     onTap: _bloc.testAddScheduleUpd,
+            //     child: const Text('add schedule upd'),
+            //   ),
+            // ),
 
             // top events
             if (uiAnnouncementInfo.announcementState.topList.isNotEmpty)

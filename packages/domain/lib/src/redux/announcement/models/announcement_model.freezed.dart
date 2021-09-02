@@ -25,13 +25,15 @@ class _$AnnouncementModelTearOff {
       @JsonKey(name: 'content') String? content,
       @JsonKey(name: 'user_groups', defaultValue: const <String>[defaultUserGroup]) List<String> userGroups =
           const <String>[defaultUserGroup],
-      @JsonKey(name: 'is_top_event', defaultValue: false) bool isTopEvent = false}) {
+      @JsonKey(name: 'is_top_event', defaultValue: false) bool isTopEvent = false,
+      @JsonKey(name: 'date_unix_ms') int? dateUnixMs}) {
     return _AnnouncementModel(
       id,
       title: title,
       content: content,
       userGroups: userGroups,
       isTopEvent: isTopEvent,
+      dateUnixMs: dateUnixMs,
     );
   }
 
@@ -55,6 +57,8 @@ mixin _$AnnouncementModel {
   List<String> get userGroups => throw _privateConstructorUsedError; // TODO remove
   @JsonKey(name: 'is_top_event', defaultValue: false)
   bool get isTopEvent => throw _privateConstructorUsedError;
+  @JsonKey(name: 'date_unix_ms')
+  int? get dateUnixMs => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -70,7 +74,8 @@ abstract class $AnnouncementModelCopyWith<$Res> {
       @JsonKey(name: 'title') String? title,
       @JsonKey(name: 'content') String? content,
       @JsonKey(name: 'user_groups', defaultValue: const <String>[defaultUserGroup]) List<String> userGroups,
-      @JsonKey(name: 'is_top_event', defaultValue: false) bool isTopEvent});
+      @JsonKey(name: 'is_top_event', defaultValue: false) bool isTopEvent,
+      @JsonKey(name: 'date_unix_ms') int? dateUnixMs});
 }
 
 /// @nodoc
@@ -88,6 +93,7 @@ class _$AnnouncementModelCopyWithImpl<$Res> implements $AnnouncementModelCopyWit
     Object? content = freezed,
     Object? userGroups = freezed,
     Object? isTopEvent = freezed,
+    Object? dateUnixMs = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -110,6 +116,10 @@ class _$AnnouncementModelCopyWithImpl<$Res> implements $AnnouncementModelCopyWit
           ? _value.isTopEvent
           : isTopEvent // ignore: cast_nullable_to_non_nullable
               as bool,
+      dateUnixMs: dateUnixMs == freezed
+          ? _value.dateUnixMs
+          : dateUnixMs // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -124,7 +134,8 @@ abstract class _$AnnouncementModelCopyWith<$Res> implements $AnnouncementModelCo
       @JsonKey(name: 'title') String? title,
       @JsonKey(name: 'content') String? content,
       @JsonKey(name: 'user_groups', defaultValue: const <String>[defaultUserGroup]) List<String> userGroups,
-      @JsonKey(name: 'is_top_event', defaultValue: false) bool isTopEvent});
+      @JsonKey(name: 'is_top_event', defaultValue: false) bool isTopEvent,
+      @JsonKey(name: 'date_unix_ms') int? dateUnixMs});
 }
 
 /// @nodoc
@@ -143,6 +154,7 @@ class __$AnnouncementModelCopyWithImpl<$Res> extends _$AnnouncementModelCopyWith
     Object? content = freezed,
     Object? userGroups = freezed,
     Object? isTopEvent = freezed,
+    Object? dateUnixMs = freezed,
   }) {
     return _then(_AnnouncementModel(
       id == freezed
@@ -165,6 +177,10 @@ class __$AnnouncementModelCopyWithImpl<$Res> extends _$AnnouncementModelCopyWith
           ? _value.isTopEvent
           : isTopEvent // ignore: cast_nullable_to_non_nullable
               as bool,
+      dateUnixMs: dateUnixMs == freezed
+          ? _value.dateUnixMs
+          : dateUnixMs // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -178,7 +194,8 @@ class _$_AnnouncementModel extends _AnnouncementModel {
       @JsonKey(name: 'user_groups', defaultValue: const <String>[defaultUserGroup]) this.userGroups = const <String>[
         defaultUserGroup
       ],
-      @JsonKey(name: 'is_top_event', defaultValue: false) this.isTopEvent = false})
+      @JsonKey(name: 'is_top_event', defaultValue: false) this.isTopEvent = false,
+      @JsonKey(name: 'date_unix_ms') this.dateUnixMs})
       : super._();
 
   factory _$_AnnouncementModel.fromJson(Map<String, dynamic> json) => _$_$_AnnouncementModelFromJson(json);
@@ -198,10 +215,13 @@ class _$_AnnouncementModel extends _AnnouncementModel {
   @override // TODO remove
   @JsonKey(name: 'is_top_event', defaultValue: false)
   final bool isTopEvent;
+  @override
+  @JsonKey(name: 'date_unix_ms')
+  final int? dateUnixMs;
 
   @override
   String toString() {
-    return 'AnnouncementModel(id: $id, title: $title, content: $content, userGroups: $userGroups, isTopEvent: $isTopEvent)';
+    return 'AnnouncementModel(id: $id, title: $title, content: $content, userGroups: $userGroups, isTopEvent: $isTopEvent, dateUnixMs: $dateUnixMs)';
   }
 
   @override
@@ -214,7 +234,9 @@ class _$_AnnouncementModel extends _AnnouncementModel {
             (identical(other.userGroups, userGroups) ||
                 const DeepCollectionEquality().equals(other.userGroups, userGroups)) &&
             (identical(other.isTopEvent, isTopEvent) ||
-                const DeepCollectionEquality().equals(other.isTopEvent, isTopEvent)));
+                const DeepCollectionEquality().equals(other.isTopEvent, isTopEvent)) &&
+            (identical(other.dateUnixMs, dateUnixMs) ||
+                const DeepCollectionEquality().equals(other.dateUnixMs, dateUnixMs)));
   }
 
   @override
@@ -224,7 +246,8 @@ class _$_AnnouncementModel extends _AnnouncementModel {
       const DeepCollectionEquality().hash(title) ^
       const DeepCollectionEquality().hash(content) ^
       const DeepCollectionEquality().hash(userGroups) ^
-      const DeepCollectionEquality().hash(isTopEvent);
+      const DeepCollectionEquality().hash(isTopEvent) ^
+      const DeepCollectionEquality().hash(dateUnixMs);
 
   @JsonKey(ignore: true)
   @override
@@ -242,7 +265,8 @@ abstract class _AnnouncementModel extends AnnouncementModel {
       {@JsonKey(name: 'title') String? title,
       @JsonKey(name: 'content') String? content,
       @JsonKey(name: 'user_groups', defaultValue: const <String>[defaultUserGroup]) List<String> userGroups,
-      @JsonKey(name: 'is_top_event', defaultValue: false) bool isTopEvent}) = _$_AnnouncementModel;
+      @JsonKey(name: 'is_top_event', defaultValue: false) bool isTopEvent,
+      @JsonKey(name: 'date_unix_ms') int? dateUnixMs}) = _$_AnnouncementModel;
   const _AnnouncementModel._() : super._();
 
   factory _AnnouncementModel.fromJson(Map<String, dynamic> json) = _$_AnnouncementModel.fromJson;
@@ -262,6 +286,9 @@ abstract class _AnnouncementModel extends AnnouncementModel {
   @override // TODO remove
   @JsonKey(name: 'is_top_event', defaultValue: false)
   bool get isTopEvent => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'date_unix_ms')
+  int? get dateUnixMs => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$AnnouncementModelCopyWith<_AnnouncementModel> get copyWith => throw _privateConstructorUsedError;

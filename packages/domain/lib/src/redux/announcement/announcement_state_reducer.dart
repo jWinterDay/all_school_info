@@ -68,8 +68,9 @@ AnnouncementState _removeAnnouncementById(
   if (state.list.any((AnnouncementModel e) => e.id == id)) {
     final List<AnnouncementModel> nextList = <AnnouncementModel>[...state.list];
     nextList.removeWhere((AnnouncementModel e) => e.id == id);
+
     return state.copyWith(
-      list: nextList,
+      list: nextList..sort(),
     );
   }
 
@@ -102,7 +103,7 @@ AnnouncementState _addAnnouncement(
       topList: <AnnouncementModel>[
         ...state.list,
         announcementModel,
-      ],
+      ]..sort(),
     );
   }
 
@@ -110,7 +111,7 @@ AnnouncementState _addAnnouncement(
     list: <AnnouncementModel>[
       ...state.list,
       announcementModel,
-    ],
+    ]..sort(),
   );
 }
 
@@ -119,8 +120,8 @@ AnnouncementState _addAnnouncementList(
   Iterable<AnnouncementModel> list,
 ) {
   return state.copyWith(
-    list: list.where((AnnouncementModel e) => !e.isTopEvent).toList(),
-    topList: list.where((AnnouncementModel e) => e.isTopEvent).toList(),
+    list: list.where((AnnouncementModel e) => !e.isTopEvent).toList()..sort(),
+    topList: list.where((AnnouncementModel e) => e.isTopEvent).toList()..sort(),
   );
 }
 
@@ -134,7 +135,7 @@ AnnouncementState _addUnreadAnnouncement(
       topList: <AnnouncementModel>[
         announcementModel,
         ...state.topList,
-      ],
+      ]..sort(),
     );
   }
 
@@ -142,7 +143,7 @@ AnnouncementState _addUnreadAnnouncement(
     unreadList: <AnnouncementModel>[
       announcementModel,
       ...state.unreadList,
-    ],
+    ]..sort(),
   );
 }
 
@@ -154,10 +155,10 @@ AnnouncementState _clearUnreadAnnouncements(
     list: <AnnouncementModel>[
       ...state.unreadList.where((AnnouncementModel e) => !e.isTopEvent).toList(),
       ...state.list,
-    ],
+    ]..sort(),
     topList: <AnnouncementModel>[
       ...state.unreadList.where((AnnouncementModel e) => e.isTopEvent).toList(),
       ...state.topList,
-    ],
+    ]..sort(),
   );
 }

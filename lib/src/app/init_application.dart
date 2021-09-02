@@ -60,7 +60,7 @@ Future<void> _setupRemoteConfig() async {
   await remoteConfig.setConfigSettings(
     RemoteConfigSettings(
       fetchTimeout: const Duration(seconds: 10),
-      minimumFetchInterval: const Duration(seconds: 20),
+      minimumFetchInterval: const Duration(minutes: 60),
     ),
   );
 
@@ -72,7 +72,11 @@ Future<void> _setupRemoteConfig() async {
 
   // apply values to domain
   final AppDomain appDomain = getIt.get<AppDomain>();
-  await remoteConfig.fetchAndActivate();
+  try {
+    await remoteConfig.fetchAndActivate();
+  } catch (exc) {
+    print('--------TODO exc in remote config');
+  }
 
   final int topAnnouncementCount = remoteConfig.getInt('top_announcement_count');
   appDomain.appStore.dispatch(CommonAction.topAnnouncementCount(value: topAnnouncementCount));
@@ -127,17 +131,7 @@ Future<dynamic> _backgroundMessageHandler(RemoteMessage remoteMessage) async {
   print('------- backgroundMessageHandler ${remoteMessage.data}');
 }
 
+/// `cloud storage`
 Future<void> _cloudStorage() async {
   await Firebase.initializeApp();
-
-  // final CollectionReference<Map<String, dynamic>> users = FirebaseFirestore.instance.collection('user');
-
-  // final DocumentSnapshot<Object?> user = await users.doc('eQLkS65WZ1NQTQ2Skc8r').get();
-
-  // print('user = ${user.data()}');
-
-  // FirebaseFirestore.instance.collection('user').snapshots().listen((QuerySnapshot<Map<String, dynamic>> event) {
-  //   print(event.docs);
-  //   print(event.docs.map((e) => e.data()));
-  // });
 }

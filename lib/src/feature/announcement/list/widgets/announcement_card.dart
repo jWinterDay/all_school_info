@@ -3,12 +3,13 @@ import 'package:all_school_info/src/generated/l10n.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'package:domain/domain.dart';
 import 'package:design/design.dart';
+import 'package:intl/intl.dart';
 
 const double kMinHeight = 80;
+final DateFormat _kDateFormat = DateFormat('dd.MM.yyyy HH:mm:ss');
 
 class AnnouncementCard extends StatelessWidget {
   const AnnouncementCard({
@@ -18,8 +19,17 @@ class AnnouncementCard extends StatelessWidget {
 
   final AnnouncementModel announcementModel;
 
+  static String dateUnixMsToStr(int unixMs) {
+    final DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(unixMs);
+
+    return _kDateFormat.format(dateTime);
+  }
+
   @override
   Widget build(BuildContext context) {
+    // final t = DateTime.now().millisecondsSinceEpoch;
+    // print('t = $t');
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
       child: GestureDetector(
@@ -42,13 +52,25 @@ class AnnouncementCard extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 4),
                 child: Text(
                   announcementModel.title ?? AllSchoolInfoIntl.of(context).unknownAnnouncementTitle,
-                  style: Theme.of(context).textTheme.caption,
+                  style: Theme.of(context).textTheme.caption?.copyWith(
+                        color: context.design.palette.black,
+                      ),
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.center,
-                  // softWrap: false,
                   maxLines: 1,
                 ),
               ),
+
+              if (announcementModel.dateUnixMs != null)
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: Text(
+                    dateUnixMsToStr(announcementModel.dateUnixMs!),
+                    style: Theme.of(context).textTheme.caption?.copyWith(
+                          fontSize: 13,
+                        ),
+                  ),
+                ),
 
               Divider(
                 height: 1,

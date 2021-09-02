@@ -13,6 +13,7 @@ _$_AnnouncementModel _$_$_AnnouncementModelFromJson(Map<String, dynamic> json) {
     content: json['content'] as String?,
     userGroups: (json['user_groups'] as List<dynamic>?)?.map((e) => e as String).toList() ?? ['broadcast'],
     isTopEvent: json['is_top_event'] as bool? ?? false,
+    dateUnixMs: json['date_unix_ms'] as int?,
   );
 }
 
@@ -22,4 +23,5 @@ Map<String, dynamic> _$_$_AnnouncementModelToJson(_$_AnnouncementModel instance)
       'content': instance.content,
       'user_groups': instance.userGroups,
       'is_top_event': instance.isTopEvent,
+      'date_unix_ms': instance.dateUnixMs,
     };

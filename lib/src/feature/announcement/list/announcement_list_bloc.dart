@@ -63,6 +63,9 @@ class AnnouncementListBloc {
   bool _firstFetch = true;
 
   void _subscribe() {
+    // loading
+    getIt.get<AppDomain>().appStore.dispatch(const AnnouncementAction.changeLoading(value: true));
+
     final Stream<QuerySnapshot<Map<String, dynamic>>> stream = _announcements.snapshots(includeMetadataChanges: true);
 
     _announcementsSub = stream.listen((QuerySnapshot<Map<String, dynamic>> event) {

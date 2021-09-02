@@ -14,62 +14,26 @@ void applyAnnouncementsThunk(
     ..dispatch(const AnnouncementAction.changeLoading(value: true))
     ..dispatch(const AnnouncementAction.clearErrorModel());
 
-  // print('domain len ${data.length} received $data');
-
-  // final AnnouncementService announcementService = getIt.get<AnnouncementService>();
-
   try {
     for (final AnnouncementApplyDto applyDto in applyDtoList) {
-      print('------${applyDto.id} > ${applyDto.docApplyType} data = ${applyDto.data}');
+      // print('------${applyDto.id} > ${applyDto.docApplyType} data = ${applyDto.data}');
 
       switch (applyDto.docApplyType) {
         case DocApplyType.modified:
           break;
 
         case DocApplyType.added:
-          bool isTopEvent = false;
-          final dynamic rawIsTopEvent = applyDto.data?['is_top_event'];
-          if (rawIsTopEvent is bool) {
-            isTopEvent = rawIsTopEvent;
-          }
-
-          if (firstFetch) {
-            store.dispatch(
-              AnnouncementAction.addAnnouncement(
-                value: AnnouncementModel(
-                  applyDto.id,
-                  title: applyDto.data?['title']?.toString(),
-                  content: applyDto.data?['content']?.toString(),
-                  isTopEvent: isTopEvent,
-                ),
-              ),
-            );
-          } else {
-            store.dispatch(
-              AnnouncementAction.addUnreadAnnouncement(
-                value: AnnouncementModel(
-                  applyDto.id,
-                  title: applyDto.data?['title']?.toString(),
-                  content: applyDto.data?['content']?.toString(),
-                  isTopEvent: isTopEvent,
-                ),
-              ),
-            );
-          }
+          _processAdded(store: store, applyDto: applyDto, firstFetch: firstFetch);
           break;
 
         case DocApplyType.removed:
-          store.dispatch(
-            AnnouncementAction.removeAnnouncementById(value: applyDto.id),
-          );
+          _processRemoved(store: store, applyDto: applyDto);
           break;
 
         default:
         // do nothing
       }
     }
-    // final List<AnnouncementModel> list = await announcementService.fetchAnnouncements();
-    // store.dispatch(AnnouncementAction.addAnnouncementList(value: list));
   } catch (exc) {
     // store.dispatch(
     //   AnnouncementAction.setErrorModel(
@@ -83,4 +47,39 @@ void applyAnnouncementsThunk(
       store.dispatch(const AnnouncementAction.changeFirstLoading(value: false));
     }
   }
+}
+
+void _processAdded({
+  required AnnouncementApplyDto applyDto,
+  required bool firstFetch,
+  required Store<AppState> store,
+}) {
+  bool isTopEvent = false;
+  final dynamic rawIsTopEvent = applyDto.data?['is_top_event'];
+  if (rawIsTopEvent is bool) {
+    isTopEvent = rawIsTopEvent;
+  }
+
+  final AnnouncementModel model = AnnouncementModel(
+    applyDto.id,
+    title: applyDto.data?['title']?.toString(),
+    content: applyDto.data?['content']?.toString(),
+    isTopEvent: isTopEvent,
+    dateUnixMs: int.tryParse(applyDto.data?['date_unix_ms']?.toString() ?? ''),
+  );
+
+  if (firstFetch) {
+    store.dispatch(AnnouncementAction.addAnnouncement(value: model));
+  } else {
+    store.dispatch(AnnouncementAction.addUnreadAnnouncement(value: model));
+  }
+}
+
+void _processRemoved({
+  required AnnouncementApplyDto applyDto,
+  required Store<AppState> store,
+}) {
+  store.dispatch(
+    AnnouncementAction.removeAnnouncementById(value: applyDto.id),
+  );
 }
