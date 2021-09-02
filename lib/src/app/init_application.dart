@@ -130,14 +130,14 @@ Future<dynamic> _backgroundMessageHandler(RemoteMessage remoteMessage) async {
 Future<void> _cloudStorage() async {
   await Firebase.initializeApp();
 
-  final CollectionReference<Map<String, dynamic>> users = FirebaseFirestore.instance.collection('user');
+  // final CollectionReference<Map<String, dynamic>> users = FirebaseFirestore.instance.collection('user');
 
-  final DocumentSnapshot<Object?> user = await users.doc('eQLkS65WZ1NQTQ2Skc8r').get();
+  // final DocumentSnapshot<Object?> user = await users.doc('eQLkS65WZ1NQTQ2Skc8r').get();
 
-  print('user = ${user.data()}');
+  // print('user = ${user.data()}');
 
-  FirebaseFirestore.instance.collection('user').snapshots().listen((QuerySnapshot<Map<String, dynamic>> event) {
-    print(event.docs);
-    print(event.docs.map((e) => e.data()));
-  });
+  // FirebaseFirestore.instance.collection('user').snapshots().listen((QuerySnapshot<Map<String, dynamic>> event) {
+  //   print(event.docs);
+  //   print(event.docs.map((e) => e.data()));
+  // });
 }
