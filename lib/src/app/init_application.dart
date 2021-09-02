@@ -7,9 +7,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
-// TODO
-const bool useMock = true; // kDebugMode && true;
-
 Future<Palette> initPalette() async {
   final CustomColors? customColors = await CustomColors.loadAsync('assets/theme/base.json');
   if (customColors == null) {
@@ -21,7 +18,7 @@ Future<Palette> initPalette() async {
 }
 
 /// `init app`
-Future<void> initApp() async {
+Future<void> initApp({bool useMock = false}) async {
   // di
   initDomainDI(useMock: useMock);
   await _initAppDI();
@@ -30,7 +27,7 @@ Future<void> initApp() async {
   final AppDomain appDomain = getIt.get<AppDomain>();
   appDomain
     ..init()
-    ..appStore.dispatch(const SettingsAction.changeTestMode(value: useMock));
+    ..appStore.dispatch(SettingsAction.changeTestMode(value: useMock));
 
   // firebase remote config
   await _setupRemoteConfig();
@@ -80,20 +77,11 @@ Future<void> _setupRemoteConfig() async {
 Future<void> _pushNotifications() async {
   final FirebaseMessaging firebaseMessaging = FirebaseMessaging.instance;
 
-  // final NotificationSettings settings =
-  await firebaseMessaging.requestPermission(
-      // alert: true,
-      // announcement: false,
-      // badge: true,
-      // carPlay: false,
-      // criticalAlert: false,
-      // provisional: false,
-      // sound: true,
-      );
+  await firebaseMessaging.requestPermission();
   // print('User granted permission: ${settings.authorizationStatus}');
 
   final String? token = await firebaseMessaging.getToken();
-  print('fcm token = $token');
+  print('fb token = $token');
   final AppDomain appDomain = getIt.get<AppDomain>();
   appDomain.appStore.dispatch(CommonAction.setFcmToken(value: token));
 
@@ -105,7 +93,6 @@ Future<void> _pushNotifications() async {
 
   // foreground message
   FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-    print('Got a message whilst in the foreground!');
     print('Message data: ${message.data}');
 
     if (message.notification != null) {
@@ -118,16 +105,6 @@ Future<void> _pushNotifications() async {
   if (remoteMessage != null) {
     print('------- getInitialMessage ${remoteMessage.data}');
   }
-  // .then((RemoteMessage remoteMessage) async {
-  //   if (remoteMessage != null) {
-  //     globals.logger.d('Push Messaging onResume: $remoteMessage');
-  //     trackEvent(remoteMessage: remoteMessage, event: 'click');
-  //     // Doubled deeplink message handling on Android. See MBL-5287
-  //     if (!globals.isAndroid) {
-  //       await _linkHandler(remoteMessage.data, api);
-  //     }
-  //   }
-  // });
   await firebaseMessaging.setAutoInitEnabled(true);
 
   // opened app
@@ -135,10 +112,8 @@ Future<void> _pushNotifications() async {
     print('------- onMessageOpenedApp ${remoteMessage.data}');
   });
 
-  // // background message
+  // background message
   FirebaseMessaging.onBackgroundMessage(_backgroundMessageHandler);
-
-  // await firebaseMessaging.subscribeToTopic('test');
 }
 
 Future<dynamic> _backgroundMessageHandler(RemoteMessage remoteMessage) async {

@@ -43,6 +43,7 @@ class _AnnouncementDetailsViewState extends State<AnnouncementDetailsView> {
     return Scaffold(
       appBar: AppBar(
         title: Text(AllSchoolInfoIntl.of(context).announcementViewTitle),
+        centerTitle: true,
       ),
       body: Column(
         children: <Widget>[

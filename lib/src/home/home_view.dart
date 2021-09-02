@@ -24,8 +24,10 @@ class _HomeViewState extends State<HomeView> {
           appBar: AppBar(
             title: Text(
               AllSchoolInfoIntl.of(context).mainTitle,
+
               // style: Theme.of(context).appBarTheme.textTheme?.caption,
             ),
+            centerTitle: true,
           ),
           body: SizeTransition(
             sizeFactor: animation,

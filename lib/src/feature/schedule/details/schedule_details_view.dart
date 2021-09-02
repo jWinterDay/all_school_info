@@ -42,6 +42,7 @@ class _ScheduleDetailsViewState extends State<ScheduleDetailsView> {
       ),
       appBar: AppBar(
         title: Text(AllSchoolInfoIntl.of(context).scheduleViewTitle),
+        centerTitle: true,
       ),
       body: StoreConnector<AppState, ScheduleState>(
         converter: (Store<AppState> store) => store.state.scheduleState,

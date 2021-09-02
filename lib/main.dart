@@ -7,7 +7,7 @@ import 'package:design/design.dart';
 
 import 'src/app/init_application.dart';
 
-void main() {
+void main({bool useMock = false}) {
   WidgetsFlutterBinding.ensureInitialized();
 
   runZonedGuarded<void>(
@@ -18,8 +18,8 @@ void main() {
   );
 }
 
-Future<void> _run() async {
-  await initApp();
+Future<void> _run({bool useMock = false}) async {
+  await initApp(useMock: useMock);
   final Palette palette = await initPalette();
 
   runApp(
