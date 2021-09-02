@@ -21,22 +21,28 @@ class _$AnnouncementStateTearOff {
   const _$AnnouncementStateTearOff();
 
   _AnnouncementState call(
-      {@JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[])
-          List<AnnouncementModel> list = const <AnnouncementModel>[],
-      @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
-          List<AnnouncementModel> topList = const <AnnouncementModel>[],
+      {@JsonKey(name: 'date')
+          int? dateUnixMs,
       @JsonKey(name: 'loading', defaultValue: false)
           bool loading = false,
       @JsonKey(name: 'first_loading', defaultValue: true)
           bool firstLoading = true,
       @JsonKey(name: 'error_model')
-          ErrorModel? errorModel}) {
+          ErrorModel? errorModel,
+      @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[])
+          List<AnnouncementModel> list = const <AnnouncementModel>[],
+      @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
+          List<AnnouncementModel> topList = const <AnnouncementModel>[],
+      @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[])
+          List<AnnouncementModel> unreadList = const <AnnouncementModel>[]}) {
     return _AnnouncementState(
-      list: list,
-      topList: topList,
+      dateUnixMs: dateUnixMs,
       loading: loading,
       firstLoading: firstLoading,
       errorModel: errorModel,
+      list: list,
+      topList: topList,
+      unreadList: unreadList,
     );
   }
 
@@ -50,16 +56,20 @@ const $AnnouncementState = _$AnnouncementStateTearOff();
 
 /// @nodoc
 mixin _$AnnouncementState {
-  @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[])
-  List<AnnouncementModel> get list => throw _privateConstructorUsedError;
-  @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
-  List<AnnouncementModel> get topList => throw _privateConstructorUsedError;
+  @JsonKey(name: 'date')
+  int? get dateUnixMs => throw _privateConstructorUsedError;
   @JsonKey(name: 'loading', defaultValue: false)
   bool get loading => throw _privateConstructorUsedError;
   @JsonKey(name: 'first_loading', defaultValue: true)
   bool get firstLoading => throw _privateConstructorUsedError;
   @JsonKey(name: 'error_model')
   ErrorModel? get errorModel => throw _privateConstructorUsedError;
+  @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[])
+  List<AnnouncementModel> get list => throw _privateConstructorUsedError;
+  @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
+  List<AnnouncementModel> get topList => throw _privateConstructorUsedError;
+  @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[])
+  List<AnnouncementModel> get unreadList => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -71,11 +81,13 @@ abstract class $AnnouncementStateCopyWith<$Res> {
   factory $AnnouncementStateCopyWith(AnnouncementState value, $Res Function(AnnouncementState) then) =
       _$AnnouncementStateCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> list,
-      @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> topList,
+      {@JsonKey(name: 'date') int? dateUnixMs,
       @JsonKey(name: 'loading', defaultValue: false) bool loading,
       @JsonKey(name: 'first_loading', defaultValue: true) bool firstLoading,
-      @JsonKey(name: 'error_model') ErrorModel? errorModel});
+      @JsonKey(name: 'error_model') ErrorModel? errorModel,
+      @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> list,
+      @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> topList,
+      @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> unreadList});
 
   $ErrorModelCopyWith<$Res>? get errorModel;
 }
@@ -90,21 +102,19 @@ class _$AnnouncementStateCopyWithImpl<$Res> implements $AnnouncementStateCopyWit
 
   @override
   $Res call({
-    Object? list = freezed,
-    Object? topList = freezed,
+    Object? dateUnixMs = freezed,
     Object? loading = freezed,
     Object? firstLoading = freezed,
     Object? errorModel = freezed,
+    Object? list = freezed,
+    Object? topList = freezed,
+    Object? unreadList = freezed,
   }) {
     return _then(_value.copyWith(
-      list: list == freezed
-          ? _value.list
-          : list // ignore: cast_nullable_to_non_nullable
-              as List<AnnouncementModel>,
-      topList: topList == freezed
-          ? _value.topList
-          : topList // ignore: cast_nullable_to_non_nullable
-              as List<AnnouncementModel>,
+      dateUnixMs: dateUnixMs == freezed
+          ? _value.dateUnixMs
+          : dateUnixMs // ignore: cast_nullable_to_non_nullable
+              as int?,
       loading: loading == freezed
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
@@ -117,6 +127,18 @@ class _$AnnouncementStateCopyWithImpl<$Res> implements $AnnouncementStateCopyWit
           ? _value.errorModel
           : errorModel // ignore: cast_nullable_to_non_nullable
               as ErrorModel?,
+      list: list == freezed
+          ? _value.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as List<AnnouncementModel>,
+      topList: topList == freezed
+          ? _value.topList
+          : topList // ignore: cast_nullable_to_non_nullable
+              as List<AnnouncementModel>,
+      unreadList: unreadList == freezed
+          ? _value.unreadList
+          : unreadList // ignore: cast_nullable_to_non_nullable
+              as List<AnnouncementModel>,
     ));
   }
 
@@ -138,11 +160,13 @@ abstract class _$AnnouncementStateCopyWith<$Res> implements $AnnouncementStateCo
       __$AnnouncementStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> list,
-      @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> topList,
+      {@JsonKey(name: 'date') int? dateUnixMs,
       @JsonKey(name: 'loading', defaultValue: false) bool loading,
       @JsonKey(name: 'first_loading', defaultValue: true) bool firstLoading,
-      @JsonKey(name: 'error_model') ErrorModel? errorModel});
+      @JsonKey(name: 'error_model') ErrorModel? errorModel,
+      @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> list,
+      @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> topList,
+      @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> unreadList});
 
   @override
   $ErrorModelCopyWith<$Res>? get errorModel;
@@ -159,21 +183,19 @@ class __$AnnouncementStateCopyWithImpl<$Res> extends _$AnnouncementStateCopyWith
 
   @override
   $Res call({
-    Object? list = freezed,
-    Object? topList = freezed,
+    Object? dateUnixMs = freezed,
     Object? loading = freezed,
     Object? firstLoading = freezed,
     Object? errorModel = freezed,
+    Object? list = freezed,
+    Object? topList = freezed,
+    Object? unreadList = freezed,
   }) {
     return _then(_AnnouncementState(
-      list: list == freezed
-          ? _value.list
-          : list // ignore: cast_nullable_to_non_nullable
-              as List<AnnouncementModel>,
-      topList: topList == freezed
-          ? _value.topList
-          : topList // ignore: cast_nullable_to_non_nullable
-              as List<AnnouncementModel>,
+      dateUnixMs: dateUnixMs == freezed
+          ? _value.dateUnixMs
+          : dateUnixMs // ignore: cast_nullable_to_non_nullable
+              as int?,
       loading: loading == freezed
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
@@ -186,6 +208,18 @@ class __$AnnouncementStateCopyWithImpl<$Res> extends _$AnnouncementStateCopyWith
           ? _value.errorModel
           : errorModel // ignore: cast_nullable_to_non_nullable
               as ErrorModel?,
+      list: list == freezed
+          ? _value.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as List<AnnouncementModel>,
+      topList: topList == freezed
+          ? _value.topList
+          : topList // ignore: cast_nullable_to_non_nullable
+              as List<AnnouncementModel>,
+      unreadList: unreadList == freezed
+          ? _value.unreadList
+          : unreadList // ignore: cast_nullable_to_non_nullable
+              as List<AnnouncementModel>,
     ));
   }
 }
@@ -194,21 +228,27 @@ class __$AnnouncementStateCopyWithImpl<$Res> extends _$AnnouncementStateCopyWith
 @JsonSerializable()
 class _$_AnnouncementState extends _AnnouncementState {
   const _$_AnnouncementState(
-      {@JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[]) this.list = const <AnnouncementModel>[],
-      @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[]) this.topList = const <AnnouncementModel>[],
-      @JsonKey(name: 'loading', defaultValue: false) this.loading = false,
-      @JsonKey(name: 'first_loading', defaultValue: true) this.firstLoading = true,
-      @JsonKey(name: 'error_model') this.errorModel})
+      {@JsonKey(name: 'date')
+          this.dateUnixMs,
+      @JsonKey(name: 'loading', defaultValue: false)
+          this.loading = false,
+      @JsonKey(name: 'first_loading', defaultValue: true)
+          this.firstLoading = true,
+      @JsonKey(name: 'error_model')
+          this.errorModel,
+      @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[])
+          this.list = const <AnnouncementModel>[],
+      @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
+          this.topList = const <AnnouncementModel>[],
+      @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[])
+          this.unreadList = const <AnnouncementModel>[]})
       : super._();
 
   factory _$_AnnouncementState.fromJson(Map<String, dynamic> json) => _$_$_AnnouncementStateFromJson(json);
 
   @override
-  @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[])
-  final List<AnnouncementModel> list;
-  @override
-  @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
-  final List<AnnouncementModel> topList;
+  @JsonKey(name: 'date')
+  final int? dateUnixMs;
   @override
   @JsonKey(name: 'loading', defaultValue: false)
   final bool loading;
@@ -218,33 +258,48 @@ class _$_AnnouncementState extends _AnnouncementState {
   @override
   @JsonKey(name: 'error_model')
   final ErrorModel? errorModel;
+  @override
+  @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[])
+  final List<AnnouncementModel> list;
+  @override
+  @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
+  final List<AnnouncementModel> topList;
+  @override
+  @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[])
+  final List<AnnouncementModel> unreadList;
 
   @override
   String toString() {
-    return 'AnnouncementState(list: $list, topList: $topList, loading: $loading, firstLoading: $firstLoading, errorModel: $errorModel)';
+    return 'AnnouncementState(dateUnixMs: $dateUnixMs, loading: $loading, firstLoading: $firstLoading, errorModel: $errorModel, list: $list, topList: $topList, unreadList: $unreadList)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _AnnouncementState &&
-            (identical(other.list, list) || const DeepCollectionEquality().equals(other.list, list)) &&
-            (identical(other.topList, topList) || const DeepCollectionEquality().equals(other.topList, topList)) &&
+            (identical(other.dateUnixMs, dateUnixMs) ||
+                const DeepCollectionEquality().equals(other.dateUnixMs, dateUnixMs)) &&
             (identical(other.loading, loading) || const DeepCollectionEquality().equals(other.loading, loading)) &&
             (identical(other.firstLoading, firstLoading) ||
                 const DeepCollectionEquality().equals(other.firstLoading, firstLoading)) &&
             (identical(other.errorModel, errorModel) ||
-                const DeepCollectionEquality().equals(other.errorModel, errorModel)));
+                const DeepCollectionEquality().equals(other.errorModel, errorModel)) &&
+            (identical(other.list, list) || const DeepCollectionEquality().equals(other.list, list)) &&
+            (identical(other.topList, topList) || const DeepCollectionEquality().equals(other.topList, topList)) &&
+            (identical(other.unreadList, unreadList) ||
+                const DeepCollectionEquality().equals(other.unreadList, unreadList)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(list) ^
-      const DeepCollectionEquality().hash(topList) ^
+      const DeepCollectionEquality().hash(dateUnixMs) ^
       const DeepCollectionEquality().hash(loading) ^
       const DeepCollectionEquality().hash(firstLoading) ^
-      const DeepCollectionEquality().hash(errorModel);
+      const DeepCollectionEquality().hash(errorModel) ^
+      const DeepCollectionEquality().hash(list) ^
+      const DeepCollectionEquality().hash(topList) ^
+      const DeepCollectionEquality().hash(unreadList);
 
   @JsonKey(ignore: true)
   @override
@@ -259,21 +314,27 @@ class _$_AnnouncementState extends _AnnouncementState {
 
 abstract class _AnnouncementState extends AnnouncementState {
   const factory _AnnouncementState(
-      {@JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> list,
-      @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> topList,
-      @JsonKey(name: 'loading', defaultValue: false) bool loading,
-      @JsonKey(name: 'first_loading', defaultValue: true) bool firstLoading,
-      @JsonKey(name: 'error_model') ErrorModel? errorModel}) = _$_AnnouncementState;
+      {@JsonKey(name: 'date')
+          int? dateUnixMs,
+      @JsonKey(name: 'loading', defaultValue: false)
+          bool loading,
+      @JsonKey(name: 'first_loading', defaultValue: true)
+          bool firstLoading,
+      @JsonKey(name: 'error_model')
+          ErrorModel? errorModel,
+      @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[])
+          List<AnnouncementModel> list,
+      @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
+          List<AnnouncementModel> topList,
+      @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[])
+          List<AnnouncementModel> unreadList}) = _$_AnnouncementState;
   const _AnnouncementState._() : super._();
 
   factory _AnnouncementState.fromJson(Map<String, dynamic> json) = _$_AnnouncementState.fromJson;
 
   @override
-  @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[])
-  List<AnnouncementModel> get list => throw _privateConstructorUsedError;
-  @override
-  @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
-  List<AnnouncementModel> get topList => throw _privateConstructorUsedError;
+  @JsonKey(name: 'date')
+  int? get dateUnixMs => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'loading', defaultValue: false)
   bool get loading => throw _privateConstructorUsedError;
@@ -283,6 +344,15 @@ abstract class _AnnouncementState extends AnnouncementState {
   @override
   @JsonKey(name: 'error_model')
   ErrorModel? get errorModel => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[])
+  List<AnnouncementModel> get list => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
+  List<AnnouncementModel> get topList => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[])
+  List<AnnouncementModel> get unreadList => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$AnnouncementStateCopyWith<_AnnouncementState> get copyWith => throw _privateConstructorUsedError;

@@ -22,4 +22,9 @@ class UiAnnouncementInfo {
   List<AnnouncementModel> get topAnnouncementList {
     return announcementState.topList.take(topAnnouncementCount).toList();
   }
+
+  // top announcements taking into limit count
+  List<AnnouncementModel> get unreadAnnouncementList {
+    return announcementState.unreadList;
+  }
 }

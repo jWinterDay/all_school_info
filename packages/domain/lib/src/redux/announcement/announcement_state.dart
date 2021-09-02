@@ -11,15 +11,19 @@ class AnnouncementState with _$AnnouncementState {
   const AnnouncementState._();
 
   const factory AnnouncementState({
+    @JsonKey(name: 'date') int? dateUnixMs,
+    @JsonKey(name: 'loading', defaultValue: false) @Default(false) bool loading,
+    @JsonKey(name: 'first_loading', defaultValue: true) @Default(true) bool firstLoading,
+    @JsonKey(name: 'error_model') ErrorModel? errorModel,
     @JsonKey(name: 'list', defaultValue: <AnnouncementModel>[])
     @Default(<AnnouncementModel>[])
         List<AnnouncementModel> list,
     @JsonKey(name: 'top_list', defaultValue: <AnnouncementModel>[])
     @Default(<AnnouncementModel>[])
         List<AnnouncementModel> topList,
-    @JsonKey(name: 'loading', defaultValue: false) @Default(false) bool loading,
-    @JsonKey(name: 'first_loading', defaultValue: true) @Default(true) bool firstLoading,
-    @JsonKey(name: 'error_model') ErrorModel? errorModel,
+    @JsonKey(name: 'unread_list', defaultValue: <AnnouncementModel>[])
+    @Default(<AnnouncementModel>[])
+        List<AnnouncementModel> unreadList,
   }) = _AnnouncementState;
 
   factory AnnouncementState.fromJson(Map<String, dynamic> json) => _$AnnouncementStateFromJson(json);

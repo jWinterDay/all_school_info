@@ -7,6 +7,7 @@
     "profileTabTitle": "Профиль",
     "unknownAnnouncementTitle": "Объявление не существует",
     "unknownAnnouncementContent": "-",
+    "unreadAnnouncements": "Новые сообщения ({count})",
 
     "profileViewTitle": "Профиль пользователя",
     "notLoggedIn": "Залогиниться",

@@ -23,4 +23,10 @@ class AnnouncementAction with _$AnnouncementAction {
   const factory AnnouncementAction.clearErrorModel() = _ClearErrorModel;
 
   const factory AnnouncementAction.cleanUp() = _CleanUp;
+
+  const factory AnnouncementAction.addUnreadAnnouncement({required AnnouncementModel value}) = _AddUnreadAnnouncement;
+  const factory AnnouncementAction.removeUnreadAnnouncement({required AnnouncementModel value}) =
+      _RemoveUnreadAnnouncement;
+  const factory AnnouncementAction.clearUnreadAnnouncement({required AnnouncementModel value}) =
+      _ClearUnreadAnnouncement;
 }

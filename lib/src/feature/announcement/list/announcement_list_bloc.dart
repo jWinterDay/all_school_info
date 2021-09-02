@@ -24,13 +24,23 @@ class AnnouncementListBloc {
   // });
 
   void refresh() {
-    // getIt.get<AppDomain>().appStore.dispatch(fetchAnnouncementsThunk);
+    getIt.get<AppDomain>().appStore.dispatch(fetchAnnouncementsThunk);
   }
 
   void dispose() {
     _announcementsSub?.cancel();
 
     getIt.get<AppDomain>().appStore.dispatch(const AnnouncementAction.cleanUp());
+  }
+
+  void addUnread() {
+    const AnnouncementModel model = AnnouncementModel(
+      'fdsfs',
+      title: 'title 1',
+      content: 'content 1',
+    );
+
+    getIt.get<AppDomain>().appStore.dispatch(const AnnouncementAction.addUnreadAnnouncement(value: model));
   }
 
   void _subscribe() {

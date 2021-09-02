@@ -51,6 +51,14 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
       builder: (_, UiAnnouncementInfo uiAnnouncementInfo) {
         return Column(
           children: <Widget>[
+            SizedBox(
+              height: 36,
+              child: GestureDetector(
+                onTap: _bloc.addUnread,
+                child: const Text('add unread'),
+              ),
+            ),
+
             // top events
             if (uiAnnouncementInfo.announcementState.topList.isNotEmpty)
               CarouselSlider(
@@ -58,25 +66,38 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
                   height: 100,
                   autoPlay: true,
                 ),
-                items: uiAnnouncementInfo.topAnnouncementList.map((AnnouncementModel topAnnouncement) {
-                  return GestureDetector(
-                    onTap: () {
-                      AutoRouter.of(context).push(gr.AnnouncementDetailsViewRoute(
-                        announcementModelId: topAnnouncement.id,
-                      ));
-                    },
-                    child: Container(
-                      width: context.width,
-                      margin: const EdgeInsets.symmetric(horizontal: 4),
-                      padding: const EdgeInsets.symmetric(horizontal: 4),
-                      decoration: BoxDecoration(color: context.palette.primaryLight),
-                      child: Text(
-                        topAnnouncement.title ?? '',
-                        style: Theme.of(context).textTheme.caption,
+                items: uiAnnouncementInfo.topAnnouncementList.map(
+                  (AnnouncementModel topAnnouncement) {
+                    return GestureDetector(
+                      onTap: () {
+                        AutoRouter.of(context).push(gr.AnnouncementDetailsViewRoute(
+                          announcementModelId: topAnnouncement.id,
+                        ));
+                      },
+                      child: Container(
+                        width: context.width,
+                        margin: const EdgeInsets.symmetric(horizontal: 4),
+                        padding: const EdgeInsets.symmetric(horizontal: 4),
+                        decoration: BoxDecoration(color: context.palette.primaryLight),
+                        child: Text(
+                          topAnnouncement.title ?? '',
+                          style: Theme.of(context).textTheme.caption,
+                        ),
                       ),
-                    ),
-                  );
-                }).toList(),
+                    );
+                  },
+                ).toList(),
+              ),
+
+            if (uiAnnouncementInfo.unreadAnnouncementList.isNotEmpty)
+              Padding(
+                padding: const EdgeInsets.only(top: 8),
+                child: ColoredBox(
+                  color: context.design.palette.gray12,
+                  child: Text(
+                    AllSchoolInfoIntl.of(context).unreadAnnouncements(uiAnnouncementInfo.unreadAnnouncementList.length),
+                  ),
+                ),
               ),
 
             // scroll content

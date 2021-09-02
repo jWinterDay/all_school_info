@@ -1,7 +1,11 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:all_school_info/src/generated/l10n.dart';
 import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:design/design.dart';
+import 'package:redux/redux.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -40,22 +44,74 @@ class _HomeViewState extends State<HomeView> {
             currentIndex: tabsRouter.activeIndex,
             onTap: tabsRouter.setActiveIndex,
             items: <BottomNavigationBarItem>[
+              // announcements
               BottomNavigationBarItem(
-                icon: const Icon(Icons.g_translate),
+                icon: StoreConnector<AppState, AnnouncementState>(
+                  converter: (Store<AppState> store) => store.state.announcementState,
+                  builder: (_, AnnouncementState announcementState) {
+                    return _TabWidthBadge(
+                      icon: Icons.g_translate,
+                      withBadge: announcementState.unreadList.isNotEmpty,
+                    );
+                  },
+                ),
                 label: AllSchoolInfoIntl.of(context).announcementsTabTitle,
               ),
               BottomNavigationBarItem(
-                icon: const Icon(Icons.yard),
+                icon: const _TabWidthBadge(
+                  icon: Icons.hvac,
+                  withBadge: false,
+                ),
                 label: AllSchoolInfoIntl.of(context).scheduleViewTitle,
               ),
               BottomNavigationBarItem(
-                icon: const Icon(Icons.face_retouching_off_rounded),
+                icon: const _TabWidthBadge(
+                  icon: Icons.face_retouching_off_rounded,
+                  withBadge: false,
+                ),
                 label: AllSchoolInfoIntl.of(context).profileTabTitle,
               ),
             ],
           ),
         );
       },
+    );
+  }
+}
+
+class _TabWidthBadge extends StatelessWidget {
+  const _TabWidthBadge({
+    Key? key,
+    required this.icon,
+    required this.withBadge,
+  }) : super(key: key);
+
+  final IconData icon;
+  final bool withBadge;
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      clipBehavior: Clip.none,
+      children: <Widget>[
+        Icon(
+          icon,
+          size: 24,
+        ),
+        if (withBadge)
+          Positioned(
+            left: 18,
+            child: Container(
+              decoration: BoxDecoration(
+                color: context.palette.danger,
+                borderRadius: const BorderRadius.all(Radius.circular(12)),
+              ),
+              // color: Colors.red,
+              width: 12,
+              height: 12,
+            ),
+          ),
+      ],
     );
   }
 }

@@ -130,6 +130,16 @@ class AllSchoolInfoIntl {
     );
   }
 
+  /// `Новые сообщения ({count})`
+  String unreadAnnouncements(Object count) {
+    return Intl.message(
+      'Новые сообщения ($count)',
+      name: 'unreadAnnouncements',
+      desc: '',
+      args: [count],
+    );
+  }
+
   /// `Профиль пользователя`
   String get profileViewTitle {
     return Intl.message(
