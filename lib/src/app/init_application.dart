@@ -6,6 +6,7 @@ import 'package:domain/domain.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 Future<Palette> initPalette() async {
   final CustomColors? customColors = await CustomColors.loadAsync('assets/theme/base.json');
@@ -32,7 +33,11 @@ Future<void> initApp({bool useMock = false}) async {
   // firebase remote config
   await _setupRemoteConfig();
 
+  // push notifications
   await _pushNotifications();
+
+  // cloud storage
+  await _cloudStorage();
 }
 
 /// `di`
@@ -120,4 +125,19 @@ Future<dynamic> _backgroundMessageHandler(RemoteMessage remoteMessage) async {
   await Firebase.initializeApp();
 
   print('------- backgroundMessageHandler ${remoteMessage.data}');
+}
+
+Future<void> _cloudStorage() async {
+  await Firebase.initializeApp();
+
+  final CollectionReference<Map<String, dynamic>> users = FirebaseFirestore.instance.collection('user');
+
+  final DocumentSnapshot<Object?> user = await users.doc('eQLkS65WZ1NQTQ2Skc8r').get();
+
+  print('user = ${user.data()}');
+
+  FirebaseFirestore.instance.collection('user').snapshots().listen((QuerySnapshot<Map<String, dynamic>> event) {
+    print(event.docs);
+    print(event.docs.map((e) => e.data()));
+  });
 }

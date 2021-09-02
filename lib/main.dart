@@ -11,7 +11,7 @@ void main({bool useMock = false}) {
   WidgetsFlutterBinding.ensureInitialized();
 
   runZonedGuarded<void>(
-    _run,
+    () => _run(useMock: useMock),
     (Object error, StackTrace stackTrace) {
       logger.e(error, error.toString(), stackTrace);
     },
