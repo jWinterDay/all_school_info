@@ -7,7 +7,9 @@ import 'package:redux/redux.dart';
 
 class AnnouncementListBloc {
   AnnouncementListBloc() {
+    // Future<void>.delayed(Duration(seconds: 2), () {
     _subscribe();
+    // });
   }
 
   final CollectionReference<Map<String, dynamic>> _announcements =
@@ -15,17 +17,15 @@ class AnnouncementListBloc {
 
   StreamSubscription<QuerySnapshot<Map<String, dynamic>>>? _announcementsSub;
 
-  // final DocumentSnapshot<Object?> user = await users.doc('eQLkS65WZ1NQTQ2Skc8r').get();
-
-  // print('user = ${user.data()}');
-
-  // FirebaseFirestore.instance.collection('user').snapshots().listen((QuerySnapshot<Map<String, dynamic>> event) {
-  //   print(event.docs);
-  //   print(event.docs.map((e) => e.data()));
-  // });
-
   void refresh() {
-    // getIt.get<AppDomain>().appStore.dispatch(fetchAnnouncementsThunk);
+    _firstFetch = true;
+    getIt.get<AppDomain>().appStore.dispatch(const AnnouncementAction.changeLoading(value: true));
+
+    // Future<void>.delayed(Duration(seconds: 2), () {
+    _announcements.get().then((QuerySnapshot<Map<String, dynamic>> data) {
+      getIt.get<AppDomain>().appStore.dispatch(const AnnouncementAction.cleanUp());
+      _applyQuerySnapshot(data);
+    });
   }
 
   void dispose() {
@@ -37,8 +37,8 @@ class AnnouncementListBloc {
   void testAddUnread() {
     const AnnouncementModel model = AnnouncementModel(
       'fdsfs',
-      title: 'title 1',
-      content: 'content 1',
+      title: 'custom announcement title',
+      content: 'custom announcement content',
       isTopEvent: false,
     );
 
@@ -67,25 +67,26 @@ class AnnouncementListBloc {
     getIt.get<AppDomain>().appStore.dispatch(const AnnouncementAction.changeLoading(value: true));
 
     final Stream<QuerySnapshot<Map<String, dynamic>>> stream = _announcements.snapshots(includeMetadataChanges: true);
+    _announcementsSub = stream.listen(_applyQuerySnapshot);
+  }
 
-    _announcementsSub = stream.listen((QuerySnapshot<Map<String, dynamic>> event) {
-      final Iterable<AnnouncementApplyDto> list = event.docChanges.map((DocumentChange<Map<String, dynamic>> e) {
-        return AnnouncementApplyDto(
-          docApplyType: AppUtils.convertDocTypeToDtoType(e.type),
-          id: e.doc.id,
-          data: e.doc.data(),
-        );
-      });
-
-      getIt.get<AppDomain>().appStore.dispatch((Store<AppState> store) {
-        applyAnnouncementsThunk(
-          store,
-          applyDtoList: list,
-          firstFetch: _firstFetch,
-        );
-      });
-
-      _firstFetch = false;
+  void _applyQuerySnapshot(QuerySnapshot<Map<String, dynamic>> snapshot) {
+    final Iterable<AnnouncementApplyDto> list = snapshot.docChanges.map((DocumentChange<Map<String, dynamic>> e) {
+      return AnnouncementApplyDto(
+        docApplyType: AppUtils.convertDocTypeToDtoType(e.type),
+        id: e.doc.id,
+        data: e.doc.data(),
+      );
     });
+
+    getIt.get<AppDomain>().appStore.dispatch((Store<AppState> store) {
+      applyAnnouncementsThunk(
+        store,
+        applyDtoList: list,
+        firstFetch: _firstFetch,
+      );
+    });
+
+    _firstFetch = false;
   }
 }

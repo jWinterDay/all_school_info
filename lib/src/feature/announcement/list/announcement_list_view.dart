@@ -29,7 +29,7 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
   void initState() {
     super.initState();
 
-    _bloc.refresh();
+    // _bloc.refresh();
   }
 
   @override
@@ -53,13 +53,13 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
 
         return Column(
           children: <Widget>[
-            // SizedBox(
-            //   height: 36,
-            //   child: GestureDetector(
-            //     onTap: _bloc.testAddUnread,
-            //     child: const Text('add unread'),
-            //   ),
-            // ),
+            SizedBox(
+              height: 36,
+              child: GestureDetector(
+                onTap: _bloc.testAddUnread,
+                child: const Text('add unread'),
+              ),
+            ),
 
             // SizedBox(
             //   height: 36,
@@ -99,6 +99,7 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
                 ).toList(),
               ),
 
+            // there are new messages button
             if (uiAnnouncementInfo.unreadAnnouncementList.isNotEmpty)
               GestureDetector(
                 onTap: _bloc.clearUnreadAnnouncements,
@@ -160,7 +161,8 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
                     ),
 
                     // loading
-                    if (uiAnnouncementInfo.announcementState.loading)
+                    if (uiAnnouncementInfo.announcementState.firstLoading ||
+                        uiAnnouncementInfo.announcementState.loading)
                       SizedBox(
                         width: context.width,
                         height: context.height,
