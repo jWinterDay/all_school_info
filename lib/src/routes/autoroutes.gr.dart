@@ -5,65 +5,86 @@
 // **************************************************************************
 
 import 'package:auto_route/auto_route.dart' as _i1;
-import 'package:flutter/cupertino.dart' as _i10;
 import 'package:flutter/material.dart' as _i2;
 
-import '../feature/announcement/details/announcement_details_view.dart' as _i4;
-import '../feature/announcement/edit/announcement_edit_view.dart' as _i5;
-import '../feature/announcement/list/announcement_list_view.dart' as _i7;
-import '../feature/profile/profile_view.dart' as _i9;
-import '../feature/schedule/details/schedule_details_view.dart' as _i6;
-import '../feature/schedule/list/schedule_view.dart' as _i8;
+import '../feature/announcement/details/announcement_details_view.dart' as _i5;
+import '../feature/announcement/edit/announcement_edit_view.dart' as _i6;
+import '../feature/announcement/list/announcement_list_view.dart' as _i8;
+import '../feature/profile/profile_view.dart' as _i10;
+import '../feature/schedule/details/schedule_details_view.dart' as _i7;
+import '../feature/schedule/list/schedule_view.dart' as _i9;
 import '../home/home_view.dart' as _i3;
+import 'route_builders/dialog_route_builder.dart' as _i4;
 
 class AppRouter extends _i1.RootStackRouter {
   AppRouter([_i2.GlobalKey<_i2.NavigatorState>? navigatorKey]) : super(navigatorKey);
 
   @override
   final Map<String, _i1.PageFactory> pagesMap = {
-    HomeViewRoute.name: (routeData) => _i1.CupertinoPageX<Object>(
+    HomeViewRoute.name: (routeData) => _i1.CustomPage<Object>(
         routeData: routeData,
         builder: (_) {
           return _i3.HomeView();
-        }),
-    AnnouncementDetailsViewRoute.name: (routeData) => _i1.CupertinoPageX<Object>(
+        },
+        customRouteBuilder: _i4.dialogRouteBuilder,
+        opaque: true,
+        barrierDismissible: false),
+    AnnouncementDetailsViewRoute.name: (routeData) => _i1.CustomPage<Object>(
         routeData: routeData,
         builder: (data) {
           final pathParams = data.pathParams;
           final args = data.argsAs<AnnouncementDetailsViewRouteArgs>(
               orElse: () => AnnouncementDetailsViewRouteArgs(announcementModelId: pathParams.getString('id')));
-          return _i4.AnnouncementDetailsView(key: args.key, announcementModelId: args.announcementModelId);
-        }),
-    AnnouncementEditViewRoute.name: (routeData) => _i1.CupertinoPageX<Object>(
+          return _i5.AnnouncementDetailsView(key: args.key, announcementModelId: args.announcementModelId);
+        },
+        customRouteBuilder: _i4.dialogRouteBuilder,
+        opaque: true,
+        barrierDismissible: false),
+    AnnouncementEditViewRoute.name: (routeData) => _i1.CustomPage<Object>(
         routeData: routeData,
         builder: (data) {
           final pathParams = data.pathParams;
           final args = data.argsAs<AnnouncementEditViewRouteArgs>(
               orElse: () => AnnouncementEditViewRouteArgs(
                   announcementModelId: pathParams.optString('id'), cardViewMode: pathParams.getString('mode')));
-          return _i5.AnnouncementEditView(
+          return _i6.AnnouncementEditView(
               key: args.key, announcementModelId: args.announcementModelId, cardViewMode: args.cardViewMode);
-        }),
-    ScheduleDetailsViewRoute.name: (routeData) => _i1.CupertinoPageX<Object>(
+        },
+        fullscreenDialog: true,
+        customRouteBuilder: _i4.dialogRouteBuilder,
+        opaque: true,
+        barrierDismissible: false),
+    ScheduleDetailsViewRoute.name: (routeData) => _i1.CustomPage<Object>(
         routeData: routeData,
         builder: (_) {
-          return _i6.ScheduleDetailsView();
-        }),
-    AnnouncementListViewRoute.name: (routeData) => _i1.CupertinoPageX<Object>(
+          return _i7.ScheduleDetailsView();
+        },
+        customRouteBuilder: _i4.dialogRouteBuilder,
+        opaque: true,
+        barrierDismissible: false),
+    AnnouncementListViewRoute.name: (routeData) => _i1.CustomPage<Object>(
         routeData: routeData,
         builder: (_) {
-          return const _i7.AnnouncementListView();
-        }),
-    ScheduleViewRoute.name: (routeData) => _i1.CupertinoPageX<Object>(
+          return const _i8.AnnouncementListView();
+        },
+        customRouteBuilder: _i4.dialogRouteBuilder,
+        opaque: true,
+        barrierDismissible: false),
+    ScheduleViewRoute.name: (routeData) => _i1.CustomPage<Object>(
         routeData: routeData,
         builder: (_) {
-          return _i8.ScheduleView();
-        }),
-    ProfileViewRoute.name: (routeData) => _i1.CupertinoPageX<Object>(
+          return _i9.ScheduleView();
+        },
+        customRouteBuilder: _i4.dialogRouteBuilder,
+        opaque: true,
+        barrierDismissible: false),
+    ProfileViewRoute.name: (routeData) => _i1.CustomPage<Object>(
         routeData: routeData,
         builder: (_) {
-          return _i9.ProfileView();
-        })
+          return _i10.ProfileView();
+        },
+        opaque: true,
+        barrierDismissible: false)
   };
 
   @override
@@ -88,7 +109,7 @@ class HomeViewRoute extends _i1.PageRouteInfo {
 }
 
 class AnnouncementDetailsViewRoute extends _i1.PageRouteInfo<AnnouncementDetailsViewRouteArgs> {
-  AnnouncementDetailsViewRoute({_i10.Key? key, required String announcementModelId})
+  AnnouncementDetailsViewRoute({_i2.Key? key, required String announcementModelId})
       : super(name,
             path: 'announcement/details/:id',
             args: AnnouncementDetailsViewRouteArgs(key: key, announcementModelId: announcementModelId),
@@ -100,13 +121,13 @@ class AnnouncementDetailsViewRoute extends _i1.PageRouteInfo<AnnouncementDetails
 class AnnouncementDetailsViewRouteArgs {
   const AnnouncementDetailsViewRouteArgs({this.key, required this.announcementModelId});
 
-  final _i10.Key? key;
+  final _i2.Key? key;
 
   final String announcementModelId;
 }
 
 class AnnouncementEditViewRoute extends _i1.PageRouteInfo<AnnouncementEditViewRouteArgs> {
-  AnnouncementEditViewRoute({_i10.Key? key, String? announcementModelId, required String cardViewMode})
+  AnnouncementEditViewRoute({_i2.Key? key, String? announcementModelId, required String cardViewMode})
       : super(name,
             path: 'announcement/edit/:id&mode=:mode',
             args: AnnouncementEditViewRouteArgs(
@@ -119,7 +140,7 @@ class AnnouncementEditViewRoute extends _i1.PageRouteInfo<AnnouncementEditViewRo
 class AnnouncementEditViewRouteArgs {
   const AnnouncementEditViewRouteArgs({this.key, this.announcementModelId, required this.cardViewMode});
 
-  final _i10.Key? key;
+  final _i2.Key? key;
 
   final String? announcementModelId;
 

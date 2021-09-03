@@ -6,9 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-// import 'package:google_fonts/google_fonts.dart';
-
-import 'app_theme.dart';
 
 class _Observer extends AutoRouterObserver {
   @override
@@ -91,7 +88,8 @@ class _AppViewState extends State<AppView> with WidgetsBindingObserver {
       store: getIt.get<AppDomain>().appStore,
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
-        theme: appTheme,
+        // theme: appTheme,
+        theme: ThemeData(platform: TargetPlatform.iOS),
         supportedLocales: const <Locale>[
           Locale('ru'),
           Locale('en'),

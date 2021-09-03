@@ -1,11 +1,16 @@
+import 'package:all_school_info/src/feature/announcement/edit/announcement_edit_view.dart';
 import 'package:all_school_info/src/models/card_view_mode.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:domain/domain.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:all_school_info/src/generated/l10n.dart';
 import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:design/design.dart';
+
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart' as mbs;
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:redux/redux.dart';
 
 import 'home_bloc.dart';
@@ -149,10 +154,16 @@ class _FloatingActionButton extends StatelessWidget {
         }
 
         return FloatingActionButton(
-          onPressed: () {
-            AutoRouter.of(context).push(
-              gr.AnnouncementEditViewRoute(cardViewMode: CardViewMode.add.nameStr),
+          onPressed: () async {
+            await showCupertinoModalBottomSheet<void>(
+              context: context,
+              builder: (_) {
+                return AnnouncementEditView(cardViewMode: CardViewMode.add.nameStr);
+              },
             );
+            // AutoRouter.of(context).push(
+            //   gr.AnnouncementEditViewRoute(cardViewMode: CardViewMode.add.nameStr),
+            // );
           },
           child: const Icon(Icons.add),
           backgroundColor: context.design.palette.primary,

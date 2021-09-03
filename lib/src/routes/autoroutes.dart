@@ -10,26 +10,35 @@ import 'package:all_school_info/src/home/home_view.dart';
 import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 
+import 'route_builders/dialog_route_builder.dart';
+
 // @CupertinoAutoRouter
 // @AdaptiveAutoRouter
 // @CustomAutoRouter
-@CupertinoAutoRouter(
+@CustomAutoRouter(
   replaceInRouteName: 'View',
   // ignore: always_specify_types
   routes: [
     // home with tabs
-    AutoRoute<Object>(
+    CustomRoute<Object>(
       page: HomeView,
       path: '/',
       initial: true,
+      customRouteBuilder: dialogRouteBuilder,
       children: <AutoRoute<Object>>[
         // announcements
-        AutoRoute<Object>(path: 'announcements', initial: true, page: AnnouncementListView),
+        CustomRoute<Object>(
+          path: 'announcements',
+          initial: true,
+          customRouteBuilder: dialogRouteBuilder,
+          page: AnnouncementListView,
+        ),
 
         // schedule
-        AutoRoute<Object>(
-          page: ScheduleView,
+        CustomRoute<Object>(
           path: 'schedule',
+          customRouteBuilder: dialogRouteBuilder,
+          page: ScheduleView,
           // children: <AutoRoute<Object>>[
           //   AutoRoute<Object>(path: 'details', initial: true, fullscreenDialog: true, page: ScheduleDetailsView),
           // ],
@@ -42,11 +51,24 @@ import 'package:auto_route/auto_route.dart';
 
     // TODO nested navigation
     // announcement detail
-    AutoRoute<Object>(path: 'announcement/details/:id', page: AnnouncementDetailsView),
-    AutoRoute<Object>(path: 'announcement/edit/:id&mode=:mode', page: AnnouncementEditView),
+    CustomRoute<Object>(
+      path: 'announcement/details/:id',
+      customRouteBuilder: dialogRouteBuilder,
+      page: AnnouncementDetailsView,
+    ),
+    CustomRoute<Object>(
+      path: 'announcement/edit/:id&mode=:mode',
+      page: AnnouncementEditView,
+      customRouteBuilder: dialogRouteBuilder,
+      fullscreenDialog: true,
+    ),
 
     // TODO nested navigation
-    AutoRoute<Object>(path: 'schedule/details', page: ScheduleDetailsView),
+    CustomRoute<Object>(
+      path: 'schedule/details',
+      customRouteBuilder: dialogRouteBuilder,
+      page: ScheduleDetailsView,
+    ),
 
     RedirectRoute(path: '*', redirectTo: '/')
   ],

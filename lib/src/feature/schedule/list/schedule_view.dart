@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:all_school_info/src/generated/l10n.dart';
 import 'package:design/design.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:redux/redux.dart';
 import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
 
@@ -46,7 +47,8 @@ class _ScheduleViewState extends State<ScheduleView> {
         iconColor: context.design.palette.primary,
         showBadge: scheduleState.haveScheduleUpd,
         callback: () async {
-          await AutoRouter.of(context).push(const gr.ScheduleDetailsViewRoute());
+          showCupertinoModalBottomSheet<void>(context: context, builder: (context) => ScheduleDetailsView());
+          // await AutoRouter.of(context).push(const gr.ScheduleDetailsViewRoute());
         },
       ),
 
