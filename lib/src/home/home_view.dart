@@ -1,3 +1,4 @@
+import 'package:all_school_info/src/models/card_view_mode.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
@@ -7,12 +8,30 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:design/design.dart';
 import 'package:redux/redux.dart';
 
+import 'home_bloc.dart';
+
 class HomeView extends StatefulWidget {
   @override
   _HomeViewState createState() => _HomeViewState();
 }
 
 class _HomeViewState extends State<HomeView> {
+  final HomeBloc _bloc = HomeBloc();
+
+  @override
+  void initState() {
+    super.initState();
+
+    _bloc.init();
+  }
+
+  @override
+  void dispose() {
+    _bloc.dispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return AutoTabsRouter(
@@ -30,6 +49,7 @@ class _HomeViewState extends State<HomeView> {
               AllSchoolInfoIntl.of(context).mainTitle,
               // style: Theme.of(context).appBarTheme.textTheme?.caption,
             ),
+            leading: const _TestModeLabel(),
             centerTitle: true,
           ),
           floatingActionButton: tabsRouter.activeIndex == 0 ? const _FloatingActionButton() : null,
@@ -88,6 +108,32 @@ class _HomeViewState extends State<HomeView> {
   }
 }
 
+class _TestModeLabel extends StatelessWidget {
+  const _TestModeLabel({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return StoreConnector<AppState, bool>(
+      converter: (Store<AppState> store) => store.state.settingsState.testMode,
+      builder: (_, bool testMode) {
+        if (!testMode) {
+          return const SizedBox();
+        }
+
+        return Padding(
+          padding: const EdgeInsets.only(left: 4, top: 4),
+          child: Text(
+            'Test mode',
+            style: Theme.of(context).textTheme.bodyText1?.apply(color: context.design.palette.danger),
+          ),
+        );
+      },
+    );
+  }
+}
+
 class _FloatingActionButton extends StatelessWidget {
   const _FloatingActionButton({
     Key? key,
@@ -104,7 +150,9 @@ class _FloatingActionButton extends StatelessWidget {
 
         return FloatingActionButton(
           onPressed: () {
-            //
+            AutoRouter.of(context).push(
+              gr.AnnouncementEditViewRoute(cardViewMode: CardViewMode.add.nameStr),
+            );
           },
           child: const Icon(Icons.add),
           backgroundColor: context.design.palette.primary,

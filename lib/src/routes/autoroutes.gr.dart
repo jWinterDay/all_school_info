@@ -39,8 +39,10 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (data) {
           final pathParams = data.pathParams;
           final args = data.argsAs<AnnouncementEditViewRouteArgs>(
-              orElse: () => AnnouncementEditViewRouteArgs(announcementModelId: pathParams.optString('id')));
-          return _i5.AnnouncementEditView(key: args.key, announcementModelId: args.announcementModelId);
+              orElse: () => AnnouncementEditViewRouteArgs(
+                  announcementModelId: pathParams.optString('id'), cardViewMode: pathParams.getString('mode')));
+          return _i5.AnnouncementEditView(
+              key: args.key, announcementModelId: args.announcementModelId, cardViewMode: args.cardViewMode);
         }),
     ScheduleDetailsViewRoute.name: (routeData) => _i1.CupertinoPageX<Object>(
         routeData: routeData,
@@ -73,7 +75,7 @@ class AppRouter extends _i1.RootStackRouter {
           _i1.RouteConfig(ProfileViewRoute.name, path: 'profile')
         ]),
         _i1.RouteConfig(AnnouncementDetailsViewRoute.name, path: 'announcement/details/:id'),
-        _i1.RouteConfig(AnnouncementEditViewRoute.name, path: 'announcement/edit/:id'),
+        _i1.RouteConfig(AnnouncementEditViewRoute.name, path: 'announcement/edit/:id&mode=:mode'),
         _i1.RouteConfig(ScheduleDetailsViewRoute.name, path: 'schedule/details'),
         _i1.RouteConfig('*#redirect', path: '*', redirectTo: '/', fullMatch: true)
       ];
@@ -104,21 +106,24 @@ class AnnouncementDetailsViewRouteArgs {
 }
 
 class AnnouncementEditViewRoute extends _i1.PageRouteInfo<AnnouncementEditViewRouteArgs> {
-  AnnouncementEditViewRoute({_i10.Key? key, required String? announcementModelId})
+  AnnouncementEditViewRoute({_i10.Key? key, String? announcementModelId, required String cardViewMode})
       : super(name,
-            path: 'announcement/edit/:id',
-            args: AnnouncementEditViewRouteArgs(key: key, announcementModelId: announcementModelId),
-            rawPathParams: {'id': announcementModelId});
+            path: 'announcement/edit/:id&mode=:mode',
+            args: AnnouncementEditViewRouteArgs(
+                key: key, announcementModelId: announcementModelId, cardViewMode: cardViewMode),
+            rawPathParams: {'id': announcementModelId, 'mode': cardViewMode});
 
   static const String name = 'AnnouncementEditViewRoute';
 }
 
 class AnnouncementEditViewRouteArgs {
-  const AnnouncementEditViewRouteArgs({this.key, required this.announcementModelId});
+  const AnnouncementEditViewRouteArgs({this.key, this.announcementModelId, required this.cardViewMode});
 
   final _i10.Key? key;
 
   final String? announcementModelId;
+
+  final String cardViewMode;
 }
 
 class ScheduleDetailsViewRoute extends _i1.PageRouteInfo {

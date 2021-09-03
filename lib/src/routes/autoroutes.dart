@@ -43,7 +43,7 @@ import 'package:auto_route/auto_route.dart';
     // TODO nested navigation
     // announcement detail
     AutoRoute<Object>(path: 'announcement/details/:id', page: AnnouncementDetailsView),
-    AutoRoute<Object>(path: 'announcement/edit/:id', page: AnnouncementEditView),
+    AutoRoute<Object>(path: 'announcement/edit/:id&mode=:mode', page: AnnouncementEditView),
 
     // TODO nested navigation
     AutoRoute<Object>(path: 'schedule/details', page: ScheduleDetailsView),

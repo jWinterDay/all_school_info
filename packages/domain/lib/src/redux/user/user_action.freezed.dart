@@ -28,20 +28,23 @@ class _$UserActionTearOff {
     );
   }
 
-  _UpdateCreds updateCreds({required UserState value}) {
-    return _UpdateCreds(
-      value: value,
-    );
-  }
-
   _UpdateToken updateToken({required String value}) {
     return _UpdateToken(
       value: value,
     );
   }
 
-  _UpdateRefreshToken updateRefreshToken({required String value}) {
-    return _UpdateRefreshToken(
+  _UpdateInfo updateInfo({String? firstName, String? lastName, String? email, List<String>? phoneNumbers}) {
+    return _UpdateInfo(
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      phoneNumbers: phoneNumbers,
+    );
+  }
+
+  _ChangeAccessGroups changeAccessGroups({required List<String> value}) {
+    return _ChangeAccessGroups(
       value: value,
     );
   }
@@ -56,18 +59,19 @@ mixin _$UserAction {
   TResult when<TResult extends Object?>({
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
-    required TResult Function(UserState value) updateCreds,
     required TResult Function(String value) updateToken,
-    required TResult Function(String value) updateRefreshToken,
+    required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
+        updateInfo,
+    required TResult Function(List<String> value) changeAccessGroups,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
-    TResult Function(UserState value)? updateCreds,
     TResult Function(String value)? updateToken,
-    TResult Function(String value)? updateRefreshToken,
+    TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
+    TResult Function(List<String> value)? changeAccessGroups,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -75,18 +79,18 @@ mixin _$UserAction {
   TResult map<TResult extends Object?>({
     required TResult Function(_ChangeLoggedIn value) changeLoggedIn,
     required TResult Function(_ChangeLoading value) changeLoading,
-    required TResult Function(_UpdateCreds value) updateCreds,
     required TResult Function(_UpdateToken value) updateToken,
-    required TResult Function(_UpdateRefreshToken value) updateRefreshToken,
+    required TResult Function(_UpdateInfo value) updateInfo,
+    required TResult Function(_ChangeAccessGroups value) changeAccessGroups,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeLoggedIn value)? changeLoggedIn,
     TResult Function(_ChangeLoading value)? changeLoading,
-    TResult Function(_UpdateCreds value)? updateCreds,
     TResult Function(_UpdateToken value)? updateToken,
-    TResult Function(_UpdateRefreshToken value)? updateRefreshToken,
+    TResult Function(_UpdateInfo value)? updateInfo,
+    TResult Function(_ChangeAccessGroups value)? changeAccessGroups,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -168,9 +172,10 @@ class _$_ChangeLoggedIn implements _ChangeLoggedIn {
   TResult when<TResult extends Object?>({
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
-    required TResult Function(UserState value) updateCreds,
     required TResult Function(String value) updateToken,
-    required TResult Function(String value) updateRefreshToken,
+    required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
+        updateInfo,
+    required TResult Function(List<String> value) changeAccessGroups,
   }) {
     return changeLoggedIn(value);
   }
@@ -180,9 +185,9 @@ class _$_ChangeLoggedIn implements _ChangeLoggedIn {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
-    TResult Function(UserState value)? updateCreds,
     TResult Function(String value)? updateToken,
-    TResult Function(String value)? updateRefreshToken,
+    TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
+    TResult Function(List<String> value)? changeAccessGroups,
     required TResult orElse(),
   }) {
     if (changeLoggedIn != null) {
@@ -196,9 +201,9 @@ class _$_ChangeLoggedIn implements _ChangeLoggedIn {
   TResult map<TResult extends Object?>({
     required TResult Function(_ChangeLoggedIn value) changeLoggedIn,
     required TResult Function(_ChangeLoading value) changeLoading,
-    required TResult Function(_UpdateCreds value) updateCreds,
     required TResult Function(_UpdateToken value) updateToken,
-    required TResult Function(_UpdateRefreshToken value) updateRefreshToken,
+    required TResult Function(_UpdateInfo value) updateInfo,
+    required TResult Function(_ChangeAccessGroups value) changeAccessGroups,
   }) {
     return changeLoggedIn(this);
   }
@@ -208,9 +213,9 @@ class _$_ChangeLoggedIn implements _ChangeLoggedIn {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeLoggedIn value)? changeLoggedIn,
     TResult Function(_ChangeLoading value)? changeLoading,
-    TResult Function(_UpdateCreds value)? updateCreds,
     TResult Function(_UpdateToken value)? updateToken,
-    TResult Function(_UpdateRefreshToken value)? updateRefreshToken,
+    TResult Function(_UpdateInfo value)? updateInfo,
+    TResult Function(_ChangeAccessGroups value)? changeAccessGroups,
     required TResult orElse(),
   }) {
     if (changeLoggedIn != null) {
@@ -290,9 +295,10 @@ class _$_ChangeLoading implements _ChangeLoading {
   TResult when<TResult extends Object?>({
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
-    required TResult Function(UserState value) updateCreds,
     required TResult Function(String value) updateToken,
-    required TResult Function(String value) updateRefreshToken,
+    required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
+        updateInfo,
+    required TResult Function(List<String> value) changeAccessGroups,
   }) {
     return changeLoading(value);
   }
@@ -302,9 +308,9 @@ class _$_ChangeLoading implements _ChangeLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
-    TResult Function(UserState value)? updateCreds,
     TResult Function(String value)? updateToken,
-    TResult Function(String value)? updateRefreshToken,
+    TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
+    TResult Function(List<String> value)? changeAccessGroups,
     required TResult orElse(),
   }) {
     if (changeLoading != null) {
@@ -318,9 +324,9 @@ class _$_ChangeLoading implements _ChangeLoading {
   TResult map<TResult extends Object?>({
     required TResult Function(_ChangeLoggedIn value) changeLoggedIn,
     required TResult Function(_ChangeLoading value) changeLoading,
-    required TResult Function(_UpdateCreds value) updateCreds,
     required TResult Function(_UpdateToken value) updateToken,
-    required TResult Function(_UpdateRefreshToken value) updateRefreshToken,
+    required TResult Function(_UpdateInfo value) updateInfo,
+    required TResult Function(_ChangeAccessGroups value) changeAccessGroups,
   }) {
     return changeLoading(this);
   }
@@ -330,9 +336,9 @@ class _$_ChangeLoading implements _ChangeLoading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeLoggedIn value)? changeLoggedIn,
     TResult Function(_ChangeLoading value)? changeLoading,
-    TResult Function(_UpdateCreds value)? updateCreds,
     TResult Function(_UpdateToken value)? updateToken,
-    TResult Function(_UpdateRefreshToken value)? updateRefreshToken,
+    TResult Function(_UpdateInfo value)? updateInfo,
+    TResult Function(_ChangeAccessGroups value)? changeAccessGroups,
     required TResult orElse(),
   }) {
     if (changeLoading != null) {
@@ -348,135 +354,6 @@ abstract class _ChangeLoading implements UserAction {
   bool get value => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ChangeLoadingCopyWith<_ChangeLoading> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$UpdateCredsCopyWith<$Res> {
-  factory _$UpdateCredsCopyWith(_UpdateCreds value, $Res Function(_UpdateCreds) then) =
-      __$UpdateCredsCopyWithImpl<$Res>;
-  $Res call({UserState value});
-
-  $UserStateCopyWith<$Res> get value;
-}
-
-/// @nodoc
-class __$UpdateCredsCopyWithImpl<$Res> extends _$UserActionCopyWithImpl<$Res> implements _$UpdateCredsCopyWith<$Res> {
-  __$UpdateCredsCopyWithImpl(_UpdateCreds _value, $Res Function(_UpdateCreds) _then)
-      : super(_value, (v) => _then(v as _UpdateCreds));
-
-  @override
-  _UpdateCreds get _value => super._value as _UpdateCreds;
-
-  @override
-  $Res call({
-    Object? value = freezed,
-  }) {
-    return _then(_UpdateCreds(
-      value: value == freezed
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as UserState,
-    ));
-  }
-
-  @override
-  $UserStateCopyWith<$Res> get value {
-    return $UserStateCopyWith<$Res>(_value.value, (value) {
-      return _then(_value.copyWith(value: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$_UpdateCreds implements _UpdateCreds {
-  const _$_UpdateCreds({required this.value});
-
-  @override
-  final UserState value;
-
-  @override
-  String toString() {
-    return 'UserAction.updateCreds(value: $value)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _UpdateCreds &&
-            (identical(other.value, value) || const DeepCollectionEquality().equals(other.value, value)));
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
-
-  @JsonKey(ignore: true)
-  @override
-  _$UpdateCredsCopyWith<_UpdateCreds> get copyWith => __$UpdateCredsCopyWithImpl<_UpdateCreds>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(bool value) changeLoggedIn,
-    required TResult Function(bool value) changeLoading,
-    required TResult Function(UserState value) updateCreds,
-    required TResult Function(String value) updateToken,
-    required TResult Function(String value) updateRefreshToken,
-  }) {
-    return updateCreds(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool value)? changeLoggedIn,
-    TResult Function(bool value)? changeLoading,
-    TResult Function(UserState value)? updateCreds,
-    TResult Function(String value)? updateToken,
-    TResult Function(String value)? updateRefreshToken,
-    required TResult orElse(),
-  }) {
-    if (updateCreds != null) {
-      return updateCreds(value);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_ChangeLoggedIn value) changeLoggedIn,
-    required TResult Function(_ChangeLoading value) changeLoading,
-    required TResult Function(_UpdateCreds value) updateCreds,
-    required TResult Function(_UpdateToken value) updateToken,
-    required TResult Function(_UpdateRefreshToken value) updateRefreshToken,
-  }) {
-    return updateCreds(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ChangeLoggedIn value)? changeLoggedIn,
-    TResult Function(_ChangeLoading value)? changeLoading,
-    TResult Function(_UpdateCreds value)? updateCreds,
-    TResult Function(_UpdateToken value)? updateToken,
-    TResult Function(_UpdateRefreshToken value)? updateRefreshToken,
-    required TResult orElse(),
-  }) {
-    if (updateCreds != null) {
-      return updateCreds(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _UpdateCreds implements UserAction {
-  const factory _UpdateCreds({required UserState value}) = _$_UpdateCreds;
-
-  UserState get value => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$UpdateCredsCopyWith<_UpdateCreds> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -539,9 +416,10 @@ class _$_UpdateToken implements _UpdateToken {
   TResult when<TResult extends Object?>({
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
-    required TResult Function(UserState value) updateCreds,
     required TResult Function(String value) updateToken,
-    required TResult Function(String value) updateRefreshToken,
+    required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
+        updateInfo,
+    required TResult Function(List<String> value) changeAccessGroups,
   }) {
     return updateToken(value);
   }
@@ -551,9 +429,9 @@ class _$_UpdateToken implements _UpdateToken {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
-    TResult Function(UserState value)? updateCreds,
     TResult Function(String value)? updateToken,
-    TResult Function(String value)? updateRefreshToken,
+    TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
+    TResult Function(List<String> value)? changeAccessGroups,
     required TResult orElse(),
   }) {
     if (updateToken != null) {
@@ -567,9 +445,9 @@ class _$_UpdateToken implements _UpdateToken {
   TResult map<TResult extends Object?>({
     required TResult Function(_ChangeLoggedIn value) changeLoggedIn,
     required TResult Function(_ChangeLoading value) changeLoading,
-    required TResult Function(_UpdateCreds value) updateCreds,
     required TResult Function(_UpdateToken value) updateToken,
-    required TResult Function(_UpdateRefreshToken value) updateRefreshToken,
+    required TResult Function(_UpdateInfo value) updateInfo,
+    required TResult Function(_ChangeAccessGroups value) changeAccessGroups,
   }) {
     return updateToken(this);
   }
@@ -579,9 +457,9 @@ class _$_UpdateToken implements _UpdateToken {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeLoggedIn value)? changeLoggedIn,
     TResult Function(_ChangeLoading value)? changeLoading,
-    TResult Function(_UpdateCreds value)? updateCreds,
     TResult Function(_UpdateToken value)? updateToken,
-    TResult Function(_UpdateRefreshToken value)? updateRefreshToken,
+    TResult Function(_UpdateInfo value)? updateInfo,
+    TResult Function(_ChangeAccessGroups value)? changeAccessGroups,
     required TResult orElse(),
   }) {
     if (updateToken != null) {
@@ -600,72 +478,101 @@ abstract class _UpdateToken implements UserAction {
 }
 
 /// @nodoc
-abstract class _$UpdateRefreshTokenCopyWith<$Res> {
-  factory _$UpdateRefreshTokenCopyWith(_UpdateRefreshToken value, $Res Function(_UpdateRefreshToken) then) =
-      __$UpdateRefreshTokenCopyWithImpl<$Res>;
-  $Res call({String value});
+abstract class _$UpdateInfoCopyWith<$Res> {
+  factory _$UpdateInfoCopyWith(_UpdateInfo value, $Res Function(_UpdateInfo) then) = __$UpdateInfoCopyWithImpl<$Res>;
+  $Res call({String? firstName, String? lastName, String? email, List<String>? phoneNumbers});
 }
 
 /// @nodoc
-class __$UpdateRefreshTokenCopyWithImpl<$Res> extends _$UserActionCopyWithImpl<$Res>
-    implements _$UpdateRefreshTokenCopyWith<$Res> {
-  __$UpdateRefreshTokenCopyWithImpl(_UpdateRefreshToken _value, $Res Function(_UpdateRefreshToken) _then)
-      : super(_value, (v) => _then(v as _UpdateRefreshToken));
+class __$UpdateInfoCopyWithImpl<$Res> extends _$UserActionCopyWithImpl<$Res> implements _$UpdateInfoCopyWith<$Res> {
+  __$UpdateInfoCopyWithImpl(_UpdateInfo _value, $Res Function(_UpdateInfo) _then)
+      : super(_value, (v) => _then(v as _UpdateInfo));
 
   @override
-  _UpdateRefreshToken get _value => super._value as _UpdateRefreshToken;
+  _UpdateInfo get _value => super._value as _UpdateInfo;
 
   @override
   $Res call({
-    Object? value = freezed,
+    Object? firstName = freezed,
+    Object? lastName = freezed,
+    Object? email = freezed,
+    Object? phoneNumbers = freezed,
   }) {
-    return _then(_UpdateRefreshToken(
-      value: value == freezed
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
+    return _then(_UpdateInfo(
+      firstName: firstName == freezed
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lastName: lastName == freezed
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      phoneNumbers: phoneNumbers == freezed
+          ? _value.phoneNumbers
+          : phoneNumbers // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_UpdateRefreshToken implements _UpdateRefreshToken {
-  const _$_UpdateRefreshToken({required this.value});
+class _$_UpdateInfo implements _UpdateInfo {
+  const _$_UpdateInfo({this.firstName, this.lastName, this.email, this.phoneNumbers});
 
+  @override // String userId, {
+  final String? firstName;
   @override
-  final String value;
+  final String? lastName;
+  @override
+  final String? email;
+  @override
+  final List<String>? phoneNumbers;
 
   @override
   String toString() {
-    return 'UserAction.updateRefreshToken(value: $value)';
+    return 'UserAction.updateInfo(firstName: $firstName, lastName: $lastName, email: $email, phoneNumbers: $phoneNumbers)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _UpdateRefreshToken &&
-            (identical(other.value, value) || const DeepCollectionEquality().equals(other.value, value)));
+        (other is _UpdateInfo &&
+            (identical(other.firstName, firstName) ||
+                const DeepCollectionEquality().equals(other.firstName, firstName)) &&
+            (identical(other.lastName, lastName) || const DeepCollectionEquality().equals(other.lastName, lastName)) &&
+            (identical(other.email, email) || const DeepCollectionEquality().equals(other.email, email)) &&
+            (identical(other.phoneNumbers, phoneNumbers) ||
+                const DeepCollectionEquality().equals(other.phoneNumbers, phoneNumbers)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(firstName) ^
+      const DeepCollectionEquality().hash(lastName) ^
+      const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(phoneNumbers);
 
   @JsonKey(ignore: true)
   @override
-  _$UpdateRefreshTokenCopyWith<_UpdateRefreshToken> get copyWith =>
-      __$UpdateRefreshTokenCopyWithImpl<_UpdateRefreshToken>(this, _$identity);
+  _$UpdateInfoCopyWith<_UpdateInfo> get copyWith => __$UpdateInfoCopyWithImpl<_UpdateInfo>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
-    required TResult Function(UserState value) updateCreds,
     required TResult Function(String value) updateToken,
-    required TResult Function(String value) updateRefreshToken,
+    required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
+        updateInfo,
+    required TResult Function(List<String> value) changeAccessGroups,
   }) {
-    return updateRefreshToken(value);
+    return updateInfo(firstName, lastName, email, phoneNumbers);
   }
 
   @override
@@ -673,13 +580,13 @@ class _$_UpdateRefreshToken implements _UpdateRefreshToken {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
-    TResult Function(UserState value)? updateCreds,
     TResult Function(String value)? updateToken,
-    TResult Function(String value)? updateRefreshToken,
+    TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
+    TResult Function(List<String> value)? changeAccessGroups,
     required TResult orElse(),
   }) {
-    if (updateRefreshToken != null) {
-      return updateRefreshToken(value);
+    if (updateInfo != null) {
+      return updateInfo(firstName, lastName, email, phoneNumbers);
     }
     return orElse();
   }
@@ -689,11 +596,11 @@ class _$_UpdateRefreshToken implements _UpdateRefreshToken {
   TResult map<TResult extends Object?>({
     required TResult Function(_ChangeLoggedIn value) changeLoggedIn,
     required TResult Function(_ChangeLoading value) changeLoading,
-    required TResult Function(_UpdateCreds value) updateCreds,
     required TResult Function(_UpdateToken value) updateToken,
-    required TResult Function(_UpdateRefreshToken value) updateRefreshToken,
+    required TResult Function(_UpdateInfo value) updateInfo,
+    required TResult Function(_ChangeAccessGroups value) changeAccessGroups,
   }) {
-    return updateRefreshToken(this);
+    return updateInfo(this);
   }
 
   @override
@@ -701,22 +608,150 @@ class _$_UpdateRefreshToken implements _UpdateRefreshToken {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ChangeLoggedIn value)? changeLoggedIn,
     TResult Function(_ChangeLoading value)? changeLoading,
-    TResult Function(_UpdateCreds value)? updateCreds,
     TResult Function(_UpdateToken value)? updateToken,
-    TResult Function(_UpdateRefreshToken value)? updateRefreshToken,
+    TResult Function(_UpdateInfo value)? updateInfo,
+    TResult Function(_ChangeAccessGroups value)? changeAccessGroups,
     required TResult orElse(),
   }) {
-    if (updateRefreshToken != null) {
-      return updateRefreshToken(this);
+    if (updateInfo != null) {
+      return updateInfo(this);
     }
     return orElse();
   }
 }
 
-abstract class _UpdateRefreshToken implements UserAction {
-  const factory _UpdateRefreshToken({required String value}) = _$_UpdateRefreshToken;
+abstract class _UpdateInfo implements UserAction {
+  const factory _UpdateInfo({String? firstName, String? lastName, String? email, List<String>? phoneNumbers}) =
+      _$_UpdateInfo;
 
-  String get value => throw _privateConstructorUsedError;
+// String userId, {
+  String? get firstName => throw _privateConstructorUsedError;
+  String? get lastName => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
+  List<String>? get phoneNumbers => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$UpdateRefreshTokenCopyWith<_UpdateRefreshToken> get copyWith => throw _privateConstructorUsedError;
+  _$UpdateInfoCopyWith<_UpdateInfo> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ChangeAccessGroupsCopyWith<$Res> {
+  factory _$ChangeAccessGroupsCopyWith(_ChangeAccessGroups value, $Res Function(_ChangeAccessGroups) then) =
+      __$ChangeAccessGroupsCopyWithImpl<$Res>;
+  $Res call({List<String> value});
+}
+
+/// @nodoc
+class __$ChangeAccessGroupsCopyWithImpl<$Res> extends _$UserActionCopyWithImpl<$Res>
+    implements _$ChangeAccessGroupsCopyWith<$Res> {
+  __$ChangeAccessGroupsCopyWithImpl(_ChangeAccessGroups _value, $Res Function(_ChangeAccessGroups) _then)
+      : super(_value, (v) => _then(v as _ChangeAccessGroups));
+
+  @override
+  _ChangeAccessGroups get _value => super._value as _ChangeAccessGroups;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_ChangeAccessGroups(
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangeAccessGroups implements _ChangeAccessGroups {
+  const _$_ChangeAccessGroups({required this.value});
+
+  @override
+  final List<String> value;
+
+  @override
+  String toString() {
+    return 'UserAction.changeAccessGroups(value: $value)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ChangeAccessGroups &&
+            (identical(other.value, value) || const DeepCollectionEquality().equals(other.value, value)));
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangeAccessGroupsCopyWith<_ChangeAccessGroups> get copyWith =>
+      __$ChangeAccessGroupsCopyWithImpl<_ChangeAccessGroups>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(bool value) changeLoggedIn,
+    required TResult Function(bool value) changeLoading,
+    required TResult Function(String value) updateToken,
+    required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
+        updateInfo,
+    required TResult Function(List<String> value) changeAccessGroups,
+  }) {
+    return changeAccessGroups(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(bool value)? changeLoggedIn,
+    TResult Function(bool value)? changeLoading,
+    TResult Function(String value)? updateToken,
+    TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
+    TResult Function(List<String> value)? changeAccessGroups,
+    required TResult orElse(),
+  }) {
+    if (changeAccessGroups != null) {
+      return changeAccessGroups(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeLoggedIn value) changeLoggedIn,
+    required TResult Function(_ChangeLoading value) changeLoading,
+    required TResult Function(_UpdateToken value) updateToken,
+    required TResult Function(_UpdateInfo value) updateInfo,
+    required TResult Function(_ChangeAccessGroups value) changeAccessGroups,
+  }) {
+    return changeAccessGroups(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeLoggedIn value)? changeLoggedIn,
+    TResult Function(_ChangeLoading value)? changeLoading,
+    TResult Function(_UpdateToken value)? updateToken,
+    TResult Function(_UpdateInfo value)? updateInfo,
+    TResult Function(_ChangeAccessGroups value)? changeAccessGroups,
+    required TResult orElse(),
+  }) {
+    if (changeAccessGroups != null) {
+      return changeAccessGroups(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeAccessGroups implements UserAction {
+  const factory _ChangeAccessGroups({required List<String> value}) = _$_ChangeAccessGroups;
+
+  List<String> get value => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ChangeAccessGroupsCopyWith<_ChangeAccessGroups> get copyWith => throw _privateConstructorUsedError;
 }

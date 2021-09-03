@@ -16,11 +16,11 @@ _$_UserState _$_$_UserStateFromJson(Map<String, dynamic> json) {
     token: json['token'] as String?,
     accessGroups: (json['access_groups'] as List<dynamic>?)?.map((e) => e as String).toList() ?? [],
     loading: json['loading'] as bool? ?? false,
+    phoneNumbers: (json['phone_numbers'] as List<dynamic>?)?.map((e) => e as String).toList(),
     userType: _$enumDecodeNullable(_$UserTypeEnumMap, json['user_type']) ?? UserType.learner,
     classNumber: json['class_number'] as int? ?? 1,
     classLetter: json['class_letter'] as String?,
     classProfile: (json['class_profile'] as List<dynamic>?)?.map((e) => e as String).toList() ?? [],
-    phoneNumbers: (json['phone_numbers'] as List<dynamic>?)?.map((e) => e as String).toList(),
     classroomManagement: json['classroom_management'] as bool? ?? false,
     lessonList: (json['lesson_list'] as List<dynamic>?)
         ?.map((e) => LessonNameModel.fromJson(e as Map<String, dynamic>))
@@ -37,11 +37,11 @@ Map<String, dynamic> _$_$_UserStateToJson(_$_UserState instance) => <String, dyn
       'token': instance.token,
       'access_groups': instance.accessGroups,
       'loading': instance.loading,
+      'phone_numbers': instance.phoneNumbers,
       'user_type': _$UserTypeEnumMap[instance.userType],
       'class_number': instance.classNumber,
       'class_letter': instance.classLetter,
       'class_profile': instance.classProfile,
-      'phone_numbers': instance.phoneNumbers,
       'classroom_management': instance.classroomManagement,
       'lesson_list': instance.lessonList?.map((e) => e.toJson()).toList(),
     };

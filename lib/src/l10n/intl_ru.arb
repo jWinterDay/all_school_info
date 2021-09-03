@@ -1,8 +1,13 @@
 {
     "noContentYet": "Еще ничего не загружено",
     "mainTitle": "Школа 67",
+
     "noAnnouncement": "Нет объявлений",
     "announcementViewTitle": "Объявление",
+    "addAnnouncement": "Создать объявление",
+    "modifyAnnouncement": "Редактировать объявление",
+    "removeAnnouncement": "Удалить объявление",
+
     "announcementsTabTitle": "Объявления",
     "profileTabTitle": "Профиль",
     "unknownAnnouncementTitle": "Объявление не существует",

@@ -6,7 +6,6 @@ import 'package:domain/domain.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 Future<Palette> initPalette() async {
   final CustomColors? customColors = await CustomColors.loadAsync('assets/theme/base.json');
@@ -24,19 +23,13 @@ Future<void> initApp({bool useMock = false}) async {
   initDomainDI(useMock: useMock);
   await _initAppDI();
 
-  // app domain
   final AppDomain appDomain = getIt.get<AppDomain>();
   appDomain
     ..init()
     ..appStore.dispatch(SettingsAction.changeTestMode(value: useMock));
 
-  // firebase remote config
   await _setupRemoteConfig();
-
-  // push notifications
   await _pushNotifications();
-
-  // cloud storage
   await _cloudStorage();
 }
 
