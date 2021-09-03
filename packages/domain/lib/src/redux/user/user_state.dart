@@ -1,3 +1,4 @@
+import 'package:domain/src/redux/user/models/user_groups.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'models/lesson_name_model.dart';
@@ -17,7 +18,6 @@ class UserState with _$UserState {
     @JsonKey(name: 'last_name') String? lastName,
     @JsonKey(name: 'email') String? email,
     @JsonKey(name: 'token') String? token,
-    // @JsonKey(name: 'refresh_token') String? refreshToken,
     @JsonKey(name: 'access_groups', defaultValue: <String>[]) @Default(<String>[]) List<String> accessGroups,
     @JsonKey(name: 'loading', defaultValue: false) @Default(false) bool loading,
 
@@ -36,4 +36,9 @@ class UserState with _$UserState {
   }) = _UserState;
 
   factory UserState.fromJson(Map<String, dynamic> json) => _$UserStateFromJson(json);
+
+  /// can create announcements
+  bool get canCreateAnnouncements {
+    return accessGroups.contains(UserGroups.canCreateAnnouncements);
+  }
 }

@@ -1,6 +1,7 @@
 // import 'package:all_school_info/src/announcement/announcement_view.dart';
 // import 'package:all_school_info/src/home/home_view.dart';
 import 'package:all_school_info/src/feature/announcement/details/announcement_details_view.dart';
+import 'package:all_school_info/src/feature/announcement/edit/announcement_edit_view.dart';
 import 'package:all_school_info/src/feature/announcement/list/announcement_list_view.dart';
 import 'package:all_school_info/src/feature/profile/profile_view.dart';
 import 'package:all_school_info/src/feature/schedule/details/schedule_details_view.dart';
@@ -42,6 +43,7 @@ import 'package:auto_route/auto_route.dart';
     // TODO nested navigation
     // announcement detail
     AutoRoute<Object>(path: 'announcement/details/:id', page: AnnouncementDetailsView),
+    AutoRoute<Object>(path: 'announcement/edit/:id', page: AnnouncementEditView),
 
     // TODO nested navigation
     AutoRoute<Object>(path: 'schedule/details', page: ScheduleDetailsView),

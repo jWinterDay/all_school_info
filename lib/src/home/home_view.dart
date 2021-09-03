@@ -32,15 +32,7 @@ class _HomeViewState extends State<HomeView> {
             ),
             centerTitle: true,
           ),
-          floatingActionButton: tabsRouter.activeIndex == 0
-              ? FloatingActionButton(
-                  onPressed: () {
-                    //
-                  },
-                  child: const Icon(Icons.add),
-                  backgroundColor: context.design.palette.primary,
-                )
-              : null,
+          floatingActionButton: tabsRouter.activeIndex == 0 ? const _FloatingActionButton() : null,
           body: SizeTransition(
             sizeFactor: animation,
             //) FadeTransition(
@@ -90,6 +82,32 @@ class _HomeViewState extends State<HomeView> {
               ),
             ],
           ),
+        );
+      },
+    );
+  }
+}
+
+class _FloatingActionButton extends StatelessWidget {
+  const _FloatingActionButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return StoreConnector<AppState, bool>(
+      converter: (Store<AppState> store) => store.state.userState.canCreateAnnouncements,
+      builder: (_, bool canCreateAnnouncements) {
+        if (!canCreateAnnouncements) {
+          return const SizedBox();
+        }
+
+        return FloatingActionButton(
+          onPressed: () {
+            //
+          },
+          child: const Icon(Icons.add),
+          backgroundColor: context.design.palette.primary,
         );
       },
     );
