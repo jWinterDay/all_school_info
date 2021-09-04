@@ -11,9 +11,8 @@ void fetchUserThunk(Store<AppState> store) async {
   final UserService userService = getIt.get<UserService>();
   final UserState userState = await userService.fetchUser();
 
-  print('-------thunk user = $userState');
-
   store
+    ..dispatch(const UserAction.changeLoggedIn(value: true))
     ..dispatch(const UserAction.changeLoading(value: false))
     ..dispatch(UserAction.updateInfo(
       firstName: userState.firstName,

@@ -24,6 +24,11 @@ class AnnouncementState with _$AnnouncementState {
     @JsonKey(name: 'unread_list', defaultValue: <AnnouncementModel>[])
     @Default(<AnnouncementModel>[])
         List<AnnouncementModel> unreadList,
+
+    // create new announement. save draft of it
+    @JsonKey(name: 'draft_new_title') String? draftNewTitle,
+    @JsonKey(name: 'draft_new_content') String? draftNewContent,
+    @JsonKey(name: 'draft_new_groups', defaultValue: <String>{}) @Default(<String>{}) Set<String> draftNewGroups,
   }) = _AnnouncementState;
 
   factory AnnouncementState.fromJson(Map<String, dynamic> json) => _$AnnouncementStateFromJson(json);

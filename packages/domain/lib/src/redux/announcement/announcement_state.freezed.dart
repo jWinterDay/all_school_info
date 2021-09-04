@@ -34,7 +34,13 @@ class _$AnnouncementStateTearOff {
       @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
           List<AnnouncementModel> topList = const <AnnouncementModel>[],
       @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[])
-          List<AnnouncementModel> unreadList = const <AnnouncementModel>[]}) {
+          List<AnnouncementModel> unreadList = const <AnnouncementModel>[],
+      @JsonKey(name: 'draft_new_title')
+          String? draftNewTitle,
+      @JsonKey(name: 'draft_new_content')
+          String? draftNewContent,
+      @JsonKey(name: 'draft_new_groups', defaultValue: const <String>{})
+          Set<String> draftNewGroups = const <String>{}}) {
     return _AnnouncementState(
       dateUnixMs: dateUnixMs,
       loading: loading,
@@ -43,6 +49,9 @@ class _$AnnouncementStateTearOff {
       list: list,
       topList: topList,
       unreadList: unreadList,
+      draftNewTitle: draftNewTitle,
+      draftNewContent: draftNewContent,
+      draftNewGroups: draftNewGroups,
     );
   }
 
@@ -69,7 +78,14 @@ mixin _$AnnouncementState {
   @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
   List<AnnouncementModel> get topList => throw _privateConstructorUsedError;
   @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[])
-  List<AnnouncementModel> get unreadList => throw _privateConstructorUsedError;
+  List<AnnouncementModel> get unreadList =>
+      throw _privateConstructorUsedError; // create new announement. save draft of it
+  @JsonKey(name: 'draft_new_title')
+  String? get draftNewTitle => throw _privateConstructorUsedError;
+  @JsonKey(name: 'draft_new_content')
+  String? get draftNewContent => throw _privateConstructorUsedError;
+  @JsonKey(name: 'draft_new_groups', defaultValue: const <String>{})
+  Set<String> get draftNewGroups => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -87,7 +103,10 @@ abstract class $AnnouncementStateCopyWith<$Res> {
       @JsonKey(name: 'error_model') ErrorModel? errorModel,
       @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> list,
       @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> topList,
-      @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> unreadList});
+      @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> unreadList,
+      @JsonKey(name: 'draft_new_title') String? draftNewTitle,
+      @JsonKey(name: 'draft_new_content') String? draftNewContent,
+      @JsonKey(name: 'draft_new_groups', defaultValue: const <String>{}) Set<String> draftNewGroups});
 
   $ErrorModelCopyWith<$Res>? get errorModel;
 }
@@ -109,6 +128,9 @@ class _$AnnouncementStateCopyWithImpl<$Res> implements $AnnouncementStateCopyWit
     Object? list = freezed,
     Object? topList = freezed,
     Object? unreadList = freezed,
+    Object? draftNewTitle = freezed,
+    Object? draftNewContent = freezed,
+    Object? draftNewGroups = freezed,
   }) {
     return _then(_value.copyWith(
       dateUnixMs: dateUnixMs == freezed
@@ -139,6 +161,18 @@ class _$AnnouncementStateCopyWithImpl<$Res> implements $AnnouncementStateCopyWit
           ? _value.unreadList
           : unreadList // ignore: cast_nullable_to_non_nullable
               as List<AnnouncementModel>,
+      draftNewTitle: draftNewTitle == freezed
+          ? _value.draftNewTitle
+          : draftNewTitle // ignore: cast_nullable_to_non_nullable
+              as String?,
+      draftNewContent: draftNewContent == freezed
+          ? _value.draftNewContent
+          : draftNewContent // ignore: cast_nullable_to_non_nullable
+              as String?,
+      draftNewGroups: draftNewGroups == freezed
+          ? _value.draftNewGroups
+          : draftNewGroups // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
     ));
   }
 
@@ -166,7 +200,10 @@ abstract class _$AnnouncementStateCopyWith<$Res> implements $AnnouncementStateCo
       @JsonKey(name: 'error_model') ErrorModel? errorModel,
       @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> list,
       @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> topList,
-      @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> unreadList});
+      @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> unreadList,
+      @JsonKey(name: 'draft_new_title') String? draftNewTitle,
+      @JsonKey(name: 'draft_new_content') String? draftNewContent,
+      @JsonKey(name: 'draft_new_groups', defaultValue: const <String>{}) Set<String> draftNewGroups});
 
   @override
   $ErrorModelCopyWith<$Res>? get errorModel;
@@ -190,6 +227,9 @@ class __$AnnouncementStateCopyWithImpl<$Res> extends _$AnnouncementStateCopyWith
     Object? list = freezed,
     Object? topList = freezed,
     Object? unreadList = freezed,
+    Object? draftNewTitle = freezed,
+    Object? draftNewContent = freezed,
+    Object? draftNewGroups = freezed,
   }) {
     return _then(_AnnouncementState(
       dateUnixMs: dateUnixMs == freezed
@@ -220,6 +260,18 @@ class __$AnnouncementStateCopyWithImpl<$Res> extends _$AnnouncementStateCopyWith
           ? _value.unreadList
           : unreadList // ignore: cast_nullable_to_non_nullable
               as List<AnnouncementModel>,
+      draftNewTitle: draftNewTitle == freezed
+          ? _value.draftNewTitle
+          : draftNewTitle // ignore: cast_nullable_to_non_nullable
+              as String?,
+      draftNewContent: draftNewContent == freezed
+          ? _value.draftNewContent
+          : draftNewContent // ignore: cast_nullable_to_non_nullable
+              as String?,
+      draftNewGroups: draftNewGroups == freezed
+          ? _value.draftNewGroups
+          : draftNewGroups // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
     ));
   }
 }
@@ -241,7 +293,13 @@ class _$_AnnouncementState extends _AnnouncementState {
       @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
           this.topList = const <AnnouncementModel>[],
       @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[])
-          this.unreadList = const <AnnouncementModel>[]})
+          this.unreadList = const <AnnouncementModel>[],
+      @JsonKey(name: 'draft_new_title')
+          this.draftNewTitle,
+      @JsonKey(name: 'draft_new_content')
+          this.draftNewContent,
+      @JsonKey(name: 'draft_new_groups', defaultValue: const <String>{})
+          this.draftNewGroups = const <String>{}})
       : super._();
 
   factory _$_AnnouncementState.fromJson(Map<String, dynamic> json) => _$_$_AnnouncementStateFromJson(json);
@@ -267,10 +325,19 @@ class _$_AnnouncementState extends _AnnouncementState {
   @override
   @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[])
   final List<AnnouncementModel> unreadList;
+  @override // create new announement. save draft of it
+  @JsonKey(name: 'draft_new_title')
+  final String? draftNewTitle;
+  @override
+  @JsonKey(name: 'draft_new_content')
+  final String? draftNewContent;
+  @override
+  @JsonKey(name: 'draft_new_groups', defaultValue: const <String>{})
+  final Set<String> draftNewGroups;
 
   @override
   String toString() {
-    return 'AnnouncementState(dateUnixMs: $dateUnixMs, loading: $loading, firstLoading: $firstLoading, errorModel: $errorModel, list: $list, topList: $topList, unreadList: $unreadList)';
+    return 'AnnouncementState(dateUnixMs: $dateUnixMs, loading: $loading, firstLoading: $firstLoading, errorModel: $errorModel, list: $list, topList: $topList, unreadList: $unreadList, draftNewTitle: $draftNewTitle, draftNewContent: $draftNewContent, draftNewGroups: $draftNewGroups)';
   }
 
   @override
@@ -287,7 +354,13 @@ class _$_AnnouncementState extends _AnnouncementState {
             (identical(other.list, list) || const DeepCollectionEquality().equals(other.list, list)) &&
             (identical(other.topList, topList) || const DeepCollectionEquality().equals(other.topList, topList)) &&
             (identical(other.unreadList, unreadList) ||
-                const DeepCollectionEquality().equals(other.unreadList, unreadList)));
+                const DeepCollectionEquality().equals(other.unreadList, unreadList)) &&
+            (identical(other.draftNewTitle, draftNewTitle) ||
+                const DeepCollectionEquality().equals(other.draftNewTitle, draftNewTitle)) &&
+            (identical(other.draftNewContent, draftNewContent) ||
+                const DeepCollectionEquality().equals(other.draftNewContent, draftNewContent)) &&
+            (identical(other.draftNewGroups, draftNewGroups) ||
+                const DeepCollectionEquality().equals(other.draftNewGroups, draftNewGroups)));
   }
 
   @override
@@ -299,7 +372,10 @@ class _$_AnnouncementState extends _AnnouncementState {
       const DeepCollectionEquality().hash(errorModel) ^
       const DeepCollectionEquality().hash(list) ^
       const DeepCollectionEquality().hash(topList) ^
-      const DeepCollectionEquality().hash(unreadList);
+      const DeepCollectionEquality().hash(unreadList) ^
+      const DeepCollectionEquality().hash(draftNewTitle) ^
+      const DeepCollectionEquality().hash(draftNewContent) ^
+      const DeepCollectionEquality().hash(draftNewGroups);
 
   @JsonKey(ignore: true)
   @override
@@ -314,20 +390,17 @@ class _$_AnnouncementState extends _AnnouncementState {
 
 abstract class _AnnouncementState extends AnnouncementState {
   const factory _AnnouncementState(
-      {@JsonKey(name: 'date')
-          int? dateUnixMs,
-      @JsonKey(name: 'loading', defaultValue: false)
-          bool loading,
-      @JsonKey(name: 'first_loading', defaultValue: true)
-          bool firstLoading,
-      @JsonKey(name: 'error_model')
-          ErrorModel? errorModel,
-      @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[])
-          List<AnnouncementModel> list,
-      @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
-          List<AnnouncementModel> topList,
-      @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[])
-          List<AnnouncementModel> unreadList}) = _$_AnnouncementState;
+          {@JsonKey(name: 'date') int? dateUnixMs,
+          @JsonKey(name: 'loading', defaultValue: false) bool loading,
+          @JsonKey(name: 'first_loading', defaultValue: true) bool firstLoading,
+          @JsonKey(name: 'error_model') ErrorModel? errorModel,
+          @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> list,
+          @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> topList,
+          @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> unreadList,
+          @JsonKey(name: 'draft_new_title') String? draftNewTitle,
+          @JsonKey(name: 'draft_new_content') String? draftNewContent,
+          @JsonKey(name: 'draft_new_groups', defaultValue: const <String>{}) Set<String> draftNewGroups}) =
+      _$_AnnouncementState;
   const _AnnouncementState._() : super._();
 
   factory _AnnouncementState.fromJson(Map<String, dynamic> json) = _$_AnnouncementState.fromJson;
@@ -353,6 +426,15 @@ abstract class _AnnouncementState extends AnnouncementState {
   @override
   @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[])
   List<AnnouncementModel> get unreadList => throw _privateConstructorUsedError;
+  @override // create new announement. save draft of it
+  @JsonKey(name: 'draft_new_title')
+  String? get draftNewTitle => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'draft_new_content')
+  String? get draftNewContent => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'draft_new_groups', defaultValue: const <String>{})
+  Set<String> get draftNewGroups => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$AnnouncementStateCopyWith<_AnnouncementState> get copyWith => throw _privateConstructorUsedError;

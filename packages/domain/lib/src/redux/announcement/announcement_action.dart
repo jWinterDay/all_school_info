@@ -30,4 +30,12 @@ class AnnouncementAction with _$AnnouncementAction {
   const factory AnnouncementAction.removeUnreadAnnouncement({required AnnouncementModel value}) =
       _RemoveUnreadAnnouncement;
   const factory AnnouncementAction.clearUnreadAnnouncements() = _ClearUnreadAnnouncement;
+
+  // saved draft of new announcement
+  const factory AnnouncementAction.clearDraft() = _ClearDraft;
+  const factory AnnouncementAction.saveDraft({
+    String? title,
+    String? content,
+    @Default(<String>{}) Set<String> groups,
+  }) = _SaveDraft;
 }

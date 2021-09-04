@@ -11,6 +11,8 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 
 import 'announcement_edit_bloc.dart';
+import 'models/ui_announcement_edit_info.dart';
+import 'widgets/access_group.dart';
 
 /// add, edit, delete card
 class AnnouncementEditView extends StatefulWidget {
@@ -41,7 +43,17 @@ class _AnnouncementEditViewState extends State<AnnouncementEditView> {
     super.initState();
 
     _cardViewMode = cardModeByStr(widget.cardViewMode);
-    // _announcementModel = _bloc.findAnnouncementById(widget.announcementModelId);
+
+    //
+    _titleController.text = _bloc.title ?? '';
+    _titleController.addListener(() {
+      _bloc.title = _titleController.text;
+    });
+
+    _contentController.text = _bloc.content ?? '';
+    _contentController.addListener(() {
+      _bloc.content = _contentController.text;
+    });
   }
 
   @override
@@ -74,10 +86,19 @@ class _AnnouncementEditViewState extends State<AnnouncementEditView> {
         title: Text(_appBarTitle),
         centerTitle: true,
       ),
-      body: StoreConnector<AppState, CommonState>(
+      body: StoreConnector<AppState, UiAnnouncementEditInfo>(
         distinct: true,
-        converter: (Store<AppState> store) => store.state.commonState,
-        builder: (_, CommonState commonState) {
+        converter: (Store<AppState> store) {
+          return UiAnnouncementEditInfo(
+            announcementMaxTitleLength: store.state.commonState.announcementMaxTitleLength,
+            announcementMaxContentLength: store.state.commonState.announcementMaxContentLength,
+            availableAccessGroups: store.state.userState.availableAccessGroups,
+
+            //
+            draftGroups: store.state.announcementState.draftNewGroups,
+          );
+        },
+        builder: (_, UiAnnouncementEditInfo uiAnnouncementEditInfo) {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 4),
             child: CustomScrollView(
@@ -95,7 +116,7 @@ class _AnnouncementEditViewState extends State<AnnouncementEditView> {
                     child: CupertinoTextField(
                       controller: _titleController,
                       clearButtonMode: OverlayVisibilityMode.editing,
-                      maxLength: commonState.announcementMaxTitleLength,
+                      maxLength: uiAnnouncementEditInfo.announcementMaxTitleLength,
                     ),
                   ),
                 ),
@@ -113,10 +134,11 @@ class _AnnouncementEditViewState extends State<AnnouncementEditView> {
                     clearButtonMode: OverlayVisibilityMode.editing,
                     maxLines: 10,
                     autofocus: true,
-                    maxLength: commonState.announcementMaxContentLength,
+                    maxLength: uiAnnouncementEditInfo.announcementMaxContentLength,
                   ),
                 ),
 
+                // save button
                 SliverToBoxAdapter(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8),
@@ -136,6 +158,35 @@ class _AnnouncementEditViewState extends State<AnnouncementEditView> {
                     ),
                   ),
                 ),
+
+                // available access groups
+                // TODO
+                // if (uiAnnouncementEditInfo.availableAccessGroups.isNotEmpty)
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 8),
+                    child: Text(AllSchoolInfoIntl.of(context).announcementEditGroups),
+                  ),
+                ),
+
+                SliverList(
+                  delegate: SliverChildListDelegate(
+                    uiAnnouncementEditInfo.availableAccessGroups.map((String accessGroup) {
+                      return GestureDetector(
+                        onTap: () {
+                          _bloc.draftToggleCheck(accessGroup);
+                        },
+                        child: AccessGroup(
+                          accessGroup: accessGroup,
+                          checked: uiAnnouncementEditInfo.draftGroups.contains(accessGroup),
+                        ),
+                      );
+                    }).toList(),
+                  ),
+                ),
+
+                // padding
+                const SliverPadding(padding: EdgeInsets.only(bottom: 120))
 
                 // SliverPersistentHeader(
                 //   pinned: true,

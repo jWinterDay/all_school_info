@@ -34,6 +34,16 @@ AnnouncementState announcementReducer(AnnouncementState s, dynamic a) {
       // ignore: always_specify_types
       clearUnreadAnnouncements: (_) => _clearUnreadAnnouncements(s),
 
+      // draft
+      clearDraft: (_) => s.copyWith(draftNewTitle: null, draftNewContent: null, draftNewGroups: <String>{}),
+      // ignore: always_specify_types
+      saveDraft: (actionEvent) => _saveDraft(
+        s,
+        title: actionEvent.title,
+        content: actionEvent.content,
+        groups: actionEvent.groups,
+      ),
+
       orElse: () {
         return s;
       },
@@ -41,6 +51,19 @@ AnnouncementState announcementReducer(AnnouncementState s, dynamic a) {
   }
 
   return s;
+}
+
+AnnouncementState _saveDraft(
+  AnnouncementState state, {
+  String? title,
+  String? content,
+  required Set<String> groups,
+}) {
+  return state.copyWith(
+    draftNewTitle: title,
+    draftNewContent: content,
+    draftNewGroups: groups,
+  );
 }
 
 AnnouncementState _modifyAnnouncementById(
