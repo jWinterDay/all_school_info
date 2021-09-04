@@ -117,12 +117,32 @@ class _AnnouncementEditViewState extends State<AnnouncementEditView> {
                   ),
                 ),
 
-                SliverPersistentHeader(
-                  pinned: true,
-                  delegate: _Delegate(callback: () {
-                    print('save');
-                  }),
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: GestureDetector(
+                      onTap: () {},
+                      child: ColoredBox(
+                        color: context.design.palette.accent,
+                        child: SizedBox(
+                          height: 40,
+                          child: Center(
+                            child: Text(
+                              AllSchoolInfoIntl.of(context).save,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
+
+                // SliverPersistentHeader(
+                //   pinned: true,
+                //   delegate: _Delegate(callback: () {
+                //     print('save');
+                //   }),
+                // ),
 
                 //       // available access groups
                 //       Padding(
@@ -151,33 +171,36 @@ class _AnnouncementEditViewState extends State<AnnouncementEditView> {
   }
 }
 
-class _Delegate extends SliverPersistentHeaderDelegate {
-  const _Delegate({
-    required this.callback,
-  });
+// class _Delegate extends SliverPersistentHeaderDelegate {
+//   const _Delegate({
+//     required this.callback,
+//   });
 
-  final VoidCallback callback;
+//   final VoidCallback callback;
 
-  @override
-  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return ColoredBox(
-      color: context.design.palette.accent,
-      child: Center(
-        child: Text(
-          AllSchoolInfoIntl.of(context).save,
-        ),
-      ),
-    );
-  }
+//   @override
+//   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+//     return GestureDetector(
+//       onTap: callback,
+//       child: ColoredBox(
+//         color: context.design.palette.accent,
+//         child: Center(
+//           child: Text(
+//             AllSchoolInfoIntl.of(context).save,
+//           ),
+//         ),
+//       ),
+//     );
+//   }
 
-  @override
-  double get maxExtent => 40;
+//   @override
+//   double get maxExtent => 40;
 
-  @override
-  double get minExtent => 40;
+//   @override
+//   double get minExtent => 0;
 
-  @override
-  bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {
-    return true;
-  }
-}
+//   @override
+//   bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {
+//     return true;
+//   }
+// }
