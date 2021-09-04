@@ -10,31 +10,31 @@ import 'package:flutter_redux/flutter_redux.dart';
 class _Observer extends AutoRouterObserver {
   @override
   void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
-    print('New route pushed: ${route.settings.name} prev: ${previousRoute?.settings.name}');
+    // print('New route pushed: ${route.settings.name} prev: ${previousRoute?.settings.name}');
   }
 
   @override
   void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {
-    print('did pop ${route.settings.name}');
+    // print('did pop ${route.settings.name}');
   }
-
+  @override
   void didRemove(Route<dynamic> route, Route<dynamic>? previousRoute) {
-    print('did remove ${route.settings.name}');
+    // print('did remove ${route.settings.name}');
   }
-
+  @override
   void didReplace({Route<dynamic>? newRoute, Route<dynamic>? oldRoute}) {
-    print('new ${newRoute?.settings.name} old ${oldRoute?.settings.name}');
+    // print('new ${newRoute?.settings.name} old ${oldRoute?.settings.name}');
   }
 
   // only override to observer tab routes
   @override
   void didInitTabRoute(TabPageRoute route, TabPageRoute? previousRoute) {
-    print('Tab route visited: ${route.name}');
+    // print('Tab route visited: ${route.name}');
   }
 
   @override
   void didChangeTabRoute(TabPageRoute route, TabPageRoute previousRoute) {
-    print('Tab route re-visited: ${route.name}');
+    // print('Tab route re-visited: ${route.name}');
   }
 }
 

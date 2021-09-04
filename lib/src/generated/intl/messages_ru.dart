@@ -23,25 +23,37 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "addAnnouncement": MessageLookupByLibrary.simpleMessage("Создать объявление"),
-        "announcementViewTitle": MessageLookupByLibrary.simpleMessage("Объявление"),
-        "announcementsTabTitle": MessageLookupByLibrary.simpleMessage("Объявления"),
-        "emptySchedule": MessageLookupByLibrary.simpleMessage("Нет расписания в этот день"),
+        "addAnnouncement":
+            MessageLookupByLibrary.simpleMessage("Создать объявление"),
+        "announcementViewTitle":
+            MessageLookupByLibrary.simpleMessage("Объявление"),
+        "announcementsTabTitle":
+            MessageLookupByLibrary.simpleMessage("Объявления"),
+        "emptySchedule":
+            MessageLookupByLibrary.simpleMessage("Нет расписания в этот день"),
         "mainTitle": MessageLookupByLibrary.simpleMessage("Школа 67"),
-        "modifyAnnouncement": MessageLookupByLibrary.simpleMessage("Редактировать объявление"),
-        "noAnnouncement": MessageLookupByLibrary.simpleMessage("Нет объявлений"),
-        "noContentYet": MessageLookupByLibrary.simpleMessage("Еще ничего не загружено"),
+        "modifyAnnouncement":
+            MessageLookupByLibrary.simpleMessage("Редактировать объявление"),
+        "noAnnouncement":
+            MessageLookupByLibrary.simpleMessage("Нет объявлений"),
+        "noContentYet":
+            MessageLookupByLibrary.simpleMessage("Еще ничего не загружено"),
         "notLoggedIn": MessageLookupByLibrary.simpleMessage("Залогиниться"),
         "profileTabTitle": MessageLookupByLibrary.simpleMessage("Профиль"),
-        "profileViewTitle": MessageLookupByLibrary.simpleMessage("Профиль пользователя"),
-        "removeAnnouncement": MessageLookupByLibrary.simpleMessage("Удалить объявление"),
-        "scheduleHomework": MessageLookupByLibrary.simpleMessage("Домашнее задание"),
-        "scheduleLastNotifications": MessageLookupByLibrary.simpleMessage("Последние уведомления"),
+        "profileViewTitle":
+            MessageLookupByLibrary.simpleMessage("Профиль пользователя"),
+        "removeAnnouncement":
+            MessageLookupByLibrary.simpleMessage("Удалить объявление"),
+        "scheduleHomework":
+            MessageLookupByLibrary.simpleMessage("Домашнее задание"),
+        "scheduleLastNotifications":
+            MessageLookupByLibrary.simpleMessage("Последние уведомления"),
         "scheduleNews": MessageLookupByLibrary.simpleMessage("Новости"),
         "scheduleRatings": MessageLookupByLibrary.simpleMessage("Оценки"),
         "scheduleViewTitle": MessageLookupByLibrary.simpleMessage("Расписание"),
         "unknownAnnouncementContent": MessageLookupByLibrary.simpleMessage("-"),
-        "unknownAnnouncementTitle": MessageLookupByLibrary.simpleMessage("Объявление не существует"),
+        "unknownAnnouncementTitle":
+            MessageLookupByLibrary.simpleMessage("Объявление не существует"),
         "unreadAnnouncements": m0
       };
 }

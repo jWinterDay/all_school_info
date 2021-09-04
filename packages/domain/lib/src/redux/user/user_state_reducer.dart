@@ -19,6 +19,8 @@ UserState userReducer(UserState s, dynamic a) {
       // ignore: always_specify_types
       changeAccessGroups: (actionEvent) => s.copyWith(accessGroups: actionEvent.value),
       // ignore: always_specify_types
+      changeAvailableAccessGroups: (actionEvent) => s.copyWith(availableAccessGroups: actionEvent.value),
+      // ignore: always_specify_types
       updateToken: (actionEvent) => s.copyWith(token: actionEvent.value),
       orElse: () {
         return s;

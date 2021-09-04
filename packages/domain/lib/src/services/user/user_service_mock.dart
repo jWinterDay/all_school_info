@@ -23,7 +23,15 @@ class UserServiceMock implements UserService {
       classProfile: <String>['phys', 'math'],
       email: 'vasya@example.com',
       phoneNumbers: <String>['8916123', '89169876'],
-      userType: UserType.learner,
+      userType: UserType.guest,
+      accessGroups: <String>[
+        UserGroups.canCreateAnnouncements,
+      ],
+      availableAccessGroups: <String>[
+        'class_1',
+        'class_2',
+        'class_7',
+      ],
     );
   }
 }

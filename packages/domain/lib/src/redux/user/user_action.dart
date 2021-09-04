@@ -16,4 +16,6 @@ class UserAction with _$UserAction {
   }) = _UpdateInfo;
 
   const factory UserAction.changeAccessGroups({required List<String> value}) = _ChangeAccessGroups;
+
+  const factory UserAction.changeAvailableAccessGroups({required List<String> value}) = _ChangeAvailableAccessGroups;
 }

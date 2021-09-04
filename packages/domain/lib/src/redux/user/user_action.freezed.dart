@@ -48,6 +48,12 @@ class _$UserActionTearOff {
       value: value,
     );
   }
+
+  _ChangeAvailableAccessGroups changeAvailableAccessGroups({required List<String> value}) {
+    return _ChangeAvailableAccessGroups(
+      value: value,
+    );
+  }
 }
 
 /// @nodoc
@@ -63,6 +69,7 @@ mixin _$UserAction {
     required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
         updateInfo,
     required TResult Function(List<String> value) changeAccessGroups,
+    required TResult Function(List<String> value) changeAvailableAccessGroups,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,6 +79,7 @@ mixin _$UserAction {
     TResult Function(String value)? updateToken,
     TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
     TResult Function(List<String> value)? changeAccessGroups,
+    TResult Function(List<String> value)? changeAvailableAccessGroups,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -82,6 +90,7 @@ mixin _$UserAction {
     required TResult Function(_UpdateToken value) updateToken,
     required TResult Function(_UpdateInfo value) updateInfo,
     required TResult Function(_ChangeAccessGroups value) changeAccessGroups,
+    required TResult Function(_ChangeAvailableAccessGroups value) changeAvailableAccessGroups,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -91,6 +100,7 @@ mixin _$UserAction {
     TResult Function(_UpdateToken value)? updateToken,
     TResult Function(_UpdateInfo value)? updateInfo,
     TResult Function(_ChangeAccessGroups value)? changeAccessGroups,
+    TResult Function(_ChangeAvailableAccessGroups value)? changeAvailableAccessGroups,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -176,6 +186,7 @@ class _$_ChangeLoggedIn implements _ChangeLoggedIn {
     required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
         updateInfo,
     required TResult Function(List<String> value) changeAccessGroups,
+    required TResult Function(List<String> value) changeAvailableAccessGroups,
   }) {
     return changeLoggedIn(value);
   }
@@ -188,6 +199,7 @@ class _$_ChangeLoggedIn implements _ChangeLoggedIn {
     TResult Function(String value)? updateToken,
     TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
     TResult Function(List<String> value)? changeAccessGroups,
+    TResult Function(List<String> value)? changeAvailableAccessGroups,
     required TResult orElse(),
   }) {
     if (changeLoggedIn != null) {
@@ -204,6 +216,7 @@ class _$_ChangeLoggedIn implements _ChangeLoggedIn {
     required TResult Function(_UpdateToken value) updateToken,
     required TResult Function(_UpdateInfo value) updateInfo,
     required TResult Function(_ChangeAccessGroups value) changeAccessGroups,
+    required TResult Function(_ChangeAvailableAccessGroups value) changeAvailableAccessGroups,
   }) {
     return changeLoggedIn(this);
   }
@@ -216,6 +229,7 @@ class _$_ChangeLoggedIn implements _ChangeLoggedIn {
     TResult Function(_UpdateToken value)? updateToken,
     TResult Function(_UpdateInfo value)? updateInfo,
     TResult Function(_ChangeAccessGroups value)? changeAccessGroups,
+    TResult Function(_ChangeAvailableAccessGroups value)? changeAvailableAccessGroups,
     required TResult orElse(),
   }) {
     if (changeLoggedIn != null) {
@@ -299,6 +313,7 @@ class _$_ChangeLoading implements _ChangeLoading {
     required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
         updateInfo,
     required TResult Function(List<String> value) changeAccessGroups,
+    required TResult Function(List<String> value) changeAvailableAccessGroups,
   }) {
     return changeLoading(value);
   }
@@ -311,6 +326,7 @@ class _$_ChangeLoading implements _ChangeLoading {
     TResult Function(String value)? updateToken,
     TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
     TResult Function(List<String> value)? changeAccessGroups,
+    TResult Function(List<String> value)? changeAvailableAccessGroups,
     required TResult orElse(),
   }) {
     if (changeLoading != null) {
@@ -327,6 +343,7 @@ class _$_ChangeLoading implements _ChangeLoading {
     required TResult Function(_UpdateToken value) updateToken,
     required TResult Function(_UpdateInfo value) updateInfo,
     required TResult Function(_ChangeAccessGroups value) changeAccessGroups,
+    required TResult Function(_ChangeAvailableAccessGroups value) changeAvailableAccessGroups,
   }) {
     return changeLoading(this);
   }
@@ -339,6 +356,7 @@ class _$_ChangeLoading implements _ChangeLoading {
     TResult Function(_UpdateToken value)? updateToken,
     TResult Function(_UpdateInfo value)? updateInfo,
     TResult Function(_ChangeAccessGroups value)? changeAccessGroups,
+    TResult Function(_ChangeAvailableAccessGroups value)? changeAvailableAccessGroups,
     required TResult orElse(),
   }) {
     if (changeLoading != null) {
@@ -420,6 +438,7 @@ class _$_UpdateToken implements _UpdateToken {
     required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
         updateInfo,
     required TResult Function(List<String> value) changeAccessGroups,
+    required TResult Function(List<String> value) changeAvailableAccessGroups,
   }) {
     return updateToken(value);
   }
@@ -432,6 +451,7 @@ class _$_UpdateToken implements _UpdateToken {
     TResult Function(String value)? updateToken,
     TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
     TResult Function(List<String> value)? changeAccessGroups,
+    TResult Function(List<String> value)? changeAvailableAccessGroups,
     required TResult orElse(),
   }) {
     if (updateToken != null) {
@@ -448,6 +468,7 @@ class _$_UpdateToken implements _UpdateToken {
     required TResult Function(_UpdateToken value) updateToken,
     required TResult Function(_UpdateInfo value) updateInfo,
     required TResult Function(_ChangeAccessGroups value) changeAccessGroups,
+    required TResult Function(_ChangeAvailableAccessGroups value) changeAvailableAccessGroups,
   }) {
     return updateToken(this);
   }
@@ -460,6 +481,7 @@ class _$_UpdateToken implements _UpdateToken {
     TResult Function(_UpdateToken value)? updateToken,
     TResult Function(_UpdateInfo value)? updateInfo,
     TResult Function(_ChangeAccessGroups value)? changeAccessGroups,
+    TResult Function(_ChangeAvailableAccessGroups value)? changeAvailableAccessGroups,
     required TResult orElse(),
   }) {
     if (updateToken != null) {
@@ -524,7 +546,7 @@ class __$UpdateInfoCopyWithImpl<$Res> extends _$UserActionCopyWithImpl<$Res> imp
 class _$_UpdateInfo implements _UpdateInfo {
   const _$_UpdateInfo({this.firstName, this.lastName, this.email, this.phoneNumbers});
 
-  @override // String userId, {
+  @override
   final String? firstName;
   @override
   final String? lastName;
@@ -571,6 +593,7 @@ class _$_UpdateInfo implements _UpdateInfo {
     required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
         updateInfo,
     required TResult Function(List<String> value) changeAccessGroups,
+    required TResult Function(List<String> value) changeAvailableAccessGroups,
   }) {
     return updateInfo(firstName, lastName, email, phoneNumbers);
   }
@@ -583,6 +606,7 @@ class _$_UpdateInfo implements _UpdateInfo {
     TResult Function(String value)? updateToken,
     TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
     TResult Function(List<String> value)? changeAccessGroups,
+    TResult Function(List<String> value)? changeAvailableAccessGroups,
     required TResult orElse(),
   }) {
     if (updateInfo != null) {
@@ -599,6 +623,7 @@ class _$_UpdateInfo implements _UpdateInfo {
     required TResult Function(_UpdateToken value) updateToken,
     required TResult Function(_UpdateInfo value) updateInfo,
     required TResult Function(_ChangeAccessGroups value) changeAccessGroups,
+    required TResult Function(_ChangeAvailableAccessGroups value) changeAvailableAccessGroups,
   }) {
     return updateInfo(this);
   }
@@ -611,6 +636,7 @@ class _$_UpdateInfo implements _UpdateInfo {
     TResult Function(_UpdateToken value)? updateToken,
     TResult Function(_UpdateInfo value)? updateInfo,
     TResult Function(_ChangeAccessGroups value)? changeAccessGroups,
+    TResult Function(_ChangeAvailableAccessGroups value)? changeAvailableAccessGroups,
     required TResult orElse(),
   }) {
     if (updateInfo != null) {
@@ -624,7 +650,6 @@ abstract class _UpdateInfo implements UserAction {
   const factory _UpdateInfo({String? firstName, String? lastName, String? email, List<String>? phoneNumbers}) =
       _$_UpdateInfo;
 
-// String userId, {
   String? get firstName => throw _privateConstructorUsedError;
   String? get lastName => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
@@ -699,6 +724,7 @@ class _$_ChangeAccessGroups implements _ChangeAccessGroups {
     required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
         updateInfo,
     required TResult Function(List<String> value) changeAccessGroups,
+    required TResult Function(List<String> value) changeAvailableAccessGroups,
   }) {
     return changeAccessGroups(value);
   }
@@ -711,6 +737,7 @@ class _$_ChangeAccessGroups implements _ChangeAccessGroups {
     TResult Function(String value)? updateToken,
     TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
     TResult Function(List<String> value)? changeAccessGroups,
+    TResult Function(List<String> value)? changeAvailableAccessGroups,
     required TResult orElse(),
   }) {
     if (changeAccessGroups != null) {
@@ -727,6 +754,7 @@ class _$_ChangeAccessGroups implements _ChangeAccessGroups {
     required TResult Function(_UpdateToken value) updateToken,
     required TResult Function(_UpdateInfo value) updateInfo,
     required TResult Function(_ChangeAccessGroups value) changeAccessGroups,
+    required TResult Function(_ChangeAvailableAccessGroups value) changeAvailableAccessGroups,
   }) {
     return changeAccessGroups(this);
   }
@@ -739,6 +767,7 @@ class _$_ChangeAccessGroups implements _ChangeAccessGroups {
     TResult Function(_UpdateToken value)? updateToken,
     TResult Function(_UpdateInfo value)? updateInfo,
     TResult Function(_ChangeAccessGroups value)? changeAccessGroups,
+    TResult Function(_ChangeAvailableAccessGroups value)? changeAvailableAccessGroups,
     required TResult orElse(),
   }) {
     if (changeAccessGroups != null) {
@@ -754,4 +783,134 @@ abstract class _ChangeAccessGroups implements UserAction {
   List<String> get value => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ChangeAccessGroupsCopyWith<_ChangeAccessGroups> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ChangeAvailableAccessGroupsCopyWith<$Res> {
+  factory _$ChangeAvailableAccessGroupsCopyWith(
+          _ChangeAvailableAccessGroups value, $Res Function(_ChangeAvailableAccessGroups) then) =
+      __$ChangeAvailableAccessGroupsCopyWithImpl<$Res>;
+  $Res call({List<String> value});
+}
+
+/// @nodoc
+class __$ChangeAvailableAccessGroupsCopyWithImpl<$Res> extends _$UserActionCopyWithImpl<$Res>
+    implements _$ChangeAvailableAccessGroupsCopyWith<$Res> {
+  __$ChangeAvailableAccessGroupsCopyWithImpl(
+      _ChangeAvailableAccessGroups _value, $Res Function(_ChangeAvailableAccessGroups) _then)
+      : super(_value, (v) => _then(v as _ChangeAvailableAccessGroups));
+
+  @override
+  _ChangeAvailableAccessGroups get _value => super._value as _ChangeAvailableAccessGroups;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_ChangeAvailableAccessGroups(
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangeAvailableAccessGroups implements _ChangeAvailableAccessGroups {
+  const _$_ChangeAvailableAccessGroups({required this.value});
+
+  @override
+  final List<String> value;
+
+  @override
+  String toString() {
+    return 'UserAction.changeAvailableAccessGroups(value: $value)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ChangeAvailableAccessGroups &&
+            (identical(other.value, value) || const DeepCollectionEquality().equals(other.value, value)));
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangeAvailableAccessGroupsCopyWith<_ChangeAvailableAccessGroups> get copyWith =>
+      __$ChangeAvailableAccessGroupsCopyWithImpl<_ChangeAvailableAccessGroups>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(bool value) changeLoggedIn,
+    required TResult Function(bool value) changeLoading,
+    required TResult Function(String value) updateToken,
+    required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
+        updateInfo,
+    required TResult Function(List<String> value) changeAccessGroups,
+    required TResult Function(List<String> value) changeAvailableAccessGroups,
+  }) {
+    return changeAvailableAccessGroups(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(bool value)? changeLoggedIn,
+    TResult Function(bool value)? changeLoading,
+    TResult Function(String value)? updateToken,
+    TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
+    TResult Function(List<String> value)? changeAccessGroups,
+    TResult Function(List<String> value)? changeAvailableAccessGroups,
+    required TResult orElse(),
+  }) {
+    if (changeAvailableAccessGroups != null) {
+      return changeAvailableAccessGroups(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeLoggedIn value) changeLoggedIn,
+    required TResult Function(_ChangeLoading value) changeLoading,
+    required TResult Function(_UpdateToken value) updateToken,
+    required TResult Function(_UpdateInfo value) updateInfo,
+    required TResult Function(_ChangeAccessGroups value) changeAccessGroups,
+    required TResult Function(_ChangeAvailableAccessGroups value) changeAvailableAccessGroups,
+  }) {
+    return changeAvailableAccessGroups(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeLoggedIn value)? changeLoggedIn,
+    TResult Function(_ChangeLoading value)? changeLoading,
+    TResult Function(_UpdateToken value)? updateToken,
+    TResult Function(_UpdateInfo value)? updateInfo,
+    TResult Function(_ChangeAccessGroups value)? changeAccessGroups,
+    TResult Function(_ChangeAvailableAccessGroups value)? changeAvailableAccessGroups,
+    required TResult orElse(),
+  }) {
+    if (changeAvailableAccessGroups != null) {
+      return changeAvailableAccessGroups(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeAvailableAccessGroups implements UserAction {
+  const factory _ChangeAvailableAccessGroups({required List<String> value}) = _$_ChangeAvailableAccessGroups;
+
+  List<String> get value => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ChangeAvailableAccessGroupsCopyWith<_ChangeAvailableAccessGroups> get copyWith =>
+      throw _privateConstructorUsedError;
 }

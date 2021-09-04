@@ -34,7 +34,11 @@ class ProfileItem extends StatelessWidget {
                     uiProfileItem.title,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: uiProfileItem.subItem ? Theme.of(context).primaryTextTheme.subtitle2 : null,
+                    style: uiProfileItem.subItem
+                        ? Theme.of(context).primaryTextTheme.bodyText2?.apply(
+                              color: context.design.palette.primary,
+                            )
+                        : null,
                   ),
                 ),
                 if (uiProfileItem.addTitle != null)

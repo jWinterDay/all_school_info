@@ -147,7 +147,11 @@ class _FloatingActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, bool>(
-      converter: (Store<AppState> store) => store.state.userState.canCreateAnnouncements,
+      distinct: true,
+      converter: (Store<AppState> store) {
+        print('store.state.userState = ${store.state.userState}');
+        return store.state.userState.canCreateAnnouncements;
+      },
       builder: (_, bool canCreateAnnouncements) {
         if (!canCreateAnnouncements) {
           return const SizedBox();

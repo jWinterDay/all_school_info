@@ -6,6 +6,7 @@ import 'package:domain/domain.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:utils/logger.dart';
 
 Future<Palette> initPalette() async {
   final CustomColors? customColors = await CustomColors.loadAsync('assets/theme/base.json');
@@ -67,8 +68,8 @@ Future<void> _setupRemoteConfig() async {
   final AppDomain appDomain = getIt.get<AppDomain>();
   try {
     await remoteConfig.fetchAndActivate();
-  } catch (exc) {
-    print('--------TODO exc in remote config');
+  } catch (exc, stackTrace) {
+    logger.e('$exc', exc.runtimeType, stackTrace);
   }
 
   final int topAnnouncementCount = remoteConfig.getInt('top_announcement_count');
@@ -95,23 +96,23 @@ Future<void> _pushNotifications() async {
 
   // foreground message
   FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-    print('Message data: ${message.data}');
+    // print('Message data: ${message.data}');
 
     if (message.notification != null) {
-      print('Message also contained a notification: ${message.notification?.title} > ${message.notification?.body}');
+      // print('Message also contained a notification: ${message.notification?.title} > ${message.notification?.body}');
     }
   });
 
   // initial message
   final RemoteMessage? remoteMessage = await firebaseMessaging.getInitialMessage();
   if (remoteMessage != null) {
-    print('------- getInitialMessage ${remoteMessage.data}');
+    // print('------- getInitialMessage ${remoteMessage.data}');
   }
   await firebaseMessaging.setAutoInitEnabled(true);
 
   // opened app
   FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage remoteMessage) {
-    print('------- onMessageOpenedApp ${remoteMessage.data}');
+    // print('------- onMessageOpenedApp ${remoteMessage.data}');
   });
 
   // background message
