@@ -3,8 +3,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'announcement_model.freezed.dart';
 part 'announcement_model.g.dart';
 
-const String defaultUserGroup = 'broadcast';
-
 @freezed
 class AnnouncementModel with _$AnnouncementModel implements Comparable<AnnouncementModel> {
   const AnnouncementModel._();
@@ -13,9 +11,8 @@ class AnnouncementModel with _$AnnouncementModel implements Comparable<Announcem
     @JsonKey(name: 'id') String id, {
     @JsonKey(name: 'title') String? title,
     @JsonKey(name: 'content') String? content,
-    @JsonKey(name: 'user_groups', defaultValue: <String>[defaultUserGroup])
-    @Default(<String>[defaultUserGroup])
-        List<String> userGroups, // TODO remove
+    // groups that will be notified
+    @JsonKey(name: 'user_groups', defaultValue: <String>[]) @Default(<String>[]) List<String> userGroups,
     @JsonKey(name: 'is_top_event', defaultValue: false) @Default(false) bool isTopEvent,
     @JsonKey(name: 'date_unix_ms') int? dateUnixMs,
   }) = _AnnouncementModel;

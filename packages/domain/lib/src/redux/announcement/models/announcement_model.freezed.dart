@@ -23,8 +23,7 @@ class _$AnnouncementModelTearOff {
   _AnnouncementModel call(@JsonKey(name: 'id') String id,
       {@JsonKey(name: 'title') String? title,
       @JsonKey(name: 'content') String? content,
-      @JsonKey(name: 'user_groups', defaultValue: const <String>[defaultUserGroup]) List<String> userGroups =
-          const <String>[defaultUserGroup],
+      @JsonKey(name: 'user_groups', defaultValue: const <String>[]) List<String> userGroups = const <String>[],
       @JsonKey(name: 'is_top_event', defaultValue: false) bool isTopEvent = false,
       @JsonKey(name: 'date_unix_ms') int? dateUnixMs}) {
     return _AnnouncementModel(
@@ -52,9 +51,9 @@ mixin _$AnnouncementModel {
   @JsonKey(name: 'title')
   String? get title => throw _privateConstructorUsedError;
   @JsonKey(name: 'content')
-  String? get content => throw _privateConstructorUsedError;
-  @JsonKey(name: 'user_groups', defaultValue: const <String>[defaultUserGroup])
-  List<String> get userGroups => throw _privateConstructorUsedError; // TODO remove
+  String? get content => throw _privateConstructorUsedError; // groups that will be notified
+  @JsonKey(name: 'user_groups', defaultValue: const <String>[])
+  List<String> get userGroups => throw _privateConstructorUsedError;
   @JsonKey(name: 'is_top_event', defaultValue: false)
   bool get isTopEvent => throw _privateConstructorUsedError;
   @JsonKey(name: 'date_unix_ms')
@@ -73,7 +72,7 @@ abstract class $AnnouncementModelCopyWith<$Res> {
       {@JsonKey(name: 'id') String id,
       @JsonKey(name: 'title') String? title,
       @JsonKey(name: 'content') String? content,
-      @JsonKey(name: 'user_groups', defaultValue: const <String>[defaultUserGroup]) List<String> userGroups,
+      @JsonKey(name: 'user_groups', defaultValue: const <String>[]) List<String> userGroups,
       @JsonKey(name: 'is_top_event', defaultValue: false) bool isTopEvent,
       @JsonKey(name: 'date_unix_ms') int? dateUnixMs});
 }
@@ -133,7 +132,7 @@ abstract class _$AnnouncementModelCopyWith<$Res> implements $AnnouncementModelCo
       {@JsonKey(name: 'id') String id,
       @JsonKey(name: 'title') String? title,
       @JsonKey(name: 'content') String? content,
-      @JsonKey(name: 'user_groups', defaultValue: const <String>[defaultUserGroup]) List<String> userGroups,
+      @JsonKey(name: 'user_groups', defaultValue: const <String>[]) List<String> userGroups,
       @JsonKey(name: 'is_top_event', defaultValue: false) bool isTopEvent,
       @JsonKey(name: 'date_unix_ms') int? dateUnixMs});
 }
@@ -191,9 +190,7 @@ class _$_AnnouncementModel extends _AnnouncementModel {
   const _$_AnnouncementModel(@JsonKey(name: 'id') this.id,
       {@JsonKey(name: 'title') this.title,
       @JsonKey(name: 'content') this.content,
-      @JsonKey(name: 'user_groups', defaultValue: const <String>[defaultUserGroup]) this.userGroups = const <String>[
-        defaultUserGroup
-      ],
+      @JsonKey(name: 'user_groups', defaultValue: const <String>[]) this.userGroups = const <String>[],
       @JsonKey(name: 'is_top_event', defaultValue: false) this.isTopEvent = false,
       @JsonKey(name: 'date_unix_ms') this.dateUnixMs})
       : super._();
@@ -209,10 +206,10 @@ class _$_AnnouncementModel extends _AnnouncementModel {
   @override
   @JsonKey(name: 'content')
   final String? content;
-  @override
-  @JsonKey(name: 'user_groups', defaultValue: const <String>[defaultUserGroup])
+  @override // groups that will be notified
+  @JsonKey(name: 'user_groups', defaultValue: const <String>[])
   final List<String> userGroups;
-  @override // TODO remove
+  @override
   @JsonKey(name: 'is_top_event', defaultValue: false)
   final bool isTopEvent;
   @override
@@ -264,7 +261,7 @@ abstract class _AnnouncementModel extends AnnouncementModel {
   const factory _AnnouncementModel(@JsonKey(name: 'id') String id,
       {@JsonKey(name: 'title') String? title,
       @JsonKey(name: 'content') String? content,
-      @JsonKey(name: 'user_groups', defaultValue: const <String>[defaultUserGroup]) List<String> userGroups,
+      @JsonKey(name: 'user_groups', defaultValue: const <String>[]) List<String> userGroups,
       @JsonKey(name: 'is_top_event', defaultValue: false) bool isTopEvent,
       @JsonKey(name: 'date_unix_ms') int? dateUnixMs}) = _$_AnnouncementModel;
   const _AnnouncementModel._() : super._();
@@ -280,10 +277,10 @@ abstract class _AnnouncementModel extends AnnouncementModel {
   @override
   @JsonKey(name: 'content')
   String? get content => throw _privateConstructorUsedError;
-  @override
-  @JsonKey(name: 'user_groups', defaultValue: const <String>[defaultUserGroup])
+  @override // groups that will be notified
+  @JsonKey(name: 'user_groups', defaultValue: const <String>[])
   List<String> get userGroups => throw _privateConstructorUsedError;
-  @override // TODO remove
+  @override
   @JsonKey(name: 'is_top_event', defaultValue: false)
   bool get isTopEvent => throw _privateConstructorUsedError;
   @override

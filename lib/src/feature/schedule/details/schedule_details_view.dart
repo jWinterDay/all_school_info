@@ -35,80 +35,88 @@ class _ScheduleDetailsViewState extends State<ScheduleDetailsView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.date_range),
-        onPressed: _showDatePicker,
+    return CupertinoPageScaffold(
+      navigationBar: CupertinoNavigationBar(
+        middle: Text(AllSchoolInfoIntl.of(context).scheduleViewTitle),
+        backgroundColor: context.design.palette.primary,
       ),
-      appBar: AppBar(
-        title: Text(AllSchoolInfoIntl.of(context).scheduleViewTitle),
-        centerTitle: true,
-      ),
-      body: StoreConnector<AppState, ScheduleState>(
-        converter: (Store<AppState> store) => store.state.scheduleState,
-        builder: (_, ScheduleState scheduleState) {
-          return Padding(
-            padding: const EdgeInsets.only(top: 4, left: 4, right: 4),
-            child: Stack(
-              children: <Widget>[
-                // content
-                CustomScrollView(
-                  slivers: <Widget>[
-                    SliverPersistentHeader(
-                      pinned: true,
-                      floating: true,
-                      delegate: _Delegate(title: _bloc.dateTimeAsStr),
-                    ),
-
-                    // refresh
-                    CupertinoSliverRefreshControl(
-                      onRefresh: () async {
-                        _bloc.refresh();
-                      },
-                    ),
-
-                    // content
-                    if (scheduleState.firstLoading)
-                      SliverFillRemaining(
-                        child: Center(
-                          child: Text(AllSchoolInfoIntl.of(context).noContentYet),
-                        ),
-                      )
-                    else if (scheduleState.lessonList.isEmpty)
-                      SliverFillRemaining(
-                        child: Center(
-                          child: Text(AllSchoolInfoIntl.of(context).emptySchedule),
-                        ),
-                      )
-                    else
-                      SliverList(
-                        delegate: SliverChildListDelegate(
-                          scheduleState.lessonList.map(
-                            (LessonModel lessonModel) {
-                              return LessonItem(lessonModel: lessonModel);
-                            },
-                          ).toList(),
-                        ),
+      child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.date_range),
+          onPressed: _showDatePicker,
+        ),
+        // appBar: AppBar(
+        //   title: Text(AllSchoolInfoIntl.of(context).scheduleViewTitle),
+        //   centerTitle: true,
+        // ),
+        body: StoreConnector<AppState, ScheduleState>(
+          distinct: true,
+          converter: (Store<AppState> store) => store.state.scheduleState,
+          builder: (_, ScheduleState scheduleState) {
+            return Padding(
+              padding: const EdgeInsets.only(top: 4, left: 4, right: 4),
+              child: Stack(
+                children: <Widget>[
+                  // content
+                  CustomScrollView(
+                    physics: ClampingScrollPhysics(),
+                    slivers: <Widget>[
+                      SliverPersistentHeader(
+                        pinned: true,
+                        floating: true,
+                        delegate: _Delegate(title: _bloc.dateTimeAsStr),
                       ),
 
-                    // padding
-                    const SliverPadding(padding: EdgeInsets.only(bottom: 120))
-                  ],
-                ),
+                      // refresh
+                      CupertinoSliverRefreshControl(
+                        onRefresh: () async {
+                          _bloc.refresh();
+                        },
+                      ),
 
-                // loading
-                if (scheduleState.loading)
-                  SizedBox(
-                    width: context.width,
-                    height: context.height,
-                    child: const CupertinoActivityIndicator(
-                      radius: 42,
-                    ),
+                      // content
+                      if (scheduleState.firstLoading)
+                        SliverFillRemaining(
+                          child: Center(
+                            child: Text(AllSchoolInfoIntl.of(context).noContentYet),
+                          ),
+                        )
+                      else if (scheduleState.lessonList.isEmpty)
+                        SliverFillRemaining(
+                          child: Center(
+                            child: Text(AllSchoolInfoIntl.of(context).emptySchedule),
+                          ),
+                        )
+                      else
+                        SliverList(
+                          delegate: SliverChildListDelegate(
+                            scheduleState.lessonList.map(
+                              (LessonModel lessonModel) {
+                                return LessonItem(lessonModel: lessonModel);
+                              },
+                            ).toList(),
+                          ),
+                        ),
+
+                      // padding
+                      const SliverPadding(padding: EdgeInsets.only(bottom: 120))
+                    ],
                   ),
-              ],
-            ),
-          );
-        },
+
+                  // loading
+                  if (scheduleState.loading)
+                    SizedBox(
+                      width: context.width,
+                      height: context.height,
+                      child: const CupertinoActivityIndicator(
+                        radius: 42,
+                      ),
+                    ),
+                ],
+              ),
+            );
+          },
+        ),
       ),
     );
   }

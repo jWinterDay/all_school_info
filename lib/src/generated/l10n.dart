@@ -26,9 +26,7 @@ class AllSchoolInfoIntl {
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<AllSchoolInfoIntl> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false)
-        ? locale.languageCode
-        : locale.toString();
+    final name = (locale.countryCode?.isEmpty ?? false) ? locale.languageCode : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -65,6 +63,16 @@ class AllSchoolInfoIntl {
     return Intl.message(
       'Школа 67',
       name: 'mainTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Сохранить`
+  String get save {
+    return Intl.message(
+      'Сохранить',
+      name: 'save',
       desc: '',
       args: [],
     );
@@ -115,6 +123,36 @@ class AllSchoolInfoIntl {
     return Intl.message(
       'Удалить объявление',
       name: 'removeAnnouncement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Заголовок`
+  String get announcementEditTitle {
+    return Intl.message(
+      'Заголовок',
+      name: 'announcementEditTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Содержимое`
+  String get announcementEditContent {
+    return Intl.message(
+      'Содержимое',
+      name: 'announcementEditContent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Группы для рассылки`
+  String get announcementEditGroups {
+    return Intl.message(
+      'Группы для рассылки',
+      name: 'announcementEditGroups',
       desc: '',
       args: [],
     );
@@ -263,8 +301,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<AllSchoolInfoIntl> {
   @override
   bool isSupported(Locale locale) => _isSupported(locale);
   @override
-  Future<AllSchoolInfoIntl> load(Locale locale) =>
-      AllSchoolInfoIntl.load(locale);
+  Future<AllSchoolInfoIntl> load(Locale locale) => AllSchoolInfoIntl.load(locale);
   @override
   bool shouldReload(AppLocalizationDelegate old) => false;
 

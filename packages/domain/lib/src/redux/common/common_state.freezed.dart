@@ -22,10 +22,14 @@ class _$CommonStateTearOff {
 
   _CommonState call(
       {@JsonKey(name: 'top_announcement_count', defaultValue: 5) int topAnnouncementCount = 5,
+      @JsonKey(name: 'announcement_max_title_length', defaultValue: 20) int announcementMaxTitleLength = 20,
+      @JsonKey(name: 'announcementMaxContentLength', defaultValue: 160) int announcementMaxContentLength = 160,
       @JsonKey(name: 'app_lifecycle', defaultValue: AppLifecycle.none) AppLifecycle appLifecycle = AppLifecycle.none,
       String? fcmToken}) {
     return _CommonState(
       topAnnouncementCount: topAnnouncementCount,
+      announcementMaxTitleLength: announcementMaxTitleLength,
+      announcementMaxContentLength: announcementMaxContentLength,
       appLifecycle: appLifecycle,
       fcmToken: fcmToken,
     );
@@ -43,6 +47,10 @@ const $CommonState = _$CommonStateTearOff();
 mixin _$CommonState {
   @JsonKey(name: 'top_announcement_count', defaultValue: 5)
   int get topAnnouncementCount => throw _privateConstructorUsedError;
+  @JsonKey(name: 'announcement_max_title_length', defaultValue: 20)
+  int get announcementMaxTitleLength => throw _privateConstructorUsedError;
+  @JsonKey(name: 'announcementMaxContentLength', defaultValue: 160)
+  int get announcementMaxContentLength => throw _privateConstructorUsedError;
   @JsonKey(name: 'app_lifecycle', defaultValue: AppLifecycle.none)
   AppLifecycle get appLifecycle => throw _privateConstructorUsedError;
   String? get fcmToken => throw _privateConstructorUsedError;
@@ -57,6 +65,8 @@ abstract class $CommonStateCopyWith<$Res> {
   factory $CommonStateCopyWith(CommonState value, $Res Function(CommonState) then) = _$CommonStateCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: 'top_announcement_count', defaultValue: 5) int topAnnouncementCount,
+      @JsonKey(name: 'announcement_max_title_length', defaultValue: 20) int announcementMaxTitleLength,
+      @JsonKey(name: 'announcementMaxContentLength', defaultValue: 160) int announcementMaxContentLength,
       @JsonKey(name: 'app_lifecycle', defaultValue: AppLifecycle.none) AppLifecycle appLifecycle,
       String? fcmToken});
 }
@@ -72,6 +82,8 @@ class _$CommonStateCopyWithImpl<$Res> implements $CommonStateCopyWith<$Res> {
   @override
   $Res call({
     Object? topAnnouncementCount = freezed,
+    Object? announcementMaxTitleLength = freezed,
+    Object? announcementMaxContentLength = freezed,
     Object? appLifecycle = freezed,
     Object? fcmToken = freezed,
   }) {
@@ -79,6 +91,14 @@ class _$CommonStateCopyWithImpl<$Res> implements $CommonStateCopyWith<$Res> {
       topAnnouncementCount: topAnnouncementCount == freezed
           ? _value.topAnnouncementCount
           : topAnnouncementCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      announcementMaxTitleLength: announcementMaxTitleLength == freezed
+          ? _value.announcementMaxTitleLength
+          : announcementMaxTitleLength // ignore: cast_nullable_to_non_nullable
+              as int,
+      announcementMaxContentLength: announcementMaxContentLength == freezed
+          ? _value.announcementMaxContentLength
+          : announcementMaxContentLength // ignore: cast_nullable_to_non_nullable
               as int,
       appLifecycle: appLifecycle == freezed
           ? _value.appLifecycle
@@ -99,6 +119,8 @@ abstract class _$CommonStateCopyWith<$Res> implements $CommonStateCopyWith<$Res>
   @override
   $Res call(
       {@JsonKey(name: 'top_announcement_count', defaultValue: 5) int topAnnouncementCount,
+      @JsonKey(name: 'announcement_max_title_length', defaultValue: 20) int announcementMaxTitleLength,
+      @JsonKey(name: 'announcementMaxContentLength', defaultValue: 160) int announcementMaxContentLength,
       @JsonKey(name: 'app_lifecycle', defaultValue: AppLifecycle.none) AppLifecycle appLifecycle,
       String? fcmToken});
 }
@@ -114,6 +136,8 @@ class __$CommonStateCopyWithImpl<$Res> extends _$CommonStateCopyWithImpl<$Res> i
   @override
   $Res call({
     Object? topAnnouncementCount = freezed,
+    Object? announcementMaxTitleLength = freezed,
+    Object? announcementMaxContentLength = freezed,
     Object? appLifecycle = freezed,
     Object? fcmToken = freezed,
   }) {
@@ -121,6 +145,14 @@ class __$CommonStateCopyWithImpl<$Res> extends _$CommonStateCopyWithImpl<$Res> i
       topAnnouncementCount: topAnnouncementCount == freezed
           ? _value.topAnnouncementCount
           : topAnnouncementCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      announcementMaxTitleLength: announcementMaxTitleLength == freezed
+          ? _value.announcementMaxTitleLength
+          : announcementMaxTitleLength // ignore: cast_nullable_to_non_nullable
+              as int,
+      announcementMaxContentLength: announcementMaxContentLength == freezed
+          ? _value.announcementMaxContentLength
+          : announcementMaxContentLength // ignore: cast_nullable_to_non_nullable
               as int,
       appLifecycle: appLifecycle == freezed
           ? _value.appLifecycle
@@ -139,6 +171,8 @@ class __$CommonStateCopyWithImpl<$Res> extends _$CommonStateCopyWithImpl<$Res> i
 class _$_CommonState extends _CommonState {
   const _$_CommonState(
       {@JsonKey(name: 'top_announcement_count', defaultValue: 5) this.topAnnouncementCount = 5,
+      @JsonKey(name: 'announcement_max_title_length', defaultValue: 20) this.announcementMaxTitleLength = 20,
+      @JsonKey(name: 'announcementMaxContentLength', defaultValue: 160) this.announcementMaxContentLength = 160,
       @JsonKey(name: 'app_lifecycle', defaultValue: AppLifecycle.none) this.appLifecycle = AppLifecycle.none,
       this.fcmToken})
       : super._();
@@ -149,6 +183,12 @@ class _$_CommonState extends _CommonState {
   @JsonKey(name: 'top_announcement_count', defaultValue: 5)
   final int topAnnouncementCount;
   @override
+  @JsonKey(name: 'announcement_max_title_length', defaultValue: 20)
+  final int announcementMaxTitleLength;
+  @override
+  @JsonKey(name: 'announcementMaxContentLength', defaultValue: 160)
+  final int announcementMaxContentLength;
+  @override
   @JsonKey(name: 'app_lifecycle', defaultValue: AppLifecycle.none)
   final AppLifecycle appLifecycle;
   @override
@@ -156,7 +196,7 @@ class _$_CommonState extends _CommonState {
 
   @override
   String toString() {
-    return 'CommonState(topAnnouncementCount: $topAnnouncementCount, appLifecycle: $appLifecycle, fcmToken: $fcmToken)';
+    return 'CommonState(topAnnouncementCount: $topAnnouncementCount, announcementMaxTitleLength: $announcementMaxTitleLength, announcementMaxContentLength: $announcementMaxContentLength, appLifecycle: $appLifecycle, fcmToken: $fcmToken)';
   }
 
   @override
@@ -165,6 +205,11 @@ class _$_CommonState extends _CommonState {
         (other is _CommonState &&
             (identical(other.topAnnouncementCount, topAnnouncementCount) ||
                 const DeepCollectionEquality().equals(other.topAnnouncementCount, topAnnouncementCount)) &&
+            (identical(other.announcementMaxTitleLength, announcementMaxTitleLength) ||
+                const DeepCollectionEquality().equals(other.announcementMaxTitleLength, announcementMaxTitleLength)) &&
+            (identical(other.announcementMaxContentLength, announcementMaxContentLength) ||
+                const DeepCollectionEquality()
+                    .equals(other.announcementMaxContentLength, announcementMaxContentLength)) &&
             (identical(other.appLifecycle, appLifecycle) ||
                 const DeepCollectionEquality().equals(other.appLifecycle, appLifecycle)) &&
             (identical(other.fcmToken, fcmToken) || const DeepCollectionEquality().equals(other.fcmToken, fcmToken)));
@@ -174,6 +219,8 @@ class _$_CommonState extends _CommonState {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(topAnnouncementCount) ^
+      const DeepCollectionEquality().hash(announcementMaxTitleLength) ^
+      const DeepCollectionEquality().hash(announcementMaxContentLength) ^
       const DeepCollectionEquality().hash(appLifecycle) ^
       const DeepCollectionEquality().hash(fcmToken);
 
@@ -190,6 +237,8 @@ class _$_CommonState extends _CommonState {
 abstract class _CommonState extends CommonState {
   const factory _CommonState(
       {@JsonKey(name: 'top_announcement_count', defaultValue: 5) int topAnnouncementCount,
+      @JsonKey(name: 'announcement_max_title_length', defaultValue: 20) int announcementMaxTitleLength,
+      @JsonKey(name: 'announcementMaxContentLength', defaultValue: 160) int announcementMaxContentLength,
       @JsonKey(name: 'app_lifecycle', defaultValue: AppLifecycle.none) AppLifecycle appLifecycle,
       String? fcmToken}) = _$_CommonState;
   const _CommonState._() : super._();
@@ -199,6 +248,12 @@ abstract class _CommonState extends CommonState {
   @override
   @JsonKey(name: 'top_announcement_count', defaultValue: 5)
   int get topAnnouncementCount => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'announcement_max_title_length', defaultValue: 20)
+  int get announcementMaxTitleLength => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'announcementMaxContentLength', defaultValue: 160)
+  int get announcementMaxContentLength => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'app_lifecycle', defaultValue: AppLifecycle.none)
   AppLifecycle get appLifecycle => throw _privateConstructorUsedError;

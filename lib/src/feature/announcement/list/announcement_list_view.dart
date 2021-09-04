@@ -42,6 +42,7 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, UiAnnouncementInfo>(
+      distinct: true,
       converter: (Store<AppState> store) {
         return UiAnnouncementInfo(
           announcementState: store.state.announcementState,

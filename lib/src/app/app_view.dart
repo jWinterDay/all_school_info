@@ -7,6 +7,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
+import 'app_theme.dart';
+
 class _Observer extends AutoRouterObserver {
   @override
   void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
@@ -88,8 +90,7 @@ class _AppViewState extends State<AppView> with WidgetsBindingObserver {
       store: getIt.get<AppDomain>().appStore,
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
-        // theme: appTheme,
-        theme: ThemeData(platform: TargetPlatform.iOS),
+        theme: appTheme.copyWith(platform: TargetPlatform.iOS),
         supportedLocales: const <Locale>[
           Locale('ru'),
           Locale('en'),

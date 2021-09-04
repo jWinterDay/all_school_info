@@ -29,18 +29,15 @@ class AppRouter extends _i1.RootStackRouter {
         customRouteBuilder: _i4.dialogRouteBuilder,
         opaque: true,
         barrierDismissible: false),
-    AnnouncementDetailsViewRoute.name: (routeData) => _i1.CustomPage<Object>(
+    AnnouncementDetailsViewRoute.name: (routeData) => _i1.CupertinoPageX<Object>(
         routeData: routeData,
         builder: (data) {
           final pathParams = data.pathParams;
           final args = data.argsAs<AnnouncementDetailsViewRouteArgs>(
               orElse: () => AnnouncementDetailsViewRouteArgs(announcementModelId: pathParams.getString('id')));
           return _i5.AnnouncementDetailsView(key: args.key, announcementModelId: args.announcementModelId);
-        },
-        customRouteBuilder: _i4.dialogRouteBuilder,
-        opaque: true,
-        barrierDismissible: false),
-    AnnouncementEditViewRoute.name: (routeData) => _i1.CustomPage<Object>(
+        }),
+    AnnouncementEditViewRoute.name: (routeData) => _i1.CupertinoPageX<Object>(
         routeData: routeData,
         builder: (data) {
           final pathParams = data.pathParams;
@@ -49,19 +46,12 @@ class AppRouter extends _i1.RootStackRouter {
                   announcementModelId: pathParams.optString('id'), cardViewMode: pathParams.getString('mode')));
           return _i6.AnnouncementEditView(
               key: args.key, announcementModelId: args.announcementModelId, cardViewMode: args.cardViewMode);
-        },
-        fullscreenDialog: true,
-        customRouteBuilder: _i4.dialogRouteBuilder,
-        opaque: true,
-        barrierDismissible: false),
-    ScheduleDetailsViewRoute.name: (routeData) => _i1.CustomPage<Object>(
+        }),
+    ScheduleDetailsViewRoute.name: (routeData) => _i1.CupertinoPageX<Object>(
         routeData: routeData,
         builder: (_) {
           return _i7.ScheduleDetailsView();
-        },
-        customRouteBuilder: _i4.dialogRouteBuilder,
-        opaque: true,
-        barrierDismissible: false),
+        }),
     AnnouncementListViewRoute.name: (routeData) => _i1.CustomPage<Object>(
         routeData: routeData,
         builder: (_) {

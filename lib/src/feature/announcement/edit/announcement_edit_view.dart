@@ -6,8 +6,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:all_school_info/src/generated/l10n.dart';
 import 'package:design/design.dart';
-import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:redux/redux.dart';
 
 import 'announcement_edit_bloc.dart';
 
@@ -32,6 +33,8 @@ class _AnnouncementEditViewState extends State<AnnouncementEditView> {
 
   late CardViewMode _cardViewMode;
   AnnouncementModel? _announcementModel;
+  final TextEditingController _titleController = TextEditingController();
+  final TextEditingController _contentController = TextEditingController();
 
   @override
   void initState() {
@@ -48,7 +51,7 @@ class _AnnouncementEditViewState extends State<AnnouncementEditView> {
     super.dispose();
   }
 
-  String get _title {
+  String get _appBarTitle {
     switch (_cardViewMode) {
       case CardViewMode.add:
         return AllSchoolInfoIntl.of(context).addAnnouncement;
@@ -66,32 +69,115 @@ class _AnnouncementEditViewState extends State<AnnouncementEditView> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      // height: 500,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(_title),
-          centerTitle: true,
-        ),
-        body: GestureDetector(
-          onTap: () async {
-            // await AutoRouter.of(context).push(
-            //   gr.AnnouncementEditViewRoute(cardViewMode: CardViewMode.add.nameStr),
-            // );
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(_appBarTitle),
+        centerTitle: true,
+      ),
+      body: StoreConnector<AppState, CommonState>(
+        distinct: true,
+        converter: (Store<AppState> store) => store.state.commonState,
+        builder: (_, CommonState commonState) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4),
+            child: CustomScrollView(
+              slivers: <Widget>[
+                // title
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 8, bottom: 4),
+                    child: Text(AllSchoolInfoIntl.of(context).announcementEditTitle),
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 4, right: 4, bottom: 8),
+                    child: CupertinoTextField(
+                      controller: _titleController,
+                      clearButtonMode: OverlayVisibilityMode.editing,
+                      maxLength: commonState.announcementMaxTitleLength,
+                    ),
+                  ),
+                ),
 
-            await showCupertinoModalBottomSheet<void>(
-              context: context,
-              expand: true,
-              builder: (_) {
-                return AnnouncementEditView(cardViewMode: CardViewMode.add.nameStr);
-              },
-            );
-          },
-          child: Text(
-            'mode = ${widget.cardViewMode} enum = $_cardViewMode',
-          ),
+                // content
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 8, bottom: 4),
+                    child: Text(AllSchoolInfoIntl.of(context).announcementEditContent),
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: CupertinoTextField(
+                    controller: _contentController,
+                    clearButtonMode: OverlayVisibilityMode.editing,
+                    maxLines: 10,
+                    autofocus: true,
+                    maxLength: commonState.announcementMaxContentLength,
+                  ),
+                ),
+
+                SliverPersistentHeader(
+                  pinned: true,
+                  delegate: _Delegate(callback: () {
+                    print('save');
+                  }),
+                ),
+
+                //       // available access groups
+                //       Padding(
+                //         padding: const EdgeInsets.only(top: 8),
+                //         child: Text(AllSchoolInfoIntl.of(context).announcementEditGroups),
+                //       ),
+                //       Expanded(
+                //         child: ListView(
+                //           children: <Widget>[
+                //             CupertinoButton(
+                //               onPressed: () {}, //=> setState(() => _count++),
+                //               child: const Icon(CupertinoIcons.add),
+                //             ),
+                //             Center(
+                //               child: Text('You have pressed the button'), // $_count times.'),
+                //             ),
+                //           ],
+                //         ),
+                //       ),
+              ],
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+class _Delegate extends SliverPersistentHeaderDelegate {
+  const _Delegate({
+    required this.callback,
+  });
+
+  final VoidCallback callback;
+
+  @override
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return ColoredBox(
+      color: context.design.palette.accent,
+      child: Center(
+        child: Text(
+          AllSchoolInfoIntl.of(context).save,
         ),
       ),
     );
+  }
+
+  @override
+  double get maxExtent => 40;
+
+  @override
+  double get minExtent => 40;
+
+  @override
+  bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) {
+    return true;
   }
 }

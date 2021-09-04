@@ -48,64 +48,67 @@ class _HomeViewState extends State<HomeView> {
       builder: (BuildContext context, Widget child, Animation<double> animation) {
         final TabsRouter tabsRouter = AutoTabsRouter.of(context);
 
-        return Scaffold(
-          appBar: AppBar(
-            title: Text(
+        return CupertinoPageScaffold(
+          navigationBar: CupertinoNavigationBar(
+            middle: Text(
               AllSchoolInfoIntl.of(context).mainTitle,
-              // style: Theme.of(context).appBarTheme.textTheme?.caption,
+              style: Theme.of(context).appBarTheme.textTheme?.caption,
             ),
-            leading: const _TestModeLabel(),
-            centerTitle: true,
+            backgroundColor: context.design.palette.primary,
           ),
-          floatingActionButton: tabsRouter.activeIndex == 0 ? const _FloatingActionButton() : null,
-          body: SizeTransition(
-            sizeFactor: animation,
-            //) FadeTransition(
-            // scale: animation,
-            // opacity: animation,
-            child: child,
-          ),
-          bottomNavigationBar: BottomNavigationBar(
-            currentIndex: tabsRouter.activeIndex,
-            onTap: tabsRouter.setActiveIndex,
-            items: <BottomNavigationBarItem>[
-              // announcements
-              BottomNavigationBarItem(
-                icon: StoreConnector<AppState, AnnouncementState>(
-                  converter: (Store<AppState> store) => store.state.announcementState,
-                  builder: (_, AnnouncementState announcementState) {
-                    return _TabWidthBadge(
-                      icon: Icons.g_translate,
-                      withBadge: announcementState.unreadList.isNotEmpty,
-                    );
-                  },
+          child: Scaffold(
+            floatingActionButton: tabsRouter.activeIndex == 0 ? const _FloatingActionButton() : null,
+            body: SizeTransition(
+              sizeFactor: animation,
+              //) FadeTransition(
+              // scale: animation,
+              // opacity: animation,
+              child: child,
+            ),
+            bottomNavigationBar: BottomNavigationBar(
+              currentIndex: tabsRouter.activeIndex,
+              onTap: tabsRouter.setActiveIndex,
+              items: <BottomNavigationBarItem>[
+                // announcements
+                BottomNavigationBarItem(
+                  icon: StoreConnector<AppState, AnnouncementState>(
+                    distinct: true,
+                    converter: (Store<AppState> store) => store.state.announcementState,
+                    builder: (_, AnnouncementState announcementState) {
+                      return _TabWidthBadge(
+                        icon: Icons.g_translate,
+                        withBadge: announcementState.unreadList.isNotEmpty,
+                      );
+                    },
+                  ),
+                  label: AllSchoolInfoIntl.of(context).announcementsTabTitle,
                 ),
-                label: AllSchoolInfoIntl.of(context).announcementsTabTitle,
-              ),
 
-              // schedule
-              BottomNavigationBarItem(
-                icon: StoreConnector<AppState, ScheduleState>(
-                  converter: (Store<AppState> store) => store.state.scheduleState,
-                  builder: (_, ScheduleState scheduleState) {
-                    return _TabWidthBadge(
-                      icon: Icons.hvac,
-                      withBadge: scheduleState.hasAnyUpd,
-                    );
-                  },
+                // schedule
+                BottomNavigationBarItem(
+                  icon: StoreConnector<AppState, ScheduleState>(
+                    distinct: true,
+                    converter: (Store<AppState> store) => store.state.scheduleState,
+                    builder: (_, ScheduleState scheduleState) {
+                      return _TabWidthBadge(
+                        icon: Icons.hvac,
+                        withBadge: scheduleState.hasAnyUpd,
+                      );
+                    },
+                  ),
+                  label: AllSchoolInfoIntl.of(context).scheduleViewTitle,
                 ),
-                label: AllSchoolInfoIntl.of(context).scheduleViewTitle,
-              ),
 
-              // profile
-              BottomNavigationBarItem(
-                icon: const _TabWidthBadge(
-                  icon: Icons.face_retouching_off_rounded,
-                  withBadge: false,
+                // profile
+                BottomNavigationBarItem(
+                  icon: const _TabWidthBadge(
+                    icon: Icons.face_retouching_off_rounded,
+                    withBadge: false,
+                  ),
+                  label: AllSchoolInfoIntl.of(context).profileTabTitle,
                 ),
-                label: AllSchoolInfoIntl.of(context).profileTabTitle,
-              ),
-            ],
+              ],
+            ),
           ),
         );
       },
@@ -121,6 +124,7 @@ class _TestModeLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, bool>(
+      distinct: true,
       converter: (Store<AppState> store) => store.state.settingsState.testMode,
       builder: (_, bool testMode) {
         if (!testMode) {
@@ -148,10 +152,7 @@ class _FloatingActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return StoreConnector<AppState, bool>(
       distinct: true,
-      converter: (Store<AppState> store) {
-        print('store.state.userState = ${store.state.userState}');
-        return store.state.userState.canCreateAnnouncements;
-      },
+      converter: (Store<AppState> store) => store.state.userState.canCreateAnnouncements,
       builder: (_, bool canCreateAnnouncements) {
         if (!canCreateAnnouncements) {
           return const SizedBox();
@@ -159,15 +160,15 @@ class _FloatingActionButton extends StatelessWidget {
 
         return FloatingActionButton(
           onPressed: () async {
-            await showCupertinoModalBottomSheet<void>(
-              context: context,
-              builder: (_) {
-                return AnnouncementEditView(cardViewMode: CardViewMode.add.nameStr);
-              },
-            );
-            // AutoRouter.of(context).push(
-            //   gr.AnnouncementEditViewRoute(cardViewMode: CardViewMode.add.nameStr),
+            // await showCupertinoModalBottomSheet<void>(
+            //   context: context,
+            //   builder: (_) {
+            //     return AnnouncementEditView(cardViewMode: CardViewMode.add.nameStr);
+            //   },
             // );
+            AutoRouter.of(context).push(
+              gr.AnnouncementEditViewRoute(cardViewMode: CardViewMode.add.nameStr),
+            );
           },
           child: const Icon(Icons.add),
           backgroundColor: context.design.palette.primary,

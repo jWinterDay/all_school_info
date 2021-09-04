@@ -139,6 +139,7 @@ class _ProfileViewState extends State<ProfileView> {
 
         // scroll content
         StoreConnector<AppState, UserState>(
+          distinct: true,
           converter: (Store<AppState> store) => store.state.userState,
           builder: (_, UserState userState) {
             return Expanded(

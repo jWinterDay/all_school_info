@@ -47,8 +47,8 @@ class _ScheduleViewState extends State<ScheduleView> {
         iconColor: context.design.palette.primary,
         showBadge: scheduleState.haveScheduleUpd,
         callback: () async {
-          showCupertinoModalBottomSheet<void>(context: context, builder: (context) => ScheduleDetailsView());
-          // await AutoRouter.of(context).push(const gr.ScheduleDetailsViewRoute());
+          // showCupertinoModalBottomSheet<void>(context: context, builder: (context) => ScheduleDetailsView());
+          await AutoRouter.of(context).push(const gr.ScheduleDetailsViewRoute());
         },
       ),
 

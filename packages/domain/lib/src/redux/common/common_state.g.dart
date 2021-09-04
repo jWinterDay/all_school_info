@@ -9,6 +9,8 @@ part of 'common_state.dart';
 _$_CommonState _$_$_CommonStateFromJson(Map<String, dynamic> json) {
   return _$_CommonState(
     topAnnouncementCount: json['top_announcement_count'] as int? ?? 5,
+    announcementMaxTitleLength: json['announcement_max_title_length'] as int? ?? 20,
+    announcementMaxContentLength: json['announcementMaxContentLength'] as int? ?? 160,
     appLifecycle: _$enumDecodeNullable(_$AppLifecycleEnumMap, json['app_lifecycle']) ?? AppLifecycle.none,
     fcmToken: json['fcmToken'] as String?,
   );
@@ -16,6 +18,8 @@ _$_CommonState _$_$_CommonStateFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$_$_CommonStateToJson(_$_CommonState instance) => <String, dynamic>{
       'top_announcement_count': instance.topAnnouncementCount,
+      'announcement_max_title_length': instance.announcementMaxTitleLength,
+      'announcementMaxContentLength': instance.announcementMaxContentLength,
       'app_lifecycle': _$AppLifecycleEnumMap[instance.appLifecycle],
       'fcmToken': instance.fcmToken,
     };

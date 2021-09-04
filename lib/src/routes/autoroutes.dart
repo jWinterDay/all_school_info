@@ -51,22 +51,22 @@ import 'route_builders/dialog_route_builder.dart';
 
     // TODO nested navigation
     // announcement detail
-    CustomRoute<Object>(
+    CupertinoRoute<Object>(
       path: 'announcement/details/:id',
-      customRouteBuilder: dialogRouteBuilder,
+      // customRouteBuilder: dialogRouteBuilder,
       page: AnnouncementDetailsView,
     ),
-    CustomRoute<Object>(
+    CupertinoRoute<Object>(
       path: 'announcement/edit/:id&mode=:mode',
       page: AnnouncementEditView,
-      customRouteBuilder: dialogRouteBuilder,
-      fullscreenDialog: true,
+      // customRouteBuilder: dialogRouteBuilder,
+      // fullscreenDialog: true,
     ),
 
     // TODO nested navigation
-    CustomRoute<Object>(
+    CupertinoRoute<Object>(
       path: 'schedule/details',
-      customRouteBuilder: dialogRouteBuilder,
+      // customRouteBuilder: dialogRouteBuilder,
       page: ScheduleDetailsView,
     ),
 

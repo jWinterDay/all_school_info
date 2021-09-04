@@ -11,7 +11,7 @@ _$_AnnouncementModel _$_$_AnnouncementModelFromJson(Map<String, dynamic> json) {
     json['id'] as String,
     title: json['title'] as String?,
     content: json['content'] as String?,
-    userGroups: (json['user_groups'] as List<dynamic>?)?.map((e) => e as String).toList() ?? ['broadcast'],
+    userGroups: (json['user_groups'] as List<dynamic>?)?.map((e) => e as String).toList() ?? [],
     isTopEvent: json['is_top_event'] as bool? ?? false,
     dateUnixMs: json['date_unix_ms'] as int?,
   );
