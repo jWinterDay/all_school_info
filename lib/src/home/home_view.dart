@@ -160,13 +160,7 @@ class _FloatingActionButton extends StatelessWidget {
 
         return FloatingActionButton(
           onPressed: () async {
-            // await showCupertinoModalBottomSheet<void>(
-            //   context: context,
-            //   builder: (_) {
-            //     return AnnouncementEditView(cardViewMode: CardViewMode.add.nameStr);
-            //   },
-            // );
-            AutoRouter.of(context).push(
+            await AutoRouter.of(context).push(
               gr.AnnouncementEditViewRoute(cardViewMode: CardViewMode.add.nameStr),
             );
           },

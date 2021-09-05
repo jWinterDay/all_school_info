@@ -33,9 +33,14 @@ class AnnouncementAction with _$AnnouncementAction {
 
   // saved draft of new announcement
   const factory AnnouncementAction.clearDraft() = _ClearDraft;
-  const factory AnnouncementAction.saveDraft({
+  const factory AnnouncementAction.saveDraftContent({
     String? title,
     String? content,
+    // @Default(<String>{}) Set<String> groups,
+  }) = _SaveDraftContent;
+  const factory AnnouncementAction.saveDraftCheckedGroups({
+    // String? title,
+    // String? content,
     @Default(<String>{}) Set<String> groups,
-  }) = _SaveDraft;
+  }) = _SaveDraftCheckedGroups;
 }

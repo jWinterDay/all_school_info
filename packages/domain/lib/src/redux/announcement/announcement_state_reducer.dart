@@ -6,43 +6,41 @@ AnnouncementState announcementReducer(AnnouncementState s, dynamic a) {
   if (a is AnnouncementAction) {
     return a.maybeMap<AnnouncementState>(
       // ignore: always_specify_types
-      changeLoading: (actionEvent) => s.copyWith(loading: actionEvent.value),
+      changeLoading: (a) => s.copyWith(loading: a.value),
       // ignore: always_specify_types
-      changeFirstLoading: (actionEvent) => s.copyWith(firstLoading: actionEvent.value),
+      changeFirstLoading: (a) => s.copyWith(firstLoading: a.value),
       cleanUp: (_) => s.copyWith(
         list: <AnnouncementModel>[],
         topList: <AnnouncementModel>[],
         unreadList: <AnnouncementModel>[],
       ),
       // ignore: always_specify_types
-      setErrorModel: (actionEvent) => s.copyWith(errorModel: actionEvent.value),
+      setErrorModel: (a) => s.copyWith(errorModel: a.value),
       clearErrorModel: (_) => s.copyWith(errorModel: null),
 
       //
       // ignore: always_specify_types
-      addAnnouncement: (actionEvent) => _addAnnouncement(s, actionEvent.value),
+      addAnnouncement: (a) => _addAnnouncement(s, a.value),
       // ignore: always_specify_types
-      addAnnouncementList: (actionEvent) => _addAnnouncementList(s, actionEvent.value),
+      addAnnouncementList: (a) => _addAnnouncementList(s, a.value),
       // ignore: always_specify_types
-      removeAnnouncementById: (actionEvent) => _removeAnnouncementById(s, actionEvent.value),
+      removeAnnouncementById: (a) => _removeAnnouncementById(s, a.value),
       // ignore: always_specify_types
-      modifyAnnouncementById: (actionEvent) => _modifyAnnouncementById(s, id: actionEvent.id, data: actionEvent.data),
+      modifyAnnouncementById: (a) => _modifyAnnouncementById(s, id: a.id, data: a.data),
 
       //
       // ignore: always_specify_types
-      addUnreadAnnouncement: (actionEvent) => _addUnreadAnnouncement(s, actionEvent.value),
+      addUnreadAnnouncement: (a) => _addUnreadAnnouncement(s, a.value),
       // ignore: always_specify_types
       clearUnreadAnnouncements: (_) => _clearUnreadAnnouncements(s),
 
       // draft
       clearDraft: (_) => s.copyWith(draftNewTitle: null, draftNewContent: null, draftNewGroups: <String>{}),
       // ignore: always_specify_types
-      saveDraft: (actionEvent) => _saveDraft(
-        s,
-        title: actionEvent.title,
-        content: actionEvent.content,
-        groups: actionEvent.groups,
-      ),
+      saveDraftContent: (a) => s.copyWith(draftNewTitle: a.title, draftNewContent: a.content),
+
+      // ignore: always_specify_types
+      saveDraftCheckedGroups: (a) => s.copyWith(draftNewGroups: a.groups),
 
       orElse: () {
         return s;
@@ -53,33 +51,11 @@ AnnouncementState announcementReducer(AnnouncementState s, dynamic a) {
   return s;
 }
 
-AnnouncementState _saveDraft(
-  AnnouncementState state, {
-  String? title,
-  String? content,
-  required Set<String> groups,
-}) {
-  return state.copyWith(
-    draftNewTitle: title,
-    draftNewContent: content,
-    draftNewGroups: groups,
-  );
-}
-
 AnnouncementState _modifyAnnouncementById(
   AnnouncementState state, {
   required String id,
   Map<String, dynamic>? data,
 }) {
-  // TODO remake
-  // if (state.list.any((AnnouncementModel e) => e.id == id)) {
-  //   final List<AnnouncementModel> nextList = <AnnouncementModel>[...state.list];
-  //   nextList.removeWhere((AnnouncementModel e) => e.id == id);
-  //   return state.copyWith(
-  //     list: nextList,
-  //   );
-  // }
-
   return state;
 }
 

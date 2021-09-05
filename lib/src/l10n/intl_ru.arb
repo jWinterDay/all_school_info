@@ -2,6 +2,9 @@
     "noContentYet": "Еще ничего не загружено",
     "mainTitle": "Школа 67",
     "save": "Сохранить",
+    "saveFields": "Сохранить изменения?",
+    "yes": "Да",
+    "no": "Нет",
 
     "noAnnouncement": "Нет объявлений",
     "announcementViewTitle": "Объявление",

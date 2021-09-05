@@ -3,32 +3,29 @@ import 'package:redux/redux.dart';
 
 class AnnouncementEditBloc {
   AnnouncementEditBloc() {
-    final Store<AppState> appStore = getIt.get<AppDomain>().appStore;
-    final AnnouncementState state = appStore.state.announcementState;
+    title = _announcementState.draftNewTitle ?? '';
+    content = _announcementState.draftNewContent ?? '';
 
-    _title = state.draftNewTitle;
-    _content = state.draftNewContent;
-
-    _groups = <String>{...state.draftNewGroups};
+    _groups = <String>{..._announcementState.draftNewGroups};
   }
 
-  String? _title;
-  String? get title => _title;
-  set title(String? val) {
-    _title = val;
+  Store<AppState> get _appStore => getIt.get<AppDomain>().appStore;
+  AnnouncementState get _announcementState => _appStore.state.announcementState;
 
-    _saveDraft();
+  bool get thereAreChanges {
+    final AnnouncementState state = _announcementState;
+
+    if (state.draftNewTitle == title && state.draftNewContent == content) {
+      return false;
+    }
+
+    return title.isNotEmpty || content.isNotEmpty || _groups.isNotEmpty;
   }
 
-  String? _content;
-  String? get content => _content;
-  set content(String? val) {
-    _content = val;
-
-    _saveDraft();
-  }
-
+  late String title;
+  late String content;
   Set<String> _groups = <String>{};
+  Set<String> get groups => _groups;
 
   /// draft groups check
   void draftToggleCheck(String groupName) {
@@ -38,16 +35,15 @@ class AnnouncementEditBloc {
       _groups.add(groupName);
     }
 
-    _saveDraft();
+    _appStore.dispatch(AnnouncementAction.saveDraftCheckedGroups(
+      groups: _groups,
+    ));
   }
 
-  void _saveDraft() {
-    final Store<AppState> appStore = getIt.get<AppDomain>().appStore;
-
-    appStore.dispatch(AnnouncementAction.saveDraft(
-      title: _title,
-      content: _content,
-      groups: _groups,
+  void saveDraft() {
+    _appStore.dispatch(AnnouncementAction.saveDraftContent(
+      title: title,
+      content: content,
     ));
   }
 

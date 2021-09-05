@@ -26,7 +26,9 @@ class AllSchoolInfoIntl {
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<AllSchoolInfoIntl> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false) ? locale.languageCode : locale.toString();
+    final name = (locale.countryCode?.isEmpty ?? false)
+        ? locale.languageCode
+        : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -73,6 +75,36 @@ class AllSchoolInfoIntl {
     return Intl.message(
       'Сохранить',
       name: 'save',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Сохранить изменения?`
+  String get saveFields {
+    return Intl.message(
+      'Сохранить изменения?',
+      name: 'saveFields',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Да`
+  String get yes {
+    return Intl.message(
+      'Да',
+      name: 'yes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Нет`
+  String get no {
+    return Intl.message(
+      'Нет',
+      name: 'no',
       desc: '',
       args: [],
     );
@@ -301,7 +333,8 @@ class AppLocalizationDelegate extends LocalizationsDelegate<AllSchoolInfoIntl> {
   @override
   bool isSupported(Locale locale) => _isSupported(locale);
   @override
-  Future<AllSchoolInfoIntl> load(Locale locale) => AllSchoolInfoIntl.load(locale);
+  Future<AllSchoolInfoIntl> load(Locale locale) =>
+      AllSchoolInfoIntl.load(locale);
   @override
   bool shouldReload(AppLocalizationDelegate old) => false;
 

@@ -38,6 +38,6 @@ class UserState with _$UserState {
 
   /// can create announcements
   bool get canCreateAnnouncements {
-    return loggedIn && accessGroups.contains(UserGroups.canCreateAnnouncements);
+    return loggedIn && availableAccessGroups.isNotEmpty && accessGroups.contains(UserGroups.canCreateAnnouncements);
   }
 }
