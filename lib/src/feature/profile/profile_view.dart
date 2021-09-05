@@ -46,14 +46,28 @@ class _ProfileViewState extends State<ProfileView> {
 
     return <UiProfileItem>[
       // management
+      if (userState.accessGroups.isNotEmpty)
+        const UiProfileItem(
+          title: 'my access group',
+          icon: Icons.manage_accounts,
+        ),
+      if (userState.accessGroups.isNotEmpty)
+        ...userState.accessGroups.map((String accessGroup) {
+          return UiProfileItem(
+            title: accessGroup,
+            subItem: true,
+            // icon: Icons.format_list_numbered,
+          );
+        }),
+
       UiProfileItem(
-        title: 'own group: ${userState.userType.toString()}',
+        title: 'type: ${userState.userType.toString()}',
         icon: Icons.manage_accounts,
       ),
 
       if (userState.availableAccessGroups.isNotEmpty)
         const UiProfileItem(
-          title: 'available groups (he could send)',
+          title: 'available access groups',
           icon: Icons.manage_accounts,
         ),
       if (userState.availableAccessGroups.isNotEmpty)
