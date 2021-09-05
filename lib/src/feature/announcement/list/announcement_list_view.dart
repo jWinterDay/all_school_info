@@ -54,22 +54,6 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
 
         return Column(
           children: <Widget>[
-            SizedBox(
-              height: 36,
-              child: GestureDetector(
-                onTap: _bloc.testAddUnread,
-                child: const Text('add unread'),
-              ),
-            ),
-
-            // SizedBox(
-            //   height: 36,
-            //   child: GestureDetector(
-            //     onTap: _bloc.testAddScheduleUpd,
-            //     child: const Text('add schedule upd'),
-            //   ),
-            // ),
-
             // top events
             if (uiAnnouncementInfo.announcementState.topList.isNotEmpty)
               CarouselSlider(
@@ -79,22 +63,9 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
                 ),
                 items: uiAnnouncementInfo.topAnnouncementList.map(
                   (AnnouncementModel topAnnouncement) {
-                    return GestureDetector(
-                      onTap: () {
-                        AutoRouter.of(context).push(gr.AnnouncementDetailsViewRoute(
-                          announcementModelId: topAnnouncement.id,
-                        ));
-                      },
-                      child: Container(
-                        width: context.width,
-                        margin: const EdgeInsets.symmetric(horizontal: 4),
-                        padding: const EdgeInsets.symmetric(horizontal: 4),
-                        decoration: BoxDecoration(color: context.palette.primaryLight),
-                        child: Text(
-                          topAnnouncement.title ?? '',
-                          style: Theme.of(context).textTheme.caption,
-                        ),
-                      ),
+                    return AnnouncementCard(
+                      announcementModel: topAnnouncement,
+                      topCard: true,
                     );
                   },
                 ).toList(),

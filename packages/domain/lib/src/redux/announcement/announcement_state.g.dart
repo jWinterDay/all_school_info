@@ -26,6 +26,8 @@ _$_AnnouncementState _$_$_AnnouncementStateFromJson(Map<String, dynamic> json) {
     draftNewTitle: json['draft_new_title'] as String?,
     draftNewContent: json['draft_new_content'] as String?,
     draftNewGroups: (json['draft_new_groups'] as List<dynamic>?)?.map((e) => e as String).toSet() ?? {},
+    draftPublishToTop: json['draft_publish_to_top'] as bool? ?? false,
+    publishLoading: json['publish_loading'] as bool? ?? false,
   );
 }
 
@@ -40,4 +42,6 @@ Map<String, dynamic> _$_$_AnnouncementStateToJson(_$_AnnouncementState instance)
       'draft_new_title': instance.draftNewTitle,
       'draft_new_content': instance.draftNewContent,
       'draft_new_groups': instance.draftNewGroups.toList(),
+      'draft_publish_to_top': instance.draftPublishToTop,
+      'publish_loading': instance.publishLoading,
     };

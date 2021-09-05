@@ -29,7 +29,19 @@ class AnnouncementState with _$AnnouncementState {
     @JsonKey(name: 'draft_new_title') String? draftNewTitle,
     @JsonKey(name: 'draft_new_content') String? draftNewContent,
     @JsonKey(name: 'draft_new_groups', defaultValue: <String>{}) @Default(<String>{}) Set<String> draftNewGroups,
+    @JsonKey(name: 'draft_publish_to_top', defaultValue: false) @Default(false) bool draftPublishToTop,
+
+    // add, modify, remove announcement
+    @JsonKey(name: 'publish_loading', defaultValue: false) @Default(false) bool publishLoading,
   }) = _AnnouncementState;
 
   factory AnnouncementState.fromJson(Map<String, dynamic> json) => _$AnnouncementStateFromJson(json);
+
+  bool get publishButtonAvailable {
+    if (draftNewTitle == null && draftNewContent == null) {
+      return false;
+    }
+
+    return !publishLoading && draftNewGroups.isNotEmpty && draftNewTitle!.isNotEmpty && draftNewContent!.isNotEmpty;
+  }
 }

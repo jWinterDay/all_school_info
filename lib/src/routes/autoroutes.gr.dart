@@ -7,35 +7,31 @@
 import 'package:auto_route/auto_route.dart' as _i1;
 import 'package:flutter/material.dart' as _i2;
 
-import '../feature/announcement/details/announcement_details_view.dart' as _i5;
-import '../feature/announcement/edit/announcement_edit_view.dart' as _i6;
-import '../feature/announcement/list/announcement_list_view.dart' as _i8;
-import '../feature/profile/profile_view.dart' as _i10;
-import '../feature/schedule/details/schedule_details_view.dart' as _i7;
-import '../feature/schedule/list/schedule_view.dart' as _i9;
+import '../feature/announcement/details/announcement_details_view.dart' as _i4;
+import '../feature/announcement/edit/announcement_edit_view.dart' as _i5;
+import '../feature/announcement/list/announcement_list_view.dart' as _i7;
+import '../feature/profile/profile_view.dart' as _i9;
+import '../feature/schedule/details/schedule_details_view.dart' as _i6;
+import '../feature/schedule/list/schedule_view.dart' as _i8;
 import '../home/home_view.dart' as _i3;
-import 'route_builders/dialog_route_builder.dart' as _i4;
 
 class AppRouter extends _i1.RootStackRouter {
   AppRouter([_i2.GlobalKey<_i2.NavigatorState>? navigatorKey]) : super(navigatorKey);
 
   @override
   final Map<String, _i1.PageFactory> pagesMap = {
-    HomeViewRoute.name: (routeData) => _i1.CustomPage<Object>(
+    HomeViewRoute.name: (routeData) => _i1.MaterialPageX<Object>(
         routeData: routeData,
         builder: (_) {
           return _i3.HomeView();
-        },
-        customRouteBuilder: _i4.dialogRouteBuilder,
-        opaque: true,
-        barrierDismissible: false),
+        }),
     AnnouncementDetailsViewRoute.name: (routeData) => _i1.CupertinoPageX<Object>(
         routeData: routeData,
         builder: (data) {
           final pathParams = data.pathParams;
           final args = data.argsAs<AnnouncementDetailsViewRouteArgs>(
               orElse: () => AnnouncementDetailsViewRouteArgs(announcementModelId: pathParams.getString('id')));
-          return _i5.AnnouncementDetailsView(key: args.key, announcementModelId: args.announcementModelId);
+          return _i4.AnnouncementDetailsView(key: args.key, announcementModelId: args.announcementModelId);
         }),
     AnnouncementEditViewRoute.name: (routeData) => _i1.CupertinoPageX<Object>(
         routeData: routeData,
@@ -44,34 +40,28 @@ class AppRouter extends _i1.RootStackRouter {
           final args = data.argsAs<AnnouncementEditViewRouteArgs>(
               orElse: () => AnnouncementEditViewRouteArgs(
                   announcementModelId: pathParams.optString('id'), cardViewMode: pathParams.getString('mode')));
-          return _i6.AnnouncementEditView(
+          return _i5.AnnouncementEditView(
               key: args.key, announcementModelId: args.announcementModelId, cardViewMode: args.cardViewMode);
         }),
     ScheduleDetailsViewRoute.name: (routeData) => _i1.CupertinoPageX<Object>(
         routeData: routeData,
         builder: (_) {
-          return _i7.ScheduleDetailsView();
+          return _i6.ScheduleDetailsView();
         }),
-    AnnouncementListViewRoute.name: (routeData) => _i1.CustomPage<Object>(
+    AnnouncementListViewRoute.name: (routeData) => _i1.MaterialPageX<Object>(
         routeData: routeData,
         builder: (_) {
-          return const _i8.AnnouncementListView();
-        },
-        customRouteBuilder: _i4.dialogRouteBuilder,
-        opaque: true,
-        barrierDismissible: false),
-    ScheduleViewRoute.name: (routeData) => _i1.CustomPage<Object>(
+          return const _i7.AnnouncementListView();
+        }),
+    ScheduleViewRoute.name: (routeData) => _i1.MaterialPageX<Object>(
         routeData: routeData,
         builder: (_) {
-          return _i9.ScheduleView();
-        },
-        customRouteBuilder: _i4.dialogRouteBuilder,
-        opaque: true,
-        barrierDismissible: false),
+          return _i8.ScheduleView();
+        }),
     ProfileViewRoute.name: (routeData) => _i1.CustomPage<Object>(
         routeData: routeData,
         builder: (_) {
-          return _i10.ProfileView();
+          return _i9.ProfileView();
         },
         opaque: true,
         barrierDismissible: false)

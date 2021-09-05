@@ -5,6 +5,7 @@ import 'models/announcement_model.dart';
 AnnouncementState announcementReducer(AnnouncementState s, dynamic a) {
   if (a is AnnouncementAction) {
     return a.maybeMap<AnnouncementState>(
+      /// `common`
       // ignore: always_specify_types
       changeLoading: (a) => s.copyWith(loading: a.value),
       // ignore: always_specify_types
@@ -28,19 +29,24 @@ AnnouncementState announcementReducer(AnnouncementState s, dynamic a) {
       // ignore: always_specify_types
       modifyAnnouncementById: (a) => _modifyAnnouncementById(s, id: a.id, data: a.data),
 
-      //
+      /// `unread`
       // ignore: always_specify_types
       addUnreadAnnouncement: (a) => _addUnreadAnnouncement(s, a.value),
       // ignore: always_specify_types
       clearUnreadAnnouncements: (_) => _clearUnreadAnnouncements(s),
 
-      // draft
-      clearDraft: (_) => s.copyWith(draftNewTitle: null, draftNewContent: null, draftNewGroups: <String>{}),
+      /// `draft`
+      clearDraftContent: (_) => s.copyWith(draftNewTitle: null, draftNewContent: null), //, draftNewGroups: <String>{}),
       // ignore: always_specify_types
       saveDraftContent: (a) => s.copyWith(draftNewTitle: a.title, draftNewContent: a.content),
-
       // ignore: always_specify_types
       saveDraftCheckedGroups: (a) => s.copyWith(draftNewGroups: a.groups),
+      // ignore: always_specify_types
+      changeDraftPublishToTop: (a) => s.copyWith(draftPublishToTop: a.value),
+
+      /// `add, modify, remove announcement`
+      // ignore: always_specify_types
+      changePublishLoading: (a) => s.copyWith(publishLoading: a.value),
 
       orElse: () {
         return s;

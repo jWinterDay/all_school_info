@@ -48,11 +48,13 @@ class _AnnouncementEditViewState extends State<AnnouncementEditView> {
     _titleController.text = _bloc.title;
     _titleController.addListener(() {
       _bloc.title = _titleController.text;
+      _bloc.saveDraftContent();
     });
 
     _contentController.text = _bloc.content;
     _contentController.addListener(() {
       _bloc.content = _contentController.text;
+      _bloc.saveDraftContent();
     });
   }
 
@@ -128,96 +130,130 @@ class _AnnouncementEditViewState extends State<AnnouncementEditView> {
 
               //
               draftGroups: store.state.announcementState.draftNewGroups,
+
+              publishLoading: store.state.announcementState.publishLoading,
+              publishButtonAvailable: store.state.announcementState.publishButtonAvailable,
+              publishTop: store.state.announcementState.draftPublishToTop,
             );
           },
           builder: (_, UiAnnouncementEditInfo uiAnnouncementEditInfo) {
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 4),
-              child: CustomScrollView(
-                slivers: <Widget>[
-                  // title
-                  SliverToBoxAdapter(
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 8, bottom: 4),
-                      child: Text(AllSchoolInfoIntl.of(context).announcementEditTitle),
-                    ),
-                  ),
-                  SliverToBoxAdapter(
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 4, right: 4, bottom: 8),
-                      child: CupertinoTextField(
-                        controller: _titleController,
-                        autofocus: true,
-                        clearButtonMode: OverlayVisibilityMode.editing,
-                        maxLength: uiAnnouncementEditInfo.announcementMaxTitleLength,
-                      ),
-                    ),
-                  ),
-
+              child: Stack(
+                children: <Widget>[
                   // content
-                  SliverToBoxAdapter(
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 8, bottom: 4),
-                      child: Text(AllSchoolInfoIntl.of(context).announcementEditContent),
-                    ),
-                  ),
-                  SliverToBoxAdapter(
-                    child: CupertinoTextField(
-                      controller: _contentController,
-                      clearButtonMode: OverlayVisibilityMode.editing,
-                      maxLines: 10,
-                      maxLength: uiAnnouncementEditInfo.announcementMaxContentLength,
-                    ),
-                  ),
-
-                  // publish button
-                  SliverToBoxAdapter(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8),
-                      child: InkWell(
-                        onTap: _bloc.publishAnnouncement,
-                        child: ColoredBox(
-                          color: context.design.palette.accent,
-                          child: SizedBox(
-                            height: 40,
-                            child: Center(
-                              child: Text(
-                                AllSchoolInfoIntl.of(context).publishAnnouncement,
-                              ),
-                            ),
+                  CustomScrollView(
+                    slivers: <Widget>[
+                      // title
+                      SliverToBoxAdapter(
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 8, bottom: 4),
+                          child: Text(AllSchoolInfoIntl.of(context).announcementEditTitle),
+                        ),
+                      ),
+                      SliverToBoxAdapter(
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 4, right: 4, bottom: 8),
+                          child: CupertinoTextField(
+                            controller: _titleController,
+                            autofocus: true,
+                            clearButtonMode: OverlayVisibilityMode.editing,
+                            maxLength: uiAnnouncementEditInfo.announcementMaxTitleLength,
                           ),
                         ),
                       ),
-                    ),
-                  ),
 
-                  // available access groups
-                  SliverToBoxAdapter(
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 8),
-                      child: Text(AllSchoolInfoIntl.of(context).announcementEditGroups),
-                    ),
-                  ),
+                      // content
+                      SliverToBoxAdapter(
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 8, bottom: 4),
+                          child: Text(AllSchoolInfoIntl.of(context).announcementEditContent),
+                        ),
+                      ),
+                      SliverToBoxAdapter(
+                        child: CupertinoTextField(
+                          controller: _contentController,
+                          clearButtonMode: OverlayVisibilityMode.editing,
+                          maxLines: 10,
+                          maxLength: uiAnnouncementEditInfo.announcementMaxContentLength,
+                        ),
+                      ),
 
-                  SliverList(
-                    delegate: SliverChildListDelegate(
-                      uiAnnouncementEditInfo.availableAccessGroups.map((String accessGroup) {
-                        return GestureDetector(
-                          onTap: () {
-                            _bloc.draftToggleCheck(accessGroup);
-                            setState(() {});
-                          },
-                          child: AccessGroup(
-                            accessGroup: accessGroup,
-                            checked: uiAnnouncementEditInfo.draftGroups.contains(accessGroup),
+                      // publish button
+                      SliverToBoxAdapter(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 8),
+                          child: Row(
+                            children: <Widget>[
+                              Expanded(
+                                child: ElevatedButton(
+                                  child: Text(AllSchoolInfoIntl.of(context).publishAnnouncement),
+                                  onPressed: uiAnnouncementEditInfo.publishButtonAvailable
+                                      ? () async {
+                                          await _bloc.publishAnnouncement();
+
+                                          // _titleController.clear();
+                                          // _contentController.clear();
+                                        }
+                                      : null,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 8),
+                                child: Text(AllSchoolInfoIntl.of(context).top),
+                              ),
+                              GestureDetector(
+                                onTap: _bloc.toggleDraftPublishToTop,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 8, right: 4),
+                                  child: uiAnnouncementEditInfo.publishTop
+                                      ? const Icon(Icons.check_box_outlined)
+                                      : const Icon(Icons.check_box_outline_blank),
+                                ),
+                              ),
+                            ],
                           ),
-                        );
-                      }).toList(),
-                    ),
+                        ),
+                      ),
+
+                      // available access groups
+                      SliverToBoxAdapter(
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 8),
+                          child: Text(AllSchoolInfoIntl.of(context).announcementEditGroups),
+                        ),
+                      ),
+
+                      SliverList(
+                        delegate: SliverChildListDelegate(
+                          uiAnnouncementEditInfo.availableAccessGroups.map((String accessGroup) {
+                            return GestureDetector(
+                              onTap: () {
+                                _bloc.draftToggleCheck(accessGroup);
+                              },
+                              child: AccessGroup(
+                                accessGroup: accessGroup,
+                                checked: uiAnnouncementEditInfo.draftGroups.contains(accessGroup),
+                              ),
+                            );
+                          }).toList(),
+                        ),
+                      ),
+
+                      // padding
+                      const SliverPadding(padding: EdgeInsets.only(bottom: 120))
+                    ],
                   ),
 
-                  // padding
-                  const SliverPadding(padding: EdgeInsets.only(bottom: 120))
+                  // loading
+                  if (uiAnnouncementEditInfo.publishLoading)
+                    SizedBox(
+                      width: context.width,
+                      height: context.height,
+                      child: const CupertinoActivityIndicator(
+                        radius: 42,
+                      ),
+                    ),
                 ],
               ),
             );

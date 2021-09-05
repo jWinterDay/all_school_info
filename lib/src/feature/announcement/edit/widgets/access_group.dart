@@ -21,7 +21,7 @@ class AccessGroup extends StatelessWidget {
           color: context.design.palette.gray22,
           child: Row(
             children: <Widget>[
-              if (checked) Icon(Icons.check_box_outlined) else Icon(Icons.check_box_outline_blank),
+              if (checked) const Icon(Icons.check_box_outlined) else const Icon(Icons.check_box_outline_blank),
               Text(accessGroup),
             ],
           ),

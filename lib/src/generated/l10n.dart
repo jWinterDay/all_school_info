@@ -200,6 +200,16 @@ class AllSchoolInfoIntl {
     );
   }
 
+  /// `Топ`
+  String get top {
+    return Intl.message(
+      'Топ',
+      name: 'top',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Объявления`
   String get announcementsTabTitle {
     return Intl.message(

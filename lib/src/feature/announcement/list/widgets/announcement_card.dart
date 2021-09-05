@@ -15,9 +15,11 @@ class AnnouncementCard extends StatelessWidget {
   const AnnouncementCard({
     Key? key,
     required this.announcementModel,
+    this.topCard = false,
   }) : super(key: key);
 
   final AnnouncementModel announcementModel;
+  final bool topCard;
 
   static String dateUnixMsToStr(int unixMs) {
     final DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(unixMs);
@@ -41,7 +43,7 @@ class AnnouncementCard extends StatelessWidget {
         child: Container(
           constraints: const BoxConstraints(minHeight: kMinHeight, maxHeight: 200),
           decoration: BoxDecoration(
-            color: context.palette.gray22,
+            color: topCard ? context.palette.gray40 : context.palette.gray22,
             borderRadius: const BorderRadius.all(Radius.circular(8)),
           ),
           child: Column(

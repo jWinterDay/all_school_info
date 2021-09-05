@@ -20,24 +20,24 @@ import 'route_builders/dialog_route_builder.dart';
   // ignore: always_specify_types
   routes: [
     // home with tabs
-    CustomRoute<Object>(
+    MaterialRoute<Object>(
       page: HomeView,
       path: '/',
       initial: true,
-      customRouteBuilder: dialogRouteBuilder,
+      // customRouteBuilder: dialogRouteBuilder,
       children: <AutoRoute<Object>>[
         // announcements
-        CustomRoute<Object>(
+        MaterialRoute<Object>(
           path: 'announcements',
           initial: true,
-          customRouteBuilder: dialogRouteBuilder,
+          // customRouteBuilder: dialogRouteBuilder,
           page: AnnouncementListView,
         ),
 
         // schedule
-        CustomRoute<Object>(
+        MaterialRoute<Object>(
           path: 'schedule',
-          customRouteBuilder: dialogRouteBuilder,
+          // customRouteBuilder: dialogRouteBuilder,
           page: ScheduleView,
           // children: <AutoRoute<Object>>[
           //   AutoRoute<Object>(path: 'details', initial: true, fullscreenDialog: true, page: ScheduleDetailsView),

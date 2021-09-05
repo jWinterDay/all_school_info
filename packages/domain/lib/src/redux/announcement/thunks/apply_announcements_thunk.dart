@@ -35,6 +35,7 @@ void applyAnnouncementsThunk(
       }
     }
   } catch (exc) {
+    print('exc: $exc');
     // store.dispatch(
     //   AnnouncementAction.setErrorModel(
     //     value: ErrorModel(44, exc.toString()),
@@ -54,18 +55,33 @@ void _processAdded({
   required bool firstFetch,
   required Store<AppState> store,
 }) {
+  // print('domain data = ${applyDto.data}');
   bool isTopEvent = false;
   final dynamic rawIsTopEvent = applyDto.data?['is_top_event'];
   if (rawIsTopEvent is bool) {
     isTopEvent = rawIsTopEvent;
   }
 
+  final dynamic dateUnixMsRaw = applyDto.data?['date_unix_ms'];
+  // print('domain dateUnixMsRaw = $dateUnixMsRaw');
+  int? unixMs;
+  try {
+    if (dateUnixMsRaw != null) {
+      // ignore: avoid_as
+      unixMs = dateUnixMsRaw.millisecondsSinceEpoch as int?;
+    }
+  } catch (exc) {
+    rethrow;
+  }
+
+  // print('domain unixMs = $unixMs');
+
   final AnnouncementModel model = AnnouncementModel(
     applyDto.id,
     title: applyDto.data?['title']?.toString(),
     content: applyDto.data?['content']?.toString(),
     isTopEvent: isTopEvent,
-    dateUnixMs: int.tryParse(applyDto.data?['date_unix_ms']?.toString() ?? ''),
+    dateUnixMs: unixMs,
   );
 
   if (firstFetch) {
