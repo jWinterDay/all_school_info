@@ -1,6 +1,6 @@
 import 'package:all_school_info/src/generated/l10n.dart';
-import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
-import 'package:auto_route/auto_route.dart';
+// import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
+// import 'package:auto_route/auto_route.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:design/design.dart';
 import 'package:domain/domain.dart';
@@ -58,7 +58,7 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
             if (uiAnnouncementInfo.announcementState.topList.isNotEmpty)
               CarouselSlider(
                 options: CarouselOptions(
-                  height: 100,
+                  height: 120,
                   autoPlay: true,
                 ),
                 items: uiAnnouncementInfo.topAnnouncementList.map(

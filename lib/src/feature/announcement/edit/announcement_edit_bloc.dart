@@ -70,7 +70,7 @@ class AnnouncementEditBloc {
       _appStore.dispatch(const AnnouncementAction.changePublishLoading(value: true));
 
       final Map<String, dynamic> data = <String, dynamic>{
-        'id': '${DateTime.now().millisecondsSinceEpoch}', // TODO
+        // 'id': '${DateTime.now().millisecondsSinceEpoch}', // TODO
         'title': title,
         'content': content,
         'user_groups': FieldValue.arrayUnion(_groups.toList()),

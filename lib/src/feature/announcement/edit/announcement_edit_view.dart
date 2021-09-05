@@ -34,7 +34,7 @@ class _AnnouncementEditViewState extends State<AnnouncementEditView> {
   final AnnouncementEditBloc _bloc = AnnouncementEditBloc();
 
   late CardViewMode _cardViewMode;
-  AnnouncementModel? _announcementModel;
+  // AnnouncementModel? _announcementModel;
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _contentController = TextEditingController();
 
@@ -87,7 +87,7 @@ class _AnnouncementEditViewState extends State<AnnouncementEditView> {
         context: context,
         builder: (_) {
           return AlertDialog(
-            title: Text(AllSchoolInfoIntl.of(context).saveFields),
+            title: Text(AllSchoolInfoIntl.of(context).saveTemplate),
             // content: Text(AllSchoolInfoIntl.of(context).saveFields),
             actions: <Widget>[
               TextButton(

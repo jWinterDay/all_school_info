@@ -90,6 +90,16 @@ class AllSchoolInfoIntl {
     );
   }
 
+  /// `Сохранить шаблон?`
+  String get saveTemplate {
+    return Intl.message(
+      'Сохранить шаблон?',
+      name: 'saveTemplate',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Да`
   String get yes {
     return Intl.message(

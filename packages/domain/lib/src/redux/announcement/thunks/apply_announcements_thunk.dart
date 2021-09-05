@@ -15,9 +15,13 @@ void applyAnnouncementsThunk(
     ..dispatch(const AnnouncementAction.clearErrorModel());
 
   try {
-    for (final AnnouncementApplyDto applyDto in applyDtoList) {
-      // print('------${applyDto.id} > ${applyDto.docApplyType} data = ${applyDto.data}');
+    if (applyDtoList.isEmpty) {
+      store.dispatch(const AnnouncementAction.cleanUp());
 
+      return;
+    }
+
+    for (final AnnouncementApplyDto applyDto in applyDtoList) {
       switch (applyDto.docApplyType) {
         case DocApplyType.modified:
           break;

@@ -74,6 +74,16 @@ class AnnouncementCard extends StatelessWidget {
                   ),
                 ),
 
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Text(
+                  announcementModel.id,
+                  style: Theme.of(context).textTheme.caption?.copyWith(
+                        fontSize: 12,
+                      ),
+                ),
+              ),
+
               Divider(
                 height: 1,
                 color: context.palette.gray40,

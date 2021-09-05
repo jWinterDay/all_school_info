@@ -56,6 +56,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "save": MessageLookupByLibrary.simpleMessage("Сохранить"),
         "saveFields":
             MessageLookupByLibrary.simpleMessage("Сохранить изменения?"),
+        "saveTemplate":
+            MessageLookupByLibrary.simpleMessage("Сохранить шаблон?"),
         "scheduleHomework":
             MessageLookupByLibrary.simpleMessage("Домашнее задание"),
         "scheduleLastNotifications":

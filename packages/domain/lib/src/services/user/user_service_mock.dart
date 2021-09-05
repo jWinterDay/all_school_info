@@ -26,6 +26,7 @@ class UserServiceMock implements UserService {
       userType: UserType.guest,
       accessGroups: <String>[
         UserGroups.canCreateAnnouncements,
+        'class_7',
       ],
       availableAccessGroups: <String>[
         'class_1',
