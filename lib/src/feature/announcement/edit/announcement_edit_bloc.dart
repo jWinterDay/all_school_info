@@ -47,5 +47,9 @@ class AnnouncementEditBloc {
     ));
   }
 
+  void publishAnnouncement() {
+    print('publish');
+  }
+
   void dispose() {}
 }

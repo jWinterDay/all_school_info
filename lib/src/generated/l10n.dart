@@ -180,6 +180,16 @@ class AllSchoolInfoIntl {
     );
   }
 
+  /// `Опубликовать`
+  String get publishAnnouncement {
+    return Intl.message(
+      'Опубликовать',
+      name: 'publishAnnouncement',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Группы для рассылки`
   String get announcementEditGroups {
     return Intl.message(

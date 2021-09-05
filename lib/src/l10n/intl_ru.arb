@@ -13,6 +13,7 @@
     "removeAnnouncement": "Удалить объявление",
     "announcementEditTitle": "Заголовок",
     "announcementEditContent": "Содержимое",
+    "publishAnnouncement": "Опубликовать",
     "announcementEditGroups": "Группы для рассылки",
 
     "announcementsTabTitle": "Объявления",

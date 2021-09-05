@@ -49,6 +49,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "profileTabTitle": MessageLookupByLibrary.simpleMessage("Профиль"),
         "profileViewTitle":
             MessageLookupByLibrary.simpleMessage("Профиль пользователя"),
+        "publishAnnouncement":
+            MessageLookupByLibrary.simpleMessage("Опубликовать"),
         "removeAnnouncement":
             MessageLookupByLibrary.simpleMessage("Удалить объявление"),
         "save": MessageLookupByLibrary.simpleMessage("Сохранить"),
