@@ -127,8 +127,14 @@ AnnouncementState _addAnnouncementList(
   Iterable<AnnouncementModel> list,
 ) {
   return state.copyWith(
-    list: list.where((AnnouncementModel e) => !e.isTopEvent).toList()..sort(),
-    topList: list.where((AnnouncementModel e) => e.isTopEvent).toList()..sort(),
+    list: <AnnouncementModel>[
+      ...list.where((AnnouncementModel e) => !e.isTopEvent).toList()..sort(),
+      ...state.list,
+    ],
+    topList: <AnnouncementModel>[
+      ...list.where((AnnouncementModel e) => e.isTopEvent).toList()..sort(),
+      ...state.topList,
+    ],
   );
 }
 

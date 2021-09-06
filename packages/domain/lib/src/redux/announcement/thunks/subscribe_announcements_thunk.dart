@@ -52,87 +52,82 @@ void _applyQuerySnapshot({
   }
 
   // added
-  final List<AnnouncementModel> added = list.where((AnnouncementModel model) {
-    return model.documentChangeType == DocumentChangeType.added;
+  final List<AnnouncementModel> addedList = list.where((AnnouncementModel item) {
+    return item.documentChangeType == DocumentChangeType.added;
   }).toList();
+  _processAdded(
+    store: store,
+    list: addedList,
+    firstFetch: store.state.announcementState.firstLoading,
+  );
+
+  // removed
+  final List<AnnouncementModel> removedList = list.where((AnnouncementModel item) {
+    return item.documentChangeType == DocumentChangeType.removed;
+  }).toList();
+  _processRemoved(
+    store: store,
+    list: removedList,
+  );
+
+  // modified
+  final List<AnnouncementModel> modifiedList = list.where((AnnouncementModel item) {
+    return item.documentChangeType == DocumentChangeType.modified;
+  }).toList();
+  _processModified(
+    store: store,
+    list: modifiedList,
+  );
+}
+
+void _processAdded({
+  required List<AnnouncementModel> list,
+  required bool firstFetch,
+  required Store<AppState> store,
+}) {
+  if (list.isEmpty) {
+    return;
+  }
+
+  print('_processAdded first: ${store.state.announcementState.firstLoading} list: $list');
+
+  // final List<AnnouncementModel> topList = list.where((AnnouncementModel e) => e.isTopEvent).toList();
+  // final List<AnnouncementModel> notTopList = list.where((AnnouncementModel e) => !e.isTopEvent).toList();
 
   if (store.state.announcementState.firstLoading) {
     store
-      ..dispatch(AnnouncementAction.addAnnouncementList(value: added))
+      ..dispatch(AnnouncementAction.addAnnouncementList(value: list))
       ..dispatch(const AnnouncementAction.changeFirstLoading(value: false)); // for ui
   } else {
-    store.dispatch(AnnouncementAction.addUnreadAnnouncementList(value: added));
+    // top
+    final bool containsTop = list.any((AnnouncementModel e) => e.isTopEvent);
+    print('containsTop = $containsTop');
+    if (containsTop) {
+      store.dispatch(AnnouncementAction.addAnnouncementList(value: list));
+    }
+
+    // not top
+    final List<AnnouncementModel> notTopList = list.where((AnnouncementModel e) => !e.isTopEvent).toList();
+    if (notTopList.isNotEmpty) {
+      store.dispatch(AnnouncementAction.addUnreadAnnouncementList(value: notTopList));
+    }
   }
-
-  // store.dispatch(AnnouncementAction.addUnreadAnnouncementList(value: added));
-  // store.dispatch(AnnouncementAction.addAnnouncementList(value: added));
-
-  // iterate throw changed docs
-  // for (final AnnouncementModel model in list) {
-  //   switch (item.type) {
-  //     case DocumentChangeType.modified:
-  //       break;
-
-  //     case DocumentChangeType.added:
-  //       _processAdded(store: store, item: item, firstFetch: true); // store.state.announcementState.firstLoading);
-  //       break;
-
-  //     case DocumentChangeType.removed:
-  //       _processRemoved(store: store, item: item);
-  //       break;
-
-  //     default:
-  //     // do nothing
-  //   }
-  // }
 }
 
-// void _processAdded({
-//   required DocumentChange<Map<String, dynamic>> item,
-//   required bool firstFetch,
-//   required Store<AppState> store,
-// }) {
-//   final Map<String, dynamic>? data = item.doc.data();
+void _processRemoved({
+  required List<AnnouncementModel> list,
+  required Store<AppState> store,
+}) {
+  if (list.isNotEmpty) {
+    print('_processRemoved list = $list');
+  }
+}
 
-//   bool isTopEvent = false;
-//   final dynamic rawIsTopEvent = data?['is_top_event'];
-//   if (rawIsTopEvent is bool) {
-//     isTopEvent = rawIsTopEvent;
-//   }
-
-//   int? dateUnixMsRaw;
-//   try {
-//     final dynamic rawDateUnixMs = data?['date_unix_ms'];
-
-//     if (rawDateUnixMs != null) {
-//       if (rawDateUnixMs is Timestamp) {
-//         dateUnixMsRaw = rawDateUnixMs.millisecondsSinceEpoch;
-//       }
-//     }
-//   } catch (exc) {
-//     rethrow;
-//   }
-
-//   final AnnouncementModel model = AnnouncementModel(
-//     item.doc.id,
-//     title: data?['title']?.toString(),
-//     content: data?['content']?.toString(),
-//     isTopEvent: isTopEvent,
-//     dateUnixMs: dateUnixMsRaw,
-//   );
-
-//   if (firstFetch) {
-//     store.dispatch(AnnouncementAction.addAnnouncement(value: model));
-//   } else {
-//     store.dispatch(AnnouncementAction.addUnreadAnnouncement(value: model));
-//   }
-// }
-
-// void _processRemoved({
-//   required DocumentChange<Map<String, dynamic>> item,
-//   required Store<AppState> store,
-// }) {
-//   store.dispatch(
-//     AnnouncementAction.removeAnnouncementById(value: item.doc.id),
-//   );
-// }
+void _processModified({
+  required List<AnnouncementModel> list,
+  required Store<AppState> store,
+}) {
+  if (list.isNotEmpty) {
+    print('_processModified list = $list');
+  }
+}

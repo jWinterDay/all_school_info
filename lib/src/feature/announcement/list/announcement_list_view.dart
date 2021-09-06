@@ -108,15 +108,17 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
                               'Error: ${uiAnnouncementInfo.errorMessage}',
                             ),
                           )
-                        else if (uiAnnouncementInfo.announcementState.firstLoading)
+                        // else if (uiAnnouncementInfo.announcementState.firstLoading)
+                        //   SliverFillRemaining(
+                        //     child: Center(
+                        //       child: Text(AllSchoolInfoIntl.of(context).noContentYet),
+                        //     ),
+                        //   )
+                        else if (uiAnnouncementInfo.announcementState.list.isEmpty)
                           SliverFillRemaining(
                             child: Center(
-                              child: Text(AllSchoolInfoIntl.of(context).noContentYet),
+                              child: Text(AllSchoolInfoIntl.of(context).noAnnouncement),
                             ),
-                          )
-                        else if (uiAnnouncementInfo.announcementState.list.isEmpty)
-                          SliverToBoxAdapter(
-                            child: Text(AllSchoolInfoIntl.of(context).noAnnouncement),
                           )
                         else
                           SliverList(
@@ -133,8 +135,8 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
                     ),
 
                     // loading
-                    if (uiAnnouncementInfo.announcementState.firstLoading ||
-                        uiAnnouncementInfo.announcementState.loading)
+                    if ( //uiAnnouncementInfo.announcementState.firstLoading ||
+                    uiAnnouncementInfo.announcementState.loading)
                       SizedBox(
                         width: context.width,
                         height: context.height,

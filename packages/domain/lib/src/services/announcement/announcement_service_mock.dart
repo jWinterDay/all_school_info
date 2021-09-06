@@ -6,8 +6,6 @@ import 'package:domain/src/redux/announcement/models/announcement_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'announcement_service.dart';
 
-int _cnt = 0;
-
 class AnnouncementServiceMock implements AnnouncementService {
   static const String _collectionName = 'announcements';
   CollectionReference<Map<String, dynamic>> get _fbCollection => FirebaseFirestore.instance.collection(_collectionName);
