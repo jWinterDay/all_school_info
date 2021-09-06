@@ -93,7 +93,7 @@ mixin _$AnnouncementState {
   @JsonKey(name: 'draft_new_groups', defaultValue: const <String>{})
   Set<String> get draftNewGroups => throw _privateConstructorUsedError;
   @JsonKey(name: 'draft_publish_to_top', defaultValue: false)
-  bool get draftPublishToTop => throw _privateConstructorUsedError; // add, modify, remove announcement
+  bool get draftPublishToTop => throw _privateConstructorUsedError; // flag when add, modify, remove announcement
   @JsonKey(name: 'publish_loading', defaultValue: false)
   bool get publishLoading => throw _privateConstructorUsedError;
 
@@ -375,7 +375,7 @@ class _$_AnnouncementState extends _AnnouncementState {
   @override
   @JsonKey(name: 'draft_publish_to_top', defaultValue: false)
   final bool draftPublishToTop;
-  @override // add, modify, remove announcement
+  @override // flag when add, modify, remove announcement
   @JsonKey(name: 'publish_loading', defaultValue: false)
   final bool publishLoading;
 
@@ -489,7 +489,7 @@ abstract class _AnnouncementState extends AnnouncementState {
   @override
   @JsonKey(name: 'draft_publish_to_top', defaultValue: false)
   bool get draftPublishToTop => throw _privateConstructorUsedError;
-  @override // add, modify, remove announcement
+  @override // flag when add, modify, remove announcement
   @JsonKey(name: 'publish_loading', defaultValue: false)
   bool get publishLoading => throw _privateConstructorUsedError;
   @override

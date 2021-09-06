@@ -1,48 +1,22 @@
+import 'dart:async';
 import 'dart:io';
 
-import 'package:computer/computer.dart';
 import 'package:domain/domain.dart';
 import 'package:domain/src/redux/announcement/models/announcement_model.dart';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'announcement_service.dart';
-
-const String _kBody = '''
-  Цветок сникает, юность быстротечна,
-  И на веку людском ступень любая,
-  Любая мудрость временна, конечна,
-  Любому благу срок отмерен точно.
-  Так пусть же, зову жизни отвечая,
-  Душа легко и весело простится
-  С тем, с чем связать себя посмела прочно,
-  Пускай не сохнет в косности монашьей!
-  В любом начале волшебство таится,
-  Оно нам в помощь, в нем защита наша.
-
-  Пристанищ не искать, не приживаться,
-  Ступенька за ступенькой, без печали,
-  Шагать вперед, идти от дали к дали,
-  Все шире быть, все выше подниматься!
-  Засасывает круг привычек милых,
-  Уют покоя полон искушенья.
-  Но только тот, кто с места сняться в силах,
-  Спасет свой дух живой от разложенья.
-
-  И даже возле входа гробового
-  Жизнь вновь, глядишь, нам кликнет клич призывный,
-  И путь опять начнется непрерывный...
-  Простись же, сердце, и окрепни снова.''';
 
 int _cnt = 0;
 
-Future<void> _someExpensiveMethod() async {
-  sleep(const Duration(seconds: 1));
-}
-
 class AnnouncementServiceMock implements AnnouncementService {
+  CollectionReference<Map<String, dynamic>> get _fbCollection => FirebaseFirestore.instance.collection('announcements');
+
   @override
   Future<List<AnnouncementModel>> fetchAnnouncements() async {
-    final Computer computer = getIt.get<Computer>();
-    await computer.compute<void, void>(_someExpensiveMethod);
+    // final Computer computer = getIt.get<Computer>();
+    // await computer.compute<void, void>(_someExpensiveMethod);
 
     int listCount = 0;
     switch (_cnt++ % 3) {
@@ -61,10 +35,50 @@ class AnnouncementServiceMock implements AnnouncementService {
     return List<AnnouncementModel>.generate(listCount, (int index) {
       return AnnouncementModel(
         '$index',
-        content: '${_kBody.toString()} >> fsdf',
+        content: 'some body',
         title: 'looooooooooo oooooooooooo ooooooOOOoo OOOOoooOOoooong_title_$index',
         isTopEvent: index % 2 == 0,
       );
+    });
+  }
+
+  @override
+  Stream<List<AnnouncementModel>> announcementsStream({required List<String> accessGroups}) {
+    // return Stream.value([]);
+    return _fbCollection
+        .where(
+          'user_groups',
+          arrayContainsAny: accessGroups,
+        )
+        .snapshots(includeMetadataChanges: true)
+        .map((QuerySnapshot<Map<String, dynamic>> snapshot) => snapshot.docChanges)
+        .map((List<DocumentChange<Map<String, dynamic>>> changes) {
+      return changes.map((DocumentChange<Map<String, dynamic>> change) {
+        final Map<String, dynamic>? data = change.doc.data();
+
+        bool isTopEvent = false;
+        final dynamic rawIsTopEvent = data?['is_top_event'];
+        if (rawIsTopEvent is bool) {
+          isTopEvent = rawIsTopEvent;
+        }
+
+        int? dateUnixMsRaw;
+        final dynamic rawDateUnixMs = data?['date_unix_ms'];
+        if (rawDateUnixMs != null) {
+          if (rawDateUnixMs is Timestamp) {
+            dateUnixMsRaw = rawDateUnixMs.millisecondsSinceEpoch;
+          }
+        }
+
+        return AnnouncementModel(
+          change.doc.id,
+          title: data?['title']?.toString(),
+          content: data?['content']?.toString(),
+          isTopEvent: isTopEvent,
+          dateUnixMs: dateUnixMsRaw,
+          documentChangeType: change.type,
+        );
+      }).toList();
     });
   }
 }

@@ -33,6 +33,8 @@ AnnouncementState announcementReducer(AnnouncementState s, dynamic a) {
       // ignore: always_specify_types
       addUnreadAnnouncement: (a) => _addUnreadAnnouncement(s, a.value),
       // ignore: always_specify_types
+      addUnreadAnnouncementList: (a) => _addUnreadAnnouncementList(s, a.value),
+      // ignore: always_specify_types
       clearUnreadAnnouncements: (_) => _clearUnreadAnnouncements(s),
 
       /// `draft`
@@ -147,6 +149,29 @@ AnnouncementState _addUnreadAnnouncement(
   return state.copyWith(
     unreadList: <AnnouncementModel>[
       announcementModel,
+      ...state.unreadList,
+    ]..sort(),
+  );
+}
+
+AnnouncementState _addUnreadAnnouncementList(
+  AnnouncementState state,
+  List<AnnouncementModel> list,
+) {
+  // TODO
+  // insert top events directly to topList
+  // if (announcementModel.isTopEvent) {
+  //   return state.copyWith(
+  //     topList: <AnnouncementModel>[
+  //       announcementModel,
+  //       ...state.topList,
+  //     ]..sort(),
+  //   );
+  // }
+
+  return state.copyWith(
+    unreadList: <AnnouncementModel>[
+      ...list,
       ...state.unreadList,
     ]..sort(),
   );

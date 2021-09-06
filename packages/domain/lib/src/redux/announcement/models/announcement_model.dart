@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'announcement_model.freezed.dart';
@@ -15,6 +16,7 @@ class AnnouncementModel with _$AnnouncementModel implements Comparable<Announcem
     @JsonKey(name: 'user_groups', defaultValue: <String>[]) @Default(<String>[]) List<String> userGroups,
     @JsonKey(name: 'is_top_event', defaultValue: false) @Default(false) bool isTopEvent,
     @JsonKey(name: 'date_unix_ms') int? dateUnixMs,
+    @JsonKey(ignore: true) @Default(DocumentChangeType.added) DocumentChangeType documentChangeType,
   }) = _AnnouncementModel;
 
   factory AnnouncementModel.fromJson(Map<String, dynamic> json) => _$AnnouncementModelFromJson(json);

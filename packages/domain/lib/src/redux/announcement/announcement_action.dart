@@ -27,6 +27,8 @@ class AnnouncementAction with _$AnnouncementAction {
 
   /// `unread`
   const factory AnnouncementAction.addUnreadAnnouncement({required AnnouncementModel value}) = _AddUnreadAnnouncement;
+  const factory AnnouncementAction.addUnreadAnnouncementList({required List<AnnouncementModel> value}) =
+      _AddUnreadAnnouncementList;
   const factory AnnouncementAction.removeUnreadAnnouncement({required AnnouncementModel value}) =
       _RemoveUnreadAnnouncement;
   const factory AnnouncementAction.clearUnreadAnnouncements() = _ClearUnreadAnnouncement;
