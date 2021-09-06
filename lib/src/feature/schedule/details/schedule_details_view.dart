@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:all_school_info/src/generated/l10n.dart';
 import 'package:design/design.dart';
-import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
+// import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 
@@ -59,7 +59,7 @@ class _ScheduleDetailsViewState extends State<ScheduleDetailsView> {
                 children: <Widget>[
                   // content
                   CustomScrollView(
-                    physics: ClampingScrollPhysics(),
+                    physics: const ClampingScrollPhysics(),
                     slivers: <Widget>[
                       SliverPersistentHeader(
                         pinned: true,

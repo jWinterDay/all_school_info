@@ -19,10 +19,6 @@ _$_AnnouncementState _$_$_AnnouncementStateFromJson(Map<String, dynamic> json) {
             ?.map((e) => AnnouncementModel.fromJson(e as Map<String, dynamic>))
             .toList() ??
         [],
-    unreadList: (json['unread_list'] as List<dynamic>?)
-            ?.map((e) => AnnouncementModel.fromJson(e as Map<String, dynamic>))
-            .toList() ??
-        [],
     draftNewTitle: json['draft_new_title'] as String?,
     draftNewContent: json['draft_new_content'] as String?,
     draftNewGroups: (json['draft_new_groups'] as List<dynamic>?)?.map((e) => e as String).toSet() ?? {},
@@ -38,7 +34,6 @@ Map<String, dynamic> _$_$_AnnouncementStateToJson(_$_AnnouncementState instance)
       'error_model': instance.errorModel?.toJson(),
       'list': instance.list.map((e) => e.toJson()).toList(),
       'top_list': instance.topList.map((e) => e.toJson()).toList(),
-      'unread_list': instance.unreadList.map((e) => e.toJson()).toList(),
       'draft_new_title': instance.draftNewTitle,
       'draft_new_content': instance.draftNewContent,
       'draft_new_groups': instance.draftNewGroups.toList(),

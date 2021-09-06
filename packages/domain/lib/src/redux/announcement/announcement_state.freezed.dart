@@ -33,8 +33,6 @@ class _$AnnouncementStateTearOff {
           List<AnnouncementModel> list = const <AnnouncementModel>[],
       @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
           List<AnnouncementModel> topList = const <AnnouncementModel>[],
-      @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[])
-          List<AnnouncementModel> unreadList = const <AnnouncementModel>[],
       @JsonKey(name: 'draft_new_title')
           String? draftNewTitle,
       @JsonKey(name: 'draft_new_content')
@@ -52,7 +50,6 @@ class _$AnnouncementStateTearOff {
       errorModel: errorModel,
       list: list,
       topList: topList,
-      unreadList: unreadList,
       draftNewTitle: draftNewTitle,
       draftNewContent: draftNewContent,
       draftNewGroups: draftNewGroups,
@@ -85,10 +82,10 @@ mixin _$AnnouncementState {
   @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[])
   List<AnnouncementModel> get list => throw _privateConstructorUsedError;
   @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
-  List<AnnouncementModel> get topList => throw _privateConstructorUsedError; // TODO remove
-  @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[])
-  List<AnnouncementModel> get unreadList => throw _privateConstructorUsedError;
-
+  List<AnnouncementModel> get topList => throw _privateConstructorUsedError; // // TODO remove
+// @JsonKey(name: 'unread_list', defaultValue: <AnnouncementModel>[])
+// @Default(<AnnouncementModel>[])
+//     List<AnnouncementModel> unreadList,
   /// `create new announement. save draft of it`
   @JsonKey(name: 'draft_new_title')
   String? get draftNewTitle => throw _privateConstructorUsedError;
@@ -119,7 +116,6 @@ abstract class $AnnouncementStateCopyWith<$Res> {
       @JsonKey(name: 'error_model') ErrorModel? errorModel,
       @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> list,
       @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> topList,
-      @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> unreadList,
       @JsonKey(name: 'draft_new_title') String? draftNewTitle,
       @JsonKey(name: 'draft_new_content') String? draftNewContent,
       @JsonKey(name: 'draft_new_groups', defaultValue: const <String>{}) Set<String> draftNewGroups,
@@ -145,7 +141,6 @@ class _$AnnouncementStateCopyWithImpl<$Res> implements $AnnouncementStateCopyWit
     Object? errorModel = freezed,
     Object? list = freezed,
     Object? topList = freezed,
-    Object? unreadList = freezed,
     Object? draftNewTitle = freezed,
     Object? draftNewContent = freezed,
     Object? draftNewGroups = freezed,
@@ -176,10 +171,6 @@ class _$AnnouncementStateCopyWithImpl<$Res> implements $AnnouncementStateCopyWit
       topList: topList == freezed
           ? _value.topList
           : topList // ignore: cast_nullable_to_non_nullable
-              as List<AnnouncementModel>,
-      unreadList: unreadList == freezed
-          ? _value.unreadList
-          : unreadList // ignore: cast_nullable_to_non_nullable
               as List<AnnouncementModel>,
       draftNewTitle: draftNewTitle == freezed
           ? _value.draftNewTitle
@@ -228,7 +219,6 @@ abstract class _$AnnouncementStateCopyWith<$Res> implements $AnnouncementStateCo
       @JsonKey(name: 'error_model') ErrorModel? errorModel,
       @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> list,
       @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> topList,
-      @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> unreadList,
       @JsonKey(name: 'draft_new_title') String? draftNewTitle,
       @JsonKey(name: 'draft_new_content') String? draftNewContent,
       @JsonKey(name: 'draft_new_groups', defaultValue: const <String>{}) Set<String> draftNewGroups,
@@ -256,7 +246,6 @@ class __$AnnouncementStateCopyWithImpl<$Res> extends _$AnnouncementStateCopyWith
     Object? errorModel = freezed,
     Object? list = freezed,
     Object? topList = freezed,
-    Object? unreadList = freezed,
     Object? draftNewTitle = freezed,
     Object? draftNewContent = freezed,
     Object? draftNewGroups = freezed,
@@ -288,10 +277,6 @@ class __$AnnouncementStateCopyWithImpl<$Res> extends _$AnnouncementStateCopyWith
           ? _value.topList
           : topList // ignore: cast_nullable_to_non_nullable
               as List<AnnouncementModel>,
-      unreadList: unreadList == freezed
-          ? _value.unreadList
-          : unreadList // ignore: cast_nullable_to_non_nullable
-              as List<AnnouncementModel>,
       draftNewTitle: draftNewTitle == freezed
           ? _value.draftNewTitle
           : draftNewTitle // ignore: cast_nullable_to_non_nullable
@@ -320,30 +305,17 @@ class __$AnnouncementStateCopyWithImpl<$Res> extends _$AnnouncementStateCopyWith
 @JsonSerializable()
 class _$_AnnouncementState extends _AnnouncementState {
   const _$_AnnouncementState(
-      {@JsonKey(name: 'last_datetime_read_list_unix_ms')
-          this.lastDatetimeReadListUnixMs,
-      @JsonKey(name: 'loading', defaultValue: false)
-          this.loading = false,
-      @JsonKey(name: 'first_loading', defaultValue: true)
-          this.firstLoading = true,
-      @JsonKey(name: 'error_model')
-          this.errorModel,
-      @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[])
-          this.list = const <AnnouncementModel>[],
-      @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
-          this.topList = const <AnnouncementModel>[],
-      @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[])
-          this.unreadList = const <AnnouncementModel>[],
-      @JsonKey(name: 'draft_new_title')
-          this.draftNewTitle,
-      @JsonKey(name: 'draft_new_content')
-          this.draftNewContent,
-      @JsonKey(name: 'draft_new_groups', defaultValue: const <String>{})
-          this.draftNewGroups = const <String>{},
-      @JsonKey(name: 'draft_publish_to_top', defaultValue: false)
-          this.draftPublishToTop = false,
-      @JsonKey(name: 'publish_loading', defaultValue: false)
-          this.publishLoading = false})
+      {@JsonKey(name: 'last_datetime_read_list_unix_ms') this.lastDatetimeReadListUnixMs,
+      @JsonKey(name: 'loading', defaultValue: false) this.loading = false,
+      @JsonKey(name: 'first_loading', defaultValue: true) this.firstLoading = true,
+      @JsonKey(name: 'error_model') this.errorModel,
+      @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[]) this.list = const <AnnouncementModel>[],
+      @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[]) this.topList = const <AnnouncementModel>[],
+      @JsonKey(name: 'draft_new_title') this.draftNewTitle,
+      @JsonKey(name: 'draft_new_content') this.draftNewContent,
+      @JsonKey(name: 'draft_new_groups', defaultValue: const <String>{}) this.draftNewGroups = const <String>{},
+      @JsonKey(name: 'draft_publish_to_top', defaultValue: false) this.draftPublishToTop = false,
+      @JsonKey(name: 'publish_loading', defaultValue: false) this.publishLoading = false})
       : super._();
 
   factory _$_AnnouncementState.fromJson(Map<String, dynamic> json) => _$_$_AnnouncementStateFromJson(json);
@@ -370,11 +342,10 @@ class _$_AnnouncementState extends _AnnouncementState {
   @override
   @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
   final List<AnnouncementModel> topList;
-  @override // TODO remove
-  @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[])
-  final List<AnnouncementModel> unreadList;
-  @override
-
+  @override // // TODO remove
+// @JsonKey(name: 'unread_list', defaultValue: <AnnouncementModel>[])
+// @Default(<AnnouncementModel>[])
+//     List<AnnouncementModel> unreadList,
   /// `create new announement. save draft of it`
   @JsonKey(name: 'draft_new_title')
   final String? draftNewTitle;
@@ -395,7 +366,7 @@ class _$_AnnouncementState extends _AnnouncementState {
 
   @override
   String toString() {
-    return 'AnnouncementState(lastDatetimeReadListUnixMs: $lastDatetimeReadListUnixMs, loading: $loading, firstLoading: $firstLoading, errorModel: $errorModel, list: $list, topList: $topList, unreadList: $unreadList, draftNewTitle: $draftNewTitle, draftNewContent: $draftNewContent, draftNewGroups: $draftNewGroups, draftPublishToTop: $draftPublishToTop, publishLoading: $publishLoading)';
+    return 'AnnouncementState(lastDatetimeReadListUnixMs: $lastDatetimeReadListUnixMs, loading: $loading, firstLoading: $firstLoading, errorModel: $errorModel, list: $list, topList: $topList, draftNewTitle: $draftNewTitle, draftNewContent: $draftNewContent, draftNewGroups: $draftNewGroups, draftPublishToTop: $draftPublishToTop, publishLoading: $publishLoading)';
   }
 
   @override
@@ -411,8 +382,6 @@ class _$_AnnouncementState extends _AnnouncementState {
                 const DeepCollectionEquality().equals(other.errorModel, errorModel)) &&
             (identical(other.list, list) || const DeepCollectionEquality().equals(other.list, list)) &&
             (identical(other.topList, topList) || const DeepCollectionEquality().equals(other.topList, topList)) &&
-            (identical(other.unreadList, unreadList) ||
-                const DeepCollectionEquality().equals(other.unreadList, unreadList)) &&
             (identical(other.draftNewTitle, draftNewTitle) ||
                 const DeepCollectionEquality().equals(other.draftNewTitle, draftNewTitle)) &&
             (identical(other.draftNewContent, draftNewContent) ||
@@ -434,7 +403,6 @@ class _$_AnnouncementState extends _AnnouncementState {
       const DeepCollectionEquality().hash(errorModel) ^
       const DeepCollectionEquality().hash(list) ^
       const DeepCollectionEquality().hash(topList) ^
-      const DeepCollectionEquality().hash(unreadList) ^
       const DeepCollectionEquality().hash(draftNewTitle) ^
       const DeepCollectionEquality().hash(draftNewContent) ^
       const DeepCollectionEquality().hash(draftNewGroups) ^
@@ -460,7 +428,6 @@ abstract class _AnnouncementState extends AnnouncementState {
       @JsonKey(name: 'error_model') ErrorModel? errorModel,
       @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> list,
       @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> topList,
-      @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> unreadList,
       @JsonKey(name: 'draft_new_title') String? draftNewTitle,
       @JsonKey(name: 'draft_new_content') String? draftNewContent,
       @JsonKey(name: 'draft_new_groups', defaultValue: const <String>{}) Set<String> draftNewGroups,
@@ -492,11 +459,10 @@ abstract class _AnnouncementState extends AnnouncementState {
   @override
   @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
   List<AnnouncementModel> get topList => throw _privateConstructorUsedError;
-  @override // TODO remove
-  @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[])
-  List<AnnouncementModel> get unreadList => throw _privateConstructorUsedError;
-  @override
-
+  @override // // TODO remove
+// @JsonKey(name: 'unread_list', defaultValue: <AnnouncementModel>[])
+// @Default(<AnnouncementModel>[])
+//     List<AnnouncementModel> unreadList,
   /// `create new announement. save draft of it`
   @JsonKey(name: 'draft_new_title')
   String? get draftNewTitle => throw _privateConstructorUsedError;

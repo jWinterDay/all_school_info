@@ -50,7 +50,7 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
         );
       },
       builder: (_, UiAnnouncementInfo uiAnnouncementInfo) {
-        final int unreadLen = uiAnnouncementInfo.unreadAnnouncementList.length;
+        // final int unreadLen = uiAnnouncementInfo.unreadAnnouncementList.length;
 
         return Column(
           children: <Widget>[
@@ -72,19 +72,19 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
               ),
 
             // there are new messages button
-            if (uiAnnouncementInfo.unreadAnnouncementList.isNotEmpty)
-              GestureDetector(
-                onTap: _bloc.clearUnreadAnnouncements,
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 8),
-                  child: ColoredBox(
-                    color: context.design.palette.gray12,
-                    child: Text(
-                      AllSchoolInfoIntl.of(context).unreadAnnouncements(unreadLen),
-                    ),
-                  ),
-                ),
-              ),
+            // if (uiAnnouncementInfo.unreadAnnouncementList.isNotEmpty)
+            //   GestureDetector(
+            //     onTap: _bloc.clearUnreadAnnouncements,
+            //     child: Padding(
+            //       padding: const EdgeInsets.only(top: 8),
+            //       child: ColoredBox(
+            //         color: context.design.palette.gray12,
+            //         child: Text(
+            //           AllSchoolInfoIntl.of(context).unreadAnnouncements(unreadLen),
+            //         ),
+            //       ),
+            //     ),
+            //   ),
 
             // scroll content
             Expanded(
@@ -123,6 +123,9 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
                         else
                           SliverList(
                             delegate: SliverChildListDelegate(
+                              // uiAnnouncementInfo.readAnnouncementList.map((AnnouncementModel e) {
+                              //   return AnnouncementCard(announcementModel: e);
+                              // }).toList(),
                               uiAnnouncementInfo.announcementState.list.map((AnnouncementModel e) {
                                 return AnnouncementCard(announcementModel: e);
                               }).toList(),

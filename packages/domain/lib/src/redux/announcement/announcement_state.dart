@@ -25,10 +25,10 @@ class AnnouncementState with _$AnnouncementState {
     @Default(<AnnouncementModel>[])
         List<AnnouncementModel> topList,
 
-    // TODO remove
-    @JsonKey(name: 'unread_list', defaultValue: <AnnouncementModel>[])
-    @Default(<AnnouncementModel>[])
-        List<AnnouncementModel> unreadList,
+    // // TODO remove
+    // @JsonKey(name: 'unread_list', defaultValue: <AnnouncementModel>[])
+    // @Default(<AnnouncementModel>[])
+    //     List<AnnouncementModel> unreadList,
 
     /// `create new announement. save draft of it`
     @JsonKey(name: 'draft_new_title') String? draftNewTitle,
@@ -48,5 +48,11 @@ class AnnouncementState with _$AnnouncementState {
     }
 
     return !publishLoading && draftNewGroups.isNotEmpty && draftNewTitle!.isNotEmpty && draftNewContent!.isNotEmpty;
+  }
+
+  List<AnnouncementModel> get unreadList {
+    return list.where((AnnouncementModel e) {
+      return e.isUnread;
+    }).toList();
   }
 }

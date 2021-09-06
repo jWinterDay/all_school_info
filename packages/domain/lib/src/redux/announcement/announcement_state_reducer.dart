@@ -13,7 +13,7 @@ AnnouncementState announcementReducer(AnnouncementState s, dynamic a) {
       cleanUp: (_) => s.copyWith(
         list: <AnnouncementModel>[],
         topList: <AnnouncementModel>[],
-        unreadList: <AnnouncementModel>[],
+        // unreadList: <AnnouncementModel>[],
       ),
       // ignore: always_specify_types
       setErrorModel: (a) => s.copyWith(errorModel: a.value),
@@ -86,8 +86,6 @@ AnnouncementState _clearUnread(AnnouncementState state) {
     return model.copyWith(isUnread: false);
   }).toList();
 
-  print('nextList = $nextList');
-
   return state.copyWith(
     list: nextList,
   );
@@ -105,33 +103,34 @@ AnnouncementState _removeAnnouncementById(
   AnnouncementState state,
   String id,
 ) {
-  // TODO remake
-  if (state.list.any((AnnouncementModel e) => e.id == id)) {
-    final List<AnnouncementModel> nextList = <AnnouncementModel>[...state.list];
-    nextList.removeWhere((AnnouncementModel e) => e.id == id);
-
-    return state.copyWith(
-      list: nextList,
-    );
-  }
-
-  if (state.topList.any((AnnouncementModel e) => e.id == id)) {
-    final List<AnnouncementModel> nextList = <AnnouncementModel>[...state.topList];
-    nextList.removeWhere((AnnouncementModel e) => e.id == id);
-    return state.copyWith(
-      topList: nextList,
-    );
-  }
-
-  if (state.unreadList.any((AnnouncementModel e) => e.id == id)) {
-    final List<AnnouncementModel> nextList = <AnnouncementModel>[...state.unreadList];
-    nextList.removeWhere((AnnouncementModel e) => e.id == id);
-    return state.copyWith(
-      unreadList: nextList,
-    );
-  }
-
   return state;
+  // TODO remake
+  // if (state.list.any((AnnouncementModel e) => e.id == id)) {
+  //   final List<AnnouncementModel> nextList = <AnnouncementModel>[...state.list];
+  //   nextList.removeWhere((AnnouncementModel e) => e.id == id);
+
+  //   return state.copyWith(
+  //     list: nextList,
+  //   );
+  // }
+
+  // if (state.topList.any((AnnouncementModel e) => e.id == id)) {
+  //   final List<AnnouncementModel> nextList = <AnnouncementModel>[...state.topList];
+  //   nextList.removeWhere((AnnouncementModel e) => e.id == id);
+  //   return state.copyWith(
+  //     topList: nextList,
+  //   );
+  // }
+
+  // if (state.unreadList.any((AnnouncementModel e) => e.id == id)) {
+  //   final List<AnnouncementModel> nextList = <AnnouncementModel>[...state.unreadList];
+  //   nextList.removeWhere((AnnouncementModel e) => e.id == id);
+  //   return state.copyWith(
+  //     unreadList: nextList,
+  //   );
+  // }
+
+  // return state;
 }
 
 AnnouncementState _addAnnouncement(
@@ -162,9 +161,9 @@ AnnouncementState _addAnnouncementList(
   Iterable<AnnouncementModel> list,
 ) {
   return state.copyWith(
-    list: list.where((AnnouncementModel e) => !e.isTopEvent).where((AnnouncementModel e) => !e.isUnread).toList(),
+    list: list.where((AnnouncementModel e) => !e.isTopEvent).toList(),
     topList: list.where((AnnouncementModel e) => e.isTopEvent).toList(),
-    unreadList: list.where((AnnouncementModel e) => !e.isTopEvent).where((AnnouncementModel e) => e.isUnread).toList(),
+    // unreadList: list.where((AnnouncementModel e) => !e.isTopEvent).where((AnnouncementModel e) => e.isUnread).toList(),
   );
 }
 

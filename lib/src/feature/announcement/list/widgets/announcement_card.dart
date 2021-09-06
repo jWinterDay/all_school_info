@@ -29,9 +29,6 @@ class AnnouncementCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final t = DateTime.now().millisecondsSinceEpoch;
-    // print('t = $t');
-
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
       child: GestureDetector(
@@ -52,12 +49,17 @@ class AnnouncementCard extends StatelessWidget {
               // title
               Row(
                 children: <Widget>[
+                  // unread
                   if (announcementModel.isUnread)
-                    Container(
-                      width: 30,
-                      color: context.design.palette.accent,
-                      height: 30,
+                    Icon(
+                      Icons.mark_as_unread,
+                      color: context.design.palette.danger,
                     ),
+                  // Container(
+                  //   width: 30,
+                  //   color: context.design.palette.accent,
+                  //   height: 30,
+                  // ),
                   Expanded(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 4),

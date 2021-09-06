@@ -1,4 +1,3 @@
-import 'package:all_school_info/src/feature/announcement/edit/announcement_edit_view.dart';
 import 'package:all_school_info/src/models/card_view_mode.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:domain/domain.dart';
@@ -9,8 +8,6 @@ import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:design/design.dart';
 
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart' as mbs;
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:redux/redux.dart';
 
 import 'home_bloc.dart';
@@ -50,6 +47,7 @@ class _HomeViewState extends State<HomeView> {
 
         return CupertinoPageScaffold(
           navigationBar: CupertinoNavigationBar(
+            trailing: const _TestModeLabel(),
             middle: Text(
               AllSchoolInfoIntl.of(context).mainTitle,
               style: Theme.of(context).appBarTheme.textTheme?.caption,
