@@ -18,7 +18,7 @@ class AnnouncementListBloc {
   }
 
   void clearUnreadAnnouncements() {
-    _store.dispatch(const AnnouncementAction.clearUnreadAnnouncements());
+    _store.dispatch(const AnnouncementAction.clearUnread());
   }
 
   void _subscribe() {

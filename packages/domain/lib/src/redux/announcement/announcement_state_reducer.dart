@@ -28,14 +28,10 @@ AnnouncementState announcementReducer(AnnouncementState s, dynamic a) {
       removeAnnouncementById: (a) => _removeAnnouncementById(s, a.value),
       // ignore: always_specify_types
       modifyAnnouncementById: (a) => _modifyAnnouncementById(s, id: a.id, data: a.data),
-
-      /// `unread list`
       // ignore: always_specify_types
-      addUnreadAnnouncement: (a) => _addUnreadAnnouncement(s, a.value),
+      markAsRead: (a) => _markAsRead(s, ids: a.ids),
       // ignore: always_specify_types
-      addUnreadAnnouncementList: (a) => _addUnreadAnnouncementList(s, a.value),
-      // ignore: always_specify_types
-      clearUnreadAnnouncements: (_) => _clearUnreadAnnouncements(s),
+      clearUnread: (a) => _clearUnread(s),
 
       /// `draft`
       clearDraftContent: (_) => s.copyWith(draftNewTitle: null, draftNewContent: null), //, draftNewGroups: <String>{}),
@@ -59,6 +55,44 @@ AnnouncementState announcementReducer(AnnouncementState s, dynamic a) {
   return s;
 }
 
+AnnouncementState _markAsRead(
+  AnnouncementState state, {
+  required List<String> ids,
+}) {
+  final List<AnnouncementModel> nextList = state.list.map((AnnouncementModel model) {
+    if (ids.contains(model.id)) {
+      return model.copyWith(isUnread: false);
+    }
+
+    return model;
+  }).toList();
+
+  final List<AnnouncementModel> nextTopList = state.topList.map((AnnouncementModel model) {
+    if (ids.contains(model.id)) {
+      return model.copyWith(isUnread: false);
+    }
+
+    return model;
+  }).toList();
+
+  return state.copyWith(
+    list: nextList,
+    topList: nextTopList,
+  );
+}
+
+AnnouncementState _clearUnread(AnnouncementState state) {
+  final List<AnnouncementModel> nextList = state.list.map((AnnouncementModel model) {
+    return model.copyWith(isUnread: false);
+  }).toList();
+
+  print('nextList = $nextList');
+
+  return state.copyWith(
+    list: nextList,
+  );
+}
+
 AnnouncementState _modifyAnnouncementById(
   AnnouncementState state, {
   required String id,
@@ -77,7 +111,7 @@ AnnouncementState _removeAnnouncementById(
     nextList.removeWhere((AnnouncementModel e) => e.id == id);
 
     return state.copyWith(
-      list: nextList..sort(),
+      list: nextList,
     );
   }
 
@@ -104,22 +138,23 @@ AnnouncementState _addAnnouncement(
   AnnouncementState state,
   AnnouncementModel announcementModel,
 ) {
+  throw UnimplementedError();
   // top
-  if (announcementModel.isTopEvent) {
-    return state.copyWith(
-      topList: <AnnouncementModel>[
-        ...state.list,
-        announcementModel,
-      ]..sort(),
-    );
-  }
+  // if (announcementModel.isTopEvent) {
+  //   return state.copyWith(
+  //     topList: <AnnouncementModel>[
+  //       ...state.list,
+  //       announcementModel,
+  //     ],
+  //   );
+  // }
 
-  return state.copyWith(
-    list: <AnnouncementModel>[
-      ...state.list,
-      announcementModel,
-    ]..sort(),
-  );
+  // return state.copyWith(
+  //   list: <AnnouncementModel>[
+  //     ...state.list,
+  //     announcementModel,
+  //   ],
+  // );
 }
 
 AnnouncementState _addAnnouncementList(
@@ -127,74 +162,69 @@ AnnouncementState _addAnnouncementList(
   Iterable<AnnouncementModel> list,
 ) {
   return state.copyWith(
-    list: <AnnouncementModel>[
-      ...list.where((AnnouncementModel e) => !e.isTopEvent).toList()..sort(),
-      ...state.list,
-    ],
-    topList: <AnnouncementModel>[
-      ...list.where((AnnouncementModel e) => e.isTopEvent).toList()..sort(),
-      ...state.topList,
-    ],
+    list: list.where((AnnouncementModel e) => !e.isTopEvent).where((AnnouncementModel e) => !e.isUnread).toList(),
+    topList: list.where((AnnouncementModel e) => e.isTopEvent).toList(),
+    unreadList: list.where((AnnouncementModel e) => !e.isTopEvent).where((AnnouncementModel e) => e.isUnread).toList(),
   );
 }
 
-AnnouncementState _addUnreadAnnouncement(
-  AnnouncementState state,
-  AnnouncementModel announcementModel,
-) {
-  // insert top events directly to topList
-  if (announcementModel.isTopEvent) {
-    return state.copyWith(
-      topList: <AnnouncementModel>[
-        announcementModel,
-        ...state.topList,
-      ]..sort(),
-    );
-  }
+// AnnouncementState _addUnreadAnnouncement(
+//   AnnouncementState state,
+//   AnnouncementModel announcementModel,
+// ) {
+//   // insert top events directly to topList
+//   if (announcementModel.isTopEvent) {
+//     return state.copyWith(
+//       topList: <AnnouncementModel>[
+//         announcementModel,
+//         ...state.topList,
+//       ],
+//     );
+//   }
 
-  return state.copyWith(
-    unreadList: <AnnouncementModel>[
-      announcementModel,
-      ...state.unreadList,
-    ]..sort(),
-  );
-}
+//   return state.copyWith(
+//     unreadList: <AnnouncementModel>[
+//       announcementModel,
+//       ...state.unreadList,
+//     ],
+//   );
+// }
 
-AnnouncementState _addUnreadAnnouncementList(
-  AnnouncementState state,
-  List<AnnouncementModel> list,
-) {
-  // TODO
-  // insert top events directly to topList
-  // if (announcementModel.isTopEvent) {
-  //   return state.copyWith(
-  //     topList: <AnnouncementModel>[
-  //       announcementModel,
-  //       ...state.topList,
-  //     ]..sort(),
-  //   );
-  // }
+// AnnouncementState _addUnreadAnnouncementList(
+//   AnnouncementState state,
+//   List<AnnouncementModel> list,
+// ) {
+//   // TODO
+//   // insert top events directly to topList
+//   // if (announcementModel.isTopEvent) {
+//   //   return state.copyWith(
+//   //     topList: <AnnouncementModel>[
+//   //       announcementModel,
+//   //       ...state.topList,
+//   //     ],
+//   //   );
+//   // }
 
-  return state.copyWith(
-    unreadList: <AnnouncementModel>[
-      ...list,
-      ...state.unreadList,
-    ]..sort(),
-  );
-}
+//   return state.copyWith(
+//     unreadList: <AnnouncementModel>[
+//       ...list,
+//       ...state.unreadList,
+//     ],
+//   );
+// }
 
-AnnouncementState _clearUnreadAnnouncements(
-  AnnouncementState state,
-) {
-  return state.copyWith(
-    unreadList: <AnnouncementModel>[],
-    list: <AnnouncementModel>[
-      ...state.unreadList.where((AnnouncementModel e) => !e.isTopEvent).toList(),
-      ...state.list,
-    ]..sort(),
-    topList: <AnnouncementModel>[
-      ...state.unreadList.where((AnnouncementModel e) => e.isTopEvent).toList(),
-      ...state.topList,
-    ]..sort(),
-  );
-}
+// AnnouncementState _clearUnreadAnnouncements(
+//   AnnouncementState state,
+// ) {
+//   return state.copyWith(
+//     unreadList: <AnnouncementModel>[],
+//     list: <AnnouncementModel>[
+//       ...state.unreadList.where((AnnouncementModel e) => !e.isTopEvent).toList(),
+//       ...state.list,
+//     ],
+//     topList: <AnnouncementModel>[
+//       ...state.unreadList.where((AnnouncementModel e) => e.isTopEvent).toList(),
+//       ...state.topList,
+//     ],
+//   );
+// }

@@ -26,7 +26,7 @@ class AnnouncementServiceMock implements AnnouncementService {
       return _mapModelFromData(
         data: item.data(),
         id: item.id,
-        changeType: DocumentChangeType.added,
+        isUnread: false,
       );
     }).toList();
   }
@@ -36,13 +36,21 @@ class AnnouncementServiceMock implements AnnouncementService {
     return _fbCollection
         .where('user_groups', arrayContainsAny: accessGroups)
         .snapshots(includeMetadataChanges: true)
-        .map((QuerySnapshot<Map<String, dynamic>> snapshot) => snapshot.docs)
-        .map((List<QueryDocumentSnapshot<Map<String, dynamic>>> docList) {
+        .map((QuerySnapshot<Map<String, dynamic>> snapshot) {
+      final List<QueryDocumentSnapshot<Map<String, dynamic>>> docList = snapshot.docs;
+      final List<DocumentChange<Map<String, dynamic>>> changes = snapshot.docChanges;
+
+      final List<String> changesIdList = changes.where((DocumentChange<Map<String, dynamic>> e) {
+        return e.type != DocumentChangeType.added;
+      }).map((DocumentChange<Map<String, dynamic>> e) {
+        return e.doc.id;
+      }).toList();
+
       return docList.map((QueryDocumentSnapshot<Map<String, dynamic>> doc) {
         return _mapModelFromData(
           data: doc.data(),
           id: doc.id,
-          changeType: DocumentChangeType.added,
+          isUnread: changesIdList.contains(doc.id),
         );
       }).toList();
     });
@@ -72,7 +80,8 @@ class AnnouncementServiceMock implements AnnouncementService {
 AnnouncementModel _mapModelFromData({
   required Map<String, dynamic>? data,
   required String id,
-  required DocumentChangeType changeType,
+  required bool isUnread,
+  // required DocumentChangeType changeType,
 }) {
   bool isTopEvent = false;
 
@@ -102,5 +111,6 @@ AnnouncementModel _mapModelFromData({
     isTopEvent: isTopEvent,
     dateUnixMs: dateUnixMsRaw,
     userGroups: userGroups,
+    isUnread: isUnread,
   );
 }

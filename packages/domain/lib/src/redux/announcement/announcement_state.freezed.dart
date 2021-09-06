@@ -21,8 +21,8 @@ class _$AnnouncementStateTearOff {
   const _$AnnouncementStateTearOff();
 
   _AnnouncementState call(
-      {@JsonKey(name: 'date')
-          int? dateUnixMs,
+      {@JsonKey(name: 'last_datetime_read_list_unix_ms')
+          int? lastDatetimeReadListUnixMs,
       @JsonKey(name: 'loading', defaultValue: false)
           bool loading = false,
       @JsonKey(name: 'first_loading', defaultValue: true)
@@ -46,7 +46,7 @@ class _$AnnouncementStateTearOff {
       @JsonKey(name: 'publish_loading', defaultValue: false)
           bool publishLoading = false}) {
     return _AnnouncementState(
-      dateUnixMs: dateUnixMs,
+      lastDatetimeReadListUnixMs: lastDatetimeReadListUnixMs,
       loading: loading,
       firstLoading: firstLoading,
       errorModel: errorModel,
@@ -71,21 +71,25 @@ const $AnnouncementState = _$AnnouncementStateTearOff();
 
 /// @nodoc
 mixin _$AnnouncementState {
-  @JsonKey(name: 'date')
-  int? get dateUnixMs => throw _privateConstructorUsedError;
+  /// `common`
+  @JsonKey(name: 'last_datetime_read_list_unix_ms')
+  int? get lastDatetimeReadListUnixMs => throw _privateConstructorUsedError;
   @JsonKey(name: 'loading', defaultValue: false)
   bool get loading => throw _privateConstructorUsedError;
   @JsonKey(name: 'first_loading', defaultValue: true)
   bool get firstLoading => throw _privateConstructorUsedError;
   @JsonKey(name: 'error_model')
   ErrorModel? get errorModel => throw _privateConstructorUsedError;
+
+  /// `announcement`
   @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[])
   List<AnnouncementModel> get list => throw _privateConstructorUsedError;
   @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
-  List<AnnouncementModel> get topList => throw _privateConstructorUsedError;
+  List<AnnouncementModel> get topList => throw _privateConstructorUsedError; // TODO remove
   @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[])
-  List<AnnouncementModel> get unreadList =>
-      throw _privateConstructorUsedError; // create new announement. save draft of it
+  List<AnnouncementModel> get unreadList => throw _privateConstructorUsedError;
+
+  /// `create new announement. save draft of it`
   @JsonKey(name: 'draft_new_title')
   String? get draftNewTitle => throw _privateConstructorUsedError;
   @JsonKey(name: 'draft_new_content')
@@ -93,7 +97,9 @@ mixin _$AnnouncementState {
   @JsonKey(name: 'draft_new_groups', defaultValue: const <String>{})
   Set<String> get draftNewGroups => throw _privateConstructorUsedError;
   @JsonKey(name: 'draft_publish_to_top', defaultValue: false)
-  bool get draftPublishToTop => throw _privateConstructorUsedError; // flag when add, modify, remove announcement
+  bool get draftPublishToTop => throw _privateConstructorUsedError;
+
+  /// `flag when add, modify, remove announcement`
   @JsonKey(name: 'publish_loading', defaultValue: false)
   bool get publishLoading => throw _privateConstructorUsedError;
 
@@ -107,7 +113,7 @@ abstract class $AnnouncementStateCopyWith<$Res> {
   factory $AnnouncementStateCopyWith(AnnouncementState value, $Res Function(AnnouncementState) then) =
       _$AnnouncementStateCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: 'date') int? dateUnixMs,
+      {@JsonKey(name: 'last_datetime_read_list_unix_ms') int? lastDatetimeReadListUnixMs,
       @JsonKey(name: 'loading', defaultValue: false) bool loading,
       @JsonKey(name: 'first_loading', defaultValue: true) bool firstLoading,
       @JsonKey(name: 'error_model') ErrorModel? errorModel,
@@ -133,7 +139,7 @@ class _$AnnouncementStateCopyWithImpl<$Res> implements $AnnouncementStateCopyWit
 
   @override
   $Res call({
-    Object? dateUnixMs = freezed,
+    Object? lastDatetimeReadListUnixMs = freezed,
     Object? loading = freezed,
     Object? firstLoading = freezed,
     Object? errorModel = freezed,
@@ -147,9 +153,9 @@ class _$AnnouncementStateCopyWithImpl<$Res> implements $AnnouncementStateCopyWit
     Object? publishLoading = freezed,
   }) {
     return _then(_value.copyWith(
-      dateUnixMs: dateUnixMs == freezed
-          ? _value.dateUnixMs
-          : dateUnixMs // ignore: cast_nullable_to_non_nullable
+      lastDatetimeReadListUnixMs: lastDatetimeReadListUnixMs == freezed
+          ? _value.lastDatetimeReadListUnixMs
+          : lastDatetimeReadListUnixMs // ignore: cast_nullable_to_non_nullable
               as int?,
       loading: loading == freezed
           ? _value.loading
@@ -216,7 +222,7 @@ abstract class _$AnnouncementStateCopyWith<$Res> implements $AnnouncementStateCo
       __$AnnouncementStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: 'date') int? dateUnixMs,
+      {@JsonKey(name: 'last_datetime_read_list_unix_ms') int? lastDatetimeReadListUnixMs,
       @JsonKey(name: 'loading', defaultValue: false) bool loading,
       @JsonKey(name: 'first_loading', defaultValue: true) bool firstLoading,
       @JsonKey(name: 'error_model') ErrorModel? errorModel,
@@ -244,7 +250,7 @@ class __$AnnouncementStateCopyWithImpl<$Res> extends _$AnnouncementStateCopyWith
 
   @override
   $Res call({
-    Object? dateUnixMs = freezed,
+    Object? lastDatetimeReadListUnixMs = freezed,
     Object? loading = freezed,
     Object? firstLoading = freezed,
     Object? errorModel = freezed,
@@ -258,9 +264,9 @@ class __$AnnouncementStateCopyWithImpl<$Res> extends _$AnnouncementStateCopyWith
     Object? publishLoading = freezed,
   }) {
     return _then(_AnnouncementState(
-      dateUnixMs: dateUnixMs == freezed
-          ? _value.dateUnixMs
-          : dateUnixMs // ignore: cast_nullable_to_non_nullable
+      lastDatetimeReadListUnixMs: lastDatetimeReadListUnixMs == freezed
+          ? _value.lastDatetimeReadListUnixMs
+          : lastDatetimeReadListUnixMs // ignore: cast_nullable_to_non_nullable
               as int?,
       loading: loading == freezed
           ? _value.loading
@@ -314,8 +320,8 @@ class __$AnnouncementStateCopyWithImpl<$Res> extends _$AnnouncementStateCopyWith
 @JsonSerializable()
 class _$_AnnouncementState extends _AnnouncementState {
   const _$_AnnouncementState(
-      {@JsonKey(name: 'date')
-          this.dateUnixMs,
+      {@JsonKey(name: 'last_datetime_read_list_unix_ms')
+          this.lastDatetimeReadListUnixMs,
       @JsonKey(name: 'loading', defaultValue: false)
           this.loading = false,
       @JsonKey(name: 'first_loading', defaultValue: true)
@@ -343,8 +349,10 @@ class _$_AnnouncementState extends _AnnouncementState {
   factory _$_AnnouncementState.fromJson(Map<String, dynamic> json) => _$_$_AnnouncementStateFromJson(json);
 
   @override
-  @JsonKey(name: 'date')
-  final int? dateUnixMs;
+
+  /// `common`
+  @JsonKey(name: 'last_datetime_read_list_unix_ms')
+  final int? lastDatetimeReadListUnixMs;
   @override
   @JsonKey(name: 'loading', defaultValue: false)
   final bool loading;
@@ -355,15 +363,19 @@ class _$_AnnouncementState extends _AnnouncementState {
   @JsonKey(name: 'error_model')
   final ErrorModel? errorModel;
   @override
+
+  /// `announcement`
   @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[])
   final List<AnnouncementModel> list;
   @override
   @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
   final List<AnnouncementModel> topList;
-  @override
+  @override // TODO remove
   @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[])
   final List<AnnouncementModel> unreadList;
-  @override // create new announement. save draft of it
+  @override
+
+  /// `create new announement. save draft of it`
   @JsonKey(name: 'draft_new_title')
   final String? draftNewTitle;
   @override
@@ -375,21 +387,23 @@ class _$_AnnouncementState extends _AnnouncementState {
   @override
   @JsonKey(name: 'draft_publish_to_top', defaultValue: false)
   final bool draftPublishToTop;
-  @override // flag when add, modify, remove announcement
+  @override
+
+  /// `flag when add, modify, remove announcement`
   @JsonKey(name: 'publish_loading', defaultValue: false)
   final bool publishLoading;
 
   @override
   String toString() {
-    return 'AnnouncementState(dateUnixMs: $dateUnixMs, loading: $loading, firstLoading: $firstLoading, errorModel: $errorModel, list: $list, topList: $topList, unreadList: $unreadList, draftNewTitle: $draftNewTitle, draftNewContent: $draftNewContent, draftNewGroups: $draftNewGroups, draftPublishToTop: $draftPublishToTop, publishLoading: $publishLoading)';
+    return 'AnnouncementState(lastDatetimeReadListUnixMs: $lastDatetimeReadListUnixMs, loading: $loading, firstLoading: $firstLoading, errorModel: $errorModel, list: $list, topList: $topList, unreadList: $unreadList, draftNewTitle: $draftNewTitle, draftNewContent: $draftNewContent, draftNewGroups: $draftNewGroups, draftPublishToTop: $draftPublishToTop, publishLoading: $publishLoading)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _AnnouncementState &&
-            (identical(other.dateUnixMs, dateUnixMs) ||
-                const DeepCollectionEquality().equals(other.dateUnixMs, dateUnixMs)) &&
+            (identical(other.lastDatetimeReadListUnixMs, lastDatetimeReadListUnixMs) ||
+                const DeepCollectionEquality().equals(other.lastDatetimeReadListUnixMs, lastDatetimeReadListUnixMs)) &&
             (identical(other.loading, loading) || const DeepCollectionEquality().equals(other.loading, loading)) &&
             (identical(other.firstLoading, firstLoading) ||
                 const DeepCollectionEquality().equals(other.firstLoading, firstLoading)) &&
@@ -414,7 +428,7 @@ class _$_AnnouncementState extends _AnnouncementState {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(dateUnixMs) ^
+      const DeepCollectionEquality().hash(lastDatetimeReadListUnixMs) ^
       const DeepCollectionEquality().hash(loading) ^
       const DeepCollectionEquality().hash(firstLoading) ^
       const DeepCollectionEquality().hash(errorModel) ^
@@ -440,7 +454,7 @@ class _$_AnnouncementState extends _AnnouncementState {
 
 abstract class _AnnouncementState extends AnnouncementState {
   const factory _AnnouncementState(
-      {@JsonKey(name: 'date') int? dateUnixMs,
+      {@JsonKey(name: 'last_datetime_read_list_unix_ms') int? lastDatetimeReadListUnixMs,
       @JsonKey(name: 'loading', defaultValue: false) bool loading,
       @JsonKey(name: 'first_loading', defaultValue: true) bool firstLoading,
       @JsonKey(name: 'error_model') ErrorModel? errorModel,
@@ -457,8 +471,10 @@ abstract class _AnnouncementState extends AnnouncementState {
   factory _AnnouncementState.fromJson(Map<String, dynamic> json) = _$_AnnouncementState.fromJson;
 
   @override
-  @JsonKey(name: 'date')
-  int? get dateUnixMs => throw _privateConstructorUsedError;
+
+  /// `common`
+  @JsonKey(name: 'last_datetime_read_list_unix_ms')
+  int? get lastDatetimeReadListUnixMs => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'loading', defaultValue: false)
   bool get loading => throw _privateConstructorUsedError;
@@ -469,15 +485,19 @@ abstract class _AnnouncementState extends AnnouncementState {
   @JsonKey(name: 'error_model')
   ErrorModel? get errorModel => throw _privateConstructorUsedError;
   @override
+
+  /// `announcement`
   @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[])
   List<AnnouncementModel> get list => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
   List<AnnouncementModel> get topList => throw _privateConstructorUsedError;
-  @override
+  @override // TODO remove
   @JsonKey(name: 'unread_list', defaultValue: const <AnnouncementModel>[])
   List<AnnouncementModel> get unreadList => throw _privateConstructorUsedError;
-  @override // create new announement. save draft of it
+  @override
+
+  /// `create new announement. save draft of it`
   @JsonKey(name: 'draft_new_title')
   String? get draftNewTitle => throw _privateConstructorUsedError;
   @override
@@ -489,7 +509,9 @@ abstract class _AnnouncementState extends AnnouncementState {
   @override
   @JsonKey(name: 'draft_publish_to_top', defaultValue: false)
   bool get draftPublishToTop => throw _privateConstructorUsedError;
-  @override // flag when add, modify, remove announcement
+  @override
+
+  /// `flag when add, modify, remove announcement`
   @JsonKey(name: 'publish_loading', defaultValue: false)
   bool get publishLoading => throw _privateConstructorUsedError;
   @override

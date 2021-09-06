@@ -24,14 +24,17 @@ class AnnouncementAction with _$AnnouncementAction {
       _ModifyAnnouncement;
   const factory AnnouncementAction.addAnnouncementList({required Iterable<AnnouncementModel> value}) =
       _AddAnnouncementList;
+  const factory AnnouncementAction.markAsRead({required List<String> ids}) = _MarkAsRead;
+  const factory AnnouncementAction.clearUnread() = _ClearUnread; // clear all unread items
 
-  /// `unread`
-  const factory AnnouncementAction.addUnreadAnnouncement({required AnnouncementModel value}) = _AddUnreadAnnouncement;
-  const factory AnnouncementAction.addUnreadAnnouncementList({required List<AnnouncementModel> value}) =
-      _AddUnreadAnnouncementList;
-  const factory AnnouncementAction.removeUnreadAnnouncement({required AnnouncementModel value}) =
-      _RemoveUnreadAnnouncement;
-  const factory AnnouncementAction.clearUnreadAnnouncements() = _ClearUnreadAnnouncement;
+  // /// `unread`
+  // // TODO remove
+  // const factory AnnouncementAction.addUnreadAnnouncement({required AnnouncementModel value}) = _AddUnreadAnnouncement;
+  // const factory AnnouncementAction.addUnreadAnnouncementList({required List<AnnouncementModel> value}) =
+  //     _AddUnreadAnnouncementList;
+  // const factory AnnouncementAction.removeUnreadAnnouncement({required AnnouncementModel value}) =
+  //     _RemoveUnreadAnnouncement;
+  // const factory AnnouncementAction.clearUnreadAnnouncements() = _ClearUnreadAnnouncement;
 
   /// `saved draft of new announcement`
   const factory AnnouncementAction.clearDraftContent() = _ClearDraft;

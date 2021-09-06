@@ -24,7 +24,7 @@ void subscribeAnnouncementsThunk(
     return;
   }
 
-  final AnnouncementService userService = getIt.get<AnnouncementService>();
+  final AnnouncementService announcementService = getIt.get<AnnouncementService>();
 
   _userStateSub = store.onChange
       .map((AppState appState) => appState.userState.accessGroups)
@@ -33,11 +33,18 @@ void subscribeAnnouncementsThunk(
       .handleError((Object exc) {
     logger.e('exc: $exc');
 
-    store.dispatch(AnnouncementAction.setErrorModel(value: ErrorModel(1, exc.toString())));
+    store.dispatch(
+      AnnouncementAction.setErrorModel(
+        value: ErrorModel(
+          1,
+          exc.toString(),
+        ),
+      ),
+    );
   }).listen((List<String> accessGroups) {
     _announcementsSub?.cancel();
 
-    final Stream<List<AnnouncementModel>> stream = userService.announcementsStream(accessGroups: accessGroups);
+    final Stream<List<AnnouncementModel>> stream = announcementService.announcementsStream(accessGroups: accessGroups);
     _announcementsSub = stream.listen((List<AnnouncementModel> list) {
       store.dispatch(AnnouncementAction.addAnnouncementList(value: list));
     });

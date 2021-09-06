@@ -25,7 +25,8 @@ class _$AnnouncementModelTearOff {
       @JsonKey(name: 'content') String? content,
       @JsonKey(name: 'user_groups', defaultValue: const <String>[]) List<String> userGroups = const <String>[],
       @JsonKey(name: 'is_top_event', defaultValue: false) bool isTopEvent = false,
-      @JsonKey(name: 'date_unix_ms') int? dateUnixMs}) {
+      @JsonKey(name: 'date_unix_ms') int? dateUnixMs,
+      @JsonKey(name: 'is_unread', defaultValue: false) bool isUnread = false}) {
     return _AnnouncementModel(
       id,
       title: title,
@@ -33,6 +34,7 @@ class _$AnnouncementModelTearOff {
       userGroups: userGroups,
       isTopEvent: isTopEvent,
       dateUnixMs: dateUnixMs,
+      isUnread: isUnread,
     );
   }
 
@@ -58,6 +60,8 @@ mixin _$AnnouncementModel {
   bool get isTopEvent => throw _privateConstructorUsedError;
   @JsonKey(name: 'date_unix_ms')
   int? get dateUnixMs => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_unread', defaultValue: false)
+  bool get isUnread => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -74,7 +78,8 @@ abstract class $AnnouncementModelCopyWith<$Res> {
       @JsonKey(name: 'content') String? content,
       @JsonKey(name: 'user_groups', defaultValue: const <String>[]) List<String> userGroups,
       @JsonKey(name: 'is_top_event', defaultValue: false) bool isTopEvent,
-      @JsonKey(name: 'date_unix_ms') int? dateUnixMs});
+      @JsonKey(name: 'date_unix_ms') int? dateUnixMs,
+      @JsonKey(name: 'is_unread', defaultValue: false) bool isUnread});
 }
 
 /// @nodoc
@@ -93,6 +98,7 @@ class _$AnnouncementModelCopyWithImpl<$Res> implements $AnnouncementModelCopyWit
     Object? userGroups = freezed,
     Object? isTopEvent = freezed,
     Object? dateUnixMs = freezed,
+    Object? isUnread = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -119,6 +125,10 @@ class _$AnnouncementModelCopyWithImpl<$Res> implements $AnnouncementModelCopyWit
           ? _value.dateUnixMs
           : dateUnixMs // ignore: cast_nullable_to_non_nullable
               as int?,
+      isUnread: isUnread == freezed
+          ? _value.isUnread
+          : isUnread // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -134,7 +144,8 @@ abstract class _$AnnouncementModelCopyWith<$Res> implements $AnnouncementModelCo
       @JsonKey(name: 'content') String? content,
       @JsonKey(name: 'user_groups', defaultValue: const <String>[]) List<String> userGroups,
       @JsonKey(name: 'is_top_event', defaultValue: false) bool isTopEvent,
-      @JsonKey(name: 'date_unix_ms') int? dateUnixMs});
+      @JsonKey(name: 'date_unix_ms') int? dateUnixMs,
+      @JsonKey(name: 'is_unread', defaultValue: false) bool isUnread});
 }
 
 /// @nodoc
@@ -154,6 +165,7 @@ class __$AnnouncementModelCopyWithImpl<$Res> extends _$AnnouncementModelCopyWith
     Object? userGroups = freezed,
     Object? isTopEvent = freezed,
     Object? dateUnixMs = freezed,
+    Object? isUnread = freezed,
   }) {
     return _then(_AnnouncementModel(
       id == freezed
@@ -180,6 +192,10 @@ class __$AnnouncementModelCopyWithImpl<$Res> extends _$AnnouncementModelCopyWith
           ? _value.dateUnixMs
           : dateUnixMs // ignore: cast_nullable_to_non_nullable
               as int?,
+      isUnread: isUnread == freezed
+          ? _value.isUnread
+          : isUnread // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -192,7 +208,8 @@ class _$_AnnouncementModel extends _AnnouncementModel {
       @JsonKey(name: 'content') this.content,
       @JsonKey(name: 'user_groups', defaultValue: const <String>[]) this.userGroups = const <String>[],
       @JsonKey(name: 'is_top_event', defaultValue: false) this.isTopEvent = false,
-      @JsonKey(name: 'date_unix_ms') this.dateUnixMs})
+      @JsonKey(name: 'date_unix_ms') this.dateUnixMs,
+      @JsonKey(name: 'is_unread', defaultValue: false) this.isUnread = false})
       : super._();
 
   factory _$_AnnouncementModel.fromJson(Map<String, dynamic> json) => _$_$_AnnouncementModelFromJson(json);
@@ -215,10 +232,13 @@ class _$_AnnouncementModel extends _AnnouncementModel {
   @override
   @JsonKey(name: 'date_unix_ms')
   final int? dateUnixMs;
+  @override
+  @JsonKey(name: 'is_unread', defaultValue: false)
+  final bool isUnread;
 
   @override
   String toString() {
-    return 'AnnouncementModel(id: $id, title: $title, content: $content, userGroups: $userGroups, isTopEvent: $isTopEvent, dateUnixMs: $dateUnixMs)';
+    return 'AnnouncementModel(id: $id, title: $title, content: $content, userGroups: $userGroups, isTopEvent: $isTopEvent, dateUnixMs: $dateUnixMs, isUnread: $isUnread)';
   }
 
   @override
@@ -233,7 +253,8 @@ class _$_AnnouncementModel extends _AnnouncementModel {
             (identical(other.isTopEvent, isTopEvent) ||
                 const DeepCollectionEquality().equals(other.isTopEvent, isTopEvent)) &&
             (identical(other.dateUnixMs, dateUnixMs) ||
-                const DeepCollectionEquality().equals(other.dateUnixMs, dateUnixMs)));
+                const DeepCollectionEquality().equals(other.dateUnixMs, dateUnixMs)) &&
+            (identical(other.isUnread, isUnread) || const DeepCollectionEquality().equals(other.isUnread, isUnread)));
   }
 
   @override
@@ -244,7 +265,8 @@ class _$_AnnouncementModel extends _AnnouncementModel {
       const DeepCollectionEquality().hash(content) ^
       const DeepCollectionEquality().hash(userGroups) ^
       const DeepCollectionEquality().hash(isTopEvent) ^
-      const DeepCollectionEquality().hash(dateUnixMs);
+      const DeepCollectionEquality().hash(dateUnixMs) ^
+      const DeepCollectionEquality().hash(isUnread);
 
   @JsonKey(ignore: true)
   @override
@@ -263,7 +285,8 @@ abstract class _AnnouncementModel extends AnnouncementModel {
       @JsonKey(name: 'content') String? content,
       @JsonKey(name: 'user_groups', defaultValue: const <String>[]) List<String> userGroups,
       @JsonKey(name: 'is_top_event', defaultValue: false) bool isTopEvent,
-      @JsonKey(name: 'date_unix_ms') int? dateUnixMs}) = _$_AnnouncementModel;
+      @JsonKey(name: 'date_unix_ms') int? dateUnixMs,
+      @JsonKey(name: 'is_unread', defaultValue: false) bool isUnread}) = _$_AnnouncementModel;
   const _AnnouncementModel._() : super._();
 
   factory _AnnouncementModel.fromJson(Map<String, dynamic> json) = _$_AnnouncementModel.fromJson;
@@ -286,6 +309,9 @@ abstract class _AnnouncementModel extends AnnouncementModel {
   @override
   @JsonKey(name: 'date_unix_ms')
   int? get dateUnixMs => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'is_unread', defaultValue: false)
+  bool get isUnread => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$AnnouncementModelCopyWith<_AnnouncementModel> get copyWith => throw _privateConstructorUsedError;

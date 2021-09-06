@@ -75,26 +75,14 @@ class _$AnnouncementActionTearOff {
     );
   }
 
-  _AddUnreadAnnouncement addUnreadAnnouncement({required AnnouncementModel value}) {
-    return _AddUnreadAnnouncement(
-      value: value,
+  _MarkAsRead markAsRead({required List<String> ids}) {
+    return _MarkAsRead(
+      ids: ids,
     );
   }
 
-  _AddUnreadAnnouncementList addUnreadAnnouncementList({required List<AnnouncementModel> value}) {
-    return _AddUnreadAnnouncementList(
-      value: value,
-    );
-  }
-
-  _RemoveUnreadAnnouncement removeUnreadAnnouncement({required AnnouncementModel value}) {
-    return _RemoveUnreadAnnouncement(
-      value: value,
-    );
-  }
-
-  _ClearUnreadAnnouncement clearUnreadAnnouncements() {
-    return const _ClearUnreadAnnouncement();
+  _ClearUnread clearUnread() {
+    return const _ClearUnread();
   }
 
   _ClearDraft clearDraftContent() {
@@ -145,10 +133,8 @@ mixin _$AnnouncementAction {
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
-    required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
-    required TResult Function(List<AnnouncementModel> value) addUnreadAnnouncementList,
-    required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
-    required TResult Function() clearUnreadAnnouncements,
+    required TResult Function(List<String> ids) markAsRead,
+    required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
     required TResult Function(String? title, String? content) saveDraftContent,
     required TResult Function(Set<String> groups) saveDraftCheckedGroups,
@@ -169,10 +155,8 @@ mixin _$AnnouncementAction {
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
-    TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
-    TResult Function(List<AnnouncementModel> value)? addUnreadAnnouncementList,
-    TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
-    TResult Function()? clearUnreadAnnouncements,
+    TResult Function(List<String> ids)? markAsRead,
+    TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
     TResult Function(String? title, String? content)? saveDraftContent,
     TResult Function(Set<String> groups)? saveDraftCheckedGroups,
@@ -194,10 +178,8 @@ mixin _$AnnouncementAction {
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
     required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
-    required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
-    required TResult Function(_AddUnreadAnnouncementList value) addUnreadAnnouncementList,
-    required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
-    required TResult Function(_ClearUnreadAnnouncement value) clearUnreadAnnouncements,
+    required TResult Function(_MarkAsRead value) markAsRead,
+    required TResult Function(_ClearUnread value) clearUnread,
     required TResult Function(_ClearDraft value) clearDraftContent,
     required TResult Function(_SaveDraftContent value) saveDraftContent,
     required TResult Function(_SaveDraftCheckedGroups value) saveDraftCheckedGroups,
@@ -218,10 +200,8 @@ mixin _$AnnouncementAction {
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
     TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
-    TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
-    TResult Function(_AddUnreadAnnouncementList value)? addUnreadAnnouncementList,
-    TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
-    TResult Function(_ClearUnreadAnnouncement value)? clearUnreadAnnouncements,
+    TResult Function(_MarkAsRead value)? markAsRead,
+    TResult Function(_ClearUnread value)? clearUnread,
     TResult Function(_ClearDraft value)? clearDraftContent,
     TResult Function(_SaveDraftContent value)? saveDraftContent,
     TResult Function(_SaveDraftCheckedGroups value)? saveDraftCheckedGroups,
@@ -292,10 +272,8 @@ class _$_Start implements _Start {
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
-    required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
-    required TResult Function(List<AnnouncementModel> value) addUnreadAnnouncementList,
-    required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
-    required TResult Function() clearUnreadAnnouncements,
+    required TResult Function(List<String> ids) markAsRead,
+    required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
     required TResult Function(String? title, String? content) saveDraftContent,
     required TResult Function(Set<String> groups) saveDraftCheckedGroups,
@@ -319,10 +297,8 @@ class _$_Start implements _Start {
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
-    TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
-    TResult Function(List<AnnouncementModel> value)? addUnreadAnnouncementList,
-    TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
-    TResult Function()? clearUnreadAnnouncements,
+    TResult Function(List<String> ids)? markAsRead,
+    TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
     TResult Function(String? title, String? content)? saveDraftContent,
     TResult Function(Set<String> groups)? saveDraftCheckedGroups,
@@ -350,10 +326,8 @@ class _$_Start implements _Start {
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
     required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
-    required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
-    required TResult Function(_AddUnreadAnnouncementList value) addUnreadAnnouncementList,
-    required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
-    required TResult Function(_ClearUnreadAnnouncement value) clearUnreadAnnouncements,
+    required TResult Function(_MarkAsRead value) markAsRead,
+    required TResult Function(_ClearUnread value) clearUnread,
     required TResult Function(_ClearDraft value) clearDraftContent,
     required TResult Function(_SaveDraftContent value) saveDraftContent,
     required TResult Function(_SaveDraftCheckedGroups value) saveDraftCheckedGroups,
@@ -377,10 +351,8 @@ class _$_Start implements _Start {
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
     TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
-    TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
-    TResult Function(_AddUnreadAnnouncementList value)? addUnreadAnnouncementList,
-    TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
-    TResult Function(_ClearUnreadAnnouncement value)? clearUnreadAnnouncements,
+    TResult Function(_MarkAsRead value)? markAsRead,
+    TResult Function(_ClearUnread value)? clearUnread,
     TResult Function(_ClearDraft value)? clearDraftContent,
     TResult Function(_SaveDraftContent value)? saveDraftContent,
     TResult Function(_SaveDraftCheckedGroups value)? saveDraftCheckedGroups,
@@ -470,10 +442,8 @@ class _$_ChangeLoading implements _ChangeLoading {
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
-    required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
-    required TResult Function(List<AnnouncementModel> value) addUnreadAnnouncementList,
-    required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
-    required TResult Function() clearUnreadAnnouncements,
+    required TResult Function(List<String> ids) markAsRead,
+    required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
     required TResult Function(String? title, String? content) saveDraftContent,
     required TResult Function(Set<String> groups) saveDraftCheckedGroups,
@@ -497,10 +467,8 @@ class _$_ChangeLoading implements _ChangeLoading {
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
-    TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
-    TResult Function(List<AnnouncementModel> value)? addUnreadAnnouncementList,
-    TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
-    TResult Function()? clearUnreadAnnouncements,
+    TResult Function(List<String> ids)? markAsRead,
+    TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
     TResult Function(String? title, String? content)? saveDraftContent,
     TResult Function(Set<String> groups)? saveDraftCheckedGroups,
@@ -528,10 +496,8 @@ class _$_ChangeLoading implements _ChangeLoading {
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
     required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
-    required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
-    required TResult Function(_AddUnreadAnnouncementList value) addUnreadAnnouncementList,
-    required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
-    required TResult Function(_ClearUnreadAnnouncement value) clearUnreadAnnouncements,
+    required TResult Function(_MarkAsRead value) markAsRead,
+    required TResult Function(_ClearUnread value) clearUnread,
     required TResult Function(_ClearDraft value) clearDraftContent,
     required TResult Function(_SaveDraftContent value) saveDraftContent,
     required TResult Function(_SaveDraftCheckedGroups value) saveDraftCheckedGroups,
@@ -555,10 +521,8 @@ class _$_ChangeLoading implements _ChangeLoading {
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
     TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
-    TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
-    TResult Function(_AddUnreadAnnouncementList value)? addUnreadAnnouncementList,
-    TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
-    TResult Function(_ClearUnreadAnnouncement value)? clearUnreadAnnouncements,
+    TResult Function(_MarkAsRead value)? markAsRead,
+    TResult Function(_ClearUnread value)? clearUnread,
     TResult Function(_ClearDraft value)? clearDraftContent,
     TResult Function(_SaveDraftContent value)? saveDraftContent,
     TResult Function(_SaveDraftCheckedGroups value)? saveDraftCheckedGroups,
@@ -652,10 +616,8 @@ class _$_ChangeFirstLoading implements _ChangeFirstLoading {
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
-    required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
-    required TResult Function(List<AnnouncementModel> value) addUnreadAnnouncementList,
-    required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
-    required TResult Function() clearUnreadAnnouncements,
+    required TResult Function(List<String> ids) markAsRead,
+    required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
     required TResult Function(String? title, String? content) saveDraftContent,
     required TResult Function(Set<String> groups) saveDraftCheckedGroups,
@@ -679,10 +641,8 @@ class _$_ChangeFirstLoading implements _ChangeFirstLoading {
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
-    TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
-    TResult Function(List<AnnouncementModel> value)? addUnreadAnnouncementList,
-    TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
-    TResult Function()? clearUnreadAnnouncements,
+    TResult Function(List<String> ids)? markAsRead,
+    TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
     TResult Function(String? title, String? content)? saveDraftContent,
     TResult Function(Set<String> groups)? saveDraftCheckedGroups,
@@ -710,10 +670,8 @@ class _$_ChangeFirstLoading implements _ChangeFirstLoading {
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
     required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
-    required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
-    required TResult Function(_AddUnreadAnnouncementList value) addUnreadAnnouncementList,
-    required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
-    required TResult Function(_ClearUnreadAnnouncement value) clearUnreadAnnouncements,
+    required TResult Function(_MarkAsRead value) markAsRead,
+    required TResult Function(_ClearUnread value) clearUnread,
     required TResult Function(_ClearDraft value) clearDraftContent,
     required TResult Function(_SaveDraftContent value) saveDraftContent,
     required TResult Function(_SaveDraftCheckedGroups value) saveDraftCheckedGroups,
@@ -737,10 +695,8 @@ class _$_ChangeFirstLoading implements _ChangeFirstLoading {
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
     TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
-    TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
-    TResult Function(_AddUnreadAnnouncementList value)? addUnreadAnnouncementList,
-    TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
-    TResult Function(_ClearUnreadAnnouncement value)? clearUnreadAnnouncements,
+    TResult Function(_MarkAsRead value)? markAsRead,
+    TResult Function(_ClearUnread value)? clearUnread,
     TResult Function(_ClearDraft value)? clearDraftContent,
     TResult Function(_SaveDraftContent value)? saveDraftContent,
     TResult Function(_SaveDraftCheckedGroups value)? saveDraftCheckedGroups,
@@ -843,10 +799,8 @@ class _$_SetErrorModel implements _SetErrorModel {
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
-    required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
-    required TResult Function(List<AnnouncementModel> value) addUnreadAnnouncementList,
-    required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
-    required TResult Function() clearUnreadAnnouncements,
+    required TResult Function(List<String> ids) markAsRead,
+    required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
     required TResult Function(String? title, String? content) saveDraftContent,
     required TResult Function(Set<String> groups) saveDraftCheckedGroups,
@@ -870,10 +824,8 @@ class _$_SetErrorModel implements _SetErrorModel {
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
-    TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
-    TResult Function(List<AnnouncementModel> value)? addUnreadAnnouncementList,
-    TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
-    TResult Function()? clearUnreadAnnouncements,
+    TResult Function(List<String> ids)? markAsRead,
+    TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
     TResult Function(String? title, String? content)? saveDraftContent,
     TResult Function(Set<String> groups)? saveDraftCheckedGroups,
@@ -901,10 +853,8 @@ class _$_SetErrorModel implements _SetErrorModel {
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
     required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
-    required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
-    required TResult Function(_AddUnreadAnnouncementList value) addUnreadAnnouncementList,
-    required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
-    required TResult Function(_ClearUnreadAnnouncement value) clearUnreadAnnouncements,
+    required TResult Function(_MarkAsRead value) markAsRead,
+    required TResult Function(_ClearUnread value) clearUnread,
     required TResult Function(_ClearDraft value) clearDraftContent,
     required TResult Function(_SaveDraftContent value) saveDraftContent,
     required TResult Function(_SaveDraftCheckedGroups value) saveDraftCheckedGroups,
@@ -928,10 +878,8 @@ class _$_SetErrorModel implements _SetErrorModel {
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
     TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
-    TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
-    TResult Function(_AddUnreadAnnouncementList value)? addUnreadAnnouncementList,
-    TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
-    TResult Function(_ClearUnreadAnnouncement value)? clearUnreadAnnouncements,
+    TResult Function(_MarkAsRead value)? markAsRead,
+    TResult Function(_ClearUnread value)? clearUnread,
     TResult Function(_ClearDraft value)? clearDraftContent,
     TResult Function(_SaveDraftContent value)? saveDraftContent,
     TResult Function(_SaveDraftCheckedGroups value)? saveDraftCheckedGroups,
@@ -1002,10 +950,8 @@ class _$_ClearErrorModel implements _ClearErrorModel {
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
-    required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
-    required TResult Function(List<AnnouncementModel> value) addUnreadAnnouncementList,
-    required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
-    required TResult Function() clearUnreadAnnouncements,
+    required TResult Function(List<String> ids) markAsRead,
+    required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
     required TResult Function(String? title, String? content) saveDraftContent,
     required TResult Function(Set<String> groups) saveDraftCheckedGroups,
@@ -1029,10 +975,8 @@ class _$_ClearErrorModel implements _ClearErrorModel {
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
-    TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
-    TResult Function(List<AnnouncementModel> value)? addUnreadAnnouncementList,
-    TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
-    TResult Function()? clearUnreadAnnouncements,
+    TResult Function(List<String> ids)? markAsRead,
+    TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
     TResult Function(String? title, String? content)? saveDraftContent,
     TResult Function(Set<String> groups)? saveDraftCheckedGroups,
@@ -1060,10 +1004,8 @@ class _$_ClearErrorModel implements _ClearErrorModel {
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
     required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
-    required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
-    required TResult Function(_AddUnreadAnnouncementList value) addUnreadAnnouncementList,
-    required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
-    required TResult Function(_ClearUnreadAnnouncement value) clearUnreadAnnouncements,
+    required TResult Function(_MarkAsRead value) markAsRead,
+    required TResult Function(_ClearUnread value) clearUnread,
     required TResult Function(_ClearDraft value) clearDraftContent,
     required TResult Function(_SaveDraftContent value) saveDraftContent,
     required TResult Function(_SaveDraftCheckedGroups value) saveDraftCheckedGroups,
@@ -1087,10 +1029,8 @@ class _$_ClearErrorModel implements _ClearErrorModel {
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
     TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
-    TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
-    TResult Function(_AddUnreadAnnouncementList value)? addUnreadAnnouncementList,
-    TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
-    TResult Function(_ClearUnreadAnnouncement value)? clearUnreadAnnouncements,
+    TResult Function(_MarkAsRead value)? markAsRead,
+    TResult Function(_ClearUnread value)? clearUnread,
     TResult Function(_ClearDraft value)? clearDraftContent,
     TResult Function(_SaveDraftContent value)? saveDraftContent,
     TResult Function(_SaveDraftCheckedGroups value)? saveDraftCheckedGroups,
@@ -1154,10 +1094,8 @@ class _$_CleanUp implements _CleanUp {
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
-    required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
-    required TResult Function(List<AnnouncementModel> value) addUnreadAnnouncementList,
-    required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
-    required TResult Function() clearUnreadAnnouncements,
+    required TResult Function(List<String> ids) markAsRead,
+    required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
     required TResult Function(String? title, String? content) saveDraftContent,
     required TResult Function(Set<String> groups) saveDraftCheckedGroups,
@@ -1181,10 +1119,8 @@ class _$_CleanUp implements _CleanUp {
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
-    TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
-    TResult Function(List<AnnouncementModel> value)? addUnreadAnnouncementList,
-    TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
-    TResult Function()? clearUnreadAnnouncements,
+    TResult Function(List<String> ids)? markAsRead,
+    TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
     TResult Function(String? title, String? content)? saveDraftContent,
     TResult Function(Set<String> groups)? saveDraftCheckedGroups,
@@ -1212,10 +1148,8 @@ class _$_CleanUp implements _CleanUp {
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
     required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
-    required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
-    required TResult Function(_AddUnreadAnnouncementList value) addUnreadAnnouncementList,
-    required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
-    required TResult Function(_ClearUnreadAnnouncement value) clearUnreadAnnouncements,
+    required TResult Function(_MarkAsRead value) markAsRead,
+    required TResult Function(_ClearUnread value) clearUnread,
     required TResult Function(_ClearDraft value) clearDraftContent,
     required TResult Function(_SaveDraftContent value) saveDraftContent,
     required TResult Function(_SaveDraftCheckedGroups value) saveDraftCheckedGroups,
@@ -1239,10 +1173,8 @@ class _$_CleanUp implements _CleanUp {
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
     TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
-    TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
-    TResult Function(_AddUnreadAnnouncementList value)? addUnreadAnnouncementList,
-    TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
-    TResult Function(_ClearUnreadAnnouncement value)? clearUnreadAnnouncements,
+    TResult Function(_MarkAsRead value)? markAsRead,
+    TResult Function(_ClearUnread value)? clearUnread,
     TResult Function(_ClearDraft value)? clearDraftContent,
     TResult Function(_SaveDraftContent value)? saveDraftContent,
     TResult Function(_SaveDraftCheckedGroups value)? saveDraftCheckedGroups,
@@ -1309,10 +1241,8 @@ class _$_FetchAnnouncements implements _FetchAnnouncements {
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
-    required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
-    required TResult Function(List<AnnouncementModel> value) addUnreadAnnouncementList,
-    required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
-    required TResult Function() clearUnreadAnnouncements,
+    required TResult Function(List<String> ids) markAsRead,
+    required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
     required TResult Function(String? title, String? content) saveDraftContent,
     required TResult Function(Set<String> groups) saveDraftCheckedGroups,
@@ -1336,10 +1266,8 @@ class _$_FetchAnnouncements implements _FetchAnnouncements {
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
-    TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
-    TResult Function(List<AnnouncementModel> value)? addUnreadAnnouncementList,
-    TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
-    TResult Function()? clearUnreadAnnouncements,
+    TResult Function(List<String> ids)? markAsRead,
+    TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
     TResult Function(String? title, String? content)? saveDraftContent,
     TResult Function(Set<String> groups)? saveDraftCheckedGroups,
@@ -1367,10 +1295,8 @@ class _$_FetchAnnouncements implements _FetchAnnouncements {
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
     required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
-    required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
-    required TResult Function(_AddUnreadAnnouncementList value) addUnreadAnnouncementList,
-    required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
-    required TResult Function(_ClearUnreadAnnouncement value) clearUnreadAnnouncements,
+    required TResult Function(_MarkAsRead value) markAsRead,
+    required TResult Function(_ClearUnread value) clearUnread,
     required TResult Function(_ClearDraft value) clearDraftContent,
     required TResult Function(_SaveDraftContent value) saveDraftContent,
     required TResult Function(_SaveDraftCheckedGroups value) saveDraftCheckedGroups,
@@ -1394,10 +1320,8 @@ class _$_FetchAnnouncements implements _FetchAnnouncements {
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
     TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
-    TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
-    TResult Function(_AddUnreadAnnouncementList value)? addUnreadAnnouncementList,
-    TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
-    TResult Function(_ClearUnreadAnnouncement value)? clearUnreadAnnouncements,
+    TResult Function(_MarkAsRead value)? markAsRead,
+    TResult Function(_ClearUnread value)? clearUnread,
     TResult Function(_ClearDraft value)? clearDraftContent,
     TResult Function(_SaveDraftContent value)? saveDraftContent,
     TResult Function(_SaveDraftCheckedGroups value)? saveDraftCheckedGroups,
@@ -1496,10 +1420,8 @@ class _$_AddAnnouncement implements _AddAnnouncement {
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
-    required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
-    required TResult Function(List<AnnouncementModel> value) addUnreadAnnouncementList,
-    required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
-    required TResult Function() clearUnreadAnnouncements,
+    required TResult Function(List<String> ids) markAsRead,
+    required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
     required TResult Function(String? title, String? content) saveDraftContent,
     required TResult Function(Set<String> groups) saveDraftCheckedGroups,
@@ -1523,10 +1445,8 @@ class _$_AddAnnouncement implements _AddAnnouncement {
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
-    TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
-    TResult Function(List<AnnouncementModel> value)? addUnreadAnnouncementList,
-    TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
-    TResult Function()? clearUnreadAnnouncements,
+    TResult Function(List<String> ids)? markAsRead,
+    TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
     TResult Function(String? title, String? content)? saveDraftContent,
     TResult Function(Set<String> groups)? saveDraftCheckedGroups,
@@ -1554,10 +1474,8 @@ class _$_AddAnnouncement implements _AddAnnouncement {
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
     required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
-    required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
-    required TResult Function(_AddUnreadAnnouncementList value) addUnreadAnnouncementList,
-    required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
-    required TResult Function(_ClearUnreadAnnouncement value) clearUnreadAnnouncements,
+    required TResult Function(_MarkAsRead value) markAsRead,
+    required TResult Function(_ClearUnread value) clearUnread,
     required TResult Function(_ClearDraft value) clearDraftContent,
     required TResult Function(_SaveDraftContent value) saveDraftContent,
     required TResult Function(_SaveDraftCheckedGroups value) saveDraftCheckedGroups,
@@ -1581,10 +1499,8 @@ class _$_AddAnnouncement implements _AddAnnouncement {
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
     TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
-    TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
-    TResult Function(_AddUnreadAnnouncementList value)? addUnreadAnnouncementList,
-    TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
-    TResult Function(_ClearUnreadAnnouncement value)? clearUnreadAnnouncements,
+    TResult Function(_MarkAsRead value)? markAsRead,
+    TResult Function(_ClearUnread value)? clearUnread,
     TResult Function(_ClearDraft value)? clearDraftContent,
     TResult Function(_SaveDraftContent value)? saveDraftContent,
     TResult Function(_SaveDraftCheckedGroups value)? saveDraftCheckedGroups,
@@ -1678,10 +1594,8 @@ class _$_RemoveAnnouncementById implements _RemoveAnnouncementById {
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
-    required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
-    required TResult Function(List<AnnouncementModel> value) addUnreadAnnouncementList,
-    required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
-    required TResult Function() clearUnreadAnnouncements,
+    required TResult Function(List<String> ids) markAsRead,
+    required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
     required TResult Function(String? title, String? content) saveDraftContent,
     required TResult Function(Set<String> groups) saveDraftCheckedGroups,
@@ -1705,10 +1619,8 @@ class _$_RemoveAnnouncementById implements _RemoveAnnouncementById {
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
-    TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
-    TResult Function(List<AnnouncementModel> value)? addUnreadAnnouncementList,
-    TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
-    TResult Function()? clearUnreadAnnouncements,
+    TResult Function(List<String> ids)? markAsRead,
+    TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
     TResult Function(String? title, String? content)? saveDraftContent,
     TResult Function(Set<String> groups)? saveDraftCheckedGroups,
@@ -1736,10 +1648,8 @@ class _$_RemoveAnnouncementById implements _RemoveAnnouncementById {
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
     required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
-    required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
-    required TResult Function(_AddUnreadAnnouncementList value) addUnreadAnnouncementList,
-    required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
-    required TResult Function(_ClearUnreadAnnouncement value) clearUnreadAnnouncements,
+    required TResult Function(_MarkAsRead value) markAsRead,
+    required TResult Function(_ClearUnread value) clearUnread,
     required TResult Function(_ClearDraft value) clearDraftContent,
     required TResult Function(_SaveDraftContent value) saveDraftContent,
     required TResult Function(_SaveDraftCheckedGroups value) saveDraftCheckedGroups,
@@ -1763,10 +1673,8 @@ class _$_RemoveAnnouncementById implements _RemoveAnnouncementById {
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
     TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
-    TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
-    TResult Function(_AddUnreadAnnouncementList value)? addUnreadAnnouncementList,
-    TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
-    TResult Function(_ClearUnreadAnnouncement value)? clearUnreadAnnouncements,
+    TResult Function(_MarkAsRead value)? markAsRead,
+    TResult Function(_ClearUnread value)? clearUnread,
     TResult Function(_ClearDraft value)? clearDraftContent,
     TResult Function(_SaveDraftContent value)? saveDraftContent,
     TResult Function(_SaveDraftCheckedGroups value)? saveDraftCheckedGroups,
@@ -1869,10 +1777,8 @@ class _$_ModifyAnnouncement implements _ModifyAnnouncement {
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
-    required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
-    required TResult Function(List<AnnouncementModel> value) addUnreadAnnouncementList,
-    required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
-    required TResult Function() clearUnreadAnnouncements,
+    required TResult Function(List<String> ids) markAsRead,
+    required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
     required TResult Function(String? title, String? content) saveDraftContent,
     required TResult Function(Set<String> groups) saveDraftCheckedGroups,
@@ -1896,10 +1802,8 @@ class _$_ModifyAnnouncement implements _ModifyAnnouncement {
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
-    TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
-    TResult Function(List<AnnouncementModel> value)? addUnreadAnnouncementList,
-    TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
-    TResult Function()? clearUnreadAnnouncements,
+    TResult Function(List<String> ids)? markAsRead,
+    TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
     TResult Function(String? title, String? content)? saveDraftContent,
     TResult Function(Set<String> groups)? saveDraftCheckedGroups,
@@ -1927,10 +1831,8 @@ class _$_ModifyAnnouncement implements _ModifyAnnouncement {
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
     required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
-    required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
-    required TResult Function(_AddUnreadAnnouncementList value) addUnreadAnnouncementList,
-    required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
-    required TResult Function(_ClearUnreadAnnouncement value) clearUnreadAnnouncements,
+    required TResult Function(_MarkAsRead value) markAsRead,
+    required TResult Function(_ClearUnread value) clearUnread,
     required TResult Function(_ClearDraft value) clearDraftContent,
     required TResult Function(_SaveDraftContent value) saveDraftContent,
     required TResult Function(_SaveDraftCheckedGroups value) saveDraftCheckedGroups,
@@ -1954,10 +1856,8 @@ class _$_ModifyAnnouncement implements _ModifyAnnouncement {
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
     TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
-    TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
-    TResult Function(_AddUnreadAnnouncementList value)? addUnreadAnnouncementList,
-    TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
-    TResult Function(_ClearUnreadAnnouncement value)? clearUnreadAnnouncements,
+    TResult Function(_MarkAsRead value)? markAsRead,
+    TResult Function(_ClearUnread value)? clearUnread,
     TResult Function(_ClearDraft value)? clearDraftContent,
     TResult Function(_SaveDraftContent value)? saveDraftContent,
     TResult Function(_SaveDraftCheckedGroups value)? saveDraftCheckedGroups,
@@ -2052,10 +1952,8 @@ class _$_AddAnnouncementList implements _AddAnnouncementList {
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
-    required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
-    required TResult Function(List<AnnouncementModel> value) addUnreadAnnouncementList,
-    required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
-    required TResult Function() clearUnreadAnnouncements,
+    required TResult Function(List<String> ids) markAsRead,
+    required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
     required TResult Function(String? title, String? content) saveDraftContent,
     required TResult Function(Set<String> groups) saveDraftCheckedGroups,
@@ -2079,10 +1977,8 @@ class _$_AddAnnouncementList implements _AddAnnouncementList {
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
-    TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
-    TResult Function(List<AnnouncementModel> value)? addUnreadAnnouncementList,
-    TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
-    TResult Function()? clearUnreadAnnouncements,
+    TResult Function(List<String> ids)? markAsRead,
+    TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
     TResult Function(String? title, String? content)? saveDraftContent,
     TResult Function(Set<String> groups)? saveDraftCheckedGroups,
@@ -2110,10 +2006,8 @@ class _$_AddAnnouncementList implements _AddAnnouncementList {
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
     required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
-    required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
-    required TResult Function(_AddUnreadAnnouncementList value) addUnreadAnnouncementList,
-    required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
-    required TResult Function(_ClearUnreadAnnouncement value) clearUnreadAnnouncements,
+    required TResult Function(_MarkAsRead value) markAsRead,
+    required TResult Function(_ClearUnread value) clearUnread,
     required TResult Function(_ClearDraft value) clearDraftContent,
     required TResult Function(_SaveDraftContent value) saveDraftContent,
     required TResult Function(_SaveDraftCheckedGroups value) saveDraftCheckedGroups,
@@ -2137,10 +2031,8 @@ class _$_AddAnnouncementList implements _AddAnnouncementList {
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
     TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
-    TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
-    TResult Function(_AddUnreadAnnouncementList value)? addUnreadAnnouncementList,
-    TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
-    TResult Function(_ClearUnreadAnnouncement value)? clearUnreadAnnouncements,
+    TResult Function(_MarkAsRead value)? markAsRead,
+    TResult Function(_ClearUnread value)? clearUnread,
     TResult Function(_ClearDraft value)? clearDraftContent,
     TResult Function(_SaveDraftContent value)? saveDraftContent,
     TResult Function(_SaveDraftCheckedGroups value)? saveDraftCheckedGroups,
@@ -2164,70 +2056,58 @@ abstract class _AddAnnouncementList implements AnnouncementAction {
 }
 
 /// @nodoc
-abstract class _$AddUnreadAnnouncementCopyWith<$Res> {
-  factory _$AddUnreadAnnouncementCopyWith(_AddUnreadAnnouncement value, $Res Function(_AddUnreadAnnouncement) then) =
-      __$AddUnreadAnnouncementCopyWithImpl<$Res>;
-  $Res call({AnnouncementModel value});
-
-  $AnnouncementModelCopyWith<$Res> get value;
+abstract class _$MarkAsReadCopyWith<$Res> {
+  factory _$MarkAsReadCopyWith(_MarkAsRead value, $Res Function(_MarkAsRead) then) = __$MarkAsReadCopyWithImpl<$Res>;
+  $Res call({List<String> ids});
 }
 
 /// @nodoc
-class __$AddUnreadAnnouncementCopyWithImpl<$Res> extends _$AnnouncementActionCopyWithImpl<$Res>
-    implements _$AddUnreadAnnouncementCopyWith<$Res> {
-  __$AddUnreadAnnouncementCopyWithImpl(_AddUnreadAnnouncement _value, $Res Function(_AddUnreadAnnouncement) _then)
-      : super(_value, (v) => _then(v as _AddUnreadAnnouncement));
+class __$MarkAsReadCopyWithImpl<$Res> extends _$AnnouncementActionCopyWithImpl<$Res>
+    implements _$MarkAsReadCopyWith<$Res> {
+  __$MarkAsReadCopyWithImpl(_MarkAsRead _value, $Res Function(_MarkAsRead) _then)
+      : super(_value, (v) => _then(v as _MarkAsRead));
 
   @override
-  _AddUnreadAnnouncement get _value => super._value as _AddUnreadAnnouncement;
+  _MarkAsRead get _value => super._value as _MarkAsRead;
 
   @override
   $Res call({
-    Object? value = freezed,
+    Object? ids = freezed,
   }) {
-    return _then(_AddUnreadAnnouncement(
-      value: value == freezed
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as AnnouncementModel,
+    return _then(_MarkAsRead(
+      ids: ids == freezed
+          ? _value.ids
+          : ids // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
-  }
-
-  @override
-  $AnnouncementModelCopyWith<$Res> get value {
-    return $AnnouncementModelCopyWith<$Res>(_value.value, (value) {
-      return _then(_value.copyWith(value: value));
-    });
   }
 }
 
 /// @nodoc
 
-class _$_AddUnreadAnnouncement implements _AddUnreadAnnouncement {
-  const _$_AddUnreadAnnouncement({required this.value});
+class _$_MarkAsRead implements _MarkAsRead {
+  const _$_MarkAsRead({required this.ids});
 
   @override
-  final AnnouncementModel value;
+  final List<String> ids;
 
   @override
   String toString() {
-    return 'AnnouncementAction.addUnreadAnnouncement(value: $value)';
+    return 'AnnouncementAction.markAsRead(ids: $ids)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _AddUnreadAnnouncement &&
-            (identical(other.value, value) || const DeepCollectionEquality().equals(other.value, value)));
+        (other is _MarkAsRead && (identical(other.ids, ids) || const DeepCollectionEquality().equals(other.ids, ids)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(ids);
 
   @JsonKey(ignore: true)
   @override
-  _$AddUnreadAnnouncementCopyWith<_AddUnreadAnnouncement> get copyWith =>
-      __$AddUnreadAnnouncementCopyWithImpl<_AddUnreadAnnouncement>(this, _$identity);
+  _$MarkAsReadCopyWith<_MarkAsRead> get copyWith => __$MarkAsReadCopyWithImpl<_MarkAsRead>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2243,17 +2123,15 @@ class _$_AddUnreadAnnouncement implements _AddUnreadAnnouncement {
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
-    required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
-    required TResult Function(List<AnnouncementModel> value) addUnreadAnnouncementList,
-    required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
-    required TResult Function() clearUnreadAnnouncements,
+    required TResult Function(List<String> ids) markAsRead,
+    required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
     required TResult Function(String? title, String? content) saveDraftContent,
     required TResult Function(Set<String> groups) saveDraftCheckedGroups,
     required TResult Function(bool value) changeDraftPublishToTop,
     required TResult Function(bool value) changePublishLoading,
   }) {
-    return addUnreadAnnouncement(value);
+    return markAsRead(ids);
   }
 
   @override
@@ -2270,10 +2148,8 @@ class _$_AddUnreadAnnouncement implements _AddUnreadAnnouncement {
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
-    TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
-    TResult Function(List<AnnouncementModel> value)? addUnreadAnnouncementList,
-    TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
-    TResult Function()? clearUnreadAnnouncements,
+    TResult Function(List<String> ids)? markAsRead,
+    TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
     TResult Function(String? title, String? content)? saveDraftContent,
     TResult Function(Set<String> groups)? saveDraftCheckedGroups,
@@ -2281,8 +2157,8 @@ class _$_AddUnreadAnnouncement implements _AddUnreadAnnouncement {
     TResult Function(bool value)? changePublishLoading,
     required TResult orElse(),
   }) {
-    if (addUnreadAnnouncement != null) {
-      return addUnreadAnnouncement(value);
+    if (markAsRead != null) {
+      return markAsRead(ids);
     }
     return orElse();
   }
@@ -2301,17 +2177,15 @@ class _$_AddUnreadAnnouncement implements _AddUnreadAnnouncement {
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
     required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
-    required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
-    required TResult Function(_AddUnreadAnnouncementList value) addUnreadAnnouncementList,
-    required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
-    required TResult Function(_ClearUnreadAnnouncement value) clearUnreadAnnouncements,
+    required TResult Function(_MarkAsRead value) markAsRead,
+    required TResult Function(_ClearUnread value) clearUnread,
     required TResult Function(_ClearDraft value) clearDraftContent,
     required TResult Function(_SaveDraftContent value) saveDraftContent,
     required TResult Function(_SaveDraftCheckedGroups value) saveDraftCheckedGroups,
     required TResult Function(_ChangeDraftPublishToTop value) changeDraftPublishToTop,
     required TResult Function(_ChangePublishLoading value) changePublishLoading,
   }) {
-    return addUnreadAnnouncement(this);
+    return markAsRead(this);
   }
 
   @override
@@ -2328,10 +2202,8 @@ class _$_AddUnreadAnnouncement implements _AddUnreadAnnouncement {
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
     TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
-    TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
-    TResult Function(_AddUnreadAnnouncementList value)? addUnreadAnnouncementList,
-    TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
-    TResult Function(_ClearUnreadAnnouncement value)? clearUnreadAnnouncements,
+    TResult Function(_MarkAsRead value)? markAsRead,
+    TResult Function(_ClearUnread value)? clearUnread,
     TResult Function(_ClearDraft value)? clearDraftContent,
     TResult Function(_SaveDraftContent value)? saveDraftContent,
     TResult Function(_SaveDraftCheckedGroups value)? saveDraftCheckedGroups,
@@ -2339,428 +2211,50 @@ class _$_AddUnreadAnnouncement implements _AddUnreadAnnouncement {
     TResult Function(_ChangePublishLoading value)? changePublishLoading,
     required TResult orElse(),
   }) {
-    if (addUnreadAnnouncement != null) {
-      return addUnreadAnnouncement(this);
+    if (markAsRead != null) {
+      return markAsRead(this);
     }
     return orElse();
   }
 }
 
-abstract class _AddUnreadAnnouncement implements AnnouncementAction {
-  const factory _AddUnreadAnnouncement({required AnnouncementModel value}) = _$_AddUnreadAnnouncement;
+abstract class _MarkAsRead implements AnnouncementAction {
+  const factory _MarkAsRead({required List<String> ids}) = _$_MarkAsRead;
 
-  AnnouncementModel get value => throw _privateConstructorUsedError;
+  List<String> get ids => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$AddUnreadAnnouncementCopyWith<_AddUnreadAnnouncement> get copyWith => throw _privateConstructorUsedError;
+  _$MarkAsReadCopyWith<_MarkAsRead> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$AddUnreadAnnouncementListCopyWith<$Res> {
-  factory _$AddUnreadAnnouncementListCopyWith(
-          _AddUnreadAnnouncementList value, $Res Function(_AddUnreadAnnouncementList) then) =
-      __$AddUnreadAnnouncementListCopyWithImpl<$Res>;
-  $Res call({List<AnnouncementModel> value});
+abstract class _$ClearUnreadCopyWith<$Res> {
+  factory _$ClearUnreadCopyWith(_ClearUnread value, $Res Function(_ClearUnread) then) =
+      __$ClearUnreadCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$AddUnreadAnnouncementListCopyWithImpl<$Res> extends _$AnnouncementActionCopyWithImpl<$Res>
-    implements _$AddUnreadAnnouncementListCopyWith<$Res> {
-  __$AddUnreadAnnouncementListCopyWithImpl(
-      _AddUnreadAnnouncementList _value, $Res Function(_AddUnreadAnnouncementList) _then)
-      : super(_value, (v) => _then(v as _AddUnreadAnnouncementList));
+class __$ClearUnreadCopyWithImpl<$Res> extends _$AnnouncementActionCopyWithImpl<$Res>
+    implements _$ClearUnreadCopyWith<$Res> {
+  __$ClearUnreadCopyWithImpl(_ClearUnread _value, $Res Function(_ClearUnread) _then)
+      : super(_value, (v) => _then(v as _ClearUnread));
 
   @override
-  _AddUnreadAnnouncementList get _value => super._value as _AddUnreadAnnouncementList;
-
-  @override
-  $Res call({
-    Object? value = freezed,
-  }) {
-    return _then(_AddUnreadAnnouncementList(
-      value: value == freezed
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as List<AnnouncementModel>,
-    ));
-  }
+  _ClearUnread get _value => super._value as _ClearUnread;
 }
 
 /// @nodoc
 
-class _$_AddUnreadAnnouncementList implements _AddUnreadAnnouncementList {
-  const _$_AddUnreadAnnouncementList({required this.value});
-
-  @override
-  final List<AnnouncementModel> value;
+class _$_ClearUnread implements _ClearUnread {
+  const _$_ClearUnread();
 
   @override
   String toString() {
-    return 'AnnouncementAction.addUnreadAnnouncementList(value: $value)';
+    return 'AnnouncementAction.clearUnread()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _AddUnreadAnnouncementList &&
-            (identical(other.value, value) || const DeepCollectionEquality().equals(other.value, value)));
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
-
-  @JsonKey(ignore: true)
-  @override
-  _$AddUnreadAnnouncementListCopyWith<_AddUnreadAnnouncementList> get copyWith =>
-      __$AddUnreadAnnouncementListCopyWithImpl<_AddUnreadAnnouncementList>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() start,
-    required TResult Function(bool value) changeLoading,
-    required TResult Function(bool value) changeFirstLoading,
-    required TResult Function(ErrorModel value) setErrorModel,
-    required TResult Function() clearErrorModel,
-    required TResult Function() cleanUp,
-    required TResult Function() fetchAnnouncements,
-    required TResult Function(AnnouncementModel value) addAnnouncement,
-    required TResult Function(String value) removeAnnouncementById,
-    required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
-    required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
-    required TResult Function(List<AnnouncementModel> value) addUnreadAnnouncementList,
-    required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
-    required TResult Function() clearUnreadAnnouncements,
-    required TResult Function() clearDraftContent,
-    required TResult Function(String? title, String? content) saveDraftContent,
-    required TResult Function(Set<String> groups) saveDraftCheckedGroups,
-    required TResult Function(bool value) changeDraftPublishToTop,
-    required TResult Function(bool value) changePublishLoading,
-  }) {
-    return addUnreadAnnouncementList(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? start,
-    TResult Function(bool value)? changeLoading,
-    TResult Function(bool value)? changeFirstLoading,
-    TResult Function(ErrorModel value)? setErrorModel,
-    TResult Function()? clearErrorModel,
-    TResult Function()? cleanUp,
-    TResult Function()? fetchAnnouncements,
-    TResult Function(AnnouncementModel value)? addAnnouncement,
-    TResult Function(String value)? removeAnnouncementById,
-    TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
-    TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
-    TResult Function(List<AnnouncementModel> value)? addUnreadAnnouncementList,
-    TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
-    TResult Function()? clearUnreadAnnouncements,
-    TResult Function()? clearDraftContent,
-    TResult Function(String? title, String? content)? saveDraftContent,
-    TResult Function(Set<String> groups)? saveDraftCheckedGroups,
-    TResult Function(bool value)? changeDraftPublishToTop,
-    TResult Function(bool value)? changePublishLoading,
-    required TResult orElse(),
-  }) {
-    if (addUnreadAnnouncementList != null) {
-      return addUnreadAnnouncementList(value);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Start value) start,
-    required TResult Function(_ChangeLoading value) changeLoading,
-    required TResult Function(_ChangeFirstLoading value) changeFirstLoading,
-    required TResult Function(_SetErrorModel value) setErrorModel,
-    required TResult Function(_ClearErrorModel value) clearErrorModel,
-    required TResult Function(_CleanUp value) cleanUp,
-    required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
-    required TResult Function(_AddAnnouncement value) addAnnouncement,
-    required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
-    required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
-    required TResult Function(_AddAnnouncementList value) addAnnouncementList,
-    required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
-    required TResult Function(_AddUnreadAnnouncementList value) addUnreadAnnouncementList,
-    required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
-    required TResult Function(_ClearUnreadAnnouncement value) clearUnreadAnnouncements,
-    required TResult Function(_ClearDraft value) clearDraftContent,
-    required TResult Function(_SaveDraftContent value) saveDraftContent,
-    required TResult Function(_SaveDraftCheckedGroups value) saveDraftCheckedGroups,
-    required TResult Function(_ChangeDraftPublishToTop value) changeDraftPublishToTop,
-    required TResult Function(_ChangePublishLoading value) changePublishLoading,
-  }) {
-    return addUnreadAnnouncementList(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Start value)? start,
-    TResult Function(_ChangeLoading value)? changeLoading,
-    TResult Function(_ChangeFirstLoading value)? changeFirstLoading,
-    TResult Function(_SetErrorModel value)? setErrorModel,
-    TResult Function(_ClearErrorModel value)? clearErrorModel,
-    TResult Function(_CleanUp value)? cleanUp,
-    TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
-    TResult Function(_AddAnnouncement value)? addAnnouncement,
-    TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
-    TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
-    TResult Function(_AddAnnouncementList value)? addAnnouncementList,
-    TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
-    TResult Function(_AddUnreadAnnouncementList value)? addUnreadAnnouncementList,
-    TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
-    TResult Function(_ClearUnreadAnnouncement value)? clearUnreadAnnouncements,
-    TResult Function(_ClearDraft value)? clearDraftContent,
-    TResult Function(_SaveDraftContent value)? saveDraftContent,
-    TResult Function(_SaveDraftCheckedGroups value)? saveDraftCheckedGroups,
-    TResult Function(_ChangeDraftPublishToTop value)? changeDraftPublishToTop,
-    TResult Function(_ChangePublishLoading value)? changePublishLoading,
-    required TResult orElse(),
-  }) {
-    if (addUnreadAnnouncementList != null) {
-      return addUnreadAnnouncementList(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _AddUnreadAnnouncementList implements AnnouncementAction {
-  const factory _AddUnreadAnnouncementList({required List<AnnouncementModel> value}) = _$_AddUnreadAnnouncementList;
-
-  List<AnnouncementModel> get value => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$AddUnreadAnnouncementListCopyWith<_AddUnreadAnnouncementList> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$RemoveUnreadAnnouncementCopyWith<$Res> {
-  factory _$RemoveUnreadAnnouncementCopyWith(
-          _RemoveUnreadAnnouncement value, $Res Function(_RemoveUnreadAnnouncement) then) =
-      __$RemoveUnreadAnnouncementCopyWithImpl<$Res>;
-  $Res call({AnnouncementModel value});
-
-  $AnnouncementModelCopyWith<$Res> get value;
-}
-
-/// @nodoc
-class __$RemoveUnreadAnnouncementCopyWithImpl<$Res> extends _$AnnouncementActionCopyWithImpl<$Res>
-    implements _$RemoveUnreadAnnouncementCopyWith<$Res> {
-  __$RemoveUnreadAnnouncementCopyWithImpl(
-      _RemoveUnreadAnnouncement _value, $Res Function(_RemoveUnreadAnnouncement) _then)
-      : super(_value, (v) => _then(v as _RemoveUnreadAnnouncement));
-
-  @override
-  _RemoveUnreadAnnouncement get _value => super._value as _RemoveUnreadAnnouncement;
-
-  @override
-  $Res call({
-    Object? value = freezed,
-  }) {
-    return _then(_RemoveUnreadAnnouncement(
-      value: value == freezed
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as AnnouncementModel,
-    ));
-  }
-
-  @override
-  $AnnouncementModelCopyWith<$Res> get value {
-    return $AnnouncementModelCopyWith<$Res>(_value.value, (value) {
-      return _then(_value.copyWith(value: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$_RemoveUnreadAnnouncement implements _RemoveUnreadAnnouncement {
-  const _$_RemoveUnreadAnnouncement({required this.value});
-
-  @override
-  final AnnouncementModel value;
-
-  @override
-  String toString() {
-    return 'AnnouncementAction.removeUnreadAnnouncement(value: $value)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _RemoveUnreadAnnouncement &&
-            (identical(other.value, value) || const DeepCollectionEquality().equals(other.value, value)));
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
-
-  @JsonKey(ignore: true)
-  @override
-  _$RemoveUnreadAnnouncementCopyWith<_RemoveUnreadAnnouncement> get copyWith =>
-      __$RemoveUnreadAnnouncementCopyWithImpl<_RemoveUnreadAnnouncement>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() start,
-    required TResult Function(bool value) changeLoading,
-    required TResult Function(bool value) changeFirstLoading,
-    required TResult Function(ErrorModel value) setErrorModel,
-    required TResult Function() clearErrorModel,
-    required TResult Function() cleanUp,
-    required TResult Function() fetchAnnouncements,
-    required TResult Function(AnnouncementModel value) addAnnouncement,
-    required TResult Function(String value) removeAnnouncementById,
-    required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
-    required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
-    required TResult Function(List<AnnouncementModel> value) addUnreadAnnouncementList,
-    required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
-    required TResult Function() clearUnreadAnnouncements,
-    required TResult Function() clearDraftContent,
-    required TResult Function(String? title, String? content) saveDraftContent,
-    required TResult Function(Set<String> groups) saveDraftCheckedGroups,
-    required TResult Function(bool value) changeDraftPublishToTop,
-    required TResult Function(bool value) changePublishLoading,
-  }) {
-    return removeUnreadAnnouncement(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? start,
-    TResult Function(bool value)? changeLoading,
-    TResult Function(bool value)? changeFirstLoading,
-    TResult Function(ErrorModel value)? setErrorModel,
-    TResult Function()? clearErrorModel,
-    TResult Function()? cleanUp,
-    TResult Function()? fetchAnnouncements,
-    TResult Function(AnnouncementModel value)? addAnnouncement,
-    TResult Function(String value)? removeAnnouncementById,
-    TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
-    TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
-    TResult Function(List<AnnouncementModel> value)? addUnreadAnnouncementList,
-    TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
-    TResult Function()? clearUnreadAnnouncements,
-    TResult Function()? clearDraftContent,
-    TResult Function(String? title, String? content)? saveDraftContent,
-    TResult Function(Set<String> groups)? saveDraftCheckedGroups,
-    TResult Function(bool value)? changeDraftPublishToTop,
-    TResult Function(bool value)? changePublishLoading,
-    required TResult orElse(),
-  }) {
-    if (removeUnreadAnnouncement != null) {
-      return removeUnreadAnnouncement(value);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Start value) start,
-    required TResult Function(_ChangeLoading value) changeLoading,
-    required TResult Function(_ChangeFirstLoading value) changeFirstLoading,
-    required TResult Function(_SetErrorModel value) setErrorModel,
-    required TResult Function(_ClearErrorModel value) clearErrorModel,
-    required TResult Function(_CleanUp value) cleanUp,
-    required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
-    required TResult Function(_AddAnnouncement value) addAnnouncement,
-    required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
-    required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
-    required TResult Function(_AddAnnouncementList value) addAnnouncementList,
-    required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
-    required TResult Function(_AddUnreadAnnouncementList value) addUnreadAnnouncementList,
-    required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
-    required TResult Function(_ClearUnreadAnnouncement value) clearUnreadAnnouncements,
-    required TResult Function(_ClearDraft value) clearDraftContent,
-    required TResult Function(_SaveDraftContent value) saveDraftContent,
-    required TResult Function(_SaveDraftCheckedGroups value) saveDraftCheckedGroups,
-    required TResult Function(_ChangeDraftPublishToTop value) changeDraftPublishToTop,
-    required TResult Function(_ChangePublishLoading value) changePublishLoading,
-  }) {
-    return removeUnreadAnnouncement(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Start value)? start,
-    TResult Function(_ChangeLoading value)? changeLoading,
-    TResult Function(_ChangeFirstLoading value)? changeFirstLoading,
-    TResult Function(_SetErrorModel value)? setErrorModel,
-    TResult Function(_ClearErrorModel value)? clearErrorModel,
-    TResult Function(_CleanUp value)? cleanUp,
-    TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
-    TResult Function(_AddAnnouncement value)? addAnnouncement,
-    TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
-    TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
-    TResult Function(_AddAnnouncementList value)? addAnnouncementList,
-    TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
-    TResult Function(_AddUnreadAnnouncementList value)? addUnreadAnnouncementList,
-    TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
-    TResult Function(_ClearUnreadAnnouncement value)? clearUnreadAnnouncements,
-    TResult Function(_ClearDraft value)? clearDraftContent,
-    TResult Function(_SaveDraftContent value)? saveDraftContent,
-    TResult Function(_SaveDraftCheckedGroups value)? saveDraftCheckedGroups,
-    TResult Function(_ChangeDraftPublishToTop value)? changeDraftPublishToTop,
-    TResult Function(_ChangePublishLoading value)? changePublishLoading,
-    required TResult orElse(),
-  }) {
-    if (removeUnreadAnnouncement != null) {
-      return removeUnreadAnnouncement(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _RemoveUnreadAnnouncement implements AnnouncementAction {
-  const factory _RemoveUnreadAnnouncement({required AnnouncementModel value}) = _$_RemoveUnreadAnnouncement;
-
-  AnnouncementModel get value => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$RemoveUnreadAnnouncementCopyWith<_RemoveUnreadAnnouncement> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$ClearUnreadAnnouncementCopyWith<$Res> {
-  factory _$ClearUnreadAnnouncementCopyWith(
-          _ClearUnreadAnnouncement value, $Res Function(_ClearUnreadAnnouncement) then) =
-      __$ClearUnreadAnnouncementCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$ClearUnreadAnnouncementCopyWithImpl<$Res> extends _$AnnouncementActionCopyWithImpl<$Res>
-    implements _$ClearUnreadAnnouncementCopyWith<$Res> {
-  __$ClearUnreadAnnouncementCopyWithImpl(_ClearUnreadAnnouncement _value, $Res Function(_ClearUnreadAnnouncement) _then)
-      : super(_value, (v) => _then(v as _ClearUnreadAnnouncement));
-
-  @override
-  _ClearUnreadAnnouncement get _value => super._value as _ClearUnreadAnnouncement;
-}
-
-/// @nodoc
-
-class _$_ClearUnreadAnnouncement implements _ClearUnreadAnnouncement {
-  const _$_ClearUnreadAnnouncement();
-
-  @override
-  String toString() {
-    return 'AnnouncementAction.clearUnreadAnnouncements()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _ClearUnreadAnnouncement);
+    return identical(this, other) || (other is _ClearUnread);
   }
 
   @override
@@ -2780,17 +2274,15 @@ class _$_ClearUnreadAnnouncement implements _ClearUnreadAnnouncement {
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
-    required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
-    required TResult Function(List<AnnouncementModel> value) addUnreadAnnouncementList,
-    required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
-    required TResult Function() clearUnreadAnnouncements,
+    required TResult Function(List<String> ids) markAsRead,
+    required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
     required TResult Function(String? title, String? content) saveDraftContent,
     required TResult Function(Set<String> groups) saveDraftCheckedGroups,
     required TResult Function(bool value) changeDraftPublishToTop,
     required TResult Function(bool value) changePublishLoading,
   }) {
-    return clearUnreadAnnouncements();
+    return clearUnread();
   }
 
   @override
@@ -2807,10 +2299,8 @@ class _$_ClearUnreadAnnouncement implements _ClearUnreadAnnouncement {
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
-    TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
-    TResult Function(List<AnnouncementModel> value)? addUnreadAnnouncementList,
-    TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
-    TResult Function()? clearUnreadAnnouncements,
+    TResult Function(List<String> ids)? markAsRead,
+    TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
     TResult Function(String? title, String? content)? saveDraftContent,
     TResult Function(Set<String> groups)? saveDraftCheckedGroups,
@@ -2818,8 +2308,8 @@ class _$_ClearUnreadAnnouncement implements _ClearUnreadAnnouncement {
     TResult Function(bool value)? changePublishLoading,
     required TResult orElse(),
   }) {
-    if (clearUnreadAnnouncements != null) {
-      return clearUnreadAnnouncements();
+    if (clearUnread != null) {
+      return clearUnread();
     }
     return orElse();
   }
@@ -2838,17 +2328,15 @@ class _$_ClearUnreadAnnouncement implements _ClearUnreadAnnouncement {
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
     required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
-    required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
-    required TResult Function(_AddUnreadAnnouncementList value) addUnreadAnnouncementList,
-    required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
-    required TResult Function(_ClearUnreadAnnouncement value) clearUnreadAnnouncements,
+    required TResult Function(_MarkAsRead value) markAsRead,
+    required TResult Function(_ClearUnread value) clearUnread,
     required TResult Function(_ClearDraft value) clearDraftContent,
     required TResult Function(_SaveDraftContent value) saveDraftContent,
     required TResult Function(_SaveDraftCheckedGroups value) saveDraftCheckedGroups,
     required TResult Function(_ChangeDraftPublishToTop value) changeDraftPublishToTop,
     required TResult Function(_ChangePublishLoading value) changePublishLoading,
   }) {
-    return clearUnreadAnnouncements(this);
+    return clearUnread(this);
   }
 
   @override
@@ -2865,10 +2353,8 @@ class _$_ClearUnreadAnnouncement implements _ClearUnreadAnnouncement {
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
     TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
-    TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
-    TResult Function(_AddUnreadAnnouncementList value)? addUnreadAnnouncementList,
-    TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
-    TResult Function(_ClearUnreadAnnouncement value)? clearUnreadAnnouncements,
+    TResult Function(_MarkAsRead value)? markAsRead,
+    TResult Function(_ClearUnread value)? clearUnread,
     TResult Function(_ClearDraft value)? clearDraftContent,
     TResult Function(_SaveDraftContent value)? saveDraftContent,
     TResult Function(_SaveDraftCheckedGroups value)? saveDraftCheckedGroups,
@@ -2876,15 +2362,15 @@ class _$_ClearUnreadAnnouncement implements _ClearUnreadAnnouncement {
     TResult Function(_ChangePublishLoading value)? changePublishLoading,
     required TResult orElse(),
   }) {
-    if (clearUnreadAnnouncements != null) {
-      return clearUnreadAnnouncements(this);
+    if (clearUnread != null) {
+      return clearUnread(this);
     }
     return orElse();
   }
 }
 
-abstract class _ClearUnreadAnnouncement implements AnnouncementAction {
-  const factory _ClearUnreadAnnouncement() = _$_ClearUnreadAnnouncement;
+abstract class _ClearUnread implements AnnouncementAction {
+  const factory _ClearUnread() = _$_ClearUnread;
 }
 
 /// @nodoc
@@ -2934,10 +2420,8 @@ class _$_ClearDraft implements _ClearDraft {
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
-    required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
-    required TResult Function(List<AnnouncementModel> value) addUnreadAnnouncementList,
-    required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
-    required TResult Function() clearUnreadAnnouncements,
+    required TResult Function(List<String> ids) markAsRead,
+    required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
     required TResult Function(String? title, String? content) saveDraftContent,
     required TResult Function(Set<String> groups) saveDraftCheckedGroups,
@@ -2961,10 +2445,8 @@ class _$_ClearDraft implements _ClearDraft {
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
-    TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
-    TResult Function(List<AnnouncementModel> value)? addUnreadAnnouncementList,
-    TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
-    TResult Function()? clearUnreadAnnouncements,
+    TResult Function(List<String> ids)? markAsRead,
+    TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
     TResult Function(String? title, String? content)? saveDraftContent,
     TResult Function(Set<String> groups)? saveDraftCheckedGroups,
@@ -2992,10 +2474,8 @@ class _$_ClearDraft implements _ClearDraft {
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
     required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
-    required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
-    required TResult Function(_AddUnreadAnnouncementList value) addUnreadAnnouncementList,
-    required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
-    required TResult Function(_ClearUnreadAnnouncement value) clearUnreadAnnouncements,
+    required TResult Function(_MarkAsRead value) markAsRead,
+    required TResult Function(_ClearUnread value) clearUnread,
     required TResult Function(_ClearDraft value) clearDraftContent,
     required TResult Function(_SaveDraftContent value) saveDraftContent,
     required TResult Function(_SaveDraftCheckedGroups value) saveDraftCheckedGroups,
@@ -3019,10 +2499,8 @@ class _$_ClearDraft implements _ClearDraft {
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
     TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
-    TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
-    TResult Function(_AddUnreadAnnouncementList value)? addUnreadAnnouncementList,
-    TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
-    TResult Function(_ClearUnreadAnnouncement value)? clearUnreadAnnouncements,
+    TResult Function(_MarkAsRead value)? markAsRead,
+    TResult Function(_ClearUnread value)? clearUnread,
     TResult Function(_ClearDraft value)? clearDraftContent,
     TResult Function(_SaveDraftContent value)? saveDraftContent,
     TResult Function(_SaveDraftCheckedGroups value)? saveDraftCheckedGroups,
@@ -3121,10 +2599,8 @@ class _$_SaveDraftContent implements _SaveDraftContent {
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
-    required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
-    required TResult Function(List<AnnouncementModel> value) addUnreadAnnouncementList,
-    required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
-    required TResult Function() clearUnreadAnnouncements,
+    required TResult Function(List<String> ids) markAsRead,
+    required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
     required TResult Function(String? title, String? content) saveDraftContent,
     required TResult Function(Set<String> groups) saveDraftCheckedGroups,
@@ -3148,10 +2624,8 @@ class _$_SaveDraftContent implements _SaveDraftContent {
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
-    TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
-    TResult Function(List<AnnouncementModel> value)? addUnreadAnnouncementList,
-    TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
-    TResult Function()? clearUnreadAnnouncements,
+    TResult Function(List<String> ids)? markAsRead,
+    TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
     TResult Function(String? title, String? content)? saveDraftContent,
     TResult Function(Set<String> groups)? saveDraftCheckedGroups,
@@ -3179,10 +2653,8 @@ class _$_SaveDraftContent implements _SaveDraftContent {
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
     required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
-    required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
-    required TResult Function(_AddUnreadAnnouncementList value) addUnreadAnnouncementList,
-    required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
-    required TResult Function(_ClearUnreadAnnouncement value) clearUnreadAnnouncements,
+    required TResult Function(_MarkAsRead value) markAsRead,
+    required TResult Function(_ClearUnread value) clearUnread,
     required TResult Function(_ClearDraft value) clearDraftContent,
     required TResult Function(_SaveDraftContent value) saveDraftContent,
     required TResult Function(_SaveDraftCheckedGroups value) saveDraftCheckedGroups,
@@ -3206,10 +2678,8 @@ class _$_SaveDraftContent implements _SaveDraftContent {
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
     TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
-    TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
-    TResult Function(_AddUnreadAnnouncementList value)? addUnreadAnnouncementList,
-    TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
-    TResult Function(_ClearUnreadAnnouncement value)? clearUnreadAnnouncements,
+    TResult Function(_MarkAsRead value)? markAsRead,
+    TResult Function(_ClearUnread value)? clearUnread,
     TResult Function(_ClearDraft value)? clearDraftContent,
     TResult Function(_SaveDraftContent value)? saveDraftContent,
     TResult Function(_SaveDraftCheckedGroups value)? saveDraftCheckedGroups,
@@ -3305,10 +2775,8 @@ class _$_SaveDraftCheckedGroups implements _SaveDraftCheckedGroups {
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
-    required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
-    required TResult Function(List<AnnouncementModel> value) addUnreadAnnouncementList,
-    required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
-    required TResult Function() clearUnreadAnnouncements,
+    required TResult Function(List<String> ids) markAsRead,
+    required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
     required TResult Function(String? title, String? content) saveDraftContent,
     required TResult Function(Set<String> groups) saveDraftCheckedGroups,
@@ -3332,10 +2800,8 @@ class _$_SaveDraftCheckedGroups implements _SaveDraftCheckedGroups {
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
-    TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
-    TResult Function(List<AnnouncementModel> value)? addUnreadAnnouncementList,
-    TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
-    TResult Function()? clearUnreadAnnouncements,
+    TResult Function(List<String> ids)? markAsRead,
+    TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
     TResult Function(String? title, String? content)? saveDraftContent,
     TResult Function(Set<String> groups)? saveDraftCheckedGroups,
@@ -3363,10 +2829,8 @@ class _$_SaveDraftCheckedGroups implements _SaveDraftCheckedGroups {
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
     required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
-    required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
-    required TResult Function(_AddUnreadAnnouncementList value) addUnreadAnnouncementList,
-    required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
-    required TResult Function(_ClearUnreadAnnouncement value) clearUnreadAnnouncements,
+    required TResult Function(_MarkAsRead value) markAsRead,
+    required TResult Function(_ClearUnread value) clearUnread,
     required TResult Function(_ClearDraft value) clearDraftContent,
     required TResult Function(_SaveDraftContent value) saveDraftContent,
     required TResult Function(_SaveDraftCheckedGroups value) saveDraftCheckedGroups,
@@ -3390,10 +2854,8 @@ class _$_SaveDraftCheckedGroups implements _SaveDraftCheckedGroups {
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
     TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
-    TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
-    TResult Function(_AddUnreadAnnouncementList value)? addUnreadAnnouncementList,
-    TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
-    TResult Function(_ClearUnreadAnnouncement value)? clearUnreadAnnouncements,
+    TResult Function(_MarkAsRead value)? markAsRead,
+    TResult Function(_ClearUnread value)? clearUnread,
     TResult Function(_ClearDraft value)? clearDraftContent,
     TResult Function(_SaveDraftContent value)? saveDraftContent,
     TResult Function(_SaveDraftCheckedGroups value)? saveDraftCheckedGroups,
@@ -3488,10 +2950,8 @@ class _$_ChangeDraftPublishToTop implements _ChangeDraftPublishToTop {
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
-    required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
-    required TResult Function(List<AnnouncementModel> value) addUnreadAnnouncementList,
-    required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
-    required TResult Function() clearUnreadAnnouncements,
+    required TResult Function(List<String> ids) markAsRead,
+    required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
     required TResult Function(String? title, String? content) saveDraftContent,
     required TResult Function(Set<String> groups) saveDraftCheckedGroups,
@@ -3515,10 +2975,8 @@ class _$_ChangeDraftPublishToTop implements _ChangeDraftPublishToTop {
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
-    TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
-    TResult Function(List<AnnouncementModel> value)? addUnreadAnnouncementList,
-    TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
-    TResult Function()? clearUnreadAnnouncements,
+    TResult Function(List<String> ids)? markAsRead,
+    TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
     TResult Function(String? title, String? content)? saveDraftContent,
     TResult Function(Set<String> groups)? saveDraftCheckedGroups,
@@ -3546,10 +3004,8 @@ class _$_ChangeDraftPublishToTop implements _ChangeDraftPublishToTop {
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
     required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
-    required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
-    required TResult Function(_AddUnreadAnnouncementList value) addUnreadAnnouncementList,
-    required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
-    required TResult Function(_ClearUnreadAnnouncement value) clearUnreadAnnouncements,
+    required TResult Function(_MarkAsRead value) markAsRead,
+    required TResult Function(_ClearUnread value) clearUnread,
     required TResult Function(_ClearDraft value) clearDraftContent,
     required TResult Function(_SaveDraftContent value) saveDraftContent,
     required TResult Function(_SaveDraftCheckedGroups value) saveDraftCheckedGroups,
@@ -3573,10 +3029,8 @@ class _$_ChangeDraftPublishToTop implements _ChangeDraftPublishToTop {
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
     TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
-    TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
-    TResult Function(_AddUnreadAnnouncementList value)? addUnreadAnnouncementList,
-    TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
-    TResult Function(_ClearUnreadAnnouncement value)? clearUnreadAnnouncements,
+    TResult Function(_MarkAsRead value)? markAsRead,
+    TResult Function(_ClearUnread value)? clearUnread,
     TResult Function(_ClearDraft value)? clearDraftContent,
     TResult Function(_SaveDraftContent value)? saveDraftContent,
     TResult Function(_SaveDraftCheckedGroups value)? saveDraftCheckedGroups,
@@ -3670,10 +3124,8 @@ class _$_ChangePublishLoading implements _ChangePublishLoading {
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
     required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
-    required TResult Function(AnnouncementModel value) addUnreadAnnouncement,
-    required TResult Function(List<AnnouncementModel> value) addUnreadAnnouncementList,
-    required TResult Function(AnnouncementModel value) removeUnreadAnnouncement,
-    required TResult Function() clearUnreadAnnouncements,
+    required TResult Function(List<String> ids) markAsRead,
+    required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
     required TResult Function(String? title, String? content) saveDraftContent,
     required TResult Function(Set<String> groups) saveDraftCheckedGroups,
@@ -3697,10 +3149,8 @@ class _$_ChangePublishLoading implements _ChangePublishLoading {
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
     TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
-    TResult Function(AnnouncementModel value)? addUnreadAnnouncement,
-    TResult Function(List<AnnouncementModel> value)? addUnreadAnnouncementList,
-    TResult Function(AnnouncementModel value)? removeUnreadAnnouncement,
-    TResult Function()? clearUnreadAnnouncements,
+    TResult Function(List<String> ids)? markAsRead,
+    TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
     TResult Function(String? title, String? content)? saveDraftContent,
     TResult Function(Set<String> groups)? saveDraftCheckedGroups,
@@ -3728,10 +3178,8 @@ class _$_ChangePublishLoading implements _ChangePublishLoading {
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
     required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
     required TResult Function(_AddAnnouncementList value) addAnnouncementList,
-    required TResult Function(_AddUnreadAnnouncement value) addUnreadAnnouncement,
-    required TResult Function(_AddUnreadAnnouncementList value) addUnreadAnnouncementList,
-    required TResult Function(_RemoveUnreadAnnouncement value) removeUnreadAnnouncement,
-    required TResult Function(_ClearUnreadAnnouncement value) clearUnreadAnnouncements,
+    required TResult Function(_MarkAsRead value) markAsRead,
+    required TResult Function(_ClearUnread value) clearUnread,
     required TResult Function(_ClearDraft value) clearDraftContent,
     required TResult Function(_SaveDraftContent value) saveDraftContent,
     required TResult Function(_SaveDraftCheckedGroups value) saveDraftCheckedGroups,
@@ -3755,10 +3203,8 @@ class _$_ChangePublishLoading implements _ChangePublishLoading {
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
     TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
     TResult Function(_AddAnnouncementList value)? addAnnouncementList,
-    TResult Function(_AddUnreadAnnouncement value)? addUnreadAnnouncement,
-    TResult Function(_AddUnreadAnnouncementList value)? addUnreadAnnouncementList,
-    TResult Function(_RemoveUnreadAnnouncement value)? removeUnreadAnnouncement,
-    TResult Function(_ClearUnreadAnnouncement value)? clearUnreadAnnouncements,
+    TResult Function(_MarkAsRead value)? markAsRead,
+    TResult Function(_ClearUnread value)? clearUnread,
     TResult Function(_ClearDraft value)? clearDraftContent,
     TResult Function(_SaveDraftContent value)? saveDraftContent,
     TResult Function(_SaveDraftCheckedGroups value)? saveDraftCheckedGroups,

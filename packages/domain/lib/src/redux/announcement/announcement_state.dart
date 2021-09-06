@@ -11,27 +11,32 @@ class AnnouncementState with _$AnnouncementState {
   const AnnouncementState._();
 
   const factory AnnouncementState({
-    @JsonKey(name: 'date') int? dateUnixMs,
+    /// `common`
+    @JsonKey(name: 'last_datetime_read_list_unix_ms') int? lastDatetimeReadListUnixMs,
     @JsonKey(name: 'loading', defaultValue: false) @Default(false) bool loading,
     @JsonKey(name: 'first_loading', defaultValue: true) @Default(true) bool firstLoading,
     @JsonKey(name: 'error_model') ErrorModel? errorModel,
+
+    /// `announcement`
     @JsonKey(name: 'list', defaultValue: <AnnouncementModel>[])
     @Default(<AnnouncementModel>[])
         List<AnnouncementModel> list,
     @JsonKey(name: 'top_list', defaultValue: <AnnouncementModel>[])
     @Default(<AnnouncementModel>[])
         List<AnnouncementModel> topList,
+
+    // TODO remove
     @JsonKey(name: 'unread_list', defaultValue: <AnnouncementModel>[])
     @Default(<AnnouncementModel>[])
         List<AnnouncementModel> unreadList,
 
-    // create new announement. save draft of it
+    /// `create new announement. save draft of it`
     @JsonKey(name: 'draft_new_title') String? draftNewTitle,
     @JsonKey(name: 'draft_new_content') String? draftNewContent,
     @JsonKey(name: 'draft_new_groups', defaultValue: <String>{}) @Default(<String>{}) Set<String> draftNewGroups,
     @JsonKey(name: 'draft_publish_to_top', defaultValue: false) @Default(false) bool draftPublishToTop,
 
-    // flag when add, modify, remove announcement
+    /// `flag when add, modify, remove announcement`
     @JsonKey(name: 'publish_loading', defaultValue: false) @Default(false) bool publishLoading,
   }) = _AnnouncementState;
 

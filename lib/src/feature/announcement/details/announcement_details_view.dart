@@ -32,6 +32,10 @@ class _AnnouncementDetailsViewState extends State<AnnouncementDetailsView> {
     super.initState();
 
     _announcementModel = _bloc.findAnnouncementById(widget.announcementModelId);
+
+    if (_announcementModel != null) {
+      _bloc.markAsRead(_announcementModel!.id);
+    }
   }
 
   @override
@@ -71,6 +75,19 @@ class _AnnouncementDetailsViewState extends State<AnnouncementDetailsView> {
                 physics: const AlwaysScrollableScrollPhysics(),
                 child: Text(
                   'date: ${_kDateFormat.format(DateTime.fromMillisecondsSinceEpoch(_announcementModel!.dateUnixMs!))}',
+                  style: Theme.of(context).textTheme.bodyText2,
+                ),
+              ),
+            ),
+
+          // read
+          if (_announcementModel != null)
+            Padding(
+              padding: const EdgeInsets.all(8),
+              child: SingleChildScrollView(
+                physics: const AlwaysScrollableScrollPhysics(),
+                child: Text(
+                  _announcementModel!.isUnread ? 'Unread' : 'Read',
                   style: Theme.of(context).textTheme.bodyText2,
                 ),
               ),

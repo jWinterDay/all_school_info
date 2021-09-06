@@ -50,17 +50,29 @@ class AnnouncementCard extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               // title
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 4),
-                child: Text(
-                  announcementModel.title ?? AllSchoolInfoIntl.of(context).unknownAnnouncementTitle,
-                  style: Theme.of(context).textTheme.caption?.copyWith(
-                        color: context.design.palette.black,
+              Row(
+                children: <Widget>[
+                  if (announcementModel.isUnread)
+                    Container(
+                      width: 30,
+                      color: context.design.palette.accent,
+                      height: 30,
+                    ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 4),
+                      child: Text(
+                        announcementModel.title ?? AllSchoolInfoIntl.of(context).unknownAnnouncementTitle,
+                        style: Theme.of(context).textTheme.caption?.copyWith(
+                              color: context.design.palette.black,
+                            ),
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.center,
+                        maxLines: 1,
                       ),
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.center,
-                  maxLines: 1,
-                ),
+                    ),
+                  ),
+                ],
               ),
 
               if (announcementModel.dateUnixMs != null)

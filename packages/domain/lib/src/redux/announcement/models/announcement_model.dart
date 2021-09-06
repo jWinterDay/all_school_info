@@ -16,6 +16,7 @@ class AnnouncementModel with _$AnnouncementModel implements Comparable<Announcem
     @JsonKey(name: 'user_groups', defaultValue: <String>[]) @Default(<String>[]) List<String> userGroups,
     @JsonKey(name: 'is_top_event', defaultValue: false) @Default(false) bool isTopEvent,
     @JsonKey(name: 'date_unix_ms') int? dateUnixMs,
+    @JsonKey(name: 'is_unread', defaultValue: false) @Default(false) bool isUnread,
     // @JsonKey(ignore: true) @Default(DocumentChangeType.added) DocumentChangeType documentChangeType, // internal,
   }) = _AnnouncementModel;
 
