@@ -26,9 +26,6 @@ void subscribeAnnouncementsThunk(
 
   final AnnouncementService userService = getIt.get<AnnouncementService>();
 
-  // loading
-  store.dispatch(const AnnouncementAction.changeFirstLoading(value: false)); // for ui
-
   _userStateSub = store.onChange
       .map((AppState appState) {
         return appState.userState.accessGroups;
@@ -42,8 +39,6 @@ void subscribeAnnouncementsThunk(
           _applyQuerySnapshot(list: list, store: store);
         });
       });
-
-  // store.dispatch(const AnnouncementAction.changeFirstLoading(value: false)); // for ui
 }
 
 void _applyQuerySnapshot({
@@ -60,8 +55,17 @@ void _applyQuerySnapshot({
   final List<AnnouncementModel> added = list.where((AnnouncementModel model) {
     return model.documentChangeType == DocumentChangeType.added;
   }).toList();
+
+  if (store.state.announcementState.firstLoading) {
+    store
+      ..dispatch(AnnouncementAction.addAnnouncementList(value: added))
+      ..dispatch(const AnnouncementAction.changeFirstLoading(value: false)); // for ui
+  } else {
+    store.dispatch(AnnouncementAction.addUnreadAnnouncementList(value: added));
+  }
+
   // store.dispatch(AnnouncementAction.addUnreadAnnouncementList(value: added));
-  store.dispatch(AnnouncementAction.addAnnouncementList(value: added));
+  // store.dispatch(AnnouncementAction.addAnnouncementList(value: added));
 
   // iterate throw changed docs
   // for (final AnnouncementModel model in list) {

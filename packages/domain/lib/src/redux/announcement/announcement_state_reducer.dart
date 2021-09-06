@@ -19,7 +19,7 @@ AnnouncementState announcementReducer(AnnouncementState s, dynamic a) {
       setErrorModel: (a) => s.copyWith(errorModel: a.value),
       clearErrorModel: (_) => s.copyWith(errorModel: null),
 
-      //
+      /// `announcement list`
       // ignore: always_specify_types
       addAnnouncement: (a) => _addAnnouncement(s, a.value),
       // ignore: always_specify_types
@@ -29,7 +29,7 @@ AnnouncementState announcementReducer(AnnouncementState s, dynamic a) {
       // ignore: always_specify_types
       modifyAnnouncementById: (a) => _modifyAnnouncementById(s, id: a.id, data: a.data),
 
-      /// `unread`
+      /// `unread list`
       // ignore: always_specify_types
       addUnreadAnnouncement: (a) => _addUnreadAnnouncement(s, a.value),
       // ignore: always_specify_types

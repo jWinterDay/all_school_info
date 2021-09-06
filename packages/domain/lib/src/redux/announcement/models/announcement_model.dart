@@ -16,7 +16,7 @@ class AnnouncementModel with _$AnnouncementModel implements Comparable<Announcem
     @JsonKey(name: 'user_groups', defaultValue: <String>[]) @Default(<String>[]) List<String> userGroups,
     @JsonKey(name: 'is_top_event', defaultValue: false) @Default(false) bool isTopEvent,
     @JsonKey(name: 'date_unix_ms') int? dateUnixMs,
-    @JsonKey(ignore: true) @Default(DocumentChangeType.added) DocumentChangeType documentChangeType,
+    @JsonKey(ignore: true) @Default(DocumentChangeType.added) DocumentChangeType documentChangeType, // internal,
   }) = _AnnouncementModel;
 
   factory AnnouncementModel.fromJson(Map<String, dynamic> json) => _$AnnouncementModelFromJson(json);

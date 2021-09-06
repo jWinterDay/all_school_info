@@ -12,4 +12,14 @@ class AnnouncementServiceImpl implements AnnouncementService {
   Stream<List<AnnouncementModel>> announcementsStream({required List<String> accessGroups}) {
     throw UnimplementedError();
   }
+
+  @override
+  Future<void> publishAnnouncement({
+    required String title,
+    required String content,
+    required bool isTopEvent,
+    required List<String> userGroups,
+  }) {
+    throw UnimplementedError();
+  }
 }

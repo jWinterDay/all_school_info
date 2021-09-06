@@ -3,15 +3,14 @@ import 'dart:io';
 
 import 'package:domain/domain.dart';
 import 'package:domain/src/redux/announcement/models/announcement_model.dart';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-
 import 'announcement_service.dart';
 
 int _cnt = 0;
 
 class AnnouncementServiceMock implements AnnouncementService {
-  CollectionReference<Map<String, dynamic>> get _fbCollection => FirebaseFirestore.instance.collection('announcements');
+  static const String _collectionName = 'announcements';
+  CollectionReference<Map<String, dynamic>> get _fbCollection => FirebaseFirestore.instance.collection(_collectionName);
 
   @override
   Future<List<AnnouncementModel>> fetchAnnouncements() async {
@@ -44,7 +43,6 @@ class AnnouncementServiceMock implements AnnouncementService {
 
   @override
   Stream<List<AnnouncementModel>> announcementsStream({required List<String> accessGroups}) {
-    // return Stream.value([]);
     return _fbCollection
         .where(
           'user_groups',
@@ -80,5 +78,25 @@ class AnnouncementServiceMock implements AnnouncementService {
         );
       }).toList();
     });
+  }
+
+  @override
+  Future<void> publishAnnouncement({
+    required String title,
+    required String content,
+    required bool isTopEvent,
+    required List<String> userGroups,
+  }) async {
+    final Map<String, dynamic> data = <String, dynamic>{
+      'title': title,
+      'content': content,
+      'user_groups': FieldValue.arrayUnion(userGroups),
+      'is_top_event': isTopEvent,
+      'date_unix_ms': FieldValue.serverTimestamp(),
+    };
+
+    // final DocumentReference<Map<String, dynamic>> result =
+    await _fbCollection.add(data);
+    // result.id
   }
 }
