@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:domain/domain.dart';
 
+// TODO remove
 class AppUtils {
   static DocApplyType convertDocTypeToDtoType(DocumentChangeType documentChangeType) {
     switch (documentChangeType) {

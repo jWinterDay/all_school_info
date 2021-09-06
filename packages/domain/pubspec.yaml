@@ -7,11 +7,16 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
+  flutter:
+    sdk: flutter
   computer: ^2.0.0
   freezed_annotation: ^0.14.2
   get_it: ^7.2.0
   redux: ^5.0.0
   redux_thunk: ^0.4.0
+
+  #
+  cloud_firestore: ^2.5.1
 
 dev_dependencies:
   json_serializable: ^4.1.3

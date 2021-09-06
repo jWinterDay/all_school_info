@@ -21,10 +21,9 @@ export 'src/redux/settings/settings_state.dart';
 export 'src/redux/announcement/models/announcement_model.dart';
 export 'src/redux/announcement/announcement_action.dart';
 export 'src/redux/announcement/thunks/fetch_announcements_thunk.dart';
-export 'src/redux/announcement/thunks/apply_announcements_thunk.dart';
+export 'src/redux/announcement/thunks/subscribe_announcements_thunk.dart';
 export 'src/redux/announcement/announcement_state.dart';
 export 'src/redux/announcement/announcement_state_reducer.dart';
-export 'src/redux/announcement/dto/announcement_apply_dto.dart';
 
 // user
 export 'src/redux/user/user_action.dart';
