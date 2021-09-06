@@ -4,8 +4,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:all_school_info/src/generated/l10n.dart';
 import 'package:design/design.dart';
+import 'package:intl/intl.dart';
 
 import 'announcement_details_bloc.dart';
+
+final DateFormat _kDateFormat = DateFormat('dd.MM.yyyy HH:mm:ss');
 
 class AnnouncementDetailsView extends StatefulWidget {
   const AnnouncementDetailsView({
@@ -60,6 +63,32 @@ class _AnnouncementDetailsViewState extends State<AnnouncementDetailsView> {
             ),
           ),
 
+          // datetime
+          if (_announcementModel?.dateUnixMs != null)
+            Padding(
+              padding: const EdgeInsets.all(8),
+              child: SingleChildScrollView(
+                physics: const AlwaysScrollableScrollPhysics(),
+                child: Text(
+                  'date: ${_kDateFormat.format(DateTime.fromMillisecondsSinceEpoch(_announcementModel!.dateUnixMs!))}',
+                  style: Theme.of(context).textTheme.bodyText2,
+                ),
+              ),
+            ),
+
+          // groups
+          if (_announcementModel != null)
+            Padding(
+              padding: const EdgeInsets.all(8),
+              child: SingleChildScrollView(
+                physics: const AlwaysScrollableScrollPhysics(),
+                child: Text(
+                  'groups: ${_announcementModel!.userGroups}',
+                  style: Theme.of(context).textTheme.bodyText2,
+                ),
+              ),
+            ),
+
           // content
           if (_announcementModel != null)
             Expanded(
@@ -67,9 +96,12 @@ class _AnnouncementDetailsViewState extends State<AnnouncementDetailsView> {
                 padding: const EdgeInsets.all(8),
                 child: SingleChildScrollView(
                   physics: const AlwaysScrollableScrollPhysics(),
-                  child: Text(
-                    _announcementModel?.content ?? AllSchoolInfoIntl.of(context).unknownAnnouncementContent,
-                    style: Theme.of(context).textTheme.bodyText2,
+                  child: ColoredBox(
+                    color: context.design.palette.gray22,
+                    child: Text(
+                      _announcementModel!.content ?? AllSchoolInfoIntl.of(context).unknownAnnouncementContent,
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
                   ),
                 ),
               ),

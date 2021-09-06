@@ -89,12 +89,18 @@ AnnouncementModel _mapModelFromData({
     }
   }
 
+  List<String> userGroups = <String>[];
+  final dynamic userGroupsRaw = data?['user_groups'];
+  if (userGroupsRaw is List) {
+    userGroups = userGroupsRaw.map((dynamic e) => e.toString()).toList();
+  }
+
   return AnnouncementModel(
     id,
     title: data?['title']?.toString(),
     content: data?['content']?.toString(),
     isTopEvent: isTopEvent,
     dateUnixMs: dateUnixMsRaw,
-    // documentChangeType: changeType,
+    userGroups: userGroups,
   );
 }
