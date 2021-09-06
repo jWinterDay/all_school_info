@@ -13,8 +13,10 @@ void fetchAnnouncementsThunk(Store<AppState> store) async {
 
   final AnnouncementService announcementService = getIt.get<AnnouncementService>();
 
+  final List<String> accessGroups = store.state.userState.accessGroups;
+
   try {
-    final List<AnnouncementModel> list = await announcementService.fetchAnnouncements();
+    final List<AnnouncementModel> list = await announcementService.fetchAnnouncements(accessGroups: accessGroups);
     store.dispatch(AnnouncementAction.addAnnouncementList(value: list));
   } catch (exc) {
     store.dispatch(

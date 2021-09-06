@@ -9,22 +9,7 @@ class AnnouncementListBloc {
   Store<AppState> get _store => getIt.get<AppDomain>().appStore;
 
   void refresh() {
-    // _firstFetch = true;
-
-    // if (_store.state.userState.accessGroups.isNotEmpty) {
-    //   _store.dispatch(const AnnouncementAction.changeLoading(value: true));
-
-    // _announcements
-    //     ?.where(
-    //       'user_groups',
-    //       arrayContainsAny: _store.state.userState.accessGroups,
-    //     )
-    //     .get()
-    //     .then((QuerySnapshot<Map<String, dynamic>> data) {
-    //   _store.dispatch(const AnnouncementAction.cleanUp());
-    //   _applyQuerySnapshot(data);
-    // });
-    // }
+    _store.dispatch(fetchAnnouncementsThunk);
   }
 
   void dispose() {

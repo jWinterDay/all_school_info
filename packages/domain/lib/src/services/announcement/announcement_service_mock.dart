@@ -13,32 +13,25 @@ class AnnouncementServiceMock implements AnnouncementService {
   CollectionReference<Map<String, dynamic>> get _fbCollection => FirebaseFirestore.instance.collection(_collectionName);
 
   @override
-  Future<List<AnnouncementModel>> fetchAnnouncements() async {
-    // final Computer computer = getIt.get<Computer>();
-    // await computer.compute<void, void>(_someExpensiveMethod);
-
-    int listCount = 0;
-    switch (_cnt++ % 3) {
-      case 0:
-        listCount = 15;
-        break;
-      case 1:
-        listCount = 0;
-        break;
-      case 2:
-        throw const TlsException('test exception');
-      default:
-        listCount = 15;
+  Future<List<AnnouncementModel>> fetchAnnouncements({required List<String> accessGroups}) async {
+    if (accessGroups.isEmpty) {
+      return <AnnouncementModel>[];
     }
 
-    return List<AnnouncementModel>.generate(listCount, (int index) {
-      return AnnouncementModel(
-        '$index',
-        content: 'some body',
-        title: 'looooooooooo oooooooooooo ooooooOOOoo OOOOoooOOoooong_title_$index',
-        isTopEvent: index % 2 == 0,
+    final QuerySnapshot<Map<String, dynamic>> res = await _fbCollection
+        .where(
+          'user_groups',
+          arrayContainsAny: accessGroups,
+        )
+        .get();
+
+    return res.docs.map((QueryDocumentSnapshot<Map<String, dynamic>> item) {
+      return _mapModelFromData(
+        data: item.data(),
+        id: item.id,
+        changeType: DocumentChangeType.added,
       );
-    });
+    }).toList();
   }
 
   @override
@@ -54,27 +47,10 @@ class AnnouncementServiceMock implements AnnouncementService {
       return changes.map((DocumentChange<Map<String, dynamic>> change) {
         final Map<String, dynamic>? data = change.doc.data();
 
-        bool isTopEvent = false;
-        final dynamic rawIsTopEvent = data?['is_top_event'];
-        if (rawIsTopEvent is bool) {
-          isTopEvent = rawIsTopEvent;
-        }
-
-        int? dateUnixMsRaw;
-        final dynamic rawDateUnixMs = data?['date_unix_ms'];
-        if (rawDateUnixMs != null) {
-          if (rawDateUnixMs is Timestamp) {
-            dateUnixMsRaw = rawDateUnixMs.millisecondsSinceEpoch;
-          }
-        }
-
-        return AnnouncementModel(
-          change.doc.id,
-          title: data?['title']?.toString(),
-          content: data?['content']?.toString(),
-          isTopEvent: isTopEvent,
-          dateUnixMs: dateUnixMsRaw,
-          documentChangeType: change.type,
+        return _mapModelFromData(
+          data: data,
+          id: change.doc.id,
+          changeType: change.type,
         );
       }).toList();
     });
@@ -99,4 +75,34 @@ class AnnouncementServiceMock implements AnnouncementService {
     await _fbCollection.add(data);
     // result.id
   }
+}
+
+AnnouncementModel _mapModelFromData({
+  required Map<String, dynamic>? data,
+  required String id,
+  required DocumentChangeType changeType,
+}) {
+  bool isTopEvent = false;
+
+  final dynamic rawIsTopEvent = data?['is_top_event'];
+  if (rawIsTopEvent is bool) {
+    isTopEvent = rawIsTopEvent;
+  }
+
+  int? dateUnixMsRaw;
+  final dynamic rawDateUnixMs = data?['date_unix_ms'];
+  if (rawDateUnixMs != null) {
+    if (rawDateUnixMs is Timestamp) {
+      dateUnixMsRaw = rawDateUnixMs.millisecondsSinceEpoch;
+    }
+  }
+
+  return AnnouncementModel(
+    id,
+    title: data?['title']?.toString(),
+    content: data?['content']?.toString(),
+    isTopEvent: isTopEvent,
+    dateUnixMs: dateUnixMsRaw,
+    documentChangeType: changeType,
+  );
 }
