@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:domain/domain.dart';
 import 'package:domain/src/redux/announcement/models/announcement_model.dart';
@@ -35,20 +34,15 @@ class AnnouncementServiceMock implements AnnouncementService {
   @override
   Stream<List<AnnouncementModel>> announcementsStream({required List<String> accessGroups}) {
     return _fbCollection
-        .where(
-          'user_groups',
-          arrayContainsAny: accessGroups,
-        )
+        .where('user_groups', arrayContainsAny: accessGroups)
         .snapshots(includeMetadataChanges: true)
-        .map((QuerySnapshot<Map<String, dynamic>> snapshot) => snapshot.docChanges)
-        .map((List<DocumentChange<Map<String, dynamic>>> changes) {
-      return changes.map((DocumentChange<Map<String, dynamic>> change) {
-        final Map<String, dynamic>? data = change.doc.data();
-
+        .map((QuerySnapshot<Map<String, dynamic>> snapshot) => snapshot.docs)
+        .map((List<QueryDocumentSnapshot<Map<String, dynamic>>> docList) {
+      return docList.map((QueryDocumentSnapshot<Map<String, dynamic>> doc) {
         return _mapModelFromData(
-          data: data,
-          id: change.doc.id,
-          changeType: change.type,
+          data: doc.data(),
+          id: doc.id,
+          changeType: DocumentChangeType.added,
         );
       }).toList();
     });
@@ -101,6 +95,6 @@ AnnouncementModel _mapModelFromData({
     content: data?['content']?.toString(),
     isTopEvent: isTopEvent,
     dateUnixMs: dateUnixMsRaw,
-    documentChangeType: changeType,
+    // documentChangeType: changeType,
   );
 }

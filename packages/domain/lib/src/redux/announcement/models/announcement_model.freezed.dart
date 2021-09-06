@@ -25,8 +25,7 @@ class _$AnnouncementModelTearOff {
       @JsonKey(name: 'content') String? content,
       @JsonKey(name: 'user_groups', defaultValue: const <String>[]) List<String> userGroups = const <String>[],
       @JsonKey(name: 'is_top_event', defaultValue: false) bool isTopEvent = false,
-      @JsonKey(name: 'date_unix_ms') int? dateUnixMs,
-      @JsonKey(ignore: true) DocumentChangeType documentChangeType = DocumentChangeType.added}) {
+      @JsonKey(name: 'date_unix_ms') int? dateUnixMs}) {
     return _AnnouncementModel(
       id,
       title: title,
@@ -34,7 +33,6 @@ class _$AnnouncementModelTearOff {
       userGroups: userGroups,
       isTopEvent: isTopEvent,
       dateUnixMs: dateUnixMs,
-      documentChangeType: documentChangeType,
     );
   }
 
@@ -60,8 +58,6 @@ mixin _$AnnouncementModel {
   bool get isTopEvent => throw _privateConstructorUsedError;
   @JsonKey(name: 'date_unix_ms')
   int? get dateUnixMs => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  DocumentChangeType get documentChangeType => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -78,8 +74,7 @@ abstract class $AnnouncementModelCopyWith<$Res> {
       @JsonKey(name: 'content') String? content,
       @JsonKey(name: 'user_groups', defaultValue: const <String>[]) List<String> userGroups,
       @JsonKey(name: 'is_top_event', defaultValue: false) bool isTopEvent,
-      @JsonKey(name: 'date_unix_ms') int? dateUnixMs,
-      @JsonKey(ignore: true) DocumentChangeType documentChangeType});
+      @JsonKey(name: 'date_unix_ms') int? dateUnixMs});
 }
 
 /// @nodoc
@@ -98,7 +93,6 @@ class _$AnnouncementModelCopyWithImpl<$Res> implements $AnnouncementModelCopyWit
     Object? userGroups = freezed,
     Object? isTopEvent = freezed,
     Object? dateUnixMs = freezed,
-    Object? documentChangeType = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -125,10 +119,6 @@ class _$AnnouncementModelCopyWithImpl<$Res> implements $AnnouncementModelCopyWit
           ? _value.dateUnixMs
           : dateUnixMs // ignore: cast_nullable_to_non_nullable
               as int?,
-      documentChangeType: documentChangeType == freezed
-          ? _value.documentChangeType
-          : documentChangeType // ignore: cast_nullable_to_non_nullable
-              as DocumentChangeType,
     ));
   }
 }
@@ -144,8 +134,7 @@ abstract class _$AnnouncementModelCopyWith<$Res> implements $AnnouncementModelCo
       @JsonKey(name: 'content') String? content,
       @JsonKey(name: 'user_groups', defaultValue: const <String>[]) List<String> userGroups,
       @JsonKey(name: 'is_top_event', defaultValue: false) bool isTopEvent,
-      @JsonKey(name: 'date_unix_ms') int? dateUnixMs,
-      @JsonKey(ignore: true) DocumentChangeType documentChangeType});
+      @JsonKey(name: 'date_unix_ms') int? dateUnixMs});
 }
 
 /// @nodoc
@@ -165,7 +154,6 @@ class __$AnnouncementModelCopyWithImpl<$Res> extends _$AnnouncementModelCopyWith
     Object? userGroups = freezed,
     Object? isTopEvent = freezed,
     Object? dateUnixMs = freezed,
-    Object? documentChangeType = freezed,
   }) {
     return _then(_AnnouncementModel(
       id == freezed
@@ -192,10 +180,6 @@ class __$AnnouncementModelCopyWithImpl<$Res> extends _$AnnouncementModelCopyWith
           ? _value.dateUnixMs
           : dateUnixMs // ignore: cast_nullable_to_non_nullable
               as int?,
-      documentChangeType: documentChangeType == freezed
-          ? _value.documentChangeType
-          : documentChangeType // ignore: cast_nullable_to_non_nullable
-              as DocumentChangeType,
     ));
   }
 }
@@ -208,8 +192,7 @@ class _$_AnnouncementModel extends _AnnouncementModel {
       @JsonKey(name: 'content') this.content,
       @JsonKey(name: 'user_groups', defaultValue: const <String>[]) this.userGroups = const <String>[],
       @JsonKey(name: 'is_top_event', defaultValue: false) this.isTopEvent = false,
-      @JsonKey(name: 'date_unix_ms') this.dateUnixMs,
-      @JsonKey(ignore: true) this.documentChangeType = DocumentChangeType.added})
+      @JsonKey(name: 'date_unix_ms') this.dateUnixMs})
       : super._();
 
   factory _$_AnnouncementModel.fromJson(Map<String, dynamic> json) => _$_$_AnnouncementModelFromJson(json);
@@ -232,13 +215,10 @@ class _$_AnnouncementModel extends _AnnouncementModel {
   @override
   @JsonKey(name: 'date_unix_ms')
   final int? dateUnixMs;
-  @override
-  @JsonKey(ignore: true)
-  final DocumentChangeType documentChangeType;
 
   @override
   String toString() {
-    return 'AnnouncementModel(id: $id, title: $title, content: $content, userGroups: $userGroups, isTopEvent: $isTopEvent, dateUnixMs: $dateUnixMs, documentChangeType: $documentChangeType)';
+    return 'AnnouncementModel(id: $id, title: $title, content: $content, userGroups: $userGroups, isTopEvent: $isTopEvent, dateUnixMs: $dateUnixMs)';
   }
 
   @override
@@ -253,9 +233,7 @@ class _$_AnnouncementModel extends _AnnouncementModel {
             (identical(other.isTopEvent, isTopEvent) ||
                 const DeepCollectionEquality().equals(other.isTopEvent, isTopEvent)) &&
             (identical(other.dateUnixMs, dateUnixMs) ||
-                const DeepCollectionEquality().equals(other.dateUnixMs, dateUnixMs)) &&
-            (identical(other.documentChangeType, documentChangeType) ||
-                const DeepCollectionEquality().equals(other.documentChangeType, documentChangeType)));
+                const DeepCollectionEquality().equals(other.dateUnixMs, dateUnixMs)));
   }
 
   @override
@@ -266,8 +244,7 @@ class _$_AnnouncementModel extends _AnnouncementModel {
       const DeepCollectionEquality().hash(content) ^
       const DeepCollectionEquality().hash(userGroups) ^
       const DeepCollectionEquality().hash(isTopEvent) ^
-      const DeepCollectionEquality().hash(dateUnixMs) ^
-      const DeepCollectionEquality().hash(documentChangeType);
+      const DeepCollectionEquality().hash(dateUnixMs);
 
   @JsonKey(ignore: true)
   @override
@@ -286,8 +263,7 @@ abstract class _AnnouncementModel extends AnnouncementModel {
       @JsonKey(name: 'content') String? content,
       @JsonKey(name: 'user_groups', defaultValue: const <String>[]) List<String> userGroups,
       @JsonKey(name: 'is_top_event', defaultValue: false) bool isTopEvent,
-      @JsonKey(name: 'date_unix_ms') int? dateUnixMs,
-      @JsonKey(ignore: true) DocumentChangeType documentChangeType}) = _$_AnnouncementModel;
+      @JsonKey(name: 'date_unix_ms') int? dateUnixMs}) = _$_AnnouncementModel;
   const _AnnouncementModel._() : super._();
 
   factory _AnnouncementModel.fromJson(Map<String, dynamic> json) = _$_AnnouncementModel.fromJson;
@@ -310,9 +286,6 @@ abstract class _AnnouncementModel extends AnnouncementModel {
   @override
   @JsonKey(name: 'date_unix_ms')
   int? get dateUnixMs => throw _privateConstructorUsedError;
-  @override
-  @JsonKey(ignore: true)
-  DocumentChangeType get documentChangeType => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$AnnouncementModelCopyWith<_AnnouncementModel> get copyWith => throw _privateConstructorUsedError;
