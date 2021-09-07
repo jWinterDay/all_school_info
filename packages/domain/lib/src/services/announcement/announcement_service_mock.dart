@@ -8,6 +8,17 @@ import 'announcement_service.dart';
 class AnnouncementServiceMock implements AnnouncementService {
   static const String _collectionName = 'announcements';
   CollectionReference<Map<String, dynamic>> get _fbCollection => FirebaseFirestore.instance.collection(_collectionName);
+  Query<Map<String, dynamic>> _query(List<String> accessGroups) {
+    return _fbCollection
+        .orderBy(
+          'date_unix_ms',
+          descending: true,
+        )
+        .where(
+          'user_groups',
+          arrayContainsAny: accessGroups,
+        );
+  }
 
   @override
   Future<List<AnnouncementModel>> fetchAnnouncements({required List<String> accessGroups}) async {
@@ -15,13 +26,7 @@ class AnnouncementServiceMock implements AnnouncementService {
       return <AnnouncementModel>[];
     }
 
-    final QuerySnapshot<Map<String, dynamic>> res = await _fbCollection
-        .where(
-          'user_groups',
-          arrayContainsAny: accessGroups,
-        )
-        .orderBy('date_unix_ms', descending: true)
-        .get();
+    final QuerySnapshot<Map<String, dynamic>> res = await _query(accessGroups).get();
 
     return res.docs.map((QueryDocumentSnapshot<Map<String, dynamic>> item) {
       return _mapModelFromData(
@@ -34,9 +39,7 @@ class AnnouncementServiceMock implements AnnouncementService {
 
   @override
   Stream<List<AnnouncementModel>> announcementsStream({required List<String> accessGroups}) {
-    return _fbCollection
-        .where('user_groups', arrayContainsAny: accessGroups)
-        .orderBy('date_unix_ms', descending: true)
+    return _query(accessGroups)
         .snapshots(includeMetadataChanges: true)
         .map((QuerySnapshot<Map<String, dynamic>> snapshot) {
       final List<QueryDocumentSnapshot<Map<String, dynamic>>> docList = snapshot.docs;
