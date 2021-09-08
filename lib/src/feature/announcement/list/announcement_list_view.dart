@@ -9,6 +9,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 import 'announcement_list_bloc.dart';
 import 'models/ui_announcement_info.dart';
@@ -27,6 +28,7 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
   final AnnouncementListBloc _bloc = AnnouncementListBloc();
   // static final double _offset = 120;
   final ScrollController _scrollController = ScrollController();
+  RefreshController _refreshController = RefreshController();
 
   @override
   void initState() {
@@ -109,59 +111,80 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
 
                         // print(_scrollController.offset);
                         // print('--scrollInfo = ${scrollInfo.metrics} max = ${scrollInfo.metrics.maxScrollExtent}');
-                        if (scrollInfo is! ScrollStartNotification &&
-                            scrollInfo is! UserScrollNotification &&
-                            scrollInfo.metrics.pixels == scrollInfo.metrics.maxScrollExtent &&
-                            uiAnnouncementInfo.announcementState.list.isNotEmpty) {
-                          _bloc.getMore();
-                        }
+                        // if (scrollInfo is! ScrollStartNotification &&
+                        //     scrollInfo is! UserScrollNotification &&
+                        //     scrollInfo.metrics.pixels == scrollInfo.metrics.maxScrollExtent &&
+                        //     uiAnnouncementInfo.announcementState.list.isNotEmpty) {
+                        //   _bloc.getMore();
+                        // }
 
                         return false;
                       },
-                      child: CustomScrollView(
-                        controller: _scrollController,
-                        physics: const AlwaysScrollableScrollPhysics(),
-                        slivers: <Widget>[
-                          // refresh
-                          CupertinoSliverRefreshControl(
-                            onRefresh: () async {
-                              _bloc.refresh();
-                            },
-                          ),
+                      child: SmartRefresher(
+                        scrollController: _scrollController,
+                        enablePullUp: true,
+                        controller: _refreshController,
+                        onRefresh: () async {
+                          _bloc.refresh();
 
-                          if (uiAnnouncementInfo.announcementState.errorModel != null)
-                            SliverToBoxAdapter(
-                              child: Text(
-                                'Error: ${uiAnnouncementInfo.errorMessage}',
-                              ),
-                            )
-                          // else if (uiAnnouncementInfo.announcementState.firstLoading)
-                          //   SliverFillRemaining(
-                          //     child: Center(
-                          //       child: Text(AllSchoolInfoIntl.of(context).noContentYet),
-                          //     ),
-                          //   )
-                          else if (uiAnnouncementInfo.announcementState.list.isEmpty)
-                            SliverFillRemaining(
-                              child: Center(
-                                child: Text(AllSchoolInfoIntl.of(context).noAnnouncement),
-                              ),
-                            )
-                          else
-                            SliverList(
-                              delegate: SliverChildListDelegate(
-                                // uiAnnouncementInfo.readAnnouncementList.map((AnnouncementModel e) {
-                                //   return AnnouncementCard(announcementModel: e);
-                                // }).toList(),
-                                uiAnnouncementInfo.announcementState.list.map((AnnouncementModel e) {
-                                  return AnnouncementCard(announcementModel: e);
-                                }).toList(),
-                              ),
-                            ),
+                          await Future<void>.delayed(Duration(milliseconds: 1000));
 
-                          // padding
-                          // SliverPadding(padding: EdgeInsets.only(bottom: _offset))
-                        ],
+                          _refreshController.refreshCompleted();
+                        },
+                        onLoading: () async {
+                          _bloc.getMore();
+
+                          await Future<void>.delayed(Duration(milliseconds: 1000));
+
+                          _refreshController.loadComplete();
+                        },
+                        footer: const ClassicFooter(
+                          loadStyle: LoadStyle.ShowWhenLoading,
+                        ),
+                        child: CustomScrollView(
+                          controller: _scrollController,
+                          physics: const AlwaysScrollableScrollPhysics(),
+                          slivers: <Widget>[
+                            // CupertinoSliverRefreshControl(
+                            //   onRefresh: () async {
+                            //     _bloc.refresh();
+                            //   },
+                            // ),
+
+                            if (uiAnnouncementInfo.announcementState.errorModel != null)
+                              SliverToBoxAdapter(
+                                child: Text(
+                                  'Error: ${uiAnnouncementInfo.errorMessage}',
+                                ),
+                              )
+                            // else if (uiAnnouncementInfo.announcementState.firstLoading)
+                            //   SliverFillRemaining(
+                            //     child: Center(
+                            //       child: Text(AllSchoolInfoIntl.of(context).noContentYet),
+                            //     ),
+                            //   )
+                            else if (uiAnnouncementInfo.announcementState.list.isEmpty)
+                              SliverFillRemaining(
+                                child: Center(
+                                  child: Text(AllSchoolInfoIntl.of(context).noAnnouncement),
+                                ),
+                              )
+                            else
+                              SliverList(
+                                delegate: SliverChildListDelegate(
+                                  // uiAnnouncementInfo.readAnnouncementList.map((AnnouncementModel e) {
+                                  //   return AnnouncementCard(announcementModel: e);
+                                  // }).toList(),
+                                  uiAnnouncementInfo.announcementState.list.map((AnnouncementModel e) {
+                                    return AnnouncementCard(announcementModel: e);
+                                  }).toList(),
+                                ),
+                              ),
+
+                            // padding
+                            // SliverPadding(padding: EdgeInsets.only(bottom: _offset))
+                          ],
+                        ),
                       ),
                     ),
 

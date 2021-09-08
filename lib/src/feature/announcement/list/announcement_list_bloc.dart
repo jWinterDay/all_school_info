@@ -9,9 +9,7 @@ class AnnouncementListBloc {
   Store<AppState> get _store => getIt.get<AppDomain>().appStore;
 
   void refresh() {
-    // print('refresh logged = ${_store.state.userState.loggedIn}');
     if (_store.state.userState.loggedIn) {
-      print('refresh as logged');
       _store.dispatch(
         (Store<AppState> store) => fetchAnnouncementsThunk(
           store: store,
@@ -23,7 +21,6 @@ class AnnouncementListBloc {
 
   void getMore() {
     if (!_store.state.announcementState.loading) {
-      print('get more');
       _store.dispatch(
         (Store<AppState> store) => fetchAnnouncementsThunk(
           store: store,
