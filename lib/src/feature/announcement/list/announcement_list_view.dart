@@ -26,6 +26,7 @@ class AnnouncementListView extends StatefulWidget {
 class _AnnouncementListViewState extends State<AnnouncementListView> {
   final AnnouncementListBloc _bloc = AnnouncementListBloc();
   static final double _offset = 120;
+  final ScrollController _scrollController = ScrollController();
 
   @override
   void initState() {
@@ -102,15 +103,24 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
                     // content
                     NotificationListener<ScrollNotification>(
                       onNotification: (ScrollNotification scrollInfo) {
+                        if (_scrollController.offset < 100) {
+                          return false;
+                        }
+
+                        // print(_scrollController.offset);
+                        // print('--scrollInfo = ${scrollInfo.metrics} max = ${scrollInfo.metrics.maxScrollExtent}');
                         if (scrollInfo is! ScrollStartNotification &&
                             scrollInfo is! UserScrollNotification &&
-                            scrollInfo.metrics.pixels == scrollInfo.metrics.maxScrollExtent) {
+                            scrollInfo.metrics.pixels == scrollInfo.metrics.maxScrollExtent &&
+                            uiAnnouncementInfo.announcementState.list.isNotEmpty) {
                           _bloc.getMore();
                         }
 
                         return false;
                       },
                       child: CustomScrollView(
+                        controller: _scrollController,
+                        physics: AlwaysScrollableScrollPhysics(),
                         slivers: <Widget>[
                           // refresh
                           CupertinoSliverRefreshControl(

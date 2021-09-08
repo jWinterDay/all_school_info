@@ -15,7 +15,6 @@ class AnnouncementServiceImpl implements AnnouncementService {
   @override
   Stream<List<AnnouncementModel>> announcementsStream({
     required List<String> accessGroups,
-    required int limit,
   }) {
     throw UnimplementedError();
   }

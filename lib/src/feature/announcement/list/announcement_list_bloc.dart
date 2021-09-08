@@ -10,12 +10,14 @@ class AnnouncementListBloc {
 
   void refresh() {
     if (_store.state.userState.loggedIn) {
+      print('refresh');
       _store.dispatch((Store<AppState> store) => fetchAnnouncementsThunk(store: store));
     }
   }
 
   void getMore() {
     if (!_store.state.announcementState.loading) {
+      print('get more');
       _store.dispatch((Store<AppState> store) => fetchAnnouncementsThunk(store: store, toTop: false));
     }
   }
@@ -30,6 +32,6 @@ class AnnouncementListBloc {
   }
 
   void _subscribe() {
-    _store.dispatch((Store<AppState> store) => subscribeAnnouncementsThunk(store, subscribe: true));
+    // _store.dispatch((Store<AppState> store) => subscribeAnnouncementsThunk(store, subscribe: true));
   }
 }

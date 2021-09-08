@@ -9,7 +9,6 @@ abstract class AnnouncementService {
 
   Stream<List<AnnouncementModel>> announcementsStream({
     required List<String> accessGroups,
-    required int limit,
   });
 
   Future<void> publishAnnouncement({

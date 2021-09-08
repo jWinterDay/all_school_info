@@ -114,7 +114,16 @@ AnnouncementState _addAnnouncement(
   AnnouncementState state,
   AnnouncementModel announcementModel,
 ) {
-  throw UnimplementedError();
+  return state.copyWith(
+    list: <AnnouncementModel>[
+      if (!announcementModel.isTopEvent) announcementModel,
+      ...state.list,
+    ],
+    topList: <AnnouncementModel>[
+      if (announcementModel.isTopEvent) announcementModel,
+      ...state.topList,
+    ],
+  );
 }
 
 AnnouncementState _addAnnouncementList(

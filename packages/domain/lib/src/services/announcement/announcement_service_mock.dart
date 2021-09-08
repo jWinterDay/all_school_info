@@ -23,7 +23,7 @@ class AnnouncementServiceMock implements AnnouncementService {
             'user_groups',
             arrayContainsAny: accessGroups,
           )
-          .limit(3); //limit);
+          .limit(limit);
     }
 
     return _fbCollection
@@ -36,7 +36,21 @@ class AnnouncementServiceMock implements AnnouncementService {
           'user_groups',
           arrayContainsAny: accessGroups,
         )
-        .limit(3); //limit);
+        .limit(limit);
+  }
+
+  Query<Map<String, dynamic>> _subscriptionQuery({
+    required List<String> accessGroups,
+  }) {
+    return _fbCollection
+        .orderBy(
+          'date_unix_ms',
+          descending: true,
+        )
+        .where(
+          'user_groups',
+          arrayContainsAny: accessGroups,
+        );
   }
 
   @override
@@ -67,17 +81,21 @@ class AnnouncementServiceMock implements AnnouncementService {
   @override
   Stream<List<AnnouncementModel>> announcementsStream({
     required List<String> accessGroups,
-    required int limit,
   }) {
-    return _query(
-      accessGroups: accessGroups,
-      limit: limit,
-    )
+    return _subscriptionQuery(accessGroups: accessGroups)
         .snapshots(includeMetadataChanges: true)
         .where((QuerySnapshot<Map<String, dynamic>> snapshot) => !snapshot.metadata.hasPendingWrites)
         .map((QuerySnapshot<Map<String, dynamic>> snapshot) {
       final List<QueryDocumentSnapshot<Map<String, dynamic>>> docList = snapshot.docs;
       final List<DocumentChange<Map<String, dynamic>>> changes = snapshot.docChanges;
+
+      print('---snapshot = ${snapshot.metadata.isFromCache}');
+
+      // doc list
+      final String dl = docList.map((e) => e.id).join('; ');
+      final cl = changes.map((e) => e.doc.id).join('; ');
+
+      print('dl = $dl cl = $cl');
 
       final List<String> changesIdList = changes.where((DocumentChange<Map<String, dynamic>> e) {
         return e.type != DocumentChangeType.added;

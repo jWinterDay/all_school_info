@@ -27,7 +27,7 @@ void fetchAnnouncementsThunk({
     final List<AnnouncementModel> list = await announcementService.fetchAnnouncements(
       accessGroups: accessGroups,
       limit: limit,
-      dateUnixMsThreshold: dateUnixMsThreshold,
+      dateUnixMsThreshold: toTop ? null : dateUnixMsThreshold,
     );
     store.dispatch(AnnouncementAction.addAnnouncementList(value: list, toTop: toTop));
 

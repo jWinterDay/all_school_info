@@ -83,9 +83,9 @@ Future<void> _subscribe({
   await _announcementsSub?.cancel();
   final Stream<List<AnnouncementModel>> stream = announcementService.announcementsStream(
     accessGroups: accessGroups,
-    limit: limit,
   );
   _announcementsSub = stream.listen((List<AnnouncementModel> list) {
+    print('subscr list len = ${list.length}');
     store.dispatch(AnnouncementAction.addAnnouncementList(value: list, toTop: true));
 
     if (list.isNotEmpty) {
