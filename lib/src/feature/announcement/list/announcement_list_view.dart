@@ -1,3 +1,4 @@
+import 'package:all_school_info/src/feature/announcement/default/default_announcement_view.dart';
 import 'package:all_school_info/src/generated/l10n.dart';
 // import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
 // import 'package:auto_route/auto_route.dart';
@@ -47,9 +48,14 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
         return UiAnnouncementInfo(
           announcementState: store.state.announcementState,
           topAnnouncementCount: store.state.commonState.topAnnouncementCount,
+          loggedIn: store.state.userState.loggedIn,
         );
       },
       builder: (_, UiAnnouncementInfo uiAnnouncementInfo) {
+        if (!uiAnnouncementInfo.loggedIn) {
+          return const DefaultAnnouncementView();
+        }
+
         // final int unreadLen = uiAnnouncementInfo.unreadAnnouncementList.length;
 
         return Column(

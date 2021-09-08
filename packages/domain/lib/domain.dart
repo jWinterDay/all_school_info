@@ -31,7 +31,6 @@ export 'src/redux/user/user_action.dart';
 export 'src/redux/user/user_state.dart';
 export 'src/redux/user/user_state_reducer.dart';
 export 'src/redux/user/models/lesson_name_model.dart';
-export 'src/redux/user/models/user_groups.dart';
 export 'src/redux/user/models/user_type.dart';
 export 'src/redux/user/thunks/fetch_user_thunk.dart';
 

@@ -4,10 +4,12 @@ class UiAnnouncementInfo {
   UiAnnouncementInfo({
     required this.announcementState,
     required this.topAnnouncementCount,
+    required this.loggedIn,
   });
 
   final AnnouncementState announcementState;
   final int topAnnouncementCount;
+  final bool loggedIn;
 
   /// available if you want to print non nullable error model
   String get errorMessage {

@@ -69,7 +69,8 @@ class AppRouter extends _i1.RootStackRouter {
 
   @override
   List<_i1.RouteConfig> get routes => [
-        _i1.RouteConfig(HomeViewRoute.name, path: '/', children: [
+        _i1.RouteConfig('/#redirect', path: '/', redirectTo: '/home', fullMatch: true),
+        _i1.RouteConfig(HomeViewRoute.name, path: '/home', children: [
           _i1.RouteConfig('#redirect', path: '', redirectTo: 'announcements', fullMatch: true),
           _i1.RouteConfig(AnnouncementListViewRoute.name, path: 'announcements'),
           _i1.RouteConfig(ScheduleViewRoute.name, path: 'schedule'),
@@ -83,7 +84,7 @@ class AppRouter extends _i1.RootStackRouter {
 }
 
 class HomeViewRoute extends _i1.PageRouteInfo {
-  const HomeViewRoute({List<_i1.PageRouteInfo>? children}) : super(name, path: '/', initialChildren: children);
+  const HomeViewRoute({List<_i1.PageRouteInfo>? children}) : super(name, path: '/home', initialChildren: children);
 
   static const String name = 'HomeViewRoute';
 }

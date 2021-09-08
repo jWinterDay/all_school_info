@@ -9,7 +9,9 @@ class AnnouncementListBloc {
   Store<AppState> get _store => getIt.get<AppDomain>().appStore;
 
   void refresh() {
-    _store.dispatch(fetchAnnouncementsThunk);
+    if (_store.state.userState.loggedIn) {
+      _store.dispatch(fetchAnnouncementsThunk);
+    }
   }
 
   void dispose() {

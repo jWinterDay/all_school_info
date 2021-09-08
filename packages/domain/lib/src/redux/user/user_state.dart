@@ -1,4 +1,3 @@
-import 'package:domain/src/redux/user/models/user_groups.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'models/user_type.dart';
@@ -38,6 +37,6 @@ class UserState with _$UserState {
 
   /// can create announcements
   bool get canCreateAnnouncements {
-    return loggedIn && availableAccessGroups.isNotEmpty && accessGroups.contains(UserGroups.canCreateAnnouncements);
+    return loggedIn && availableAccessGroups.isNotEmpty; // && userType == UserType.moderator;
   }
 }
