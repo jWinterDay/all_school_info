@@ -41,6 +41,7 @@ class AnnouncementServiceMock implements AnnouncementService {
   Stream<List<AnnouncementModel>> announcementsStream({required List<String> accessGroups}) {
     return _query(accessGroups)
         .snapshots(includeMetadataChanges: true)
+        .where((QuerySnapshot<Map<String, dynamic>> snapshot) => !snapshot.metadata.hasPendingWrites)
         .map((QuerySnapshot<Map<String, dynamic>> snapshot) {
       final List<QueryDocumentSnapshot<Map<String, dynamic>>> docList = snapshot.docs;
       final List<DocumentChange<Map<String, dynamic>>> changes = snapshot.docChanges;
