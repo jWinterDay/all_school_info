@@ -81,10 +81,11 @@ class _$AnnouncementActionTearOff {
     );
   }
 
-  _AddAnnouncementList addAnnouncementList({required Iterable<AnnouncementModel> value, required bool toTop}) {
+  _AddAnnouncementList addAnnouncementList(
+      {required Iterable<AnnouncementModel> value, required CollectionAddType collectionAddType}) {
     return _AddAnnouncementList(
       value: value,
-      toTop: toTop,
+      collectionAddType: collectionAddType,
     );
   }
 
@@ -147,7 +148,8 @@ mixin _$AnnouncementAction {
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)
+        addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -171,7 +173,7 @@ mixin _$AnnouncementAction {
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -294,7 +296,8 @@ class _$_Start implements _Start {
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)
+        addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -321,7 +324,7 @@ class _$_Start implements _Start {
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -472,7 +475,8 @@ class _$_ChangeLoading implements _ChangeLoading {
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)
+        addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -499,7 +503,7 @@ class _$_ChangeLoading implements _ChangeLoading {
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -654,7 +658,8 @@ class _$_ChangeFirstLoading implements _ChangeFirstLoading {
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)
+        addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -681,7 +686,7 @@ class _$_ChangeFirstLoading implements _ChangeFirstLoading {
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -845,7 +850,8 @@ class _$_SetErrorModel implements _SetErrorModel {
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)
+        addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -872,7 +878,7 @@ class _$_SetErrorModel implements _SetErrorModel {
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -1004,7 +1010,8 @@ class _$_ClearErrorModel implements _ClearErrorModel {
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)
+        addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -1031,7 +1038,7 @@ class _$_ClearErrorModel implements _ClearErrorModel {
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -1156,7 +1163,8 @@ class _$_CleanUp implements _CleanUp {
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)
+        addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -1183,7 +1191,7 @@ class _$_CleanUp implements _CleanUp {
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -1333,7 +1341,8 @@ class _$_ChangeLimit implements _ChangeLimit {
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)
+        addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -1360,7 +1369,7 @@ class _$_ChangeLimit implements _ChangeLimit {
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -1517,7 +1526,8 @@ class _$_ChangeDateUnixMsThreshold implements _ChangeDateUnixMsThreshold {
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)
+        addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -1544,7 +1554,7 @@ class _$_ChangeDateUnixMsThreshold implements _ChangeDateUnixMsThreshold {
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -1676,7 +1686,8 @@ class _$_FetchAnnouncements implements _FetchAnnouncements {
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)
+        addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -1703,7 +1714,7 @@ class _$_FetchAnnouncements implements _FetchAnnouncements {
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -1863,7 +1874,8 @@ class _$_AddAnnouncement implements _AddAnnouncement {
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)
+        addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -1890,7 +1902,7 @@ class _$_AddAnnouncement implements _AddAnnouncement {
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -2045,7 +2057,8 @@ class _$_RemoveAnnouncementById implements _RemoveAnnouncementById {
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)
+        addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -2072,7 +2085,7 @@ class _$_RemoveAnnouncementById implements _RemoveAnnouncementById {
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -2236,7 +2249,8 @@ class _$_ModifyAnnouncement implements _ModifyAnnouncement {
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)
+        addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -2263,7 +2277,7 @@ class _$_ModifyAnnouncement implements _ModifyAnnouncement {
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -2351,7 +2365,7 @@ abstract class _ModifyAnnouncement implements AnnouncementAction {
 abstract class _$AddAnnouncementListCopyWith<$Res> {
   factory _$AddAnnouncementListCopyWith(_AddAnnouncementList value, $Res Function(_AddAnnouncementList) then) =
       __$AddAnnouncementListCopyWithImpl<$Res>;
-  $Res call({Iterable<AnnouncementModel> value, bool toTop});
+  $Res call({Iterable<AnnouncementModel> value, CollectionAddType collectionAddType});
 }
 
 /// @nodoc
@@ -2366,17 +2380,17 @@ class __$AddAnnouncementListCopyWithImpl<$Res> extends _$AnnouncementActionCopyW
   @override
   $Res call({
     Object? value = freezed,
-    Object? toTop = freezed,
+    Object? collectionAddType = freezed,
   }) {
     return _then(_AddAnnouncementList(
       value: value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as Iterable<AnnouncementModel>,
-      toTop: toTop == freezed
-          ? _value.toTop
-          : toTop // ignore: cast_nullable_to_non_nullable
-              as bool,
+      collectionAddType: collectionAddType == freezed
+          ? _value.collectionAddType
+          : collectionAddType // ignore: cast_nullable_to_non_nullable
+              as CollectionAddType,
     ));
   }
 }
@@ -2384,16 +2398,16 @@ class __$AddAnnouncementListCopyWithImpl<$Res> extends _$AnnouncementActionCopyW
 /// @nodoc
 
 class _$_AddAnnouncementList implements _AddAnnouncementList {
-  const _$_AddAnnouncementList({required this.value, required this.toTop});
+  const _$_AddAnnouncementList({required this.value, required this.collectionAddType});
 
   @override
   final Iterable<AnnouncementModel> value;
   @override
-  final bool toTop;
+  final CollectionAddType collectionAddType;
 
   @override
   String toString() {
-    return 'AnnouncementAction.addAnnouncementList(value: $value, toTop: $toTop)';
+    return 'AnnouncementAction.addAnnouncementList(value: $value, collectionAddType: $collectionAddType)';
   }
 
   @override
@@ -2401,12 +2415,15 @@ class _$_AddAnnouncementList implements _AddAnnouncementList {
     return identical(this, other) ||
         (other is _AddAnnouncementList &&
             (identical(other.value, value) || const DeepCollectionEquality().equals(other.value, value)) &&
-            (identical(other.toTop, toTop) || const DeepCollectionEquality().equals(other.toTop, toTop)));
+            (identical(other.collectionAddType, collectionAddType) ||
+                const DeepCollectionEquality().equals(other.collectionAddType, collectionAddType)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value) ^ const DeepCollectionEquality().hash(toTop);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(value) ^
+      const DeepCollectionEquality().hash(collectionAddType);
 
   @JsonKey(ignore: true)
   @override
@@ -2428,7 +2445,8 @@ class _$_AddAnnouncementList implements _AddAnnouncementList {
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)
+        addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -2437,7 +2455,7 @@ class _$_AddAnnouncementList implements _AddAnnouncementList {
     required TResult Function(bool value) changeDraftPublishToTop,
     required TResult Function(bool value) changePublishLoading,
   }) {
-    return addAnnouncementList(value, toTop);
+    return addAnnouncementList(value, collectionAddType);
   }
 
   @override
@@ -2455,7 +2473,7 @@ class _$_AddAnnouncementList implements _AddAnnouncementList {
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -2466,7 +2484,7 @@ class _$_AddAnnouncementList implements _AddAnnouncementList {
     required TResult orElse(),
   }) {
     if (addAnnouncementList != null) {
-      return addAnnouncementList(value, toTop);
+      return addAnnouncementList(value, collectionAddType);
     }
     return orElse();
   }
@@ -2531,11 +2549,12 @@ class _$_AddAnnouncementList implements _AddAnnouncementList {
 }
 
 abstract class _AddAnnouncementList implements AnnouncementAction {
-  const factory _AddAnnouncementList({required Iterable<AnnouncementModel> value, required bool toTop}) =
-      _$_AddAnnouncementList;
+  const factory _AddAnnouncementList(
+      {required Iterable<AnnouncementModel> value,
+      required CollectionAddType collectionAddType}) = _$_AddAnnouncementList;
 
   Iterable<AnnouncementModel> get value => throw _privateConstructorUsedError;
-  bool get toTop => throw _privateConstructorUsedError;
+  CollectionAddType get collectionAddType => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$AddAnnouncementListCopyWith<_AddAnnouncementList> get copyWith => throw _privateConstructorUsedError;
 }
@@ -2609,7 +2628,8 @@ class _$_MarkAsRead implements _MarkAsRead {
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)
+        addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -2636,7 +2656,7 @@ class _$_MarkAsRead implements _MarkAsRead {
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -2768,7 +2788,8 @@ class _$_ClearUnread implements _ClearUnread {
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)
+        addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -2795,7 +2816,7 @@ class _$_ClearUnread implements _ClearUnread {
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -2922,7 +2943,8 @@ class _$_ClearDraft implements _ClearDraft {
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)
+        addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -2949,7 +2971,7 @@ class _$_ClearDraft implements _ClearDraft {
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -3109,7 +3131,8 @@ class _$_SaveDraftContent implements _SaveDraftContent {
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)
+        addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -3136,7 +3159,7 @@ class _$_SaveDraftContent implements _SaveDraftContent {
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -3293,7 +3316,8 @@ class _$_SaveDraftCheckedGroups implements _SaveDraftCheckedGroups {
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)
+        addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -3320,7 +3344,7 @@ class _$_SaveDraftCheckedGroups implements _SaveDraftCheckedGroups {
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -3476,7 +3500,8 @@ class _$_ChangeDraftPublishToTop implements _ChangeDraftPublishToTop {
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)
+        addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -3503,7 +3528,7 @@ class _$_ChangeDraftPublishToTop implements _ChangeDraftPublishToTop {
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -3658,7 +3683,8 @@ class _$_ChangePublishLoading implements _ChangePublishLoading {
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)
+        addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -3685,7 +3711,7 @@ class _$_ChangePublishLoading implements _ChangePublishLoading {
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, CollectionAddType collectionAddType)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,

@@ -9,16 +9,27 @@ class AnnouncementListBloc {
   Store<AppState> get _store => getIt.get<AppDomain>().appStore;
 
   void refresh() {
+    // print('refresh logged = ${_store.state.userState.loggedIn}');
     if (_store.state.userState.loggedIn) {
-      print('refresh');
-      _store.dispatch((Store<AppState> store) => fetchAnnouncementsThunk(store: store));
+      print('refresh as logged');
+      _store.dispatch(
+        (Store<AppState> store) => fetchAnnouncementsThunk(
+          store: store,
+          collectionAddType: CollectionAddType.refresh,
+        ),
+      );
     }
   }
 
   void getMore() {
     if (!_store.state.announcementState.loading) {
       print('get more');
-      _store.dispatch((Store<AppState> store) => fetchAnnouncementsThunk(store: store, toTop: false));
+      _store.dispatch(
+        (Store<AppState> store) => fetchAnnouncementsThunk(
+          store: store,
+          collectionAddType: CollectionAddType.down,
+        ),
+      );
     }
   }
 

@@ -1,4 +1,5 @@
 import 'package:domain/src/models/error_model.dart';
+import 'package:domain/src/redux/common/models/collection_add_type.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'models/announcement_model.dart';
@@ -26,7 +27,7 @@ class AnnouncementAction with _$AnnouncementAction {
       _ModifyAnnouncement;
   const factory AnnouncementAction.addAnnouncementList({
     required Iterable<AnnouncementModel> value,
-    required bool toTop,
+    required CollectionAddType collectionAddType,
   }) = _AddAnnouncementList;
   const factory AnnouncementAction.markAsRead({required List<String> ids}) = _MarkAsRead;
   const factory AnnouncementAction.clearUnread() = _ClearUnread; // clear all unread items

@@ -86,7 +86,10 @@ Future<void> _subscribe({
   );
   _announcementsSub = stream.listen((List<AnnouncementModel> list) {
     print('subscr list len = ${list.length}');
-    store.dispatch(AnnouncementAction.addAnnouncementList(value: list, toTop: true));
+    store.dispatch(AnnouncementAction.addAnnouncementList(
+      value: list,
+      collectionAddType: CollectionAddType.top,
+    ));
 
     if (list.isNotEmpty) {
       final int? lastDateTime = list.last.dateUnixMs;

@@ -5,13 +5,14 @@ import 'package:domain/src/models/error_model.dart';
 import 'package:domain/src/redux/announcement/announcement_action.dart';
 import 'package:domain/src/redux/announcement/models/announcement_model.dart';
 import 'package:domain/src/redux/app/app_state.dart';
+import 'package:domain/src/redux/common/models/collection_add_type.dart';
 import 'package:domain/src/services/announcement/announcement_service.dart';
 import 'package:redux/redux.dart';
 import 'package:utils/logger.dart';
 
 void fetchAnnouncementsThunk({
   required Store<AppState> store,
-  bool toTop = true,
+  required CollectionAddType collectionAddType,
 }) async {
   store
     ..dispatch(const AnnouncementAction.changeLoading(value: true))
@@ -21,15 +22,26 @@ void fetchAnnouncementsThunk({
 
   final List<String> accessGroups = store.state.userState.accessGroups;
   final int limit = store.state.announcementState.limit;
-  final int? dateUnixMsThreshold = store.state.announcementState.dateUnixMsThreshold;
+
+  // date threshold
+  int? dateUnixMsThreshold;
+  switch (collectionAddType) {
+    case CollectionAddType.down:
+      dateUnixMsThreshold = store.state.announcementState.dateUnixMsThreshold;
+      break;
+    default:
+  }
 
   try {
     final List<AnnouncementModel> list = await announcementService.fetchAnnouncements(
       accessGroups: accessGroups,
       limit: limit,
-      dateUnixMsThreshold: toTop ? null : dateUnixMsThreshold,
+      dateUnixMsThreshold: dateUnixMsThreshold,
     );
-    store.dispatch(AnnouncementAction.addAnnouncementList(value: list, toTop: toTop));
+    store.dispatch(AnnouncementAction.addAnnouncementList(
+      value: list,
+      collectionAddType: collectionAddType,
+    ));
 
     // change date threshold
     if (list.isNotEmpty) {

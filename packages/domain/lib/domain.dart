@@ -12,6 +12,7 @@ export 'src/redux/common/common_action.dart';
 export 'src/redux/common/common_state.dart';
 export 'src/redux/common/models/app_lifecycle.dart';
 export 'src/redux/common/models/doc_apply_type.dart';
+export 'src/redux/common/models/collection_add_type.dart';
 
 // settings
 export 'src/redux/settings/settings_action.dart';

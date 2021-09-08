@@ -25,7 +25,7 @@ class AnnouncementListView extends StatefulWidget {
 
 class _AnnouncementListViewState extends State<AnnouncementListView> {
   final AnnouncementListBloc _bloc = AnnouncementListBloc();
-  static final double _offset = 120;
+  // static final double _offset = 120;
   final ScrollController _scrollController = ScrollController();
 
   @override
@@ -103,9 +103,9 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
                     // content
                     NotificationListener<ScrollNotification>(
                       onNotification: (ScrollNotification scrollInfo) {
-                        if (_scrollController.offset < 100) {
-                          return false;
-                        }
+                        // if (_scrollController.offset < 100) {
+                        //   return false;
+                        // }
 
                         // print(_scrollController.offset);
                         // print('--scrollInfo = ${scrollInfo.metrics} max = ${scrollInfo.metrics.maxScrollExtent}');
@@ -120,7 +120,7 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
                       },
                       child: CustomScrollView(
                         controller: _scrollController,
-                        physics: AlwaysScrollableScrollPhysics(),
+                        physics: const AlwaysScrollableScrollPhysics(),
                         slivers: <Widget>[
                           // refresh
                           CupertinoSliverRefreshControl(

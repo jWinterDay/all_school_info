@@ -1,3 +1,5 @@
+import 'package:domain/src/redux/common/models/collection_add_type.dart';
+
 import 'announcement_action.dart';
 import 'announcement_state.dart';
 import 'models/announcement_model.dart';
@@ -27,7 +29,7 @@ AnnouncementState announcementReducer(AnnouncementState s, dynamic a) {
       // ignore: always_specify_types
       addAnnouncement: (a) => _addAnnouncement(s, a.value),
       // ignore: always_specify_types
-      addAnnouncementList: (a) => _addAnnouncementList(s, list: a.value, toTop: a.toTop),
+      addAnnouncementList: (a) => _addAnnouncementList(s, list: a.value, collectionAddType: a.collectionAddType),
       // ignore: always_specify_types
       removeAnnouncementById: (a) => _removeAnnouncementById(s, a.value),
       // ignore: always_specify_types
@@ -129,16 +131,38 @@ AnnouncementState _addAnnouncement(
 AnnouncementState _addAnnouncementList(
   AnnouncementState state, {
   required Iterable<AnnouncementModel> list,
-  required bool toTop,
+  required CollectionAddType collectionAddType,
 }) {
+  final List<AnnouncementModel> notTop = list.where((AnnouncementModel e) => !e.isTopEvent).toList();
+
+  List<AnnouncementModel> resultList;
+  switch (collectionAddType) {
+    // add to top of list
+    case CollectionAddType.top:
+      resultList = <AnnouncementModel>[
+        ...notTop,
+        ...state.list,
+      ];
+      break;
+    // add to down of list
+    case CollectionAddType.down:
+      resultList = <AnnouncementModel>[
+        ...state.list,
+        ...notTop,
+      ];
+      break;
+    // replace current list
+    default:
+      resultList = notTop;
+  }
+
   return state.copyWith(
-    list: <AnnouncementModel>[
-      if (toTop) ...list.where((AnnouncementModel e) => !e.isTopEvent).toList(),
-      ...state.list,
-      if (!toTop) ...list.where((AnnouncementModel e) => !e.isTopEvent).toList(),
-    ],
+    list: resultList,
     topList: <AnnouncementModel>[
-      ...list.where((AnnouncementModel e) => e.isTopEvent).toList(),
+      if (collectionAddType == CollectionAddType.refresh)
+        ...list.where((AnnouncementModel e) => e.isTopEvent).toList()
+      else
+        ...state.topList,
     ],
   );
 }
