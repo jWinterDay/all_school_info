@@ -25,6 +25,7 @@ class AnnouncementListView extends StatefulWidget {
 
 class _AnnouncementListViewState extends State<AnnouncementListView> {
   final AnnouncementListBloc _bloc = AnnouncementListBloc();
+  static final double _offset = 120;
 
   @override
   void initState() {
@@ -99,48 +100,59 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
                 child: Stack(
                   children: <Widget>[
                     // content
-                    CustomScrollView(
-                      slivers: <Widget>[
-                        // refresh
-                        CupertinoSliverRefreshControl(
-                          onRefresh: () async {
-                            _bloc.refresh();
-                          },
-                        ),
+                    NotificationListener<ScrollNotification>(
+                      onNotification: (ScrollNotification scrollInfo) {
+                        if (scrollInfo is! ScrollStartNotification &&
+                            scrollInfo is! UserScrollNotification &&
+                            scrollInfo.metrics.pixels == scrollInfo.metrics.maxScrollExtent) {
+                          _bloc.getMore();
+                        }
 
-                        if (uiAnnouncementInfo.announcementState.errorModel != null)
-                          SliverToBoxAdapter(
-                            child: Text(
-                              'Error: ${uiAnnouncementInfo.errorMessage}',
-                            ),
-                          )
-                        // else if (uiAnnouncementInfo.announcementState.firstLoading)
-                        //   SliverFillRemaining(
-                        //     child: Center(
-                        //       child: Text(AllSchoolInfoIntl.of(context).noContentYet),
-                        //     ),
-                        //   )
-                        else if (uiAnnouncementInfo.announcementState.list.isEmpty)
-                          SliverFillRemaining(
-                            child: Center(
-                              child: Text(AllSchoolInfoIntl.of(context).noAnnouncement),
-                            ),
-                          )
-                        else
-                          SliverList(
-                            delegate: SliverChildListDelegate(
-                              // uiAnnouncementInfo.readAnnouncementList.map((AnnouncementModel e) {
-                              //   return AnnouncementCard(announcementModel: e);
-                              // }).toList(),
-                              uiAnnouncementInfo.announcementState.list.map((AnnouncementModel e) {
-                                return AnnouncementCard(announcementModel: e);
-                              }).toList(),
-                            ),
+                        return false;
+                      },
+                      child: CustomScrollView(
+                        slivers: <Widget>[
+                          // refresh
+                          CupertinoSliverRefreshControl(
+                            onRefresh: () async {
+                              _bloc.refresh();
+                            },
                           ),
 
-                        // padding
-                        const SliverPadding(padding: EdgeInsets.only(bottom: 120))
-                      ],
+                          if (uiAnnouncementInfo.announcementState.errorModel != null)
+                            SliverToBoxAdapter(
+                              child: Text(
+                                'Error: ${uiAnnouncementInfo.errorMessage}',
+                              ),
+                            )
+                          // else if (uiAnnouncementInfo.announcementState.firstLoading)
+                          //   SliverFillRemaining(
+                          //     child: Center(
+                          //       child: Text(AllSchoolInfoIntl.of(context).noContentYet),
+                          //     ),
+                          //   )
+                          else if (uiAnnouncementInfo.announcementState.list.isEmpty)
+                            SliverFillRemaining(
+                              child: Center(
+                                child: Text(AllSchoolInfoIntl.of(context).noAnnouncement),
+                              ),
+                            )
+                          else
+                            SliverList(
+                              delegate: SliverChildListDelegate(
+                                // uiAnnouncementInfo.readAnnouncementList.map((AnnouncementModel e) {
+                                //   return AnnouncementCard(announcementModel: e);
+                                // }).toList(),
+                                uiAnnouncementInfo.announcementState.list.map((AnnouncementModel e) {
+                                  return AnnouncementCard(announcementModel: e);
+                                }).toList(),
+                              ),
+                            ),
+
+                          // padding
+                          // SliverPadding(padding: EdgeInsets.only(bottom: _offset))
+                        ],
+                      ),
                     ),
 
                     // loading

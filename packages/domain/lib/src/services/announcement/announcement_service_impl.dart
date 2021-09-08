@@ -4,12 +4,19 @@ import 'announcement_service.dart';
 
 class AnnouncementServiceImpl implements AnnouncementService {
   @override
-  Future<List<AnnouncementModel>> fetchAnnouncements({required List<String> accessGroups}) async {
+  Future<List<AnnouncementModel>> fetchAnnouncements({
+    required List<String> accessGroups,
+    required int limit,
+    int? dateUnixMsThreshold,
+  }) async {
     throw UnimplementedError();
   }
 
   @override
-  Stream<List<AnnouncementModel>> announcementsStream({required List<String> accessGroups}) {
+  Stream<List<AnnouncementModel>> announcementsStream({
+    required List<String> accessGroups,
+    required int limit,
+  }) {
     throw UnimplementedError();
   }
 

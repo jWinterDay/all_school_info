@@ -9,7 +9,10 @@ import 'package:domain/src/services/announcement/announcement_service.dart';
 import 'package:redux/redux.dart';
 import 'package:utils/logger.dart';
 
-void fetchAnnouncementsThunk(Store<AppState> store) async {
+void fetchAnnouncementsThunk({
+  required Store<AppState> store,
+  bool toTop = true,
+}) async {
   store
     ..dispatch(const AnnouncementAction.changeLoading(value: true))
     ..dispatch(const AnnouncementAction.clearErrorModel());
@@ -17,10 +20,22 @@ void fetchAnnouncementsThunk(Store<AppState> store) async {
   final AnnouncementService announcementService = getIt.get<AnnouncementService>();
 
   final List<String> accessGroups = store.state.userState.accessGroups;
+  final int limit = store.state.announcementState.limit;
+  final int? dateUnixMsThreshold = store.state.announcementState.dateUnixMsThreshold;
 
   try {
-    final List<AnnouncementModel> list = await announcementService.fetchAnnouncements(accessGroups: accessGroups);
-    store.dispatch(AnnouncementAction.addAnnouncementList(value: list));
+    final List<AnnouncementModel> list = await announcementService.fetchAnnouncements(
+      accessGroups: accessGroups,
+      limit: limit,
+      dateUnixMsThreshold: dateUnixMsThreshold,
+    );
+    store.dispatch(AnnouncementAction.addAnnouncementList(value: list, toTop: toTop));
+
+    // change date threshold
+    if (list.isNotEmpty) {
+      final int? lastDateTime = list.last.dateUnixMs;
+      store.dispatch(AnnouncementAction.changeDateUnixMsThreshold(value: lastDateTime));
+    }
   } catch (exc, stackTrace) {
     // log(exc.toString());
     logger.e('exc: $exc', exc.runtimeType, stackTrace);

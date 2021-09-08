@@ -29,6 +29,10 @@ class _$AnnouncementStateTearOff {
           bool firstLoading = true,
       @JsonKey(name: 'error_model')
           ErrorModel? errorModel,
+      @JsonKey(name: 'limit', defaultValue: 3)
+          int limit = 3,
+      @JsonKey(name: 'date_unix_ms_threshold')
+          int? dateUnixMsThreshold,
       @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[])
           List<AnnouncementModel> list = const <AnnouncementModel>[],
       @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
@@ -48,6 +52,8 @@ class _$AnnouncementStateTearOff {
       loading: loading,
       firstLoading: firstLoading,
       errorModel: errorModel,
+      limit: limit,
+      dateUnixMsThreshold: dateUnixMsThreshold,
       list: list,
       topList: topList,
       draftNewTitle: draftNewTitle,
@@ -79,6 +85,10 @@ mixin _$AnnouncementState {
   ErrorModel? get errorModel => throw _privateConstructorUsedError;
 
   /// `announcement`
+  @JsonKey(name: 'limit', defaultValue: 3)
+  int get limit => throw _privateConstructorUsedError;
+  @JsonKey(name: 'date_unix_ms_threshold')
+  int? get dateUnixMsThreshold => throw _privateConstructorUsedError;
   @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[])
   List<AnnouncementModel> get list => throw _privateConstructorUsedError;
   @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
@@ -114,6 +124,8 @@ abstract class $AnnouncementStateCopyWith<$Res> {
       @JsonKey(name: 'loading', defaultValue: false) bool loading,
       @JsonKey(name: 'first_loading', defaultValue: true) bool firstLoading,
       @JsonKey(name: 'error_model') ErrorModel? errorModel,
+      @JsonKey(name: 'limit', defaultValue: 3) int limit,
+      @JsonKey(name: 'date_unix_ms_threshold') int? dateUnixMsThreshold,
       @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> list,
       @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> topList,
       @JsonKey(name: 'draft_new_title') String? draftNewTitle,
@@ -139,6 +151,8 @@ class _$AnnouncementStateCopyWithImpl<$Res> implements $AnnouncementStateCopyWit
     Object? loading = freezed,
     Object? firstLoading = freezed,
     Object? errorModel = freezed,
+    Object? limit = freezed,
+    Object? dateUnixMsThreshold = freezed,
     Object? list = freezed,
     Object? topList = freezed,
     Object? draftNewTitle = freezed,
@@ -164,6 +178,14 @@ class _$AnnouncementStateCopyWithImpl<$Res> implements $AnnouncementStateCopyWit
           ? _value.errorModel
           : errorModel // ignore: cast_nullable_to_non_nullable
               as ErrorModel?,
+      limit: limit == freezed
+          ? _value.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int,
+      dateUnixMsThreshold: dateUnixMsThreshold == freezed
+          ? _value.dateUnixMsThreshold
+          : dateUnixMsThreshold // ignore: cast_nullable_to_non_nullable
+              as int?,
       list: list == freezed
           ? _value.list
           : list // ignore: cast_nullable_to_non_nullable
@@ -217,6 +239,8 @@ abstract class _$AnnouncementStateCopyWith<$Res> implements $AnnouncementStateCo
       @JsonKey(name: 'loading', defaultValue: false) bool loading,
       @JsonKey(name: 'first_loading', defaultValue: true) bool firstLoading,
       @JsonKey(name: 'error_model') ErrorModel? errorModel,
+      @JsonKey(name: 'limit', defaultValue: 3) int limit,
+      @JsonKey(name: 'date_unix_ms_threshold') int? dateUnixMsThreshold,
       @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> list,
       @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> topList,
       @JsonKey(name: 'draft_new_title') String? draftNewTitle,
@@ -244,6 +268,8 @@ class __$AnnouncementStateCopyWithImpl<$Res> extends _$AnnouncementStateCopyWith
     Object? loading = freezed,
     Object? firstLoading = freezed,
     Object? errorModel = freezed,
+    Object? limit = freezed,
+    Object? dateUnixMsThreshold = freezed,
     Object? list = freezed,
     Object? topList = freezed,
     Object? draftNewTitle = freezed,
@@ -269,6 +295,14 @@ class __$AnnouncementStateCopyWithImpl<$Res> extends _$AnnouncementStateCopyWith
           ? _value.errorModel
           : errorModel // ignore: cast_nullable_to_non_nullable
               as ErrorModel?,
+      limit: limit == freezed
+          ? _value.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int,
+      dateUnixMsThreshold: dateUnixMsThreshold == freezed
+          ? _value.dateUnixMsThreshold
+          : dateUnixMsThreshold // ignore: cast_nullable_to_non_nullable
+              as int?,
       list: list == freezed
           ? _value.list
           : list // ignore: cast_nullable_to_non_nullable
@@ -309,6 +343,8 @@ class _$_AnnouncementState extends _AnnouncementState {
       @JsonKey(name: 'loading', defaultValue: false) this.loading = false,
       @JsonKey(name: 'first_loading', defaultValue: true) this.firstLoading = true,
       @JsonKey(name: 'error_model') this.errorModel,
+      @JsonKey(name: 'limit', defaultValue: 3) this.limit = 3,
+      @JsonKey(name: 'date_unix_ms_threshold') this.dateUnixMsThreshold,
       @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[]) this.list = const <AnnouncementModel>[],
       @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[]) this.topList = const <AnnouncementModel>[],
       @JsonKey(name: 'draft_new_title') this.draftNewTitle,
@@ -337,6 +373,12 @@ class _$_AnnouncementState extends _AnnouncementState {
   @override
 
   /// `announcement`
+  @JsonKey(name: 'limit', defaultValue: 3)
+  final int limit;
+  @override
+  @JsonKey(name: 'date_unix_ms_threshold')
+  final int? dateUnixMsThreshold;
+  @override
   @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[])
   final List<AnnouncementModel> list;
   @override
@@ -366,7 +408,7 @@ class _$_AnnouncementState extends _AnnouncementState {
 
   @override
   String toString() {
-    return 'AnnouncementState(lastDatetimeReadListUnixMs: $lastDatetimeReadListUnixMs, loading: $loading, firstLoading: $firstLoading, errorModel: $errorModel, list: $list, topList: $topList, draftNewTitle: $draftNewTitle, draftNewContent: $draftNewContent, draftNewGroups: $draftNewGroups, draftPublishToTop: $draftPublishToTop, publishLoading: $publishLoading)';
+    return 'AnnouncementState(lastDatetimeReadListUnixMs: $lastDatetimeReadListUnixMs, loading: $loading, firstLoading: $firstLoading, errorModel: $errorModel, limit: $limit, dateUnixMsThreshold: $dateUnixMsThreshold, list: $list, topList: $topList, draftNewTitle: $draftNewTitle, draftNewContent: $draftNewContent, draftNewGroups: $draftNewGroups, draftPublishToTop: $draftPublishToTop, publishLoading: $publishLoading)';
   }
 
   @override
@@ -380,6 +422,9 @@ class _$_AnnouncementState extends _AnnouncementState {
                 const DeepCollectionEquality().equals(other.firstLoading, firstLoading)) &&
             (identical(other.errorModel, errorModel) ||
                 const DeepCollectionEquality().equals(other.errorModel, errorModel)) &&
+            (identical(other.limit, limit) || const DeepCollectionEquality().equals(other.limit, limit)) &&
+            (identical(other.dateUnixMsThreshold, dateUnixMsThreshold) ||
+                const DeepCollectionEquality().equals(other.dateUnixMsThreshold, dateUnixMsThreshold)) &&
             (identical(other.list, list) || const DeepCollectionEquality().equals(other.list, list)) &&
             (identical(other.topList, topList) || const DeepCollectionEquality().equals(other.topList, topList)) &&
             (identical(other.draftNewTitle, draftNewTitle) ||
@@ -401,6 +446,8 @@ class _$_AnnouncementState extends _AnnouncementState {
       const DeepCollectionEquality().hash(loading) ^
       const DeepCollectionEquality().hash(firstLoading) ^
       const DeepCollectionEquality().hash(errorModel) ^
+      const DeepCollectionEquality().hash(limit) ^
+      const DeepCollectionEquality().hash(dateUnixMsThreshold) ^
       const DeepCollectionEquality().hash(list) ^
       const DeepCollectionEquality().hash(topList) ^
       const DeepCollectionEquality().hash(draftNewTitle) ^
@@ -426,6 +473,8 @@ abstract class _AnnouncementState extends AnnouncementState {
       @JsonKey(name: 'loading', defaultValue: false) bool loading,
       @JsonKey(name: 'first_loading', defaultValue: true) bool firstLoading,
       @JsonKey(name: 'error_model') ErrorModel? errorModel,
+      @JsonKey(name: 'limit', defaultValue: 3) int limit,
+      @JsonKey(name: 'date_unix_ms_threshold') int? dateUnixMsThreshold,
       @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> list,
       @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> topList,
       @JsonKey(name: 'draft_new_title') String? draftNewTitle,
@@ -454,6 +503,12 @@ abstract class _AnnouncementState extends AnnouncementState {
   @override
 
   /// `announcement`
+  @JsonKey(name: 'limit', defaultValue: 3)
+  int get limit => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'date_unix_ms_threshold')
+  int? get dateUnixMsThreshold => throw _privateConstructorUsedError;
+  @override
   @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[])
   List<AnnouncementModel> get list => throw _privateConstructorUsedError;
   @override

@@ -17,24 +17,19 @@ class AnnouncementAction with _$AnnouncementAction {
   const factory AnnouncementAction.cleanUp() = _CleanUp;
 
   /// `announcements`
+  const factory AnnouncementAction.changeLimit({required int value}) = _ChangeLimit;
+  const factory AnnouncementAction.changeDateUnixMsThreshold({required int? value}) = _ChangeDateUnixMsThreshold;
   const factory AnnouncementAction.fetchAnnouncements() = _FetchAnnouncements;
   const factory AnnouncementAction.addAnnouncement({required AnnouncementModel value}) = _AddAnnouncement;
   const factory AnnouncementAction.removeAnnouncementById({required String value}) = _RemoveAnnouncementById;
   const factory AnnouncementAction.modifyAnnouncementById({required String id, required Map<String, dynamic>? data}) =
       _ModifyAnnouncement;
-  const factory AnnouncementAction.addAnnouncementList({required Iterable<AnnouncementModel> value}) =
-      _AddAnnouncementList;
+  const factory AnnouncementAction.addAnnouncementList({
+    required Iterable<AnnouncementModel> value,
+    required bool toTop,
+  }) = _AddAnnouncementList;
   const factory AnnouncementAction.markAsRead({required List<String> ids}) = _MarkAsRead;
   const factory AnnouncementAction.clearUnread() = _ClearUnread; // clear all unread items
-
-  // /// `unread`
-  // // TODO remove
-  // const factory AnnouncementAction.addUnreadAnnouncement({required AnnouncementModel value}) = _AddUnreadAnnouncement;
-  // const factory AnnouncementAction.addUnreadAnnouncementList({required List<AnnouncementModel> value}) =
-  //     _AddUnreadAnnouncementList;
-  // const factory AnnouncementAction.removeUnreadAnnouncement({required AnnouncementModel value}) =
-  //     _RemoveUnreadAnnouncement;
-  // const factory AnnouncementAction.clearUnreadAnnouncements() = _ClearUnreadAnnouncement;
 
   /// `saved draft of new announcement`
   const factory AnnouncementAction.clearDraftContent() = _ClearDraft;

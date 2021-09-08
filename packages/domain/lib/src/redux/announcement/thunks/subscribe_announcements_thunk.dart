@@ -17,10 +17,14 @@ class _UserChange {
   _UserChange({
     required this.accessGroups,
     required this.loggedIn,
+    required this.limit,
   });
 
   final List<String> accessGroups;
   final bool loggedIn;
+  final int limit;
+
+  bool get needUnsubscribe => accessGroups.isEmpty || !loggedIn;
 }
 
 void subscribeAnnouncementsThunk(
@@ -33,11 +37,16 @@ void subscribeAnnouncementsThunk(
   }
 
   // subscribe to state changing
-  Rx.combineLatest2<List<String>, bool, _UserChange>(
+  Rx.combineLatest3<List<String>, bool, int, _UserChange>(
     store.onChange.map((AppState a) => a.userState.accessGroups).distinct(),
     store.onChange.map((AppState a) => a.userState.loggedIn).distinct(),
-    (List<String> list, bool loggedId) {
-      return _UserChange(accessGroups: list, loggedIn: loggedId);
+    store.onChange.map((AppState a) => a.announcementState.limit).distinct(),
+    (List<String> list, bool loggedId, int limit) {
+      return _UserChange(
+        accessGroups: list,
+        loggedIn: loggedId,
+        limit: limit,
+      );
     },
   ).handleError((Object exc) {
     logger.e('exc: $exc');
@@ -51,24 +60,39 @@ void subscribeAnnouncementsThunk(
       ),
     );
   }).asyncMap((_UserChange change) {
-    if (change.accessGroups.isEmpty || !change.loggedIn) {
+    if (change.needUnsubscribe) {
       _unsubscribe(store);
       return;
     }
 
-    _subscribe(store, change.accessGroups);
+    _subscribe(
+      store: store,
+      accessGroups: change.accessGroups,
+      limit: change.limit,
+    );
   }).listen((_) {});
 }
 
-Future<void> _subscribe(Store<AppState> store, List<String> accessGroups) async {
+Future<void> _subscribe({
+  required Store<AppState> store,
+  required List<String> accessGroups,
+  required int limit,
+}) async {
   final AnnouncementService announcementService = getIt.get<AnnouncementService>();
 
   await _announcementsSub?.cancel();
   final Stream<List<AnnouncementModel>> stream = announcementService.announcementsStream(
     accessGroups: accessGroups,
+    limit: limit,
   );
   _announcementsSub = stream.listen((List<AnnouncementModel> list) {
-    store.dispatch(AnnouncementAction.addAnnouncementList(value: list));
+    store.dispatch(AnnouncementAction.addAnnouncementList(value: list, toTop: true));
+
+    if (list.isNotEmpty) {
+      final int? lastDateTime = list.last.dateUnixMs;
+      print('--------subscribe lastDateTime = ${DateTime.fromMillisecondsSinceEpoch(lastDateTime!)}');
+      store.dispatch(AnnouncementAction.changeDateUnixMsThreshold(value: lastDateTime));
+    }
   });
 }
 

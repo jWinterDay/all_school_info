@@ -12,6 +12,8 @@ _$_AnnouncementState _$_$_AnnouncementStateFromJson(Map<String, dynamic> json) {
     loading: json['loading'] as bool? ?? false,
     firstLoading: json['first_loading'] as bool? ?? true,
     errorModel: json['error_model'] == null ? null : ErrorModel.fromJson(json['error_model'] as Map<String, dynamic>),
+    limit: json['limit'] as int? ?? 3,
+    dateUnixMsThreshold: json['date_unix_ms_threshold'] as int?,
     list:
         (json['list'] as List<dynamic>?)?.map((e) => AnnouncementModel.fromJson(e as Map<String, dynamic>)).toList() ??
             [],
@@ -32,6 +34,8 @@ Map<String, dynamic> _$_$_AnnouncementStateToJson(_$_AnnouncementState instance)
       'loading': instance.loading,
       'first_loading': instance.firstLoading,
       'error_model': instance.errorModel?.toJson(),
+      'limit': instance.limit,
+      'date_unix_ms_threshold': instance.dateUnixMsThreshold,
       'list': instance.list.map((e) => e.toJson()).toList(),
       'top_list': instance.topList.map((e) => e.toJson()).toList(),
       'draft_new_title': instance.draftNewTitle,

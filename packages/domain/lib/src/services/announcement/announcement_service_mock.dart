@@ -8,25 +8,52 @@ import 'announcement_service.dart';
 class AnnouncementServiceMock implements AnnouncementService {
   static const String _collectionName = 'announcements';
   CollectionReference<Map<String, dynamic>> get _fbCollection => FirebaseFirestore.instance.collection(_collectionName);
-  Query<Map<String, dynamic>> _query(List<String> accessGroups) {
+  Query<Map<String, dynamic>> _query({
+    required List<String> accessGroups,
+    required int limit,
+    int? dateUnixMsThreshold,
+  }) {
+    if (dateUnixMsThreshold == null) {
+      return _fbCollection
+          .orderBy(
+            'date_unix_ms',
+            descending: true,
+          )
+          .where(
+            'user_groups',
+            arrayContainsAny: accessGroups,
+          )
+          .limit(3); //limit);
+    }
+
     return _fbCollection
         .orderBy(
           'date_unix_ms',
           descending: true,
         )
+        .where('date_unix_ms', isLessThan: Timestamp.fromMillisecondsSinceEpoch(dateUnixMsThreshold))
         .where(
           'user_groups',
           arrayContainsAny: accessGroups,
-        );
+        )
+        .limit(3); //limit);
   }
 
   @override
-  Future<List<AnnouncementModel>> fetchAnnouncements({required List<String> accessGroups}) async {
+  Future<List<AnnouncementModel>> fetchAnnouncements({
+    required List<String> accessGroups,
+    required int limit,
+    int? dateUnixMsThreshold,
+  }) async {
     if (accessGroups.isEmpty) {
       return <AnnouncementModel>[];
     }
 
-    final QuerySnapshot<Map<String, dynamic>> res = await _query(accessGroups).get();
+    final QuerySnapshot<Map<String, dynamic>> res = await _query(
+      accessGroups: accessGroups,
+      limit: limit,
+      dateUnixMsThreshold: dateUnixMsThreshold,
+    ).get();
 
     return res.docs.map((QueryDocumentSnapshot<Map<String, dynamic>> item) {
       return _mapModelFromData(
@@ -38,8 +65,14 @@ class AnnouncementServiceMock implements AnnouncementService {
   }
 
   @override
-  Stream<List<AnnouncementModel>> announcementsStream({required List<String> accessGroups}) {
-    return _query(accessGroups)
+  Stream<List<AnnouncementModel>> announcementsStream({
+    required List<String> accessGroups,
+    required int limit,
+  }) {
+    return _query(
+      accessGroups: accessGroups,
+      limit: limit,
+    )
         .snapshots(includeMetadataChanges: true)
         .where((QuerySnapshot<Map<String, dynamic>> snapshot) => !snapshot.metadata.hasPendingWrites)
         .map((QuerySnapshot<Map<String, dynamic>> snapshot) {

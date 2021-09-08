@@ -46,6 +46,18 @@ class _$AnnouncementActionTearOff {
     return const _CleanUp();
   }
 
+  _ChangeLimit changeLimit({required int value}) {
+    return _ChangeLimit(
+      value: value,
+    );
+  }
+
+  _ChangeDateUnixMsThreshold changeDateUnixMsThreshold({required int? value}) {
+    return _ChangeDateUnixMsThreshold(
+      value: value,
+    );
+  }
+
   _FetchAnnouncements fetchAnnouncements() {
     return const _FetchAnnouncements();
   }
@@ -69,9 +81,10 @@ class _$AnnouncementActionTearOff {
     );
   }
 
-  _AddAnnouncementList addAnnouncementList({required Iterable<AnnouncementModel> value}) {
+  _AddAnnouncementList addAnnouncementList({required Iterable<AnnouncementModel> value, required bool toTop}) {
     return _AddAnnouncementList(
       value: value,
+      toTop: toTop,
     );
   }
 
@@ -128,11 +141,13 @@ mixin _$AnnouncementAction {
     required TResult Function(ErrorModel value) setErrorModel,
     required TResult Function() clearErrorModel,
     required TResult Function() cleanUp,
+    required TResult Function(int value) changeLimit,
+    required TResult Function(int? value) changeDateUnixMsThreshold,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -150,11 +165,13 @@ mixin _$AnnouncementAction {
     TResult Function(ErrorModel value)? setErrorModel,
     TResult Function()? clearErrorModel,
     TResult Function()? cleanUp,
+    TResult Function(int value)? changeLimit,
+    TResult Function(int? value)? changeDateUnixMsThreshold,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -173,6 +190,8 @@ mixin _$AnnouncementAction {
     required TResult Function(_SetErrorModel value) setErrorModel,
     required TResult Function(_ClearErrorModel value) clearErrorModel,
     required TResult Function(_CleanUp value) cleanUp,
+    required TResult Function(_ChangeLimit value) changeLimit,
+    required TResult Function(_ChangeDateUnixMsThreshold value) changeDateUnixMsThreshold,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
@@ -195,6 +214,8 @@ mixin _$AnnouncementAction {
     TResult Function(_SetErrorModel value)? setErrorModel,
     TResult Function(_ClearErrorModel value)? clearErrorModel,
     TResult Function(_CleanUp value)? cleanUp,
+    TResult Function(_ChangeLimit value)? changeLimit,
+    TResult Function(_ChangeDateUnixMsThreshold value)? changeDateUnixMsThreshold,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
@@ -267,11 +288,13 @@ class _$_Start implements _Start {
     required TResult Function(ErrorModel value) setErrorModel,
     required TResult Function() clearErrorModel,
     required TResult Function() cleanUp,
+    required TResult Function(int value) changeLimit,
+    required TResult Function(int? value) changeDateUnixMsThreshold,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -292,11 +315,13 @@ class _$_Start implements _Start {
     TResult Function(ErrorModel value)? setErrorModel,
     TResult Function()? clearErrorModel,
     TResult Function()? cleanUp,
+    TResult Function(int value)? changeLimit,
+    TResult Function(int? value)? changeDateUnixMsThreshold,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -321,6 +346,8 @@ class _$_Start implements _Start {
     required TResult Function(_SetErrorModel value) setErrorModel,
     required TResult Function(_ClearErrorModel value) clearErrorModel,
     required TResult Function(_CleanUp value) cleanUp,
+    required TResult Function(_ChangeLimit value) changeLimit,
+    required TResult Function(_ChangeDateUnixMsThreshold value) changeDateUnixMsThreshold,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
@@ -346,6 +373,8 @@ class _$_Start implements _Start {
     TResult Function(_SetErrorModel value)? setErrorModel,
     TResult Function(_ClearErrorModel value)? clearErrorModel,
     TResult Function(_CleanUp value)? cleanUp,
+    TResult Function(_ChangeLimit value)? changeLimit,
+    TResult Function(_ChangeDateUnixMsThreshold value)? changeDateUnixMsThreshold,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
@@ -437,11 +466,13 @@ class _$_ChangeLoading implements _ChangeLoading {
     required TResult Function(ErrorModel value) setErrorModel,
     required TResult Function() clearErrorModel,
     required TResult Function() cleanUp,
+    required TResult Function(int value) changeLimit,
+    required TResult Function(int? value) changeDateUnixMsThreshold,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -462,11 +493,13 @@ class _$_ChangeLoading implements _ChangeLoading {
     TResult Function(ErrorModel value)? setErrorModel,
     TResult Function()? clearErrorModel,
     TResult Function()? cleanUp,
+    TResult Function(int value)? changeLimit,
+    TResult Function(int? value)? changeDateUnixMsThreshold,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -491,6 +524,8 @@ class _$_ChangeLoading implements _ChangeLoading {
     required TResult Function(_SetErrorModel value) setErrorModel,
     required TResult Function(_ClearErrorModel value) clearErrorModel,
     required TResult Function(_CleanUp value) cleanUp,
+    required TResult Function(_ChangeLimit value) changeLimit,
+    required TResult Function(_ChangeDateUnixMsThreshold value) changeDateUnixMsThreshold,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
@@ -516,6 +551,8 @@ class _$_ChangeLoading implements _ChangeLoading {
     TResult Function(_SetErrorModel value)? setErrorModel,
     TResult Function(_ClearErrorModel value)? clearErrorModel,
     TResult Function(_CleanUp value)? cleanUp,
+    TResult Function(_ChangeLimit value)? changeLimit,
+    TResult Function(_ChangeDateUnixMsThreshold value)? changeDateUnixMsThreshold,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
@@ -611,11 +648,13 @@ class _$_ChangeFirstLoading implements _ChangeFirstLoading {
     required TResult Function(ErrorModel value) setErrorModel,
     required TResult Function() clearErrorModel,
     required TResult Function() cleanUp,
+    required TResult Function(int value) changeLimit,
+    required TResult Function(int? value) changeDateUnixMsThreshold,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -636,11 +675,13 @@ class _$_ChangeFirstLoading implements _ChangeFirstLoading {
     TResult Function(ErrorModel value)? setErrorModel,
     TResult Function()? clearErrorModel,
     TResult Function()? cleanUp,
+    TResult Function(int value)? changeLimit,
+    TResult Function(int? value)? changeDateUnixMsThreshold,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -665,6 +706,8 @@ class _$_ChangeFirstLoading implements _ChangeFirstLoading {
     required TResult Function(_SetErrorModel value) setErrorModel,
     required TResult Function(_ClearErrorModel value) clearErrorModel,
     required TResult Function(_CleanUp value) cleanUp,
+    required TResult Function(_ChangeLimit value) changeLimit,
+    required TResult Function(_ChangeDateUnixMsThreshold value) changeDateUnixMsThreshold,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
@@ -690,6 +733,8 @@ class _$_ChangeFirstLoading implements _ChangeFirstLoading {
     TResult Function(_SetErrorModel value)? setErrorModel,
     TResult Function(_ClearErrorModel value)? clearErrorModel,
     TResult Function(_CleanUp value)? cleanUp,
+    TResult Function(_ChangeLimit value)? changeLimit,
+    TResult Function(_ChangeDateUnixMsThreshold value)? changeDateUnixMsThreshold,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
@@ -794,11 +839,13 @@ class _$_SetErrorModel implements _SetErrorModel {
     required TResult Function(ErrorModel value) setErrorModel,
     required TResult Function() clearErrorModel,
     required TResult Function() cleanUp,
+    required TResult Function(int value) changeLimit,
+    required TResult Function(int? value) changeDateUnixMsThreshold,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -819,11 +866,13 @@ class _$_SetErrorModel implements _SetErrorModel {
     TResult Function(ErrorModel value)? setErrorModel,
     TResult Function()? clearErrorModel,
     TResult Function()? cleanUp,
+    TResult Function(int value)? changeLimit,
+    TResult Function(int? value)? changeDateUnixMsThreshold,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -848,6 +897,8 @@ class _$_SetErrorModel implements _SetErrorModel {
     required TResult Function(_SetErrorModel value) setErrorModel,
     required TResult Function(_ClearErrorModel value) clearErrorModel,
     required TResult Function(_CleanUp value) cleanUp,
+    required TResult Function(_ChangeLimit value) changeLimit,
+    required TResult Function(_ChangeDateUnixMsThreshold value) changeDateUnixMsThreshold,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
@@ -873,6 +924,8 @@ class _$_SetErrorModel implements _SetErrorModel {
     TResult Function(_SetErrorModel value)? setErrorModel,
     TResult Function(_ClearErrorModel value)? clearErrorModel,
     TResult Function(_CleanUp value)? cleanUp,
+    TResult Function(_ChangeLimit value)? changeLimit,
+    TResult Function(_ChangeDateUnixMsThreshold value)? changeDateUnixMsThreshold,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
@@ -945,11 +998,13 @@ class _$_ClearErrorModel implements _ClearErrorModel {
     required TResult Function(ErrorModel value) setErrorModel,
     required TResult Function() clearErrorModel,
     required TResult Function() cleanUp,
+    required TResult Function(int value) changeLimit,
+    required TResult Function(int? value) changeDateUnixMsThreshold,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -970,11 +1025,13 @@ class _$_ClearErrorModel implements _ClearErrorModel {
     TResult Function(ErrorModel value)? setErrorModel,
     TResult Function()? clearErrorModel,
     TResult Function()? cleanUp,
+    TResult Function(int value)? changeLimit,
+    TResult Function(int? value)? changeDateUnixMsThreshold,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -999,6 +1056,8 @@ class _$_ClearErrorModel implements _ClearErrorModel {
     required TResult Function(_SetErrorModel value) setErrorModel,
     required TResult Function(_ClearErrorModel value) clearErrorModel,
     required TResult Function(_CleanUp value) cleanUp,
+    required TResult Function(_ChangeLimit value) changeLimit,
+    required TResult Function(_ChangeDateUnixMsThreshold value) changeDateUnixMsThreshold,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
@@ -1024,6 +1083,8 @@ class _$_ClearErrorModel implements _ClearErrorModel {
     TResult Function(_SetErrorModel value)? setErrorModel,
     TResult Function(_ClearErrorModel value)? clearErrorModel,
     TResult Function(_CleanUp value)? cleanUp,
+    TResult Function(_ChangeLimit value)? changeLimit,
+    TResult Function(_ChangeDateUnixMsThreshold value)? changeDateUnixMsThreshold,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
@@ -1089,11 +1150,13 @@ class _$_CleanUp implements _CleanUp {
     required TResult Function(ErrorModel value) setErrorModel,
     required TResult Function() clearErrorModel,
     required TResult Function() cleanUp,
+    required TResult Function(int value) changeLimit,
+    required TResult Function(int? value) changeDateUnixMsThreshold,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -1114,11 +1177,13 @@ class _$_CleanUp implements _CleanUp {
     TResult Function(ErrorModel value)? setErrorModel,
     TResult Function()? clearErrorModel,
     TResult Function()? cleanUp,
+    TResult Function(int value)? changeLimit,
+    TResult Function(int? value)? changeDateUnixMsThreshold,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -1143,6 +1208,8 @@ class _$_CleanUp implements _CleanUp {
     required TResult Function(_SetErrorModel value) setErrorModel,
     required TResult Function(_ClearErrorModel value) clearErrorModel,
     required TResult Function(_CleanUp value) cleanUp,
+    required TResult Function(_ChangeLimit value) changeLimit,
+    required TResult Function(_ChangeDateUnixMsThreshold value) changeDateUnixMsThreshold,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
@@ -1168,6 +1235,8 @@ class _$_CleanUp implements _CleanUp {
     TResult Function(_SetErrorModel value)? setErrorModel,
     TResult Function(_ClearErrorModel value)? clearErrorModel,
     TResult Function(_CleanUp value)? cleanUp,
+    TResult Function(_ChangeLimit value)? changeLimit,
+    TResult Function(_ChangeDateUnixMsThreshold value)? changeDateUnixMsThreshold,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
@@ -1191,6 +1260,371 @@ class _$_CleanUp implements _CleanUp {
 
 abstract class _CleanUp implements AnnouncementAction {
   const factory _CleanUp() = _$_CleanUp;
+}
+
+/// @nodoc
+abstract class _$ChangeLimitCopyWith<$Res> {
+  factory _$ChangeLimitCopyWith(_ChangeLimit value, $Res Function(_ChangeLimit) then) =
+      __$ChangeLimitCopyWithImpl<$Res>;
+  $Res call({int value});
+}
+
+/// @nodoc
+class __$ChangeLimitCopyWithImpl<$Res> extends _$AnnouncementActionCopyWithImpl<$Res>
+    implements _$ChangeLimitCopyWith<$Res> {
+  __$ChangeLimitCopyWithImpl(_ChangeLimit _value, $Res Function(_ChangeLimit) _then)
+      : super(_value, (v) => _then(v as _ChangeLimit));
+
+  @override
+  _ChangeLimit get _value => super._value as _ChangeLimit;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_ChangeLimit(
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangeLimit implements _ChangeLimit {
+  const _$_ChangeLimit({required this.value});
+
+  @override
+  final int value;
+
+  @override
+  String toString() {
+    return 'AnnouncementAction.changeLimit(value: $value)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ChangeLimit &&
+            (identical(other.value, value) || const DeepCollectionEquality().equals(other.value, value)));
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangeLimitCopyWith<_ChangeLimit> get copyWith => __$ChangeLimitCopyWithImpl<_ChangeLimit>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() start,
+    required TResult Function(bool value) changeLoading,
+    required TResult Function(bool value) changeFirstLoading,
+    required TResult Function(ErrorModel value) setErrorModel,
+    required TResult Function() clearErrorModel,
+    required TResult Function() cleanUp,
+    required TResult Function(int value) changeLimit,
+    required TResult Function(int? value) changeDateUnixMsThreshold,
+    required TResult Function() fetchAnnouncements,
+    required TResult Function(AnnouncementModel value) addAnnouncement,
+    required TResult Function(String value) removeAnnouncementById,
+    required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
+    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
+    required TResult Function(List<String> ids) markAsRead,
+    required TResult Function() clearUnread,
+    required TResult Function() clearDraftContent,
+    required TResult Function(String? title, String? content) saveDraftContent,
+    required TResult Function(Set<String> groups) saveDraftCheckedGroups,
+    required TResult Function(bool value) changeDraftPublishToTop,
+    required TResult Function(bool value) changePublishLoading,
+  }) {
+    return changeLimit(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? start,
+    TResult Function(bool value)? changeLoading,
+    TResult Function(bool value)? changeFirstLoading,
+    TResult Function(ErrorModel value)? setErrorModel,
+    TResult Function()? clearErrorModel,
+    TResult Function()? cleanUp,
+    TResult Function(int value)? changeLimit,
+    TResult Function(int? value)? changeDateUnixMsThreshold,
+    TResult Function()? fetchAnnouncements,
+    TResult Function(AnnouncementModel value)? addAnnouncement,
+    TResult Function(String value)? removeAnnouncementById,
+    TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
+    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
+    TResult Function(List<String> ids)? markAsRead,
+    TResult Function()? clearUnread,
+    TResult Function()? clearDraftContent,
+    TResult Function(String? title, String? content)? saveDraftContent,
+    TResult Function(Set<String> groups)? saveDraftCheckedGroups,
+    TResult Function(bool value)? changeDraftPublishToTop,
+    TResult Function(bool value)? changePublishLoading,
+    required TResult orElse(),
+  }) {
+    if (changeLimit != null) {
+      return changeLimit(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Start value) start,
+    required TResult Function(_ChangeLoading value) changeLoading,
+    required TResult Function(_ChangeFirstLoading value) changeFirstLoading,
+    required TResult Function(_SetErrorModel value) setErrorModel,
+    required TResult Function(_ClearErrorModel value) clearErrorModel,
+    required TResult Function(_CleanUp value) cleanUp,
+    required TResult Function(_ChangeLimit value) changeLimit,
+    required TResult Function(_ChangeDateUnixMsThreshold value) changeDateUnixMsThreshold,
+    required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
+    required TResult Function(_AddAnnouncement value) addAnnouncement,
+    required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
+    required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
+    required TResult Function(_AddAnnouncementList value) addAnnouncementList,
+    required TResult Function(_MarkAsRead value) markAsRead,
+    required TResult Function(_ClearUnread value) clearUnread,
+    required TResult Function(_ClearDraft value) clearDraftContent,
+    required TResult Function(_SaveDraftContent value) saveDraftContent,
+    required TResult Function(_SaveDraftCheckedGroups value) saveDraftCheckedGroups,
+    required TResult Function(_ChangeDraftPublishToTop value) changeDraftPublishToTop,
+    required TResult Function(_ChangePublishLoading value) changePublishLoading,
+  }) {
+    return changeLimit(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Start value)? start,
+    TResult Function(_ChangeLoading value)? changeLoading,
+    TResult Function(_ChangeFirstLoading value)? changeFirstLoading,
+    TResult Function(_SetErrorModel value)? setErrorModel,
+    TResult Function(_ClearErrorModel value)? clearErrorModel,
+    TResult Function(_CleanUp value)? cleanUp,
+    TResult Function(_ChangeLimit value)? changeLimit,
+    TResult Function(_ChangeDateUnixMsThreshold value)? changeDateUnixMsThreshold,
+    TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
+    TResult Function(_AddAnnouncement value)? addAnnouncement,
+    TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
+    TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
+    TResult Function(_AddAnnouncementList value)? addAnnouncementList,
+    TResult Function(_MarkAsRead value)? markAsRead,
+    TResult Function(_ClearUnread value)? clearUnread,
+    TResult Function(_ClearDraft value)? clearDraftContent,
+    TResult Function(_SaveDraftContent value)? saveDraftContent,
+    TResult Function(_SaveDraftCheckedGroups value)? saveDraftCheckedGroups,
+    TResult Function(_ChangeDraftPublishToTop value)? changeDraftPublishToTop,
+    TResult Function(_ChangePublishLoading value)? changePublishLoading,
+    required TResult orElse(),
+  }) {
+    if (changeLimit != null) {
+      return changeLimit(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeLimit implements AnnouncementAction {
+  const factory _ChangeLimit({required int value}) = _$_ChangeLimit;
+
+  int get value => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ChangeLimitCopyWith<_ChangeLimit> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ChangeDateUnixMsThresholdCopyWith<$Res> {
+  factory _$ChangeDateUnixMsThresholdCopyWith(
+          _ChangeDateUnixMsThreshold value, $Res Function(_ChangeDateUnixMsThreshold) then) =
+      __$ChangeDateUnixMsThresholdCopyWithImpl<$Res>;
+  $Res call({int? value});
+}
+
+/// @nodoc
+class __$ChangeDateUnixMsThresholdCopyWithImpl<$Res> extends _$AnnouncementActionCopyWithImpl<$Res>
+    implements _$ChangeDateUnixMsThresholdCopyWith<$Res> {
+  __$ChangeDateUnixMsThresholdCopyWithImpl(
+      _ChangeDateUnixMsThreshold _value, $Res Function(_ChangeDateUnixMsThreshold) _then)
+      : super(_value, (v) => _then(v as _ChangeDateUnixMsThreshold));
+
+  @override
+  _ChangeDateUnixMsThreshold get _value => super._value as _ChangeDateUnixMsThreshold;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_ChangeDateUnixMsThreshold(
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangeDateUnixMsThreshold implements _ChangeDateUnixMsThreshold {
+  const _$_ChangeDateUnixMsThreshold({required this.value});
+
+  @override
+  final int? value;
+
+  @override
+  String toString() {
+    return 'AnnouncementAction.changeDateUnixMsThreshold(value: $value)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ChangeDateUnixMsThreshold &&
+            (identical(other.value, value) || const DeepCollectionEquality().equals(other.value, value)));
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangeDateUnixMsThresholdCopyWith<_ChangeDateUnixMsThreshold> get copyWith =>
+      __$ChangeDateUnixMsThresholdCopyWithImpl<_ChangeDateUnixMsThreshold>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() start,
+    required TResult Function(bool value) changeLoading,
+    required TResult Function(bool value) changeFirstLoading,
+    required TResult Function(ErrorModel value) setErrorModel,
+    required TResult Function() clearErrorModel,
+    required TResult Function() cleanUp,
+    required TResult Function(int value) changeLimit,
+    required TResult Function(int? value) changeDateUnixMsThreshold,
+    required TResult Function() fetchAnnouncements,
+    required TResult Function(AnnouncementModel value) addAnnouncement,
+    required TResult Function(String value) removeAnnouncementById,
+    required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
+    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
+    required TResult Function(List<String> ids) markAsRead,
+    required TResult Function() clearUnread,
+    required TResult Function() clearDraftContent,
+    required TResult Function(String? title, String? content) saveDraftContent,
+    required TResult Function(Set<String> groups) saveDraftCheckedGroups,
+    required TResult Function(bool value) changeDraftPublishToTop,
+    required TResult Function(bool value) changePublishLoading,
+  }) {
+    return changeDateUnixMsThreshold(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? start,
+    TResult Function(bool value)? changeLoading,
+    TResult Function(bool value)? changeFirstLoading,
+    TResult Function(ErrorModel value)? setErrorModel,
+    TResult Function()? clearErrorModel,
+    TResult Function()? cleanUp,
+    TResult Function(int value)? changeLimit,
+    TResult Function(int? value)? changeDateUnixMsThreshold,
+    TResult Function()? fetchAnnouncements,
+    TResult Function(AnnouncementModel value)? addAnnouncement,
+    TResult Function(String value)? removeAnnouncementById,
+    TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
+    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
+    TResult Function(List<String> ids)? markAsRead,
+    TResult Function()? clearUnread,
+    TResult Function()? clearDraftContent,
+    TResult Function(String? title, String? content)? saveDraftContent,
+    TResult Function(Set<String> groups)? saveDraftCheckedGroups,
+    TResult Function(bool value)? changeDraftPublishToTop,
+    TResult Function(bool value)? changePublishLoading,
+    required TResult orElse(),
+  }) {
+    if (changeDateUnixMsThreshold != null) {
+      return changeDateUnixMsThreshold(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Start value) start,
+    required TResult Function(_ChangeLoading value) changeLoading,
+    required TResult Function(_ChangeFirstLoading value) changeFirstLoading,
+    required TResult Function(_SetErrorModel value) setErrorModel,
+    required TResult Function(_ClearErrorModel value) clearErrorModel,
+    required TResult Function(_CleanUp value) cleanUp,
+    required TResult Function(_ChangeLimit value) changeLimit,
+    required TResult Function(_ChangeDateUnixMsThreshold value) changeDateUnixMsThreshold,
+    required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
+    required TResult Function(_AddAnnouncement value) addAnnouncement,
+    required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
+    required TResult Function(_ModifyAnnouncement value) modifyAnnouncementById,
+    required TResult Function(_AddAnnouncementList value) addAnnouncementList,
+    required TResult Function(_MarkAsRead value) markAsRead,
+    required TResult Function(_ClearUnread value) clearUnread,
+    required TResult Function(_ClearDraft value) clearDraftContent,
+    required TResult Function(_SaveDraftContent value) saveDraftContent,
+    required TResult Function(_SaveDraftCheckedGroups value) saveDraftCheckedGroups,
+    required TResult Function(_ChangeDraftPublishToTop value) changeDraftPublishToTop,
+    required TResult Function(_ChangePublishLoading value) changePublishLoading,
+  }) {
+    return changeDateUnixMsThreshold(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Start value)? start,
+    TResult Function(_ChangeLoading value)? changeLoading,
+    TResult Function(_ChangeFirstLoading value)? changeFirstLoading,
+    TResult Function(_SetErrorModel value)? setErrorModel,
+    TResult Function(_ClearErrorModel value)? clearErrorModel,
+    TResult Function(_CleanUp value)? cleanUp,
+    TResult Function(_ChangeLimit value)? changeLimit,
+    TResult Function(_ChangeDateUnixMsThreshold value)? changeDateUnixMsThreshold,
+    TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
+    TResult Function(_AddAnnouncement value)? addAnnouncement,
+    TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
+    TResult Function(_ModifyAnnouncement value)? modifyAnnouncementById,
+    TResult Function(_AddAnnouncementList value)? addAnnouncementList,
+    TResult Function(_MarkAsRead value)? markAsRead,
+    TResult Function(_ClearUnread value)? clearUnread,
+    TResult Function(_ClearDraft value)? clearDraftContent,
+    TResult Function(_SaveDraftContent value)? saveDraftContent,
+    TResult Function(_SaveDraftCheckedGroups value)? saveDraftCheckedGroups,
+    TResult Function(_ChangeDraftPublishToTop value)? changeDraftPublishToTop,
+    TResult Function(_ChangePublishLoading value)? changePublishLoading,
+    required TResult orElse(),
+  }) {
+    if (changeDateUnixMsThreshold != null) {
+      return changeDateUnixMsThreshold(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeDateUnixMsThreshold implements AnnouncementAction {
+  const factory _ChangeDateUnixMsThreshold({required int? value}) = _$_ChangeDateUnixMsThreshold;
+
+  int? get value => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ChangeDateUnixMsThresholdCopyWith<_ChangeDateUnixMsThreshold> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1236,11 +1670,13 @@ class _$_FetchAnnouncements implements _FetchAnnouncements {
     required TResult Function(ErrorModel value) setErrorModel,
     required TResult Function() clearErrorModel,
     required TResult Function() cleanUp,
+    required TResult Function(int value) changeLimit,
+    required TResult Function(int? value) changeDateUnixMsThreshold,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -1261,11 +1697,13 @@ class _$_FetchAnnouncements implements _FetchAnnouncements {
     TResult Function(ErrorModel value)? setErrorModel,
     TResult Function()? clearErrorModel,
     TResult Function()? cleanUp,
+    TResult Function(int value)? changeLimit,
+    TResult Function(int? value)? changeDateUnixMsThreshold,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -1290,6 +1728,8 @@ class _$_FetchAnnouncements implements _FetchAnnouncements {
     required TResult Function(_SetErrorModel value) setErrorModel,
     required TResult Function(_ClearErrorModel value) clearErrorModel,
     required TResult Function(_CleanUp value) cleanUp,
+    required TResult Function(_ChangeLimit value) changeLimit,
+    required TResult Function(_ChangeDateUnixMsThreshold value) changeDateUnixMsThreshold,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
@@ -1315,6 +1755,8 @@ class _$_FetchAnnouncements implements _FetchAnnouncements {
     TResult Function(_SetErrorModel value)? setErrorModel,
     TResult Function(_ClearErrorModel value)? clearErrorModel,
     TResult Function(_CleanUp value)? cleanUp,
+    TResult Function(_ChangeLimit value)? changeLimit,
+    TResult Function(_ChangeDateUnixMsThreshold value)? changeDateUnixMsThreshold,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
@@ -1415,11 +1857,13 @@ class _$_AddAnnouncement implements _AddAnnouncement {
     required TResult Function(ErrorModel value) setErrorModel,
     required TResult Function() clearErrorModel,
     required TResult Function() cleanUp,
+    required TResult Function(int value) changeLimit,
+    required TResult Function(int? value) changeDateUnixMsThreshold,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -1440,11 +1884,13 @@ class _$_AddAnnouncement implements _AddAnnouncement {
     TResult Function(ErrorModel value)? setErrorModel,
     TResult Function()? clearErrorModel,
     TResult Function()? cleanUp,
+    TResult Function(int value)? changeLimit,
+    TResult Function(int? value)? changeDateUnixMsThreshold,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -1469,6 +1915,8 @@ class _$_AddAnnouncement implements _AddAnnouncement {
     required TResult Function(_SetErrorModel value) setErrorModel,
     required TResult Function(_ClearErrorModel value) clearErrorModel,
     required TResult Function(_CleanUp value) cleanUp,
+    required TResult Function(_ChangeLimit value) changeLimit,
+    required TResult Function(_ChangeDateUnixMsThreshold value) changeDateUnixMsThreshold,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
@@ -1494,6 +1942,8 @@ class _$_AddAnnouncement implements _AddAnnouncement {
     TResult Function(_SetErrorModel value)? setErrorModel,
     TResult Function(_ClearErrorModel value)? clearErrorModel,
     TResult Function(_CleanUp value)? cleanUp,
+    TResult Function(_ChangeLimit value)? changeLimit,
+    TResult Function(_ChangeDateUnixMsThreshold value)? changeDateUnixMsThreshold,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
@@ -1589,11 +2039,13 @@ class _$_RemoveAnnouncementById implements _RemoveAnnouncementById {
     required TResult Function(ErrorModel value) setErrorModel,
     required TResult Function() clearErrorModel,
     required TResult Function() cleanUp,
+    required TResult Function(int value) changeLimit,
+    required TResult Function(int? value) changeDateUnixMsThreshold,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -1614,11 +2066,13 @@ class _$_RemoveAnnouncementById implements _RemoveAnnouncementById {
     TResult Function(ErrorModel value)? setErrorModel,
     TResult Function()? clearErrorModel,
     TResult Function()? cleanUp,
+    TResult Function(int value)? changeLimit,
+    TResult Function(int? value)? changeDateUnixMsThreshold,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -1643,6 +2097,8 @@ class _$_RemoveAnnouncementById implements _RemoveAnnouncementById {
     required TResult Function(_SetErrorModel value) setErrorModel,
     required TResult Function(_ClearErrorModel value) clearErrorModel,
     required TResult Function(_CleanUp value) cleanUp,
+    required TResult Function(_ChangeLimit value) changeLimit,
+    required TResult Function(_ChangeDateUnixMsThreshold value) changeDateUnixMsThreshold,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
@@ -1668,6 +2124,8 @@ class _$_RemoveAnnouncementById implements _RemoveAnnouncementById {
     TResult Function(_SetErrorModel value)? setErrorModel,
     TResult Function(_ClearErrorModel value)? clearErrorModel,
     TResult Function(_CleanUp value)? cleanUp,
+    TResult Function(_ChangeLimit value)? changeLimit,
+    TResult Function(_ChangeDateUnixMsThreshold value)? changeDateUnixMsThreshold,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
@@ -1772,11 +2230,13 @@ class _$_ModifyAnnouncement implements _ModifyAnnouncement {
     required TResult Function(ErrorModel value) setErrorModel,
     required TResult Function() clearErrorModel,
     required TResult Function() cleanUp,
+    required TResult Function(int value) changeLimit,
+    required TResult Function(int? value) changeDateUnixMsThreshold,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -1797,11 +2257,13 @@ class _$_ModifyAnnouncement implements _ModifyAnnouncement {
     TResult Function(ErrorModel value)? setErrorModel,
     TResult Function()? clearErrorModel,
     TResult Function()? cleanUp,
+    TResult Function(int value)? changeLimit,
+    TResult Function(int? value)? changeDateUnixMsThreshold,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -1826,6 +2288,8 @@ class _$_ModifyAnnouncement implements _ModifyAnnouncement {
     required TResult Function(_SetErrorModel value) setErrorModel,
     required TResult Function(_ClearErrorModel value) clearErrorModel,
     required TResult Function(_CleanUp value) cleanUp,
+    required TResult Function(_ChangeLimit value) changeLimit,
+    required TResult Function(_ChangeDateUnixMsThreshold value) changeDateUnixMsThreshold,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
@@ -1851,6 +2315,8 @@ class _$_ModifyAnnouncement implements _ModifyAnnouncement {
     TResult Function(_SetErrorModel value)? setErrorModel,
     TResult Function(_ClearErrorModel value)? clearErrorModel,
     TResult Function(_CleanUp value)? cleanUp,
+    TResult Function(_ChangeLimit value)? changeLimit,
+    TResult Function(_ChangeDateUnixMsThreshold value)? changeDateUnixMsThreshold,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
@@ -1885,7 +2351,7 @@ abstract class _ModifyAnnouncement implements AnnouncementAction {
 abstract class _$AddAnnouncementListCopyWith<$Res> {
   factory _$AddAnnouncementListCopyWith(_AddAnnouncementList value, $Res Function(_AddAnnouncementList) then) =
       __$AddAnnouncementListCopyWithImpl<$Res>;
-  $Res call({Iterable<AnnouncementModel> value});
+  $Res call({Iterable<AnnouncementModel> value, bool toTop});
 }
 
 /// @nodoc
@@ -1900,12 +2366,17 @@ class __$AddAnnouncementListCopyWithImpl<$Res> extends _$AnnouncementActionCopyW
   @override
   $Res call({
     Object? value = freezed,
+    Object? toTop = freezed,
   }) {
     return _then(_AddAnnouncementList(
       value: value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as Iterable<AnnouncementModel>,
+      toTop: toTop == freezed
+          ? _value.toTop
+          : toTop // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -1913,25 +2384,29 @@ class __$AddAnnouncementListCopyWithImpl<$Res> extends _$AnnouncementActionCopyW
 /// @nodoc
 
 class _$_AddAnnouncementList implements _AddAnnouncementList {
-  const _$_AddAnnouncementList({required this.value});
+  const _$_AddAnnouncementList({required this.value, required this.toTop});
 
   @override
   final Iterable<AnnouncementModel> value;
+  @override
+  final bool toTop;
 
   @override
   String toString() {
-    return 'AnnouncementAction.addAnnouncementList(value: $value)';
+    return 'AnnouncementAction.addAnnouncementList(value: $value, toTop: $toTop)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _AddAnnouncementList &&
-            (identical(other.value, value) || const DeepCollectionEquality().equals(other.value, value)));
+            (identical(other.value, value) || const DeepCollectionEquality().equals(other.value, value)) &&
+            (identical(other.toTop, toTop) || const DeepCollectionEquality().equals(other.toTop, toTop)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value) ^ const DeepCollectionEquality().hash(toTop);
 
   @JsonKey(ignore: true)
   @override
@@ -1947,11 +2422,13 @@ class _$_AddAnnouncementList implements _AddAnnouncementList {
     required TResult Function(ErrorModel value) setErrorModel,
     required TResult Function() clearErrorModel,
     required TResult Function() cleanUp,
+    required TResult Function(int value) changeLimit,
+    required TResult Function(int? value) changeDateUnixMsThreshold,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -1960,7 +2437,7 @@ class _$_AddAnnouncementList implements _AddAnnouncementList {
     required TResult Function(bool value) changeDraftPublishToTop,
     required TResult Function(bool value) changePublishLoading,
   }) {
-    return addAnnouncementList(value);
+    return addAnnouncementList(value, toTop);
   }
 
   @override
@@ -1972,11 +2449,13 @@ class _$_AddAnnouncementList implements _AddAnnouncementList {
     TResult Function(ErrorModel value)? setErrorModel,
     TResult Function()? clearErrorModel,
     TResult Function()? cleanUp,
+    TResult Function(int value)? changeLimit,
+    TResult Function(int? value)? changeDateUnixMsThreshold,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -1987,7 +2466,7 @@ class _$_AddAnnouncementList implements _AddAnnouncementList {
     required TResult orElse(),
   }) {
     if (addAnnouncementList != null) {
-      return addAnnouncementList(value);
+      return addAnnouncementList(value, toTop);
     }
     return orElse();
   }
@@ -2001,6 +2480,8 @@ class _$_AddAnnouncementList implements _AddAnnouncementList {
     required TResult Function(_SetErrorModel value) setErrorModel,
     required TResult Function(_ClearErrorModel value) clearErrorModel,
     required TResult Function(_CleanUp value) cleanUp,
+    required TResult Function(_ChangeLimit value) changeLimit,
+    required TResult Function(_ChangeDateUnixMsThreshold value) changeDateUnixMsThreshold,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
@@ -2026,6 +2507,8 @@ class _$_AddAnnouncementList implements _AddAnnouncementList {
     TResult Function(_SetErrorModel value)? setErrorModel,
     TResult Function(_ClearErrorModel value)? clearErrorModel,
     TResult Function(_CleanUp value)? cleanUp,
+    TResult Function(_ChangeLimit value)? changeLimit,
+    TResult Function(_ChangeDateUnixMsThreshold value)? changeDateUnixMsThreshold,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
@@ -2048,9 +2531,11 @@ class _$_AddAnnouncementList implements _AddAnnouncementList {
 }
 
 abstract class _AddAnnouncementList implements AnnouncementAction {
-  const factory _AddAnnouncementList({required Iterable<AnnouncementModel> value}) = _$_AddAnnouncementList;
+  const factory _AddAnnouncementList({required Iterable<AnnouncementModel> value, required bool toTop}) =
+      _$_AddAnnouncementList;
 
   Iterable<AnnouncementModel> get value => throw _privateConstructorUsedError;
+  bool get toTop => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$AddAnnouncementListCopyWith<_AddAnnouncementList> get copyWith => throw _privateConstructorUsedError;
 }
@@ -2118,11 +2603,13 @@ class _$_MarkAsRead implements _MarkAsRead {
     required TResult Function(ErrorModel value) setErrorModel,
     required TResult Function() clearErrorModel,
     required TResult Function() cleanUp,
+    required TResult Function(int value) changeLimit,
+    required TResult Function(int? value) changeDateUnixMsThreshold,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -2143,11 +2630,13 @@ class _$_MarkAsRead implements _MarkAsRead {
     TResult Function(ErrorModel value)? setErrorModel,
     TResult Function()? clearErrorModel,
     TResult Function()? cleanUp,
+    TResult Function(int value)? changeLimit,
+    TResult Function(int? value)? changeDateUnixMsThreshold,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -2172,6 +2661,8 @@ class _$_MarkAsRead implements _MarkAsRead {
     required TResult Function(_SetErrorModel value) setErrorModel,
     required TResult Function(_ClearErrorModel value) clearErrorModel,
     required TResult Function(_CleanUp value) cleanUp,
+    required TResult Function(_ChangeLimit value) changeLimit,
+    required TResult Function(_ChangeDateUnixMsThreshold value) changeDateUnixMsThreshold,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
@@ -2197,6 +2688,8 @@ class _$_MarkAsRead implements _MarkAsRead {
     TResult Function(_SetErrorModel value)? setErrorModel,
     TResult Function(_ClearErrorModel value)? clearErrorModel,
     TResult Function(_CleanUp value)? cleanUp,
+    TResult Function(_ChangeLimit value)? changeLimit,
+    TResult Function(_ChangeDateUnixMsThreshold value)? changeDateUnixMsThreshold,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
@@ -2269,11 +2762,13 @@ class _$_ClearUnread implements _ClearUnread {
     required TResult Function(ErrorModel value) setErrorModel,
     required TResult Function() clearErrorModel,
     required TResult Function() cleanUp,
+    required TResult Function(int value) changeLimit,
+    required TResult Function(int? value) changeDateUnixMsThreshold,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -2294,11 +2789,13 @@ class _$_ClearUnread implements _ClearUnread {
     TResult Function(ErrorModel value)? setErrorModel,
     TResult Function()? clearErrorModel,
     TResult Function()? cleanUp,
+    TResult Function(int value)? changeLimit,
+    TResult Function(int? value)? changeDateUnixMsThreshold,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -2323,6 +2820,8 @@ class _$_ClearUnread implements _ClearUnread {
     required TResult Function(_SetErrorModel value) setErrorModel,
     required TResult Function(_ClearErrorModel value) clearErrorModel,
     required TResult Function(_CleanUp value) cleanUp,
+    required TResult Function(_ChangeLimit value) changeLimit,
+    required TResult Function(_ChangeDateUnixMsThreshold value) changeDateUnixMsThreshold,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
@@ -2348,6 +2847,8 @@ class _$_ClearUnread implements _ClearUnread {
     TResult Function(_SetErrorModel value)? setErrorModel,
     TResult Function(_ClearErrorModel value)? clearErrorModel,
     TResult Function(_CleanUp value)? cleanUp,
+    TResult Function(_ChangeLimit value)? changeLimit,
+    TResult Function(_ChangeDateUnixMsThreshold value)? changeDateUnixMsThreshold,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
@@ -2415,11 +2916,13 @@ class _$_ClearDraft implements _ClearDraft {
     required TResult Function(ErrorModel value) setErrorModel,
     required TResult Function() clearErrorModel,
     required TResult Function() cleanUp,
+    required TResult Function(int value) changeLimit,
+    required TResult Function(int? value) changeDateUnixMsThreshold,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -2440,11 +2943,13 @@ class _$_ClearDraft implements _ClearDraft {
     TResult Function(ErrorModel value)? setErrorModel,
     TResult Function()? clearErrorModel,
     TResult Function()? cleanUp,
+    TResult Function(int value)? changeLimit,
+    TResult Function(int? value)? changeDateUnixMsThreshold,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -2469,6 +2974,8 @@ class _$_ClearDraft implements _ClearDraft {
     required TResult Function(_SetErrorModel value) setErrorModel,
     required TResult Function(_ClearErrorModel value) clearErrorModel,
     required TResult Function(_CleanUp value) cleanUp,
+    required TResult Function(_ChangeLimit value) changeLimit,
+    required TResult Function(_ChangeDateUnixMsThreshold value) changeDateUnixMsThreshold,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
@@ -2494,6 +3001,8 @@ class _$_ClearDraft implements _ClearDraft {
     TResult Function(_SetErrorModel value)? setErrorModel,
     TResult Function(_ClearErrorModel value)? clearErrorModel,
     TResult Function(_CleanUp value)? cleanUp,
+    TResult Function(_ChangeLimit value)? changeLimit,
+    TResult Function(_ChangeDateUnixMsThreshold value)? changeDateUnixMsThreshold,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
@@ -2594,11 +3103,13 @@ class _$_SaveDraftContent implements _SaveDraftContent {
     required TResult Function(ErrorModel value) setErrorModel,
     required TResult Function() clearErrorModel,
     required TResult Function() cleanUp,
+    required TResult Function(int value) changeLimit,
+    required TResult Function(int? value) changeDateUnixMsThreshold,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -2619,11 +3130,13 @@ class _$_SaveDraftContent implements _SaveDraftContent {
     TResult Function(ErrorModel value)? setErrorModel,
     TResult Function()? clearErrorModel,
     TResult Function()? cleanUp,
+    TResult Function(int value)? changeLimit,
+    TResult Function(int? value)? changeDateUnixMsThreshold,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -2648,6 +3161,8 @@ class _$_SaveDraftContent implements _SaveDraftContent {
     required TResult Function(_SetErrorModel value) setErrorModel,
     required TResult Function(_ClearErrorModel value) clearErrorModel,
     required TResult Function(_CleanUp value) cleanUp,
+    required TResult Function(_ChangeLimit value) changeLimit,
+    required TResult Function(_ChangeDateUnixMsThreshold value) changeDateUnixMsThreshold,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
@@ -2673,6 +3188,8 @@ class _$_SaveDraftContent implements _SaveDraftContent {
     TResult Function(_SetErrorModel value)? setErrorModel,
     TResult Function(_ClearErrorModel value)? clearErrorModel,
     TResult Function(_CleanUp value)? cleanUp,
+    TResult Function(_ChangeLimit value)? changeLimit,
+    TResult Function(_ChangeDateUnixMsThreshold value)? changeDateUnixMsThreshold,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
@@ -2770,11 +3287,13 @@ class _$_SaveDraftCheckedGroups implements _SaveDraftCheckedGroups {
     required TResult Function(ErrorModel value) setErrorModel,
     required TResult Function() clearErrorModel,
     required TResult Function() cleanUp,
+    required TResult Function(int value) changeLimit,
+    required TResult Function(int? value) changeDateUnixMsThreshold,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -2795,11 +3314,13 @@ class _$_SaveDraftCheckedGroups implements _SaveDraftCheckedGroups {
     TResult Function(ErrorModel value)? setErrorModel,
     TResult Function()? clearErrorModel,
     TResult Function()? cleanUp,
+    TResult Function(int value)? changeLimit,
+    TResult Function(int? value)? changeDateUnixMsThreshold,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -2824,6 +3345,8 @@ class _$_SaveDraftCheckedGroups implements _SaveDraftCheckedGroups {
     required TResult Function(_SetErrorModel value) setErrorModel,
     required TResult Function(_ClearErrorModel value) clearErrorModel,
     required TResult Function(_CleanUp value) cleanUp,
+    required TResult Function(_ChangeLimit value) changeLimit,
+    required TResult Function(_ChangeDateUnixMsThreshold value) changeDateUnixMsThreshold,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
@@ -2849,6 +3372,8 @@ class _$_SaveDraftCheckedGroups implements _SaveDraftCheckedGroups {
     TResult Function(_SetErrorModel value)? setErrorModel,
     TResult Function(_ClearErrorModel value)? clearErrorModel,
     TResult Function(_CleanUp value)? cleanUp,
+    TResult Function(_ChangeLimit value)? changeLimit,
+    TResult Function(_ChangeDateUnixMsThreshold value)? changeDateUnixMsThreshold,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
@@ -2945,11 +3470,13 @@ class _$_ChangeDraftPublishToTop implements _ChangeDraftPublishToTop {
     required TResult Function(ErrorModel value) setErrorModel,
     required TResult Function() clearErrorModel,
     required TResult Function() cleanUp,
+    required TResult Function(int value) changeLimit,
+    required TResult Function(int? value) changeDateUnixMsThreshold,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -2970,11 +3497,13 @@ class _$_ChangeDraftPublishToTop implements _ChangeDraftPublishToTop {
     TResult Function(ErrorModel value)? setErrorModel,
     TResult Function()? clearErrorModel,
     TResult Function()? cleanUp,
+    TResult Function(int value)? changeLimit,
+    TResult Function(int? value)? changeDateUnixMsThreshold,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -2999,6 +3528,8 @@ class _$_ChangeDraftPublishToTop implements _ChangeDraftPublishToTop {
     required TResult Function(_SetErrorModel value) setErrorModel,
     required TResult Function(_ClearErrorModel value) clearErrorModel,
     required TResult Function(_CleanUp value) cleanUp,
+    required TResult Function(_ChangeLimit value) changeLimit,
+    required TResult Function(_ChangeDateUnixMsThreshold value) changeDateUnixMsThreshold,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
@@ -3024,6 +3555,8 @@ class _$_ChangeDraftPublishToTop implements _ChangeDraftPublishToTop {
     TResult Function(_SetErrorModel value)? setErrorModel,
     TResult Function(_ClearErrorModel value)? clearErrorModel,
     TResult Function(_CleanUp value)? cleanUp,
+    TResult Function(_ChangeLimit value)? changeLimit,
+    TResult Function(_ChangeDateUnixMsThreshold value)? changeDateUnixMsThreshold,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,
@@ -3119,11 +3652,13 @@ class _$_ChangePublishLoading implements _ChangePublishLoading {
     required TResult Function(ErrorModel value) setErrorModel,
     required TResult Function() clearErrorModel,
     required TResult Function() cleanUp,
+    required TResult Function(int value) changeLimit,
+    required TResult Function(int? value) changeDateUnixMsThreshold,
     required TResult Function() fetchAnnouncements,
     required TResult Function(AnnouncementModel value) addAnnouncement,
     required TResult Function(String value) removeAnnouncementById,
     required TResult Function(String id, Map<String, dynamic>? data) modifyAnnouncementById,
-    required TResult Function(Iterable<AnnouncementModel> value) addAnnouncementList,
+    required TResult Function(Iterable<AnnouncementModel> value, bool toTop) addAnnouncementList,
     required TResult Function(List<String> ids) markAsRead,
     required TResult Function() clearUnread,
     required TResult Function() clearDraftContent,
@@ -3144,11 +3679,13 @@ class _$_ChangePublishLoading implements _ChangePublishLoading {
     TResult Function(ErrorModel value)? setErrorModel,
     TResult Function()? clearErrorModel,
     TResult Function()? cleanUp,
+    TResult Function(int value)? changeLimit,
+    TResult Function(int? value)? changeDateUnixMsThreshold,
     TResult Function()? fetchAnnouncements,
     TResult Function(AnnouncementModel value)? addAnnouncement,
     TResult Function(String value)? removeAnnouncementById,
     TResult Function(String id, Map<String, dynamic>? data)? modifyAnnouncementById,
-    TResult Function(Iterable<AnnouncementModel> value)? addAnnouncementList,
+    TResult Function(Iterable<AnnouncementModel> value, bool toTop)? addAnnouncementList,
     TResult Function(List<String> ids)? markAsRead,
     TResult Function()? clearUnread,
     TResult Function()? clearDraftContent,
@@ -3173,6 +3710,8 @@ class _$_ChangePublishLoading implements _ChangePublishLoading {
     required TResult Function(_SetErrorModel value) setErrorModel,
     required TResult Function(_ClearErrorModel value) clearErrorModel,
     required TResult Function(_CleanUp value) cleanUp,
+    required TResult Function(_ChangeLimit value) changeLimit,
+    required TResult Function(_ChangeDateUnixMsThreshold value) changeDateUnixMsThreshold,
     required TResult Function(_FetchAnnouncements value) fetchAnnouncements,
     required TResult Function(_AddAnnouncement value) addAnnouncement,
     required TResult Function(_RemoveAnnouncementById value) removeAnnouncementById,
@@ -3198,6 +3737,8 @@ class _$_ChangePublishLoading implements _ChangePublishLoading {
     TResult Function(_SetErrorModel value)? setErrorModel,
     TResult Function(_ClearErrorModel value)? clearErrorModel,
     TResult Function(_CleanUp value)? cleanUp,
+    TResult Function(_ChangeLimit value)? changeLimit,
+    TResult Function(_ChangeDateUnixMsThreshold value)? changeDateUnixMsThreshold,
     TResult Function(_FetchAnnouncements value)? fetchAnnouncements,
     TResult Function(_AddAnnouncement value)? addAnnouncement,
     TResult Function(_RemoveAnnouncementById value)? removeAnnouncementById,

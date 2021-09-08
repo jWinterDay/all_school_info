@@ -10,7 +10,13 @@ class AnnouncementListBloc {
 
   void refresh() {
     if (_store.state.userState.loggedIn) {
-      _store.dispatch(fetchAnnouncementsThunk);
+      _store.dispatch((Store<AppState> store) => fetchAnnouncementsThunk(store: store));
+    }
+  }
+
+  void getMore() {
+    if (!_store.state.announcementState.loading) {
+      _store.dispatch((Store<AppState> store) => fetchAnnouncementsThunk(store: store, toTop: false));
     }
   }
 

@@ -1,9 +1,16 @@
 import 'package:domain/src/redux/announcement/models/announcement_model.dart';
 
 abstract class AnnouncementService {
-  Future<List<AnnouncementModel>> fetchAnnouncements({required List<String> accessGroups});
+  Future<List<AnnouncementModel>> fetchAnnouncements({
+    required List<String> accessGroups,
+    required int limit,
+    int? dateUnixMsThreshold,
+  });
 
-  Stream<List<AnnouncementModel>> announcementsStream({required List<String> accessGroups});
+  Stream<List<AnnouncementModel>> announcementsStream({
+    required List<String> accessGroups,
+    required int limit,
+  });
 
   Future<void> publishAnnouncement({
     required String title,
