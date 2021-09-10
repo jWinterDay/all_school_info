@@ -85,7 +85,7 @@ Future<void> _subscribe({
     accessGroups: accessGroups,
   );
   _announcementsSub = stream.listen((List<AnnouncementModel> list) {
-    print('subscr list len = ${list.length}');
+    // print('subscr list len = ${list.length}');
     store.dispatch(
       AnnouncementAction.addAnnouncementList(
         value: list,
@@ -95,7 +95,7 @@ Future<void> _subscribe({
 
     if (list.isNotEmpty) {
       final int? lastDateTime = list.last.dateUnixMs;
-      print('--------subscribe lastDateTime = ${DateTime.fromMillisecondsSinceEpoch(lastDateTime!)}');
+      // print('--------subscribe lastDateTime = ${DateTime.fromMillisecondsSinceEpoch(lastDateTime!)}');
       store.dispatch(AnnouncementAction.changeDateUnixMsThreshold(value: lastDateTime));
     }
   });

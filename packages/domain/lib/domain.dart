@@ -35,6 +35,7 @@ export 'src/redux/user/models/lesson_name_model.dart';
 export 'src/redux/user/models/user_type.dart';
 export 'src/redux/user/thunks/fetch_user_thunk.dart';
 export 'src/redux/user/thunks/create_user_with_email_thunk.dart';
+export 'src/redux/user/thunks/signin_user_with_email_thunk.dart';
 
 // schedule
 export 'src/redux/schedule/schedule_action.dart';

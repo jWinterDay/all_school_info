@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:overlay_support/overlay_support.dart';
 
 import 'app_theme.dart';
 
@@ -88,37 +89,39 @@ class _AppViewState extends State<AppView> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return StoreProvider<AppState>(
       store: getIt.get<AppDomain>().appStore,
-      child: MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        theme: appTheme.copyWith(platform: TargetPlatform.iOS),
-        supportedLocales: const <Locale>[
-          Locale('ru'),
-          Locale('en'),
-        ],
-        locale: const Locale('ru'),
-        localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
-          GlobalMaterialLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          AllSchoolInfoIntl.delegate,
-        ],
-        builder: (BuildContext context, Widget? child) {
-          return MediaQuery(
-            data: MediaQuery.of(context).copyWith(
-              textScaleFactor: getIt.get<AppDomain>().appStore.state.settingsState.fontScale,
-            ),
-            child: child ?? const SizedBox(),
-          );
-        },
-        routerDelegate: AutoRouterDelegate(
-          _appRouter,
-          navigatorObservers: () {
-            return <NavigatorObserver>[
-              _Observer(),
-            ];
+      child: OverlaySupport.global(
+        child: MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          theme: appTheme.copyWith(platform: TargetPlatform.iOS),
+          supportedLocales: const <Locale>[
+            Locale('ru'),
+            Locale('en'),
+          ],
+          locale: const Locale('ru'),
+          localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
+            GlobalMaterialLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            AllSchoolInfoIntl.delegate,
+          ],
+          builder: (BuildContext context, Widget? child) {
+            return MediaQuery(
+              data: MediaQuery.of(context).copyWith(
+                textScaleFactor: getIt.get<AppDomain>().appStore.state.settingsState.fontScale,
+              ),
+              child: child ?? const SizedBox(),
+            );
           },
-        ), // _appRouter.delegate(),
-        routeInformationParser: _appRouter.defaultRouteParser(),
+          routerDelegate: AutoRouterDelegate(
+            _appRouter,
+            navigatorObservers: () {
+              return <NavigatorObserver>[
+                _Observer(),
+              ];
+            },
+          ), // _appRouter.delegate(),
+          routeInformationParser: _appRouter.defaultRouteParser(),
+        ),
       ),
     );
   }

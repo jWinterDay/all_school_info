@@ -18,5 +18,15 @@ class ProfileBloc {
     );
   }
 
+  void signIn(String email, String password) {
+    _appStore.dispatch(
+      (Store<AppState> store) => signinUserWwithEmailThunk(
+        store,
+        email: email,
+        password: password,
+      ),
+    );
+  }
+
   void dispose() {}
 }

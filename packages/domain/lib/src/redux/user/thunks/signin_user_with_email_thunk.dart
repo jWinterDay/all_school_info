@@ -4,7 +4,7 @@ import 'package:domain/src/redux/user/user_action.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:redux/redux.dart';
 
-Future<void> createUserWwithEmailThunk(
+Future<void> signinUserWwithEmailThunk(
   Store<AppState> store, {
   required String email,
   required String password,
@@ -14,13 +14,25 @@ Future<void> createUserWwithEmailThunk(
 
     final FirebaseAuth instance = FirebaseAuth.instance;
 
-    // instance.signOut();
-
-    final UserCredential userCredential = await instance.createUserWithEmailAndPassword(
+    final UserCredential userCredential = await instance.signInWithEmailAndPassword(
       email: email,
       password: password,
     );
     print('userCredential = ${userCredential.user}');
+
+    // view user
+    // final User? currentUser = FirebaseAuth.instance.currentUser;
+
+    // if (currentUser != null) {
+    // print(currentUser);
+    // }
+
+    // verify
+    // User? user = FirebaseAuth.instance.currentUser;
+
+    // if (user != null && !user.emailVerified) {
+    //   await user.sendEmailVerification();
+    // }
   } on FirebaseAuthException catch (e) {
     // print(
     //     'e = ${e.credential} > ${e.email} > ${e.phoneNumber} | ${e.tenantId} ; ${e.code} % ${e.message} ^ ${e.plugin}');

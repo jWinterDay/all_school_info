@@ -2,12 +2,10 @@ import 'package:all_school_info/src/generated/l10n.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_redux/flutter_redux.dart';
-import 'package:redux/redux.dart';
 
 import 'models/ui_profile_item.dart';
 import 'profile_bloc.dart';
-import 'widgets/profile_item.dart';
+import 'package:overlay_support/overlay_support.dart' as os;
 
 class ProfileView extends StatefulWidget {
   @override
@@ -16,6 +14,9 @@ class ProfileView extends StatefulWidget {
 
 class _ProfileViewState extends State<ProfileView> {
   final ProfileBloc _bloc = ProfileBloc();
+  final os.TransientKey<String> _dialogKey = const os.TransientKey<String>('transient');
+  final ValueKey<String> _key = const ValueKey<String>('my overlay');
+  os.OverlaySupportEntry? _entry;
 
   @override
   void initState() {
@@ -151,13 +152,61 @@ class _ProfileViewState extends State<ProfileView> {
           ),
         ),
 
+        // GestureDetector(
+        //   onTap: () {
+        //     print('taps');
+        //     _bloc.createNewUser('jwinterday@mail.ru', 'SuperPassword');
+        //   },
+        //   child: Text('create'),
+        // ),
+
+        // GestureDetector(
+        //   onTap: () {
+        //     print('taps sign');
+        //     _bloc.signIn('jwinterday@mail.ru', 'SuperPassword');
+        //   },
+        //   child: Text('sign in'),
+        // ),
+
+        Padding(
+          padding: const EdgeInsets.only(top: 150),
+          child: GestureDetector(
+            onTap: () {
+              _entry = os.showSimpleNotification(
+                Text("this is a message from simple notification gfd gdfg dfgdfgdfg dgd fgd g fgdf gdfgdfg dg dgf"),
+                key: _dialogKey,
+                autoDismiss: false,
+                slideDismissDirection: DismissDirection.horizontal,
+                trailing: Text('trailing'),
+                subtitle: Text('subtitle'),
+                leading: Text('leading'),
+                background: Colors.green,
+                position: os.NotificationPosition.top,
+                // trailing: Builder(
+                //   builder: (context) {
+                //     return FlatButton(
+                //       onPressed: () {
+                //         os.OverlaySupportEntry.of(context)?.dismiss();
+                //         // toast("You Click $_count");
+                //       },
+                //       child: Text("Click Me"),
+                //     );
+                //   },
+                // ),
+              );
+
+              // os.s
+            },
+            child: Text('show overlay'),
+          ),
+        ),
+
         GestureDetector(
           onTap: () {
-            print('taps');
-            _bloc.createNewUser('jwinterday@mail.ru', 'secure_password');
+            _entry?.dismiss();
           },
-          child: Text('create'),
-        ),
+          child: Text('close overlay'),
+        )
 
         // scroll content
         // StoreConnector<AppState, UserState>(
