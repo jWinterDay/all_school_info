@@ -1,7 +1,7 @@
+import 'package:all_school_info/src/generated/l10n.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:all_school_info/src/generated/l10n.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 
@@ -108,7 +108,7 @@ class _ProfileViewState extends State<ProfileView> {
           ),
       ],
       if (userState.classProfile.isNotEmpty)
-        UiProfileItem(
+        const UiProfileItem(
           title: 'Class profile',
           icon: Icons.format_list_numbered,
         ),
@@ -123,7 +123,7 @@ class _ProfileViewState extends State<ProfileView> {
         }),
 
       if (userState.phoneNumbers != null)
-        UiProfileItem(
+        const UiProfileItem(
           title: 'Phone numbers',
           icon: Icons.format_list_numbered,
         ),

@@ -31,7 +31,7 @@ class _DefaultAnnouncementViewState extends State<DefaultAnnouncementView> {
 
   @override
   Widget build(BuildContext context) {
-    return Text('default');
+    return const Text('default');
     // return StoreConnector<AppState, UiAnnouncementInfo>(
     //   distinct: true,
     //   converter: (Store<AppState> store) {

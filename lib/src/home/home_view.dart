@@ -1,13 +1,12 @@
+import 'package:all_school_info/src/generated/l10n.dart';
 import 'package:all_school_info/src/models/card_view_mode.dart';
+import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
 import 'package:auto_route/auto_route.dart';
+import 'package:design/design.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:all_school_info/src/generated/l10n.dart';
-import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:design/design.dart';
-
 import 'package:redux/redux.dart';
 
 import 'home_bloc.dart';

@@ -1,11 +1,10 @@
-import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
 import 'package:all_school_info/src/generated/l10n.dart';
+import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
 import 'package:auto_route/auto_route.dart';
+import 'package:design/design.dart';
+import 'package:domain/domain.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'package:domain/domain.dart';
-import 'package:design/design.dart';
 import 'package:intl/intl.dart';
 
 const double kMinHeight = 80;
@@ -33,9 +32,11 @@ class AnnouncementCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
       child: GestureDetector(
         onTap: () {
-          AutoRouter.of(context).push(gr.AnnouncementDetailsViewRoute(
-            announcementModelId: announcementModel.id,
-          ));
+          AutoRouter.of(context).push(
+            gr.AnnouncementDetailsViewRoute(
+              announcementModelId: announcementModel.id,
+            ),
+          );
         },
         child: Container(
           constraints: const BoxConstraints(minHeight: kMinHeight, maxHeight: 200),

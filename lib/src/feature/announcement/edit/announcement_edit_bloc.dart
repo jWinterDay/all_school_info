@@ -35,23 +35,29 @@ class AnnouncementEditBloc {
       _groups.add(groupName);
     }
 
-    _store.dispatch(AnnouncementAction.saveDraftCheckedGroups(
-      groups: _groups,
-    ));
+    _store.dispatch(
+      AnnouncementAction.saveDraftCheckedGroups(
+        groups: _groups,
+      ),
+    );
   }
 
   void saveDraftContent() {
-    _store.dispatch(AnnouncementAction.saveDraftContent(
-      title: title,
-      content: content,
-    ));
+    _store.dispatch(
+      AnnouncementAction.saveDraftContent(
+        title: title,
+        content: content,
+      ),
+    );
   }
 
   void saveDraft() {
-    _store.dispatch(AnnouncementAction.saveDraftContent(
-      title: title,
-      content: content,
-    ));
+    _store.dispatch(
+      AnnouncementAction.saveDraftContent(
+        title: title,
+        content: content,
+      ),
+    );
   }
 
   Future<void> publishAnnouncement() async {

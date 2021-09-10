@@ -1,13 +1,7 @@
-// import 'package:flutter/cupertino.dart';
 import 'dart:math';
 
-import 'package:all_school_info/src/home/home_view.dart';
-// import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
 import 'package:design/design.dart';
-import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
-// import 'package:page_transition/page_transition.dart';
+import 'package:flutter/material.dart';
 
 class SplashView extends StatefulWidget {
   @override

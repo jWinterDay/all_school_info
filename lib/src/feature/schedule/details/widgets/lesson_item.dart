@@ -1,7 +1,7 @@
+import 'package:design/design.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:design/design.dart';
 
 final DateFormat _dateFormat = DateFormat('HH:mm', 'ru');
 

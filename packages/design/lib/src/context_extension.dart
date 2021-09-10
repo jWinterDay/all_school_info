@@ -1,6 +1,6 @@
+import 'package:design/design.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:design/design.dart';
 
 extension ContextExtention on BuildContext {
   MediaQueryData get mediaQuery => MediaQuery.of(this);

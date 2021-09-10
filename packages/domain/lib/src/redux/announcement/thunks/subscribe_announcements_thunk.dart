@@ -7,8 +7,8 @@ import 'package:domain/src/redux/announcement/models/announcement_model.dart';
 import 'package:domain/src/redux/app/app_state.dart';
 import 'package:domain/src/services/announcement/announcement_service.dart';
 import 'package:redux/redux.dart';
-import 'package:utils/logger.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:utils/logger.dart';
 
 StreamSubscription<List<AnnouncementModel>>? _announcementsSub;
 StreamSubscription<_UserChange>? _userStateSub;

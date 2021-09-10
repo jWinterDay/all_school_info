@@ -1,8 +1,9 @@
 import 'dart:async';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:domain/domain.dart';
 import 'package:domain/src/redux/announcement/models/announcement_model.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'announcement_service.dart';
 
 class AnnouncementServiceMock implements AnnouncementService {
@@ -92,8 +93,8 @@ class AnnouncementServiceMock implements AnnouncementService {
       print('---snapshot = ${snapshot.metadata.isFromCache}');
 
       // doc list
-      final String dl = docList.map((e) => e.id).join('; ');
-      final cl = changes.map((e) => e.doc.id).join('; ');
+      final String dl = docList.map((QueryDocumentSnapshot<Map<String, dynamic>> e) => e.id).join('; ');
+      final String cl = changes.map((DocumentChange<Map<String, dynamic>> e) => e.doc.id).join('; ');
 
       print('dl = $dl cl = $cl');
 

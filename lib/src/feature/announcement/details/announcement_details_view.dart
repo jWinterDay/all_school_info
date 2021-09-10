@@ -1,9 +1,9 @@
+import 'package:all_school_info/src/generated/l10n.dart';
 import 'package:auto_route/annotations.dart';
+import 'package:design/design.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:all_school_info/src/generated/l10n.dart';
-import 'package:design/design.dart';
 import 'package:intl/intl.dart';
 
 import 'announcement_details_bloc.dart';

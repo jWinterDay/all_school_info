@@ -10,20 +10,22 @@ final ThemeData appTheme = ThemeData(
   //   color: Colors.red,
   //   foregroundColor: Colors.green,
   // ),
-  textTheme: GoogleFonts.k2dTextTheme(TextTheme(
-    bodyText1: GoogleFonts.k2d(),
-    caption: GoogleFonts.k2d(
-      fontSize: 15,
-      fontWeight: FontWeight.bold,
+  textTheme: GoogleFonts.k2dTextTheme(
+    TextTheme(
+      bodyText1: GoogleFonts.k2d(),
+      caption: GoogleFonts.k2d(
+        fontSize: 15,
+        fontWeight: FontWeight.bold,
+      ),
+      subtitle2: GoogleFonts.k2d(
+        // fontSize: 17,
+        fontWeight: FontWeight.bold,
+      ),
+      bodyText2: GoogleFonts.k2d(
+        //) aclonica(
+        fontSize: 17,
+        // fontWeight: FontWeight.bold,
+      ),
     ),
-    subtitle2: GoogleFonts.k2d(
-      // fontSize: 17,
-      fontWeight: FontWeight.bold,
-    ),
-    bodyText2: GoogleFonts.k2d(
-      //) aclonica(
-      fontSize: 17,
-      // fontWeight: FontWeight.bold,
-    ),
-  )),
+  ),
 );

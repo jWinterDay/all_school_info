@@ -1,5 +1,5 @@
-import 'package:domain/domain.dart';
 import 'package:collection/collection.dart';
+import 'package:domain/domain.dart';
 import 'package:redux/redux.dart';
 
 class AnnouncementDetailsBloc {
