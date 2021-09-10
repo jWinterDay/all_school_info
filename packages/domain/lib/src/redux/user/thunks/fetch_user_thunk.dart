@@ -14,12 +14,14 @@ void fetchUserThunk(Store<AppState> store) async {
   store
     ..dispatch(const UserAction.changeLoggedIn(value: true))
     ..dispatch(const UserAction.changeLoading(value: false))
-    ..dispatch(UserAction.updateInfo(
-      firstName: userState.firstName,
-      lastName: userState.lastName,
-      email: userState.email,
-      phoneNumbers: userState.phoneNumbers,
-    ))
+    ..dispatch(
+      UserAction.updateInfo(
+        firstName: userState.firstName,
+        lastName: userState.lastName,
+        email: userState.email,
+        phoneNumbers: userState.phoneNumbers,
+      ),
+    )
     ..dispatch(UserAction.changeAccessGroups(value: userState.accessGroups))
     ..dispatch(UserAction.changeAvailableAccessGroups(value: userState.availableAccessGroups));
 }

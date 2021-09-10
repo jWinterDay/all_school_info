@@ -87,30 +87,46 @@ class AnnouncementServiceMock implements AnnouncementService {
         .snapshots(includeMetadataChanges: true)
         .where((QuerySnapshot<Map<String, dynamic>> snapshot) => !snapshot.metadata.hasPendingWrites)
         .map((QuerySnapshot<Map<String, dynamic>> snapshot) {
+      //
       final List<QueryDocumentSnapshot<Map<String, dynamic>>> docList = snapshot.docs;
       final List<DocumentChange<Map<String, dynamic>>> changes = snapshot.docChanges;
 
-      print('---snapshot = ${snapshot.metadata.isFromCache}');
-
-      // doc list
-      final String dl = docList.map((QueryDocumentSnapshot<Map<String, dynamic>> e) => e.id).join('; ');
-      final String cl = changes.map((DocumentChange<Map<String, dynamic>> e) => e.doc.id).join('; ');
-
-      print('dl = $dl cl = $cl');
-
+      //
       final List<String> changesIdList = changes.where((DocumentChange<Map<String, dynamic>> e) {
         return e.type != DocumentChangeType.added;
       }).map((DocumentChange<Map<String, dynamic>> e) {
         return e.doc.id;
       }).toList();
 
-      return docList.map((QueryDocumentSnapshot<Map<String, dynamic>> doc) {
+      return changes.map((DocumentChange<Map<String, dynamic>> e) {
         return _mapModelFromData(
-          data: doc.data(),
-          id: doc.id,
-          isUnread: changesIdList.contains(doc.id),
+          data: e.doc.data(),
+          id: e.doc.id,
+          isUnread: changesIdList.contains(e.doc.id),
         );
       }).toList();
+
+      // print('---snapshot = ${snapshot.metadata.isFromCache}');
+
+      // // doc list
+      // final String dl = docList.map((QueryDocumentSnapshot<Map<String, dynamic>> e) => e.id).join('; ');
+      // final String cl = changes.map((DocumentChange<Map<String, dynamic>> e) => e.doc.id).join('; ');
+
+      // print('dl = $dl cl = $cl');
+
+      // final List<String> changesIdList = changes.where((DocumentChange<Map<String, dynamic>> e) {
+      //   return e.type != DocumentChangeType.added;
+      // }).map((DocumentChange<Map<String, dynamic>> e) {
+      //   return e.doc.id;
+      // }).toList();
+
+      // return docList.map((QueryDocumentSnapshot<Map<String, dynamic>> doc) {
+      //   return _mapModelFromData(
+      //     data: doc.data(),
+      //     id: doc.id,
+      //     isUnread: changesIdList.contains(doc.id),
+      //   );
+      // }).toList();
     });
   }
 

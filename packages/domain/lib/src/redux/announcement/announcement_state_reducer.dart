@@ -133,14 +133,14 @@ AnnouncementState _addAnnouncementList(
   required Iterable<AnnouncementModel> list,
   required CollectionAddType collectionAddType,
 }) {
-  final List<AnnouncementModel> notTop = list.where((AnnouncementModel e) => !e.isTopEvent).toList();
+  final List<AnnouncementModel> notTopList = list.where((AnnouncementModel e) => !e.isTopEvent).toList();
 
   List<AnnouncementModel> resultList;
   switch (collectionAddType) {
     // add to top of list
     case CollectionAddType.top:
       resultList = <AnnouncementModel>[
-        ...notTop,
+        ...notTopList,
         ...state.list,
       ];
       break;
@@ -148,12 +148,12 @@ AnnouncementState _addAnnouncementList(
     case CollectionAddType.down:
       resultList = <AnnouncementModel>[
         ...state.list,
-        ...notTop,
+        ...notTopList,
       ];
       break;
     // replace current list
     default:
-      resultList = notTop;
+      resultList = notTopList;
   }
 
   return state.copyWith(
@@ -161,8 +161,10 @@ AnnouncementState _addAnnouncementList(
     topList: <AnnouncementModel>[
       if (collectionAddType == CollectionAddType.refresh)
         ...list.where((AnnouncementModel e) => e.isTopEvent).toList()
-      else
+      else ...<AnnouncementModel>[
+        ...list.where((AnnouncementModel e) => e.isTopEvent).toList(),
         ...state.topList,
+      ],
     ],
   );
 }

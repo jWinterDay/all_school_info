@@ -29,8 +29,8 @@ class _$AnnouncementStateTearOff {
           bool firstLoading = true,
       @JsonKey(name: 'error_model')
           ErrorModel? errorModel,
-      @JsonKey(name: 'limit', defaultValue: 3)
-          int limit = 3,
+      @JsonKey(name: 'limit', defaultValue: 15)
+          int limit = 15,
       @JsonKey(name: 'date_unix_ms_threshold')
           int? dateUnixMsThreshold,
       @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[])
@@ -85,7 +85,7 @@ mixin _$AnnouncementState {
   ErrorModel? get errorModel => throw _privateConstructorUsedError;
 
   /// `announcement`
-  @JsonKey(name: 'limit', defaultValue: 3)
+  @JsonKey(name: 'limit', defaultValue: 15)
   int get limit => throw _privateConstructorUsedError;
   @JsonKey(name: 'date_unix_ms_threshold')
   int? get dateUnixMsThreshold => throw _privateConstructorUsedError;
@@ -124,7 +124,7 @@ abstract class $AnnouncementStateCopyWith<$Res> {
       @JsonKey(name: 'loading', defaultValue: false) bool loading,
       @JsonKey(name: 'first_loading', defaultValue: true) bool firstLoading,
       @JsonKey(name: 'error_model') ErrorModel? errorModel,
-      @JsonKey(name: 'limit', defaultValue: 3) int limit,
+      @JsonKey(name: 'limit', defaultValue: 15) int limit,
       @JsonKey(name: 'date_unix_ms_threshold') int? dateUnixMsThreshold,
       @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> list,
       @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> topList,
@@ -239,7 +239,7 @@ abstract class _$AnnouncementStateCopyWith<$Res> implements $AnnouncementStateCo
       @JsonKey(name: 'loading', defaultValue: false) bool loading,
       @JsonKey(name: 'first_loading', defaultValue: true) bool firstLoading,
       @JsonKey(name: 'error_model') ErrorModel? errorModel,
-      @JsonKey(name: 'limit', defaultValue: 3) int limit,
+      @JsonKey(name: 'limit', defaultValue: 15) int limit,
       @JsonKey(name: 'date_unix_ms_threshold') int? dateUnixMsThreshold,
       @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> list,
       @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> topList,
@@ -343,7 +343,7 @@ class _$_AnnouncementState extends _AnnouncementState {
       @JsonKey(name: 'loading', defaultValue: false) this.loading = false,
       @JsonKey(name: 'first_loading', defaultValue: true) this.firstLoading = true,
       @JsonKey(name: 'error_model') this.errorModel,
-      @JsonKey(name: 'limit', defaultValue: 3) this.limit = 3,
+      @JsonKey(name: 'limit', defaultValue: 15) this.limit = 15,
       @JsonKey(name: 'date_unix_ms_threshold') this.dateUnixMsThreshold,
       @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[]) this.list = const <AnnouncementModel>[],
       @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[]) this.topList = const <AnnouncementModel>[],
@@ -373,7 +373,7 @@ class _$_AnnouncementState extends _AnnouncementState {
   @override
 
   /// `announcement`
-  @JsonKey(name: 'limit', defaultValue: 3)
+  @JsonKey(name: 'limit', defaultValue: 15)
   final int limit;
   @override
   @JsonKey(name: 'date_unix_ms_threshold')
@@ -473,7 +473,7 @@ abstract class _AnnouncementState extends AnnouncementState {
       @JsonKey(name: 'loading', defaultValue: false) bool loading,
       @JsonKey(name: 'first_loading', defaultValue: true) bool firstLoading,
       @JsonKey(name: 'error_model') ErrorModel? errorModel,
-      @JsonKey(name: 'limit', defaultValue: 3) int limit,
+      @JsonKey(name: 'limit', defaultValue: 15) int limit,
       @JsonKey(name: 'date_unix_ms_threshold') int? dateUnixMsThreshold,
       @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> list,
       @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> topList,
@@ -503,7 +503,7 @@ abstract class _AnnouncementState extends AnnouncementState {
   @override
 
   /// `announcement`
-  @JsonKey(name: 'limit', defaultValue: 3)
+  @JsonKey(name: 'limit', defaultValue: 15)
   int get limit => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'date_unix_ms_threshold')

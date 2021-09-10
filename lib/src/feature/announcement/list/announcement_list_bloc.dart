@@ -40,6 +40,6 @@ class AnnouncementListBloc {
   }
 
   void _subscribe() {
-    // _store.dispatch((Store<AppState> store) => subscribeAnnouncementsThunk(store, subscribe: true));
+    _store.dispatch((Store<AppState> store) => subscribeAnnouncementsThunk(store, subscribe: true));
   }
 }

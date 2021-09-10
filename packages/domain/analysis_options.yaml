@@ -60,31 +60,6 @@ cool_linter:
     - lib/src/generated/**
     - test_driver/lib/localization/**
 
-dart_code_metrics:
-  anti-patterns:
-    - long-method
-    - long-parameter-list
-  metrics:
-    cyclomatic-complexity: 20
-    lines-of-executable-code: 50
-    maximum-nesting-level: 5
-    number-of-parameters: 6
-    source-lines-of-code: 80
-  metrics-exclude:
-    - test_driver/**
-  rules:
-    - newline-before-return
-    - no-boolean-literal-compare
-    - no-empty-block
-    - prefer-trailing-comma
-    - prefer-conditional-expressions
-    - no-equal-then-else
-    # - avoid-non-null-assertion
-    - avoid-late-keyword
-    # - no-equal-arguments
-    # - no-magic-number
-    - avoid-returning-widgets
-
 linter:
   rules:
     always_declare_return_types: true
@@ -194,6 +169,7 @@ linter:
     prefer_typing_uninitialized_variables: true
     prefer_void_to_null: true
     recursive_getters: true
+    require_trailing_commas: true
     slash_for_doc_comments: true
     sort_constructors_first: true
     sort_imports: true

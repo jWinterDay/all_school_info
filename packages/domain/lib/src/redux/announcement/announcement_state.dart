@@ -18,7 +18,7 @@ class AnnouncementState with _$AnnouncementState {
     @JsonKey(name: 'error_model') ErrorModel? errorModel,
 
     /// `announcement`
-    @JsonKey(name: 'limit', defaultValue: 3) @Default(3) int limit,
+    @JsonKey(name: 'limit', defaultValue: 15) @Default(15) int limit,
     @JsonKey(name: 'date_unix_ms_threshold') int? dateUnixMsThreshold,
     @JsonKey(name: 'list', defaultValue: <AnnouncementModel>[])
     @Default(<AnnouncementModel>[])
@@ -26,11 +26,6 @@ class AnnouncementState with _$AnnouncementState {
     @JsonKey(name: 'top_list', defaultValue: <AnnouncementModel>[])
     @Default(<AnnouncementModel>[])
         List<AnnouncementModel> topList,
-
-    // // TODO remove
-    // @JsonKey(name: 'unread_list', defaultValue: <AnnouncementModel>[])
-    // @Default(<AnnouncementModel>[])
-    //     List<AnnouncementModel> unreadList,
 
     /// `create new announement. save draft of it`
     @JsonKey(name: 'draft_new_title') String? draftNewTitle,

@@ -12,7 +12,7 @@ _$_AnnouncementState _$_$_AnnouncementStateFromJson(Map<String, dynamic> json) {
     loading: json['loading'] as bool? ?? false,
     firstLoading: json['first_loading'] as bool? ?? true,
     errorModel: json['error_model'] == null ? null : ErrorModel.fromJson(json['error_model'] as Map<String, dynamic>),
-    limit: json['limit'] as int? ?? 3,
+    limit: json['limit'] as int? ?? 15,
     dateUnixMsThreshold: json['date_unix_ms_threshold'] as int?,
     list:
         (json['list'] as List<dynamic>?)?.map((e) => AnnouncementModel.fromJson(e as Map<String, dynamic>)).toList() ??

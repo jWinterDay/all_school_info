@@ -10,6 +10,7 @@ dependencies:
   cloud_firestore: ^2.5.1
   computer: ^2.0.0
   
+  firebase_auth: ^3.1.1
   flutter:
     sdk: flutter
   freezed_annotation: ^0.14.2

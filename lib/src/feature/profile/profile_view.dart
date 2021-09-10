@@ -151,57 +151,65 @@ class _ProfileViewState extends State<ProfileView> {
           ),
         ),
 
-        // scroll content
-        StoreConnector<AppState, UserState>(
-          distinct: true,
-          converter: (Store<AppState> store) => store.state.userState,
-          builder: (_, UserState userState) {
-            return Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 4),
-                child: Stack(
-                  children: <Widget>[
-                    // content
-                    CustomScrollView(
-                      slivers: <Widget>[
-                        // refresh
-                        CupertinoSliverRefreshControl(
-                          onRefresh: () async {
-                            _bloc.refresh();
-                          },
-                        ),
-
-                        SliverList(
-                          delegate: SliverChildListDelegate(
-                            _itemList(userState).map((UiProfileItem uiProfileItem) {
-                              return Padding(
-                                padding: const EdgeInsets.only(bottom: 2),
-                                child: ProfileItem(
-                                  uiProfileItem: uiProfileItem,
-                                ),
-                              );
-                            }).toList(),
-                          ),
-                        ),
-
-                        // padding
-                        const SliverPadding(padding: EdgeInsets.only(bottom: 120)),
-                      ],
-                    ),
-
-                    // loading
-                    if (userState.loading)
-                      const Center(
-                        child: CupertinoActivityIndicator(
-                          radius: 42,
-                        ),
-                      ),
-                  ],
-                ),
-              ),
-            );
+        GestureDetector(
+          onTap: () {
+            print('taps');
+            _bloc.createNewUser('jwinterday@mail.ru', 'secure_password');
           },
+          child: Text('create'),
         ),
+
+        // scroll content
+        // StoreConnector<AppState, UserState>(
+        //   distinct: true,
+        //   converter: (Store<AppState> store) => store.state.userState,
+        //   builder: (_, UserState userState) {
+        //     return Expanded(
+        //       child: Padding(
+        //         padding: const EdgeInsets.only(top: 4),
+        //         child: Stack(
+        //           children: <Widget>[
+        //             // content
+        //             CustomScrollView(
+        //               slivers: <Widget>[
+        //                 // refresh
+        //                 CupertinoSliverRefreshControl(
+        //                   onRefresh: () async {
+        //                     _bloc.refresh();
+        //                   },
+        //                 ),
+
+        //                 SliverList(
+        //                   delegate: SliverChildListDelegate(
+        //                     _itemList(userState).map((UiProfileItem uiProfileItem) {
+        //                       return Padding(
+        //                         padding: const EdgeInsets.only(bottom: 2),
+        //                         child: ProfileItem(
+        //                           uiProfileItem: uiProfileItem,
+        //                         ),
+        //                       );
+        //                     }).toList(),
+        //                   ),
+        //                 ),
+
+        //                 // padding
+        //                 const SliverPadding(padding: EdgeInsets.only(bottom: 120)),
+        //               ],
+        //             ),
+
+        //             // loading
+        //             if (userState.loading)
+        //               const Center(
+        //                 child: CupertinoActivityIndicator(
+        //                   radius: 42,
+        //                 ),
+        //               ),
+        //           ],
+        //         ),
+        //       ),
+        //     );
+        //   },
+        // ),
       ],
     );
   }
