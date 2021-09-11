@@ -11,6 +11,15 @@ UserState userReducer(UserState s, dynamic a) {
         isAnonymous: a.isAnonymous,
         userId: a.userId,
         email: a.email,
+        firstName: a.firstName,
+        lastName: a.lastName,
+        phoneNumbers: a.phoneNumbers,
+        classroomManagement: a.classroomManagement,
+        accessGroups: a.accessGroups,
+        availableAccessGroups: a.availableAccessGroups,
+        classLetter: a.classLetter,
+        classNumber: a.classNumber,
+        classProfile: a.classProfile,
       ),
       // ignore: always_specify_types
       changeSignOutInfo: (a) => const UserState(),
@@ -27,8 +36,13 @@ UserState userReducer(UserState s, dynamic a) {
         s,
         firstName: a.firstName,
         lastName: a.lastName,
-        email: a.email,
         phoneNumbers: a.phoneNumbers,
+        classroomManagement: a.classroomManagement,
+        accessGroups: a.accessGroups,
+        availableAccessGroups: a.availableAccessGroups,
+        classLetter: a.classLetter,
+        classNumber: a.classNumber,
+        classProfile: a.classProfile,
       ),
       // ignore: always_specify_types
       changeAccessGroups: (a) => s.copyWith(accessGroups: a.value),
@@ -51,6 +65,17 @@ UserState _changeSignInInfo(
   String? email,
   required bool emailVerified,
   required bool isAnonymous,
+
+  //
+  String? firstName,
+  String? lastName,
+  List<String>? phoneNumbers,
+  List<String>? accessGroups,
+  List<String>? availableAccessGroups,
+  int? classNumber,
+  String? classLetter,
+  List<String>? classProfile,
+  bool classroomManagement = false,
 }) {
   return state.copyWith(
     loggedIn: true,
@@ -58,12 +83,17 @@ UserState _changeSignInInfo(
     isAnonymous: isAnonymous,
     userId: userId,
     email: email,
-    accessGroups: <String>['class_7'],
-    availableAccessGroups: <String>[
-      'class_7',
-      'class_8',
-      'class_10',
-    ],
+
+    //
+    firstName: firstName,
+    lastName: lastName,
+    phoneNumbers: phoneNumbers,
+    accessGroups: accessGroups ?? <String>[],
+    availableAccessGroups: availableAccessGroups ?? <String>[],
+    classNumber: classNumber,
+    classLetter: classLetter,
+    classProfile: classProfile,
+    classroomManagement: classroomManagement,
   );
 }
 
@@ -71,13 +101,23 @@ UserState _updateInfo(
   UserState state, {
   String? firstName,
   String? lastName,
-  String? email,
   List<String>? phoneNumbers,
+  List<String>? accessGroups,
+  List<String>? availableAccessGroups,
+  int? classNumber,
+  String? classLetter,
+  List<String>? classProfile,
+  bool classroomManagement = false,
 }) {
   return state.copyWith(
     firstName: firstName,
     lastName: lastName,
-    email: email,
     phoneNumbers: phoneNumbers,
+    accessGroups: accessGroups ?? <String>[],
+    availableAccessGroups: availableAccessGroups ?? <String>[],
+    classNumber: classNumber,
+    classLetter: classLetter,
+    classProfile: classProfile,
+    classroomManagement: classroomManagement,
   );
 }

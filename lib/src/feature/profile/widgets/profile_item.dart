@@ -17,11 +17,12 @@ class ProfileItem extends StatelessWidget {
       color: context.palette.gray12,
       child: Row(
         children: <Widget>[
-          Icon(
-            uiProfileItem.icon,
-            size: 22,
-            color: context.palette.gray50,
-          ),
+          if (!uiProfileItem.subItem)
+            Icon(
+              uiProfileItem.icon,
+              size: 22,
+              color: context.palette.primary,
+            ),
           const SizedBox(
             width: 15,
           ),
@@ -36,7 +37,7 @@ class ProfileItem extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     style: uiProfileItem.subItem
                         ? Theme.of(context).primaryTextTheme.bodyText2?.apply(
-                              color: context.design.palette.primary,
+                              color: context.design.palette.gray40,
                             )
                         : null,
                   ),

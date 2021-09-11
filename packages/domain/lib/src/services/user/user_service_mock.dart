@@ -46,6 +46,22 @@ class UserServiceMock implements UserService {
         email: email,
         emailVerified: userCredential.user?.emailVerified ?? false,
         isAnonymous: userCredential.user?.isAnonymous ?? true,
+
+        //
+        firstName: 'Vasya',
+        lastName: 'Sidorov',
+        phoneNumbers: <String>['8913131', '84353453'],
+        classNumber: 7,
+        classLetter: 'b',
+        classProfile: <String>['math', 'phys'],
+        accessGroups: <String>[
+          'class_7',
+        ],
+        availableAccessGroups: <String>[
+          'class_1',
+          'class_2',
+          'class_7',
+        ],
       );
     } on FirebaseAuthException catch (exc) {
       if (exc.code == 'user-not-found') {

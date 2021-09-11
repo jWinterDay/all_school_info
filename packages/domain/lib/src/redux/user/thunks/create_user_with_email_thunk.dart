@@ -54,16 +54,32 @@ Future<void> createUserWithEmailThunk(
           userId: userState.userId,
           emailVerified: userState.emailVerified,
           isAnonymous: userState.isAnonymous,
+
+          //
+          firstName: firstName,
+          lastName: lastName,
+          accessGroups: accessGroups,
+          availableAccessGroups: availableAccessGroups,
+          phoneNumbers: phoneNumbers,
+          classNumber: classNumber,
+          classLetter: classLetter,
+          classProfile: classProfile,
+          classroomManagement: classroomManagement,
         ),
       )
-      ..dispatch(
-        UserAction.updateInfo(
-          firstName: userState.firstName,
-          lastName: userState.lastName,
-          email: userState.email,
-          phoneNumbers: userState.phoneNumbers,
-        ),
-      )
+      // ..dispatch(
+      //   UserAction.updateInfo(
+      //     firstName: userState.firstName,
+      //     lastName: userState.lastName,
+      //     phoneNumbers: userState.phoneNumbers,
+      //     classroomManagement: userState.classroomManagement,
+      //     accessGroups: userState.accessGroups,
+      //     availableAccessGroups: userState.availableAccessGroups,
+      //     classLetter: userState.classLetter,
+      //     classNumber: userState.classNumber,
+      //     classProfile: userState.classProfile,
+      //   ),
+      // )
       ..dispatch(UserAction.changeAccessGroups(value: userState.accessGroups))
       ..dispatch(UserAction.changeAvailableAccessGroups(value: userState.availableAccessGroups));
   } on AuthWeakPasswordException catch (exc) {

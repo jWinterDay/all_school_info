@@ -9,6 +9,17 @@ class UserAction with _$UserAction {
     String? email,
     required bool emailVerified,
     required bool isAnonymous,
+
+    //
+    String? firstName,
+    String? lastName,
+    List<String>? phoneNumbers,
+    List<String>? accessGroups,
+    List<String>? availableAccessGroups,
+    int? classNumber,
+    String? classLetter,
+    List<String>? classProfile,
+    required bool classroomManagement,
   }) = _ChangeSignInInfo;
   const factory UserAction.changeSignOutInfo() = _ChangeSignOutInfo;
 
@@ -20,8 +31,13 @@ class UserAction with _$UserAction {
   const factory UserAction.updateInfo({
     String? firstName,
     String? lastName,
-    String? email,
     List<String>? phoneNumbers,
+    List<String>? accessGroups,
+    List<String>? availableAccessGroups,
+    int? classNumber,
+    String? classLetter,
+    List<String>? classProfile,
+    required bool classroomManagement,
   }) = _UpdateInfo;
 
   const factory UserAction.changeAccessGroups({required List<String> value}) = _ChangeAccessGroups;

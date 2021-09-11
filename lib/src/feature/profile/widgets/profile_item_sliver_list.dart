@@ -31,6 +31,14 @@ class ProfileItemSliverList extends StatelessWidget {
         return SliverList(
           delegate: SliverChildListDelegate(
             <Widget>[
+              // email
+              if (userState.email != null)
+                ProfileItem(
+                  uiProfileItem: UiProfileItem(
+                    title: userState.email!,
+                    icon: Icons.radar,
+                  ),
+                ),
               // first name
               if (userState.firstName != null)
                 ProfileItem(
@@ -47,14 +55,6 @@ class ProfileItemSliverList extends StatelessWidget {
                     icon: Icons.h_plus_mobiledata,
                   ),
                 ),
-              // email
-              if (userState.email != null)
-                ProfileItem(
-                  uiProfileItem: UiProfileItem(
-                    title: userState.email!,
-                    icon: Icons.radar,
-                  ),
-                ),
 
               // class number
               if (userState.classNumber != null)
@@ -65,7 +65,7 @@ class ProfileItemSliverList extends StatelessWidget {
                       number: userState.classNumber!,
                       letter: userState.classLetter,
                     ),
-                    icon: Icons.format_list_numbered,
+                    icon: Icons.power_off,
                   ),
                 ),
               // class profile
@@ -76,11 +76,12 @@ class ProfileItemSliverList extends StatelessWidget {
                     icon: Icons.info_rounded,
                   ),
                 ),
-                ...userState.classProfile!.map((String e) {
+                ...userState.classProfile!.map((String profile) {
                   return ProfileItem(
                     uiProfileItem: UiProfileItem(
-                      title: AllSchoolInfoIntl.of(context).classProfile,
+                      title: profile,
                       subItem: true,
+                      needArrow: false,
                       icon: Icons.format_list_numbered,
                     ),
                   );

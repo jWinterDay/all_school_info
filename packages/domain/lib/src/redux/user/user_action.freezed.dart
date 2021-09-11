@@ -17,12 +17,33 @@ class _$UserActionTearOff {
   const _$UserActionTearOff();
 
   _ChangeSignInInfo changeSignInInfo(
-      {String? userId, String? email, required bool emailVerified, required bool isAnonymous}) {
+      {String? userId,
+      String? email,
+      required bool emailVerified,
+      required bool isAnonymous,
+      String? firstName,
+      String? lastName,
+      List<String>? phoneNumbers,
+      List<String>? accessGroups,
+      List<String>? availableAccessGroups,
+      int? classNumber,
+      String? classLetter,
+      List<String>? classProfile,
+      required bool classroomManagement}) {
     return _ChangeSignInInfo(
       userId: userId,
       email: email,
       emailVerified: emailVerified,
       isAnonymous: isAnonymous,
+      firstName: firstName,
+      lastName: lastName,
+      phoneNumbers: phoneNumbers,
+      accessGroups: accessGroups,
+      availableAccessGroups: availableAccessGroups,
+      classNumber: classNumber,
+      classLetter: classLetter,
+      classProfile: classProfile,
+      classroomManagement: classroomManagement,
     );
   }
 
@@ -54,12 +75,26 @@ class _$UserActionTearOff {
     );
   }
 
-  _UpdateInfo updateInfo({String? firstName, String? lastName, String? email, List<String>? phoneNumbers}) {
+  _UpdateInfo updateInfo(
+      {String? firstName,
+      String? lastName,
+      List<String>? phoneNumbers,
+      List<String>? accessGroups,
+      List<String>? availableAccessGroups,
+      int? classNumber,
+      String? classLetter,
+      List<String>? classProfile,
+      required bool classroomManagement}) {
     return _UpdateInfo(
       firstName: firstName,
       lastName: lastName,
-      email: email,
       phoneNumbers: phoneNumbers,
+      accessGroups: accessGroups,
+      availableAccessGroups: availableAccessGroups,
+      classNumber: classNumber,
+      classLetter: classLetter,
+      classProfile: classProfile,
+      classroomManagement: classroomManagement,
     );
   }
 
@@ -83,13 +118,36 @@ const $UserAction = _$UserActionTearOff();
 mixin _$UserAction {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous) changeSignInInfo,
+    required TResult Function(
+            String? userId,
+            String? email,
+            bool emailVerified,
+            bool isAnonymous,
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)
+        changeSignInInfo,
     required TResult Function() changeSignOutInfo,
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
     required TResult Function(String value) updateToken,
     required TResult Function(Exception? value) authException,
-    required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
+    required TResult Function(
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)
         updateInfo,
     required TResult Function(List<String> value) changeAccessGroups,
     required TResult Function(List<String> value) changeAvailableAccessGroups,
@@ -97,13 +155,37 @@ mixin _$UserAction {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous)? changeSignInInfo,
+    TResult Function(
+            String? userId,
+            String? email,
+            bool emailVerified,
+            bool isAnonymous,
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)?
+        changeSignInInfo,
     TResult Function()? changeSignOutInfo,
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
     TResult Function(String value)? updateToken,
     TResult Function(Exception? value)? authException,
-    TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
+    TResult Function(
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)?
+        updateInfo,
     TResult Function(List<String> value)? changeAccessGroups,
     TResult Function(List<String> value)? changeAvailableAccessGroups,
     required TResult orElse(),
@@ -156,7 +238,20 @@ class _$UserActionCopyWithImpl<$Res> implements $UserActionCopyWith<$Res> {
 abstract class _$ChangeSignInInfoCopyWith<$Res> {
   factory _$ChangeSignInInfoCopyWith(_ChangeSignInInfo value, $Res Function(_ChangeSignInInfo) then) =
       __$ChangeSignInInfoCopyWithImpl<$Res>;
-  $Res call({String? userId, String? email, bool emailVerified, bool isAnonymous});
+  $Res call(
+      {String? userId,
+      String? email,
+      bool emailVerified,
+      bool isAnonymous,
+      String? firstName,
+      String? lastName,
+      List<String>? phoneNumbers,
+      List<String>? accessGroups,
+      List<String>? availableAccessGroups,
+      int? classNumber,
+      String? classLetter,
+      List<String>? classProfile,
+      bool classroomManagement});
 }
 
 /// @nodoc
@@ -174,6 +269,15 @@ class __$ChangeSignInInfoCopyWithImpl<$Res> extends _$UserActionCopyWithImpl<$Re
     Object? email = freezed,
     Object? emailVerified = freezed,
     Object? isAnonymous = freezed,
+    Object? firstName = freezed,
+    Object? lastName = freezed,
+    Object? phoneNumbers = freezed,
+    Object? accessGroups = freezed,
+    Object? availableAccessGroups = freezed,
+    Object? classNumber = freezed,
+    Object? classLetter = freezed,
+    Object? classProfile = freezed,
+    Object? classroomManagement = freezed,
   }) {
     return _then(_ChangeSignInInfo(
       userId: userId == freezed
@@ -192,6 +296,42 @@ class __$ChangeSignInInfoCopyWithImpl<$Res> extends _$UserActionCopyWithImpl<$Re
           ? _value.isAnonymous
           : isAnonymous // ignore: cast_nullable_to_non_nullable
               as bool,
+      firstName: firstName == freezed
+          ? _value.firstName
+          : firstName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      lastName: lastName == freezed
+          ? _value.lastName
+          : lastName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      phoneNumbers: phoneNumbers == freezed
+          ? _value.phoneNumbers
+          : phoneNumbers // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      accessGroups: accessGroups == freezed
+          ? _value.accessGroups
+          : accessGroups // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      availableAccessGroups: availableAccessGroups == freezed
+          ? _value.availableAccessGroups
+          : availableAccessGroups // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      classNumber: classNumber == freezed
+          ? _value.classNumber
+          : classNumber // ignore: cast_nullable_to_non_nullable
+              as int?,
+      classLetter: classLetter == freezed
+          ? _value.classLetter
+          : classLetter // ignore: cast_nullable_to_non_nullable
+              as String?,
+      classProfile: classProfile == freezed
+          ? _value.classProfile
+          : classProfile // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      classroomManagement: classroomManagement == freezed
+          ? _value.classroomManagement
+          : classroomManagement // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -199,7 +339,20 @@ class __$ChangeSignInInfoCopyWithImpl<$Res> extends _$UserActionCopyWithImpl<$Re
 /// @nodoc
 
 class _$_ChangeSignInInfo implements _ChangeSignInInfo {
-  const _$_ChangeSignInInfo({this.userId, this.email, required this.emailVerified, required this.isAnonymous});
+  const _$_ChangeSignInInfo(
+      {this.userId,
+      this.email,
+      required this.emailVerified,
+      required this.isAnonymous,
+      this.firstName,
+      this.lastName,
+      this.phoneNumbers,
+      this.accessGroups,
+      this.availableAccessGroups,
+      this.classNumber,
+      this.classLetter,
+      this.classProfile,
+      required this.classroomManagement});
 
   @override
   final String? userId;
@@ -209,10 +362,28 @@ class _$_ChangeSignInInfo implements _ChangeSignInInfo {
   final bool emailVerified;
   @override
   final bool isAnonymous;
+  @override //
+  final String? firstName;
+  @override
+  final String? lastName;
+  @override
+  final List<String>? phoneNumbers;
+  @override
+  final List<String>? accessGroups;
+  @override
+  final List<String>? availableAccessGroups;
+  @override
+  final int? classNumber;
+  @override
+  final String? classLetter;
+  @override
+  final List<String>? classProfile;
+  @override
+  final bool classroomManagement;
 
   @override
   String toString() {
-    return 'UserAction.changeSignInInfo(userId: $userId, email: $email, emailVerified: $emailVerified, isAnonymous: $isAnonymous)';
+    return 'UserAction.changeSignInInfo(userId: $userId, email: $email, emailVerified: $emailVerified, isAnonymous: $isAnonymous, firstName: $firstName, lastName: $lastName, phoneNumbers: $phoneNumbers, accessGroups: $accessGroups, availableAccessGroups: $availableAccessGroups, classNumber: $classNumber, classLetter: $classLetter, classProfile: $classProfile, classroomManagement: $classroomManagement)';
   }
 
   @override
@@ -224,7 +395,24 @@ class _$_ChangeSignInInfo implements _ChangeSignInInfo {
             (identical(other.emailVerified, emailVerified) ||
                 const DeepCollectionEquality().equals(other.emailVerified, emailVerified)) &&
             (identical(other.isAnonymous, isAnonymous) ||
-                const DeepCollectionEquality().equals(other.isAnonymous, isAnonymous)));
+                const DeepCollectionEquality().equals(other.isAnonymous, isAnonymous)) &&
+            (identical(other.firstName, firstName) ||
+                const DeepCollectionEquality().equals(other.firstName, firstName)) &&
+            (identical(other.lastName, lastName) || const DeepCollectionEquality().equals(other.lastName, lastName)) &&
+            (identical(other.phoneNumbers, phoneNumbers) ||
+                const DeepCollectionEquality().equals(other.phoneNumbers, phoneNumbers)) &&
+            (identical(other.accessGroups, accessGroups) ||
+                const DeepCollectionEquality().equals(other.accessGroups, accessGroups)) &&
+            (identical(other.availableAccessGroups, availableAccessGroups) ||
+                const DeepCollectionEquality().equals(other.availableAccessGroups, availableAccessGroups)) &&
+            (identical(other.classNumber, classNumber) ||
+                const DeepCollectionEquality().equals(other.classNumber, classNumber)) &&
+            (identical(other.classLetter, classLetter) ||
+                const DeepCollectionEquality().equals(other.classLetter, classLetter)) &&
+            (identical(other.classProfile, classProfile) ||
+                const DeepCollectionEquality().equals(other.classProfile, classProfile)) &&
+            (identical(other.classroomManagement, classroomManagement) ||
+                const DeepCollectionEquality().equals(other.classroomManagement, classroomManagement)));
   }
 
   @override
@@ -233,7 +421,16 @@ class _$_ChangeSignInInfo implements _ChangeSignInInfo {
       const DeepCollectionEquality().hash(userId) ^
       const DeepCollectionEquality().hash(email) ^
       const DeepCollectionEquality().hash(emailVerified) ^
-      const DeepCollectionEquality().hash(isAnonymous);
+      const DeepCollectionEquality().hash(isAnonymous) ^
+      const DeepCollectionEquality().hash(firstName) ^
+      const DeepCollectionEquality().hash(lastName) ^
+      const DeepCollectionEquality().hash(phoneNumbers) ^
+      const DeepCollectionEquality().hash(accessGroups) ^
+      const DeepCollectionEquality().hash(availableAccessGroups) ^
+      const DeepCollectionEquality().hash(classNumber) ^
+      const DeepCollectionEquality().hash(classLetter) ^
+      const DeepCollectionEquality().hash(classProfile) ^
+      const DeepCollectionEquality().hash(classroomManagement);
 
   @JsonKey(ignore: true)
   @override
@@ -243,36 +440,85 @@ class _$_ChangeSignInInfo implements _ChangeSignInInfo {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous) changeSignInInfo,
+    required TResult Function(
+            String? userId,
+            String? email,
+            bool emailVerified,
+            bool isAnonymous,
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)
+        changeSignInInfo,
     required TResult Function() changeSignOutInfo,
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
     required TResult Function(String value) updateToken,
     required TResult Function(Exception? value) authException,
-    required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
+    required TResult Function(
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)
         updateInfo,
     required TResult Function(List<String> value) changeAccessGroups,
     required TResult Function(List<String> value) changeAvailableAccessGroups,
   }) {
-    return changeSignInInfo(userId, email, emailVerified, isAnonymous);
+    return changeSignInInfo(userId, email, emailVerified, isAnonymous, firstName, lastName, phoneNumbers, accessGroups,
+        availableAccessGroups, classNumber, classLetter, classProfile, classroomManagement);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous)? changeSignInInfo,
+    TResult Function(
+            String? userId,
+            String? email,
+            bool emailVerified,
+            bool isAnonymous,
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)?
+        changeSignInInfo,
     TResult Function()? changeSignOutInfo,
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
     TResult Function(String value)? updateToken,
     TResult Function(Exception? value)? authException,
-    TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
+    TResult Function(
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)?
+        updateInfo,
     TResult Function(List<String> value)? changeAccessGroups,
     TResult Function(List<String> value)? changeAvailableAccessGroups,
     required TResult orElse(),
   }) {
     if (changeSignInInfo != null) {
-      return changeSignInInfo(userId, email, emailVerified, isAnonymous);
+      return changeSignInInfo(userId, email, emailVerified, isAnonymous, firstName, lastName, phoneNumbers,
+          accessGroups, availableAccessGroups, classNumber, classLetter, classProfile, classroomManagement);
     }
     return orElse();
   }
@@ -316,12 +562,33 @@ class _$_ChangeSignInInfo implements _ChangeSignInInfo {
 
 abstract class _ChangeSignInInfo implements UserAction {
   const factory _ChangeSignInInfo(
-      {String? userId, String? email, required bool emailVerified, required bool isAnonymous}) = _$_ChangeSignInInfo;
+      {String? userId,
+      String? email,
+      required bool emailVerified,
+      required bool isAnonymous,
+      String? firstName,
+      String? lastName,
+      List<String>? phoneNumbers,
+      List<String>? accessGroups,
+      List<String>? availableAccessGroups,
+      int? classNumber,
+      String? classLetter,
+      List<String>? classProfile,
+      required bool classroomManagement}) = _$_ChangeSignInInfo;
 
   String? get userId => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
   bool get emailVerified => throw _privateConstructorUsedError;
-  bool get isAnonymous => throw _privateConstructorUsedError;
+  bool get isAnonymous => throw _privateConstructorUsedError; //
+  String? get firstName => throw _privateConstructorUsedError;
+  String? get lastName => throw _privateConstructorUsedError;
+  List<String>? get phoneNumbers => throw _privateConstructorUsedError;
+  List<String>? get accessGroups => throw _privateConstructorUsedError;
+  List<String>? get availableAccessGroups => throw _privateConstructorUsedError;
+  int? get classNumber => throw _privateConstructorUsedError;
+  String? get classLetter => throw _privateConstructorUsedError;
+  List<String>? get classProfile => throw _privateConstructorUsedError;
+  bool get classroomManagement => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ChangeSignInInfoCopyWith<_ChangeSignInInfo> get copyWith => throw _privateConstructorUsedError;
 }
@@ -363,13 +630,36 @@ class _$_ChangeSignOutInfo implements _ChangeSignOutInfo {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous) changeSignInInfo,
+    required TResult Function(
+            String? userId,
+            String? email,
+            bool emailVerified,
+            bool isAnonymous,
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)
+        changeSignInInfo,
     required TResult Function() changeSignOutInfo,
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
     required TResult Function(String value) updateToken,
     required TResult Function(Exception? value) authException,
-    required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
+    required TResult Function(
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)
         updateInfo,
     required TResult Function(List<String> value) changeAccessGroups,
     required TResult Function(List<String> value) changeAvailableAccessGroups,
@@ -380,13 +670,37 @@ class _$_ChangeSignOutInfo implements _ChangeSignOutInfo {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous)? changeSignInInfo,
+    TResult Function(
+            String? userId,
+            String? email,
+            bool emailVerified,
+            bool isAnonymous,
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)?
+        changeSignInInfo,
     TResult Function()? changeSignOutInfo,
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
     TResult Function(String value)? updateToken,
     TResult Function(Exception? value)? authException,
-    TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
+    TResult Function(
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)?
+        updateInfo,
     TResult Function(List<String> value)? changeAccessGroups,
     TResult Function(List<String> value)? changeAvailableAccessGroups,
     required TResult orElse(),
@@ -498,13 +812,36 @@ class _$_ChangeLoggedIn implements _ChangeLoggedIn {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous) changeSignInInfo,
+    required TResult Function(
+            String? userId,
+            String? email,
+            bool emailVerified,
+            bool isAnonymous,
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)
+        changeSignInInfo,
     required TResult Function() changeSignOutInfo,
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
     required TResult Function(String value) updateToken,
     required TResult Function(Exception? value) authException,
-    required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
+    required TResult Function(
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)
         updateInfo,
     required TResult Function(List<String> value) changeAccessGroups,
     required TResult Function(List<String> value) changeAvailableAccessGroups,
@@ -515,13 +852,37 @@ class _$_ChangeLoggedIn implements _ChangeLoggedIn {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous)? changeSignInInfo,
+    TResult Function(
+            String? userId,
+            String? email,
+            bool emailVerified,
+            bool isAnonymous,
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)?
+        changeSignInInfo,
     TResult Function()? changeSignOutInfo,
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
     TResult Function(String value)? updateToken,
     TResult Function(Exception? value)? authException,
-    TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
+    TResult Function(
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)?
+        updateInfo,
     TResult Function(List<String> value)? changeAccessGroups,
     TResult Function(List<String> value)? changeAvailableAccessGroups,
     required TResult orElse(),
@@ -637,13 +998,36 @@ class _$_ChangeLoading implements _ChangeLoading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous) changeSignInInfo,
+    required TResult Function(
+            String? userId,
+            String? email,
+            bool emailVerified,
+            bool isAnonymous,
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)
+        changeSignInInfo,
     required TResult Function() changeSignOutInfo,
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
     required TResult Function(String value) updateToken,
     required TResult Function(Exception? value) authException,
-    required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
+    required TResult Function(
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)
         updateInfo,
     required TResult Function(List<String> value) changeAccessGroups,
     required TResult Function(List<String> value) changeAvailableAccessGroups,
@@ -654,13 +1038,37 @@ class _$_ChangeLoading implements _ChangeLoading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous)? changeSignInInfo,
+    TResult Function(
+            String? userId,
+            String? email,
+            bool emailVerified,
+            bool isAnonymous,
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)?
+        changeSignInInfo,
     TResult Function()? changeSignOutInfo,
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
     TResult Function(String value)? updateToken,
     TResult Function(Exception? value)? authException,
-    TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
+    TResult Function(
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)?
+        updateInfo,
     TResult Function(List<String> value)? changeAccessGroups,
     TResult Function(List<String> value)? changeAvailableAccessGroups,
     required TResult orElse(),
@@ -774,13 +1182,36 @@ class _$_UpdateToken implements _UpdateToken {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous) changeSignInInfo,
+    required TResult Function(
+            String? userId,
+            String? email,
+            bool emailVerified,
+            bool isAnonymous,
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)
+        changeSignInInfo,
     required TResult Function() changeSignOutInfo,
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
     required TResult Function(String value) updateToken,
     required TResult Function(Exception? value) authException,
-    required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
+    required TResult Function(
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)
         updateInfo,
     required TResult Function(List<String> value) changeAccessGroups,
     required TResult Function(List<String> value) changeAvailableAccessGroups,
@@ -791,13 +1222,37 @@ class _$_UpdateToken implements _UpdateToken {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous)? changeSignInInfo,
+    TResult Function(
+            String? userId,
+            String? email,
+            bool emailVerified,
+            bool isAnonymous,
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)?
+        changeSignInInfo,
     TResult Function()? changeSignOutInfo,
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
     TResult Function(String value)? updateToken,
     TResult Function(Exception? value)? authException,
-    TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
+    TResult Function(
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)?
+        updateInfo,
     TResult Function(List<String> value)? changeAccessGroups,
     TResult Function(List<String> value)? changeAvailableAccessGroups,
     required TResult orElse(),
@@ -913,13 +1368,36 @@ class _$_AuthException implements _AuthException {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous) changeSignInInfo,
+    required TResult Function(
+            String? userId,
+            String? email,
+            bool emailVerified,
+            bool isAnonymous,
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)
+        changeSignInInfo,
     required TResult Function() changeSignOutInfo,
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
     required TResult Function(String value) updateToken,
     required TResult Function(Exception? value) authException,
-    required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
+    required TResult Function(
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)
         updateInfo,
     required TResult Function(List<String> value) changeAccessGroups,
     required TResult Function(List<String> value) changeAvailableAccessGroups,
@@ -930,13 +1408,37 @@ class _$_AuthException implements _AuthException {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous)? changeSignInInfo,
+    TResult Function(
+            String? userId,
+            String? email,
+            bool emailVerified,
+            bool isAnonymous,
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)?
+        changeSignInInfo,
     TResult Function()? changeSignOutInfo,
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
     TResult Function(String value)? updateToken,
     TResult Function(Exception? value)? authException,
-    TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
+    TResult Function(
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)?
+        updateInfo,
     TResult Function(List<String> value)? changeAccessGroups,
     TResult Function(List<String> value)? changeAvailableAccessGroups,
     required TResult orElse(),
@@ -995,7 +1497,16 @@ abstract class _AuthException implements UserAction {
 /// @nodoc
 abstract class _$UpdateInfoCopyWith<$Res> {
   factory _$UpdateInfoCopyWith(_UpdateInfo value, $Res Function(_UpdateInfo) then) = __$UpdateInfoCopyWithImpl<$Res>;
-  $Res call({String? firstName, String? lastName, String? email, List<String>? phoneNumbers});
+  $Res call(
+      {String? firstName,
+      String? lastName,
+      List<String>? phoneNumbers,
+      List<String>? accessGroups,
+      List<String>? availableAccessGroups,
+      int? classNumber,
+      String? classLetter,
+      List<String>? classProfile,
+      bool classroomManagement});
 }
 
 /// @nodoc
@@ -1010,8 +1521,13 @@ class __$UpdateInfoCopyWithImpl<$Res> extends _$UserActionCopyWithImpl<$Res> imp
   $Res call({
     Object? firstName = freezed,
     Object? lastName = freezed,
-    Object? email = freezed,
     Object? phoneNumbers = freezed,
+    Object? accessGroups = freezed,
+    Object? availableAccessGroups = freezed,
+    Object? classNumber = freezed,
+    Object? classLetter = freezed,
+    Object? classProfile = freezed,
+    Object? classroomManagement = freezed,
   }) {
     return _then(_UpdateInfo(
       firstName: firstName == freezed
@@ -1022,14 +1538,34 @@ class __$UpdateInfoCopyWithImpl<$Res> extends _$UserActionCopyWithImpl<$Res> imp
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String?,
-      email: email == freezed
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String?,
       phoneNumbers: phoneNumbers == freezed
           ? _value.phoneNumbers
           : phoneNumbers // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      accessGroups: accessGroups == freezed
+          ? _value.accessGroups
+          : accessGroups // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      availableAccessGroups: availableAccessGroups == freezed
+          ? _value.availableAccessGroups
+          : availableAccessGroups // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      classNumber: classNumber == freezed
+          ? _value.classNumber
+          : classNumber // ignore: cast_nullable_to_non_nullable
+              as int?,
+      classLetter: classLetter == freezed
+          ? _value.classLetter
+          : classLetter // ignore: cast_nullable_to_non_nullable
+              as String?,
+      classProfile: classProfile == freezed
+          ? _value.classProfile
+          : classProfile // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      classroomManagement: classroomManagement == freezed
+          ? _value.classroomManagement
+          : classroomManagement // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -1037,20 +1573,39 @@ class __$UpdateInfoCopyWithImpl<$Res> extends _$UserActionCopyWithImpl<$Res> imp
 /// @nodoc
 
 class _$_UpdateInfo implements _UpdateInfo {
-  const _$_UpdateInfo({this.firstName, this.lastName, this.email, this.phoneNumbers});
+  const _$_UpdateInfo(
+      {this.firstName,
+      this.lastName,
+      this.phoneNumbers,
+      this.accessGroups,
+      this.availableAccessGroups,
+      this.classNumber,
+      this.classLetter,
+      this.classProfile,
+      required this.classroomManagement});
 
   @override
   final String? firstName;
   @override
   final String? lastName;
   @override
-  final String? email;
-  @override
   final List<String>? phoneNumbers;
+  @override
+  final List<String>? accessGroups;
+  @override
+  final List<String>? availableAccessGroups;
+  @override
+  final int? classNumber;
+  @override
+  final String? classLetter;
+  @override
+  final List<String>? classProfile;
+  @override
+  final bool classroomManagement;
 
   @override
   String toString() {
-    return 'UserAction.updateInfo(firstName: $firstName, lastName: $lastName, email: $email, phoneNumbers: $phoneNumbers)';
+    return 'UserAction.updateInfo(firstName: $firstName, lastName: $lastName, phoneNumbers: $phoneNumbers, accessGroups: $accessGroups, availableAccessGroups: $availableAccessGroups, classNumber: $classNumber, classLetter: $classLetter, classProfile: $classProfile, classroomManagement: $classroomManagement)';
   }
 
   @override
@@ -1060,9 +1615,20 @@ class _$_UpdateInfo implements _UpdateInfo {
             (identical(other.firstName, firstName) ||
                 const DeepCollectionEquality().equals(other.firstName, firstName)) &&
             (identical(other.lastName, lastName) || const DeepCollectionEquality().equals(other.lastName, lastName)) &&
-            (identical(other.email, email) || const DeepCollectionEquality().equals(other.email, email)) &&
             (identical(other.phoneNumbers, phoneNumbers) ||
-                const DeepCollectionEquality().equals(other.phoneNumbers, phoneNumbers)));
+                const DeepCollectionEquality().equals(other.phoneNumbers, phoneNumbers)) &&
+            (identical(other.accessGroups, accessGroups) ||
+                const DeepCollectionEquality().equals(other.accessGroups, accessGroups)) &&
+            (identical(other.availableAccessGroups, availableAccessGroups) ||
+                const DeepCollectionEquality().equals(other.availableAccessGroups, availableAccessGroups)) &&
+            (identical(other.classNumber, classNumber) ||
+                const DeepCollectionEquality().equals(other.classNumber, classNumber)) &&
+            (identical(other.classLetter, classLetter) ||
+                const DeepCollectionEquality().equals(other.classLetter, classLetter)) &&
+            (identical(other.classProfile, classProfile) ||
+                const DeepCollectionEquality().equals(other.classProfile, classProfile)) &&
+            (identical(other.classroomManagement, classroomManagement) ||
+                const DeepCollectionEquality().equals(other.classroomManagement, classroomManagement)));
   }
 
   @override
@@ -1070,8 +1636,13 @@ class _$_UpdateInfo implements _UpdateInfo {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(firstName) ^
       const DeepCollectionEquality().hash(lastName) ^
-      const DeepCollectionEquality().hash(email) ^
-      const DeepCollectionEquality().hash(phoneNumbers);
+      const DeepCollectionEquality().hash(phoneNumbers) ^
+      const DeepCollectionEquality().hash(accessGroups) ^
+      const DeepCollectionEquality().hash(availableAccessGroups) ^
+      const DeepCollectionEquality().hash(classNumber) ^
+      const DeepCollectionEquality().hash(classLetter) ^
+      const DeepCollectionEquality().hash(classProfile) ^
+      const DeepCollectionEquality().hash(classroomManagement);
 
   @JsonKey(ignore: true)
   @override
@@ -1080,36 +1651,85 @@ class _$_UpdateInfo implements _UpdateInfo {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous) changeSignInInfo,
+    required TResult Function(
+            String? userId,
+            String? email,
+            bool emailVerified,
+            bool isAnonymous,
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)
+        changeSignInInfo,
     required TResult Function() changeSignOutInfo,
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
     required TResult Function(String value) updateToken,
     required TResult Function(Exception? value) authException,
-    required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
+    required TResult Function(
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)
         updateInfo,
     required TResult Function(List<String> value) changeAccessGroups,
     required TResult Function(List<String> value) changeAvailableAccessGroups,
   }) {
-    return updateInfo(firstName, lastName, email, phoneNumbers);
+    return updateInfo(firstName, lastName, phoneNumbers, accessGroups, availableAccessGroups, classNumber, classLetter,
+        classProfile, classroomManagement);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous)? changeSignInInfo,
+    TResult Function(
+            String? userId,
+            String? email,
+            bool emailVerified,
+            bool isAnonymous,
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)?
+        changeSignInInfo,
     TResult Function()? changeSignOutInfo,
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
     TResult Function(String value)? updateToken,
     TResult Function(Exception? value)? authException,
-    TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
+    TResult Function(
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)?
+        updateInfo,
     TResult Function(List<String> value)? changeAccessGroups,
     TResult Function(List<String> value)? changeAvailableAccessGroups,
     required TResult orElse(),
   }) {
     if (updateInfo != null) {
-      return updateInfo(firstName, lastName, email, phoneNumbers);
+      return updateInfo(firstName, lastName, phoneNumbers, accessGroups, availableAccessGroups, classNumber,
+          classLetter, classProfile, classroomManagement);
     }
     return orElse();
   }
@@ -1152,13 +1772,26 @@ class _$_UpdateInfo implements _UpdateInfo {
 }
 
 abstract class _UpdateInfo implements UserAction {
-  const factory _UpdateInfo({String? firstName, String? lastName, String? email, List<String>? phoneNumbers}) =
-      _$_UpdateInfo;
+  const factory _UpdateInfo(
+      {String? firstName,
+      String? lastName,
+      List<String>? phoneNumbers,
+      List<String>? accessGroups,
+      List<String>? availableAccessGroups,
+      int? classNumber,
+      String? classLetter,
+      List<String>? classProfile,
+      required bool classroomManagement}) = _$_UpdateInfo;
 
   String? get firstName => throw _privateConstructorUsedError;
   String? get lastName => throw _privateConstructorUsedError;
-  String? get email => throw _privateConstructorUsedError;
   List<String>? get phoneNumbers => throw _privateConstructorUsedError;
+  List<String>? get accessGroups => throw _privateConstructorUsedError;
+  List<String>? get availableAccessGroups => throw _privateConstructorUsedError;
+  int? get classNumber => throw _privateConstructorUsedError;
+  String? get classLetter => throw _privateConstructorUsedError;
+  List<String>? get classProfile => throw _privateConstructorUsedError;
+  bool get classroomManagement => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$UpdateInfoCopyWith<_UpdateInfo> get copyWith => throw _privateConstructorUsedError;
 }
@@ -1223,13 +1856,36 @@ class _$_ChangeAccessGroups implements _ChangeAccessGroups {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous) changeSignInInfo,
+    required TResult Function(
+            String? userId,
+            String? email,
+            bool emailVerified,
+            bool isAnonymous,
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)
+        changeSignInInfo,
     required TResult Function() changeSignOutInfo,
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
     required TResult Function(String value) updateToken,
     required TResult Function(Exception? value) authException,
-    required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
+    required TResult Function(
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)
         updateInfo,
     required TResult Function(List<String> value) changeAccessGroups,
     required TResult Function(List<String> value) changeAvailableAccessGroups,
@@ -1240,13 +1896,37 @@ class _$_ChangeAccessGroups implements _ChangeAccessGroups {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous)? changeSignInInfo,
+    TResult Function(
+            String? userId,
+            String? email,
+            bool emailVerified,
+            bool isAnonymous,
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)?
+        changeSignInInfo,
     TResult Function()? changeSignOutInfo,
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
     TResult Function(String value)? updateToken,
     TResult Function(Exception? value)? authException,
-    TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
+    TResult Function(
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)?
+        updateInfo,
     TResult Function(List<String> value)? changeAccessGroups,
     TResult Function(List<String> value)? changeAvailableAccessGroups,
     required TResult orElse(),
@@ -1364,13 +2044,36 @@ class _$_ChangeAvailableAccessGroups implements _ChangeAvailableAccessGroups {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous) changeSignInInfo,
+    required TResult Function(
+            String? userId,
+            String? email,
+            bool emailVerified,
+            bool isAnonymous,
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)
+        changeSignInInfo,
     required TResult Function() changeSignOutInfo,
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
     required TResult Function(String value) updateToken,
     required TResult Function(Exception? value) authException,
-    required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
+    required TResult Function(
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)
         updateInfo,
     required TResult Function(List<String> value) changeAccessGroups,
     required TResult Function(List<String> value) changeAvailableAccessGroups,
@@ -1381,13 +2084,37 @@ class _$_ChangeAvailableAccessGroups implements _ChangeAvailableAccessGroups {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous)? changeSignInInfo,
+    TResult Function(
+            String? userId,
+            String? email,
+            bool emailVerified,
+            bool isAnonymous,
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)?
+        changeSignInInfo,
     TResult Function()? changeSignOutInfo,
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
     TResult Function(String value)? updateToken,
     TResult Function(Exception? value)? authException,
-    TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
+    TResult Function(
+            String? firstName,
+            String? lastName,
+            List<String>? phoneNumbers,
+            List<String>? accessGroups,
+            List<String>? availableAccessGroups,
+            int? classNumber,
+            String? classLetter,
+            List<String>? classProfile,
+            bool classroomManagement)?
+        updateInfo,
     TResult Function(List<String> value)? changeAccessGroups,
     TResult Function(List<String> value)? changeAvailableAccessGroups,
     required TResult orElse(),

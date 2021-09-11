@@ -72,29 +72,34 @@ class _ProfileViewState extends State<ProfileView> {
                   distinct: true,
                   converter: (Store<AppState> store) => store.state.userState.loggedIn,
                   builder: (_, bool loggedIn) {
-                    return Row(
-                      children: <Widget>[
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.all(8),
-                            child: loggedIn
-                                ? ElevatedButton(
-                                    child: Text(AllSchoolInfoIntl.of(context).signOut),
-                                    onPressed: _bloc.signOut,
-                                  )
-                                : ElevatedButton(
-                                    child: Text(AllSchoolInfoIntl.of(context).signIn),
-                                    onPressed: () {
-                                      AutoRouter.of(context).push(
-                                        const gr.AuthViewRoute(),
-                                      );
-                                    },
-                                  ),
-                          ),
-                        ),
-                      ],
+                    return Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: loggedIn
+                          ? ElevatedButton(
+                              child: Text(AllSchoolInfoIntl.of(context).signOut),
+                              onPressed: _bloc.signOut,
+                            )
+                          : ElevatedButton(
+                              child: Text(AllSchoolInfoIntl.of(context).signIn),
+                              onPressed: () {
+                                AutoRouter.of(context).push(
+                                  const gr.AuthViewRoute(),
+                                );
+                              },
+                            ),
                     );
                   },
+                ),
+              ),
+
+              // create (test mode)
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: ElevatedButton(
+                    child: const Text('Create (test mode)'),
+                    onPressed: () => _bloc.createNewUser('f@t.com', 'SuperSecurePassword'),
+                  ),
                 ),
               ),
             ],

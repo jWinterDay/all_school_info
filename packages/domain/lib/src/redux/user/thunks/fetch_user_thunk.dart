@@ -26,16 +26,32 @@ void fetchUserThunk(Store<AppState> store) async {
           userId: userState.userId,
           emailVerified: userState.emailVerified,
           isAnonymous: userState.isAnonymous,
-        ),
-      )
-      ..dispatch(
-        UserAction.updateInfo(
+
+          //
           firstName: userState.firstName,
           lastName: userState.lastName,
-          email: userState.email,
+          accessGroups: userState.accessGroups,
+          availableAccessGroups: userState.availableAccessGroups,
           phoneNumbers: userState.phoneNumbers,
+          classNumber: userState.classNumber,
+          classLetter: userState.classLetter,
+          classProfile: userState.classProfile,
+          classroomManagement: userState.classroomManagement,
         ),
       )
+      // ..dispatch(
+      //   UserAction.updateInfo(
+      //     firstName: userState.firstName,
+      //     lastName: userState.lastName,
+      //     phoneNumbers: userState.phoneNumbers,
+      //     classroomManagement: userState.classroomManagement,
+      //     accessGroups: userState.accessGroups,
+      //     availableAccessGroups: userState.availableAccessGroups,
+      //     classLetter: userState.classLetter,
+      //     classNumber: userState.classNumber,
+      //     classProfile: userState.classProfile,
+      //   ),
+      // )
       ..dispatch(UserAction.changeAccessGroups(value: userState.accessGroups))
       ..dispatch(UserAction.changeAvailableAccessGroups(value: userState.availableAccessGroups));
   } catch (exc, stackTrace) {

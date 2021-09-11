@@ -25,6 +25,17 @@ Future<void> signInUserWithEmailThunk(
         isAnonymous: userState.isAnonymous,
         email: userState.email,
         userId: userState.userId,
+
+        //
+        firstName: userState.firstName,
+        lastName: userState.lastName,
+        accessGroups: userState.accessGroups,
+        availableAccessGroups: userState.availableAccessGroups,
+        phoneNumbers: userState.phoneNumbers,
+        classNumber: userState.classNumber,
+        classLetter: userState.classLetter,
+        classProfile: userState.classProfile,
+        classroomManagement: userState.classroomManagement,
       ),
     );
   } on AuthUserNotFoundException catch (exc) {
