@@ -2,6 +2,7 @@
 // import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:all_school_info/src/generated/l10n.dart';
 
 class DefaultAnnouncementView extends StatefulWidget {
   const DefaultAnnouncementView({
@@ -31,120 +32,33 @@ class _DefaultAnnouncementViewState extends State<DefaultAnnouncementView> {
 
   @override
   Widget build(BuildContext context) {
-    return const Text('default');
-    // return StoreConnector<AppState, UiAnnouncementInfo>(
-    //   distinct: true,
-    //   converter: (Store<AppState> store) {
-    //     return UiAnnouncementInfo(
-    //       announcementState: store.state.announcementState,
-    //       topAnnouncementCount: store.state.commonState.topAnnouncementCount,
-    //     );
-    //   },
-    //   builder: (_, UiAnnouncementInfo uiAnnouncementInfo) {
-    //     // final int unreadLen = uiAnnouncementInfo.unreadAnnouncementList.length;
-
-    //     return Column(
-    //       children: <Widget>[
-    //         // top events
-    //         if (uiAnnouncementInfo.announcementState.topList.isNotEmpty)
-    //           CarouselSlider(
-    //             options: CarouselOptions(
-    //               height: 120,
-    //               autoPlay: true,
-    //             ),
-    //             items: uiAnnouncementInfo.topAnnouncementList.map(
-    //               (AnnouncementModel topAnnouncement) {
-    //                 return AnnouncementCard(
-    //                   announcementModel: topAnnouncement,
-    //                   topCard: true,
-    //                 );
-    //               },
-    //             ).toList(),
-    //           ),
-
-    //         // there are new messages button
-    //         // if (uiAnnouncementInfo.unreadAnnouncementList.isNotEmpty)
-    //         //   GestureDetector(
-    //         //     onTap: _bloc.clearUnreadAnnouncements,
-    //         //     child: Padding(
-    //         //       padding: const EdgeInsets.only(top: 8),
-    //         //       child: ColoredBox(
-    //         //         color: context.design.palette.gray12,
-    //         //         child: Text(
-    //         //           AllSchoolInfoIntl.of(context).unreadAnnouncements(unreadLen),
-    //         //         ),
-    //         //       ),
-    //         //     ),
-    //         //   ),
-
-    //         // scroll content
-    //         Expanded(
-    //           child: Padding(
-    //             padding: const EdgeInsets.only(top: 4, left: 4, right: 4),
-    //             child: Stack(
-    //               children: <Widget>[
-    //                 // content
-    //                 CustomScrollView(
-    //                   slivers: <Widget>[
-    //                     // refresh
-    //                     CupertinoSliverRefreshControl(
-    //                       onRefresh: () async {
-    //                         _bloc.refresh();
-    //                       },
-    //                     ),
-
-    //                     if (uiAnnouncementInfo.announcementState.errorModel != null)
-    //                       SliverToBoxAdapter(
-    //                         child: Text(
-    //                           'Error: ${uiAnnouncementInfo.errorMessage}',
-    //                         ),
-    //                       )
-    //                     // else if (uiAnnouncementInfo.announcementState.firstLoading)
-    //                     //   SliverFillRemaining(
-    //                     //     child: Center(
-    //                     //       child: Text(AllSchoolInfoIntl.of(context).noContentYet),
-    //                     //     ),
-    //                     //   )
-    //                     else if (uiAnnouncementInfo.announcementState.list.isEmpty)
-    //                       SliverFillRemaining(
-    //                         child: Center(
-    //                           child: Text(AllSchoolInfoIntl.of(context).noAnnouncement),
-    //                         ),
-    //                       )
-    //                     else
-    //                       SliverList(
-    //                         delegate: SliverChildListDelegate(
-    //                           // uiAnnouncementInfo.readAnnouncementList.map((AnnouncementModel e) {
-    //                           //   return AnnouncementCard(announcementModel: e);
-    //                           // }).toList(),
-    //                           uiAnnouncementInfo.announcementState.list.map((AnnouncementModel e) {
-    //                             return AnnouncementCard(announcementModel: e);
-    //                           }).toList(),
-    //                         ),
-    //                       ),
-
-    //                     // padding
-    //                     const SliverPadding(padding: EdgeInsets.only(bottom: 120))
-    //                   ],
-    //                 ),
-
-    //                 // loading
-    //                 if ( //uiAnnouncementInfo.announcementState.firstLoading ||
-    //                 uiAnnouncementInfo.announcementState.loading)
-    //                   SizedBox(
-    //                     width: context.width,
-    //                     height: context.height,
-    //                     child: const CupertinoActivityIndicator(
-    //                       radius: 42,
-    //                     ),
-    //                   ),
-    //               ],
-    //             ),
-    //           ),
-    //         ),
-    //       ],
-    //     );
-    //   },
+    return Center(
+      child: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: <Color>[
+              Colors.blue,
+              Colors.red,
+            ],
+          ),
+        ),
+        child: Center(
+          child: Text(
+            AllSchoolInfoIntl.of(context).youAreNotLoggedIn,
+            textAlign: TextAlign.center,
+            // style: TextStyle(
+            //   fontSize: 48,
+            //   fontWeight: FontWeight.bold,
+            //   color: Colors.white,
+            // ),
+          ),
+        ),
+      ),
+    );
+    // return const Center(
+    //   child: Text('default'),
     // );
   }
 }

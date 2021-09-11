@@ -58,6 +58,12 @@ UserState _changeSignInInfo(
     isAnonymous: isAnonymous,
     userId: userId,
     email: email,
+    accessGroups: <String>['class_7'],
+    availableAccessGroups: <String>[
+      'class_7',
+      'class_8',
+      'class_10',
+    ],
   );
 }
 

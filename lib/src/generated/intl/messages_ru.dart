@@ -83,6 +83,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Пользователь не найден"),
         "wrongPasswordExc":
             MessageLookupByLibrary.simpleMessage("Неверный пароль"),
-        "yes": MessageLookupByLibrary.simpleMessage("Да")
+        "yes": MessageLookupByLibrary.simpleMessage("Да"),
+        "youAreNotLoggedIn": MessageLookupByLibrary.simpleMessage(
+            "Вы не зарегистрированы в системе. Войдите в систему для использования всех возможностей")
       };
 }

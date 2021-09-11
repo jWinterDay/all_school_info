@@ -130,6 +130,16 @@ class AllSchoolInfoIntl {
     );
   }
 
+  /// `Вы не зарегистрированы в системе. Войдите в систему для использования всех возможностей`
+  String get youAreNotLoggedIn {
+    return Intl.message(
+      'Вы не зарегистрированы в системе. Войдите в систему для использования всех возможностей',
+      name: 'youAreNotLoggedIn',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Нет объявлений`
   String get noAnnouncement {
     return Intl.message(
