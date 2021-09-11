@@ -4,6 +4,14 @@ part 'user_action.freezed.dart';
 
 @freezed
 class UserAction with _$UserAction {
+  const factory UserAction.changeSignInInfo({
+    String? userId,
+    String? email,
+    required bool emailVerified,
+    required bool isAnonymous,
+  }) = _ChangeSignInInfo;
+  const factory UserAction.changeSignOutInfo() = _ChangeSignOutInfo;
+
   const factory UserAction.changeLoggedIn({required bool value}) = _ChangeLoggedIn;
   const factory UserAction.changeLoading({required bool value}) = _ChangeLoading;
   const factory UserAction.updateToken({required String value}) = _UpdateToken;

@@ -71,6 +71,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "scheduleRatings": MessageLookupByLibrary.simpleMessage("Оценки"),
         "scheduleViewTitle": MessageLookupByLibrary.simpleMessage("Расписание"),
         "signIn": MessageLookupByLibrary.simpleMessage("Войти"),
+        "signOut": MessageLookupByLibrary.simpleMessage("Выйти"),
         "top": MessageLookupByLibrary.simpleMessage("Топ"),
         "unknownAnnouncementContent": MessageLookupByLibrary.simpleMessage("-"),
         "unknownAnnouncementTitle":

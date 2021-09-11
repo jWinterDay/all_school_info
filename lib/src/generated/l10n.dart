@@ -370,6 +370,16 @@ class AllSchoolInfoIntl {
     );
   }
 
+  /// `Выйти`
+  String get signOut {
+    return Intl.message(
+      'Выйти',
+      name: 'signOut',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Авторизация`
   String get authTitle {
     return Intl.message(

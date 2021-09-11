@@ -28,8 +28,8 @@ class AuthView extends StatefulWidget {
 class _AuthViewState extends State<AuthView> {
   final AuthBloc _bloc = AuthBloc();
 
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController()..text = 'jwinterday@mail.ru';
+  final TextEditingController _passwordController = TextEditingController()..text = 'SuperPassword';
 
   // dialog
   final TransientKey<String> _dialogKey = const TransientKey<String>('transient');

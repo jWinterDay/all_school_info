@@ -31,6 +31,10 @@ class _$UserStateTearOff {
           String? lastName,
       @JsonKey(name: 'email')
           String? email,
+      @JsonKey(name: 'email_verified', defaultValue: false)
+          bool emailVerified = false,
+      @JsonKey(name: 'is_anonymous', defaultValue: false)
+          bool isAnonymous = false,
       @JsonKey(name: 'token')
           String? token,
       @JsonKey(name: 'access_groups', defaultValue: const <String>[])
@@ -59,6 +63,8 @@ class _$UserStateTearOff {
       firstName: firstName,
       lastName: lastName,
       email: email,
+      emailVerified: emailVerified,
+      isAnonymous: isAnonymous,
       token: token,
       accessGroups: accessGroups,
       loading: loading,
@@ -93,6 +99,10 @@ mixin _$UserState {
   String? get lastName => throw _privateConstructorUsedError;
   @JsonKey(name: 'email')
   String? get email => throw _privateConstructorUsedError;
+  @JsonKey(name: 'email_verified', defaultValue: false)
+  bool get emailVerified => throw _privateConstructorUsedError;
+  @JsonKey(name: 'is_anonymous', defaultValue: false)
+  bool get isAnonymous => throw _privateConstructorUsedError;
   @JsonKey(name: 'token')
   String? get token => throw _privateConstructorUsedError; // token for push notifications
   @JsonKey(name: 'access_groups', defaultValue: const <String>[])
@@ -130,6 +140,8 @@ abstract class $UserStateCopyWith<$Res> {
       @JsonKey(name: 'first_name') String? firstName,
       @JsonKey(name: 'last_name') String? lastName,
       @JsonKey(name: 'email') String? email,
+      @JsonKey(name: 'email_verified', defaultValue: false) bool emailVerified,
+      @JsonKey(name: 'is_anonymous', defaultValue: false) bool isAnonymous,
       @JsonKey(name: 'token') String? token,
       @JsonKey(name: 'access_groups', defaultValue: const <String>[]) List<String> accessGroups,
       @JsonKey(name: 'loading', defaultValue: false) bool loading,
@@ -158,6 +170,8 @@ class _$UserStateCopyWithImpl<$Res> implements $UserStateCopyWith<$Res> {
     Object? firstName = freezed,
     Object? lastName = freezed,
     Object? email = freezed,
+    Object? emailVerified = freezed,
+    Object? isAnonymous = freezed,
     Object? token = freezed,
     Object? accessGroups = freezed,
     Object? loading = freezed,
@@ -191,6 +205,14 @@ class _$UserStateCopyWithImpl<$Res> implements $UserStateCopyWith<$Res> {
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
+      emailVerified: emailVerified == freezed
+          ? _value.emailVerified
+          : emailVerified // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isAnonymous: isAnonymous == freezed
+          ? _value.isAnonymous
+          : isAnonymous // ignore: cast_nullable_to_non_nullable
+              as bool,
       token: token == freezed
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
@@ -249,6 +271,8 @@ abstract class _$UserStateCopyWith<$Res> implements $UserStateCopyWith<$Res> {
       @JsonKey(name: 'first_name') String? firstName,
       @JsonKey(name: 'last_name') String? lastName,
       @JsonKey(name: 'email') String? email,
+      @JsonKey(name: 'email_verified', defaultValue: false) bool emailVerified,
+      @JsonKey(name: 'is_anonymous', defaultValue: false) bool isAnonymous,
       @JsonKey(name: 'token') String? token,
       @JsonKey(name: 'access_groups', defaultValue: const <String>[]) List<String> accessGroups,
       @JsonKey(name: 'loading', defaultValue: false) bool loading,
@@ -277,6 +301,8 @@ class __$UserStateCopyWithImpl<$Res> extends _$UserStateCopyWithImpl<$Res> imple
     Object? firstName = freezed,
     Object? lastName = freezed,
     Object? email = freezed,
+    Object? emailVerified = freezed,
+    Object? isAnonymous = freezed,
     Object? token = freezed,
     Object? accessGroups = freezed,
     Object? loading = freezed,
@@ -310,6 +336,14 @@ class __$UserStateCopyWithImpl<$Res> extends _$UserStateCopyWithImpl<$Res> imple
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
+      emailVerified: emailVerified == freezed
+          ? _value.emailVerified
+          : emailVerified // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isAnonymous: isAnonymous == freezed
+          ? _value.isAnonymous
+          : isAnonymous // ignore: cast_nullable_to_non_nullable
+              as bool,
       token: token == freezed
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
@@ -372,6 +406,10 @@ class _$_UserState extends _UserState {
           this.lastName,
       @JsonKey(name: 'email')
           this.email,
+      @JsonKey(name: 'email_verified', defaultValue: false)
+          this.emailVerified = false,
+      @JsonKey(name: 'is_anonymous', defaultValue: false)
+          this.isAnonymous = false,
       @JsonKey(name: 'token')
           this.token,
       @JsonKey(name: 'access_groups', defaultValue: const <String>[])
@@ -414,6 +452,12 @@ class _$_UserState extends _UserState {
   @JsonKey(name: 'email')
   final String? email;
   @override
+  @JsonKey(name: 'email_verified', defaultValue: false)
+  final bool emailVerified;
+  @override
+  @JsonKey(name: 'is_anonymous', defaultValue: false)
+  final bool isAnonymous;
+  @override
   @JsonKey(name: 'token')
   final String? token;
   @override // token for push notifications
@@ -449,7 +493,7 @@ class _$_UserState extends _UserState {
 
   @override
   String toString() {
-    return 'UserState(loggedIn: $loggedIn, userId: $userId, firstName: $firstName, lastName: $lastName, email: $email, token: $token, accessGroups: $accessGroups, loading: $loading, phoneNumbers: $phoneNumbers, authException: $authException, userType: $userType, classNumber: $classNumber, classLetter: $classLetter, classProfile: $classProfile, classroomManagement: $classroomManagement, availableAccessGroups: $availableAccessGroups)';
+    return 'UserState(loggedIn: $loggedIn, userId: $userId, firstName: $firstName, lastName: $lastName, email: $email, emailVerified: $emailVerified, isAnonymous: $isAnonymous, token: $token, accessGroups: $accessGroups, loading: $loading, phoneNumbers: $phoneNumbers, authException: $authException, userType: $userType, classNumber: $classNumber, classLetter: $classLetter, classProfile: $classProfile, classroomManagement: $classroomManagement, availableAccessGroups: $availableAccessGroups)';
   }
 
   @override
@@ -462,6 +506,10 @@ class _$_UserState extends _UserState {
                 const DeepCollectionEquality().equals(other.firstName, firstName)) &&
             (identical(other.lastName, lastName) || const DeepCollectionEquality().equals(other.lastName, lastName)) &&
             (identical(other.email, email) || const DeepCollectionEquality().equals(other.email, email)) &&
+            (identical(other.emailVerified, emailVerified) ||
+                const DeepCollectionEquality().equals(other.emailVerified, emailVerified)) &&
+            (identical(other.isAnonymous, isAnonymous) ||
+                const DeepCollectionEquality().equals(other.isAnonymous, isAnonymous)) &&
             (identical(other.token, token) || const DeepCollectionEquality().equals(other.token, token)) &&
             (identical(other.accessGroups, accessGroups) ||
                 const DeepCollectionEquality().equals(other.accessGroups, accessGroups)) &&
@@ -491,6 +539,8 @@ class _$_UserState extends _UserState {
       const DeepCollectionEquality().hash(firstName) ^
       const DeepCollectionEquality().hash(lastName) ^
       const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(emailVerified) ^
+      const DeepCollectionEquality().hash(isAnonymous) ^
       const DeepCollectionEquality().hash(token) ^
       const DeepCollectionEquality().hash(accessGroups) ^
       const DeepCollectionEquality().hash(loading) ^
@@ -525,6 +575,10 @@ abstract class _UserState extends UserState {
           String? lastName,
       @JsonKey(name: 'email')
           String? email,
+      @JsonKey(name: 'email_verified', defaultValue: false)
+          bool emailVerified,
+      @JsonKey(name: 'is_anonymous', defaultValue: false)
+          bool isAnonymous,
       @JsonKey(name: 'token')
           String? token,
       @JsonKey(name: 'access_groups', defaultValue: const <String>[])
@@ -566,6 +620,12 @@ abstract class _UserState extends UserState {
   @override
   @JsonKey(name: 'email')
   String? get email => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'email_verified', defaultValue: false)
+  bool get emailVerified => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(name: 'is_anonymous', defaultValue: false)
+  bool get isAnonymous => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'token')
   String? get token => throw _privateConstructorUsedError;

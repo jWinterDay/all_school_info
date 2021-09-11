@@ -5,26 +5,37 @@ UserState userReducer(UserState s, dynamic a) {
   if (a is UserAction) {
     return a.maybeMap<UserState>(
       // ignore: always_specify_types
-      authException: (actionEvent) => s.copyWith(authException: actionEvent.value),
-
-      // ignore: always_specify_types
-      changeLoading: (actionEvent) => s.copyWith(loading: actionEvent.value),
-      // ignore: always_specify_types
-      changeLoggedIn: (actionEvent) => s.copyWith(loggedIn: actionEvent.value),
-      // ignore: always_specify_types
-      updateInfo: (actionEvent) => _updateInfo(
+      changeSignInInfo: (a) => _changeSignInInfo(
         s,
-        firstName: actionEvent.firstName,
-        lastName: actionEvent.lastName,
-        email: actionEvent.email,
-        phoneNumbers: actionEvent.phoneNumbers,
+        emailVerified: a.emailVerified,
+        isAnonymous: a.isAnonymous,
+        userId: a.userId,
+        email: a.email,
       ),
       // ignore: always_specify_types
-      changeAccessGroups: (actionEvent) => s.copyWith(accessGroups: actionEvent.value),
+      changeSignOutInfo: (a) => const UserState(),
+
       // ignore: always_specify_types
-      changeAvailableAccessGroups: (actionEvent) => s.copyWith(availableAccessGroups: actionEvent.value),
+      authException: (a) => s.copyWith(authException: a.value),
+
       // ignore: always_specify_types
-      updateToken: (actionEvent) => s.copyWith(token: actionEvent.value),
+      changeLoading: (a) => s.copyWith(loading: a.value),
+      // ignore: always_specify_types
+      changeLoggedIn: (a) => s.copyWith(loggedIn: a.value),
+      // ignore: always_specify_types
+      updateInfo: (a) => _updateInfo(
+        s,
+        firstName: a.firstName,
+        lastName: a.lastName,
+        email: a.email,
+        phoneNumbers: a.phoneNumbers,
+      ),
+      // ignore: always_specify_types
+      changeAccessGroups: (a) => s.copyWith(accessGroups: a.value),
+      // ignore: always_specify_types
+      changeAvailableAccessGroups: (a) => s.copyWith(availableAccessGroups: a.value),
+      // ignore: always_specify_types
+      updateToken: (a) => s.copyWith(token: a.value),
       orElse: () {
         return s;
       },
@@ -32,6 +43,22 @@ UserState userReducer(UserState s, dynamic a) {
   }
 
   return s;
+}
+
+UserState _changeSignInInfo(
+  UserState state, {
+  String? userId,
+  String? email,
+  required bool emailVerified,
+  required bool isAnonymous,
+}) {
+  return state.copyWith(
+    loggedIn: true,
+    emailVerified: emailVerified,
+    isAnonymous: isAnonymous,
+    userId: userId,
+    email: email,
+  );
 }
 
 UserState _updateInfo(

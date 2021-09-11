@@ -15,6 +15,8 @@ class UserState with _$UserState {
     @JsonKey(name: 'first_name') String? firstName,
     @JsonKey(name: 'last_name') String? lastName,
     @JsonKey(name: 'email') String? email,
+    @JsonKey(name: 'email_verified', defaultValue: false) @Default(false) bool emailVerified,
+    @JsonKey(name: 'is_anonymous', defaultValue: false) @Default(false) bool isAnonymous,
     @JsonKey(name: 'token') String? token, // token for push notifications
     @JsonKey(name: 'access_groups', defaultValue: <String>[]) @Default(<String>[]) List<String> accessGroups, // own
     @JsonKey(name: 'loading', defaultValue: false) @Default(false) bool loading,

@@ -7,4 +7,14 @@ class UserServiceImpl implements UserService {
   Future<UserState> fetchUser() {
     throw UnimplementedError();
   }
+
+  @override
+  Future<UserState> signInUserWithEmail({required String email, required String password}) {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<void> signOut() {
+    throw UnimplementedError();
+  }
 }

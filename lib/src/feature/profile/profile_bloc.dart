@@ -10,7 +10,7 @@ class ProfileBloc {
 
   void createNewUser(String email, String password) {
     _appStore.dispatch(
-      (Store<AppState> store) => createUserWwithEmailThunk(
+      (Store<AppState> store) => createUserWithEmailThunk(
         store,
         email: email,
         password: password,
@@ -20,12 +20,16 @@ class ProfileBloc {
 
   void signIn(String email, String password) {
     _appStore.dispatch(
-      (Store<AppState> store) => signinUserWwithEmailThunk(
+      (Store<AppState> store) => signInUserWithEmailThunk(
         store,
         email: email,
         password: password,
       ),
     );
+  }
+
+  void signOut() {
+    _appStore.dispatch(signOutUserThunk);
   }
 
   void dispose() {}

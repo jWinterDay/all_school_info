@@ -21,7 +21,7 @@ class AuthBloc {
     _store.dispatch(const UserAction.authException(null));
 
     _store.dispatch(
-      (Store<AppState> store) => signinUserWwithEmailThunk(
+      (Store<AppState> store) => signInUserWithEmailThunk(
         store,
         email: email,
         password: password,

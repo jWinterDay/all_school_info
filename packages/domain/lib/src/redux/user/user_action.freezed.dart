@@ -16,6 +16,20 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$UserActionTearOff {
   const _$UserActionTearOff();
 
+  _ChangeSignInInfo changeSignInInfo(
+      {String? userId, String? email, required bool emailVerified, required bool isAnonymous}) {
+    return _ChangeSignInInfo(
+      userId: userId,
+      email: email,
+      emailVerified: emailVerified,
+      isAnonymous: isAnonymous,
+    );
+  }
+
+  _ChangeSignOutInfo changeSignOutInfo() {
+    return const _ChangeSignOutInfo();
+  }
+
   _ChangeLoggedIn changeLoggedIn({required bool value}) {
     return _ChangeLoggedIn(
       value: value,
@@ -69,6 +83,8 @@ const $UserAction = _$UserActionTearOff();
 mixin _$UserAction {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous) changeSignInInfo,
+    required TResult Function() changeSignOutInfo,
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
     required TResult Function(String value) updateToken,
@@ -81,6 +97,8 @@ mixin _$UserAction {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous)? changeSignInInfo,
+    TResult Function()? changeSignOutInfo,
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
     TResult Function(String value)? updateToken,
@@ -93,6 +111,8 @@ mixin _$UserAction {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeSignInInfo value) changeSignInInfo,
+    required TResult Function(_ChangeSignOutInfo value) changeSignOutInfo,
     required TResult Function(_ChangeLoggedIn value) changeLoggedIn,
     required TResult Function(_ChangeLoading value) changeLoading,
     required TResult Function(_UpdateToken value) updateToken,
@@ -104,6 +124,8 @@ mixin _$UserAction {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeSignInInfo value)? changeSignInInfo,
+    TResult Function(_ChangeSignOutInfo value)? changeSignOutInfo,
     TResult Function(_ChangeLoggedIn value)? changeLoggedIn,
     TResult Function(_ChangeLoading value)? changeLoading,
     TResult Function(_UpdateToken value)? updateToken,
@@ -128,6 +150,292 @@ class _$UserActionCopyWithImpl<$Res> implements $UserActionCopyWith<$Res> {
   final UserAction _value;
   // ignore: unused_field
   final $Res Function(UserAction) _then;
+}
+
+/// @nodoc
+abstract class _$ChangeSignInInfoCopyWith<$Res> {
+  factory _$ChangeSignInInfoCopyWith(_ChangeSignInInfo value, $Res Function(_ChangeSignInInfo) then) =
+      __$ChangeSignInInfoCopyWithImpl<$Res>;
+  $Res call({String? userId, String? email, bool emailVerified, bool isAnonymous});
+}
+
+/// @nodoc
+class __$ChangeSignInInfoCopyWithImpl<$Res> extends _$UserActionCopyWithImpl<$Res>
+    implements _$ChangeSignInInfoCopyWith<$Res> {
+  __$ChangeSignInInfoCopyWithImpl(_ChangeSignInInfo _value, $Res Function(_ChangeSignInInfo) _then)
+      : super(_value, (v) => _then(v as _ChangeSignInInfo));
+
+  @override
+  _ChangeSignInInfo get _value => super._value as _ChangeSignInInfo;
+
+  @override
+  $Res call({
+    Object? userId = freezed,
+    Object? email = freezed,
+    Object? emailVerified = freezed,
+    Object? isAnonymous = freezed,
+  }) {
+    return _then(_ChangeSignInInfo(
+      userId: userId == freezed
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
+      emailVerified: emailVerified == freezed
+          ? _value.emailVerified
+          : emailVerified // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isAnonymous: isAnonymous == freezed
+          ? _value.isAnonymous
+          : isAnonymous // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangeSignInInfo implements _ChangeSignInInfo {
+  const _$_ChangeSignInInfo({this.userId, this.email, required this.emailVerified, required this.isAnonymous});
+
+  @override
+  final String? userId;
+  @override
+  final String? email;
+  @override
+  final bool emailVerified;
+  @override
+  final bool isAnonymous;
+
+  @override
+  String toString() {
+    return 'UserAction.changeSignInInfo(userId: $userId, email: $email, emailVerified: $emailVerified, isAnonymous: $isAnonymous)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ChangeSignInInfo &&
+            (identical(other.userId, userId) || const DeepCollectionEquality().equals(other.userId, userId)) &&
+            (identical(other.email, email) || const DeepCollectionEquality().equals(other.email, email)) &&
+            (identical(other.emailVerified, emailVerified) ||
+                const DeepCollectionEquality().equals(other.emailVerified, emailVerified)) &&
+            (identical(other.isAnonymous, isAnonymous) ||
+                const DeepCollectionEquality().equals(other.isAnonymous, isAnonymous)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(userId) ^
+      const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(emailVerified) ^
+      const DeepCollectionEquality().hash(isAnonymous);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ChangeSignInInfoCopyWith<_ChangeSignInInfo> get copyWith =>
+      __$ChangeSignInInfoCopyWithImpl<_ChangeSignInInfo>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous) changeSignInInfo,
+    required TResult Function() changeSignOutInfo,
+    required TResult Function(bool value) changeLoggedIn,
+    required TResult Function(bool value) changeLoading,
+    required TResult Function(String value) updateToken,
+    required TResult Function(Exception? value) authException,
+    required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
+        updateInfo,
+    required TResult Function(List<String> value) changeAccessGroups,
+    required TResult Function(List<String> value) changeAvailableAccessGroups,
+  }) {
+    return changeSignInInfo(userId, email, emailVerified, isAnonymous);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous)? changeSignInInfo,
+    TResult Function()? changeSignOutInfo,
+    TResult Function(bool value)? changeLoggedIn,
+    TResult Function(bool value)? changeLoading,
+    TResult Function(String value)? updateToken,
+    TResult Function(Exception? value)? authException,
+    TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
+    TResult Function(List<String> value)? changeAccessGroups,
+    TResult Function(List<String> value)? changeAvailableAccessGroups,
+    required TResult orElse(),
+  }) {
+    if (changeSignInInfo != null) {
+      return changeSignInInfo(userId, email, emailVerified, isAnonymous);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeSignInInfo value) changeSignInInfo,
+    required TResult Function(_ChangeSignOutInfo value) changeSignOutInfo,
+    required TResult Function(_ChangeLoggedIn value) changeLoggedIn,
+    required TResult Function(_ChangeLoading value) changeLoading,
+    required TResult Function(_UpdateToken value) updateToken,
+    required TResult Function(_AuthException value) authException,
+    required TResult Function(_UpdateInfo value) updateInfo,
+    required TResult Function(_ChangeAccessGroups value) changeAccessGroups,
+    required TResult Function(_ChangeAvailableAccessGroups value) changeAvailableAccessGroups,
+  }) {
+    return changeSignInInfo(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeSignInInfo value)? changeSignInInfo,
+    TResult Function(_ChangeSignOutInfo value)? changeSignOutInfo,
+    TResult Function(_ChangeLoggedIn value)? changeLoggedIn,
+    TResult Function(_ChangeLoading value)? changeLoading,
+    TResult Function(_UpdateToken value)? updateToken,
+    TResult Function(_AuthException value)? authException,
+    TResult Function(_UpdateInfo value)? updateInfo,
+    TResult Function(_ChangeAccessGroups value)? changeAccessGroups,
+    TResult Function(_ChangeAvailableAccessGroups value)? changeAvailableAccessGroups,
+    required TResult orElse(),
+  }) {
+    if (changeSignInInfo != null) {
+      return changeSignInInfo(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeSignInInfo implements UserAction {
+  const factory _ChangeSignInInfo(
+      {String? userId, String? email, required bool emailVerified, required bool isAnonymous}) = _$_ChangeSignInInfo;
+
+  String? get userId => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
+  bool get emailVerified => throw _privateConstructorUsedError;
+  bool get isAnonymous => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ChangeSignInInfoCopyWith<_ChangeSignInInfo> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ChangeSignOutInfoCopyWith<$Res> {
+  factory _$ChangeSignOutInfoCopyWith(_ChangeSignOutInfo value, $Res Function(_ChangeSignOutInfo) then) =
+      __$ChangeSignOutInfoCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$ChangeSignOutInfoCopyWithImpl<$Res> extends _$UserActionCopyWithImpl<$Res>
+    implements _$ChangeSignOutInfoCopyWith<$Res> {
+  __$ChangeSignOutInfoCopyWithImpl(_ChangeSignOutInfo _value, $Res Function(_ChangeSignOutInfo) _then)
+      : super(_value, (v) => _then(v as _ChangeSignOutInfo));
+
+  @override
+  _ChangeSignOutInfo get _value => super._value as _ChangeSignOutInfo;
+}
+
+/// @nodoc
+
+class _$_ChangeSignOutInfo implements _ChangeSignOutInfo {
+  const _$_ChangeSignOutInfo();
+
+  @override
+  String toString() {
+    return 'UserAction.changeSignOutInfo()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _ChangeSignOutInfo);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous) changeSignInInfo,
+    required TResult Function() changeSignOutInfo,
+    required TResult Function(bool value) changeLoggedIn,
+    required TResult Function(bool value) changeLoading,
+    required TResult Function(String value) updateToken,
+    required TResult Function(Exception? value) authException,
+    required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
+        updateInfo,
+    required TResult Function(List<String> value) changeAccessGroups,
+    required TResult Function(List<String> value) changeAvailableAccessGroups,
+  }) {
+    return changeSignOutInfo();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous)? changeSignInInfo,
+    TResult Function()? changeSignOutInfo,
+    TResult Function(bool value)? changeLoggedIn,
+    TResult Function(bool value)? changeLoading,
+    TResult Function(String value)? updateToken,
+    TResult Function(Exception? value)? authException,
+    TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
+    TResult Function(List<String> value)? changeAccessGroups,
+    TResult Function(List<String> value)? changeAvailableAccessGroups,
+    required TResult orElse(),
+  }) {
+    if (changeSignOutInfo != null) {
+      return changeSignOutInfo();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeSignInInfo value) changeSignInInfo,
+    required TResult Function(_ChangeSignOutInfo value) changeSignOutInfo,
+    required TResult Function(_ChangeLoggedIn value) changeLoggedIn,
+    required TResult Function(_ChangeLoading value) changeLoading,
+    required TResult Function(_UpdateToken value) updateToken,
+    required TResult Function(_AuthException value) authException,
+    required TResult Function(_UpdateInfo value) updateInfo,
+    required TResult Function(_ChangeAccessGroups value) changeAccessGroups,
+    required TResult Function(_ChangeAvailableAccessGroups value) changeAvailableAccessGroups,
+  }) {
+    return changeSignOutInfo(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeSignInInfo value)? changeSignInInfo,
+    TResult Function(_ChangeSignOutInfo value)? changeSignOutInfo,
+    TResult Function(_ChangeLoggedIn value)? changeLoggedIn,
+    TResult Function(_ChangeLoading value)? changeLoading,
+    TResult Function(_UpdateToken value)? updateToken,
+    TResult Function(_AuthException value)? authException,
+    TResult Function(_UpdateInfo value)? updateInfo,
+    TResult Function(_ChangeAccessGroups value)? changeAccessGroups,
+    TResult Function(_ChangeAvailableAccessGroups value)? changeAvailableAccessGroups,
+    required TResult orElse(),
+  }) {
+    if (changeSignOutInfo != null) {
+      return changeSignOutInfo(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeSignOutInfo implements UserAction {
+  const factory _ChangeSignOutInfo() = _$_ChangeSignOutInfo;
 }
 
 /// @nodoc
@@ -190,6 +498,8 @@ class _$_ChangeLoggedIn implements _ChangeLoggedIn {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous) changeSignInInfo,
+    required TResult Function() changeSignOutInfo,
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
     required TResult Function(String value) updateToken,
@@ -205,6 +515,8 @@ class _$_ChangeLoggedIn implements _ChangeLoggedIn {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous)? changeSignInInfo,
+    TResult Function()? changeSignOutInfo,
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
     TResult Function(String value)? updateToken,
@@ -223,6 +535,8 @@ class _$_ChangeLoggedIn implements _ChangeLoggedIn {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeSignInInfo value) changeSignInInfo,
+    required TResult Function(_ChangeSignOutInfo value) changeSignOutInfo,
     required TResult Function(_ChangeLoggedIn value) changeLoggedIn,
     required TResult Function(_ChangeLoading value) changeLoading,
     required TResult Function(_UpdateToken value) updateToken,
@@ -237,6 +551,8 @@ class _$_ChangeLoggedIn implements _ChangeLoggedIn {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeSignInInfo value)? changeSignInInfo,
+    TResult Function(_ChangeSignOutInfo value)? changeSignOutInfo,
     TResult Function(_ChangeLoggedIn value)? changeLoggedIn,
     TResult Function(_ChangeLoading value)? changeLoading,
     TResult Function(_UpdateToken value)? updateToken,
@@ -321,6 +637,8 @@ class _$_ChangeLoading implements _ChangeLoading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous) changeSignInInfo,
+    required TResult Function() changeSignOutInfo,
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
     required TResult Function(String value) updateToken,
@@ -336,6 +654,8 @@ class _$_ChangeLoading implements _ChangeLoading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous)? changeSignInInfo,
+    TResult Function()? changeSignOutInfo,
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
     TResult Function(String value)? updateToken,
@@ -354,6 +674,8 @@ class _$_ChangeLoading implements _ChangeLoading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeSignInInfo value) changeSignInInfo,
+    required TResult Function(_ChangeSignOutInfo value) changeSignOutInfo,
     required TResult Function(_ChangeLoggedIn value) changeLoggedIn,
     required TResult Function(_ChangeLoading value) changeLoading,
     required TResult Function(_UpdateToken value) updateToken,
@@ -368,6 +690,8 @@ class _$_ChangeLoading implements _ChangeLoading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeSignInInfo value)? changeSignInInfo,
+    TResult Function(_ChangeSignOutInfo value)? changeSignOutInfo,
     TResult Function(_ChangeLoggedIn value)? changeLoggedIn,
     TResult Function(_ChangeLoading value)? changeLoading,
     TResult Function(_UpdateToken value)? updateToken,
@@ -450,6 +774,8 @@ class _$_UpdateToken implements _UpdateToken {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous) changeSignInInfo,
+    required TResult Function() changeSignOutInfo,
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
     required TResult Function(String value) updateToken,
@@ -465,6 +791,8 @@ class _$_UpdateToken implements _UpdateToken {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous)? changeSignInInfo,
+    TResult Function()? changeSignOutInfo,
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
     TResult Function(String value)? updateToken,
@@ -483,6 +811,8 @@ class _$_UpdateToken implements _UpdateToken {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeSignInInfo value) changeSignInInfo,
+    required TResult Function(_ChangeSignOutInfo value) changeSignOutInfo,
     required TResult Function(_ChangeLoggedIn value) changeLoggedIn,
     required TResult Function(_ChangeLoading value) changeLoading,
     required TResult Function(_UpdateToken value) updateToken,
@@ -497,6 +827,8 @@ class _$_UpdateToken implements _UpdateToken {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeSignInInfo value)? changeSignInInfo,
+    TResult Function(_ChangeSignOutInfo value)? changeSignOutInfo,
     TResult Function(_ChangeLoggedIn value)? changeLoggedIn,
     TResult Function(_ChangeLoading value)? changeLoading,
     TResult Function(_UpdateToken value)? updateToken,
@@ -581,6 +913,8 @@ class _$_AuthException implements _AuthException {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous) changeSignInInfo,
+    required TResult Function() changeSignOutInfo,
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
     required TResult Function(String value) updateToken,
@@ -596,6 +930,8 @@ class _$_AuthException implements _AuthException {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous)? changeSignInInfo,
+    TResult Function()? changeSignOutInfo,
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
     TResult Function(String value)? updateToken,
@@ -614,6 +950,8 @@ class _$_AuthException implements _AuthException {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeSignInInfo value) changeSignInInfo,
+    required TResult Function(_ChangeSignOutInfo value) changeSignOutInfo,
     required TResult Function(_ChangeLoggedIn value) changeLoggedIn,
     required TResult Function(_ChangeLoading value) changeLoading,
     required TResult Function(_UpdateToken value) updateToken,
@@ -628,6 +966,8 @@ class _$_AuthException implements _AuthException {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeSignInInfo value)? changeSignInInfo,
+    TResult Function(_ChangeSignOutInfo value)? changeSignOutInfo,
     TResult Function(_ChangeLoggedIn value)? changeLoggedIn,
     TResult Function(_ChangeLoading value)? changeLoading,
     TResult Function(_UpdateToken value)? updateToken,
@@ -740,6 +1080,8 @@ class _$_UpdateInfo implements _UpdateInfo {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous) changeSignInInfo,
+    required TResult Function() changeSignOutInfo,
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
     required TResult Function(String value) updateToken,
@@ -755,6 +1097,8 @@ class _$_UpdateInfo implements _UpdateInfo {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous)? changeSignInInfo,
+    TResult Function()? changeSignOutInfo,
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
     TResult Function(String value)? updateToken,
@@ -773,6 +1117,8 @@ class _$_UpdateInfo implements _UpdateInfo {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeSignInInfo value) changeSignInInfo,
+    required TResult Function(_ChangeSignOutInfo value) changeSignOutInfo,
     required TResult Function(_ChangeLoggedIn value) changeLoggedIn,
     required TResult Function(_ChangeLoading value) changeLoading,
     required TResult Function(_UpdateToken value) updateToken,
@@ -787,6 +1133,8 @@ class _$_UpdateInfo implements _UpdateInfo {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeSignInInfo value)? changeSignInInfo,
+    TResult Function(_ChangeSignOutInfo value)? changeSignOutInfo,
     TResult Function(_ChangeLoggedIn value)? changeLoggedIn,
     TResult Function(_ChangeLoading value)? changeLoading,
     TResult Function(_UpdateToken value)? updateToken,
@@ -875,6 +1223,8 @@ class _$_ChangeAccessGroups implements _ChangeAccessGroups {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous) changeSignInInfo,
+    required TResult Function() changeSignOutInfo,
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
     required TResult Function(String value) updateToken,
@@ -890,6 +1240,8 @@ class _$_ChangeAccessGroups implements _ChangeAccessGroups {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous)? changeSignInInfo,
+    TResult Function()? changeSignOutInfo,
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
     TResult Function(String value)? updateToken,
@@ -908,6 +1260,8 @@ class _$_ChangeAccessGroups implements _ChangeAccessGroups {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeSignInInfo value) changeSignInInfo,
+    required TResult Function(_ChangeSignOutInfo value) changeSignOutInfo,
     required TResult Function(_ChangeLoggedIn value) changeLoggedIn,
     required TResult Function(_ChangeLoading value) changeLoading,
     required TResult Function(_UpdateToken value) updateToken,
@@ -922,6 +1276,8 @@ class _$_ChangeAccessGroups implements _ChangeAccessGroups {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeSignInInfo value)? changeSignInInfo,
+    TResult Function(_ChangeSignOutInfo value)? changeSignOutInfo,
     TResult Function(_ChangeLoggedIn value)? changeLoggedIn,
     TResult Function(_ChangeLoading value)? changeLoading,
     TResult Function(_UpdateToken value)? updateToken,
@@ -1008,6 +1364,8 @@ class _$_ChangeAvailableAccessGroups implements _ChangeAvailableAccessGroups {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous) changeSignInInfo,
+    required TResult Function() changeSignOutInfo,
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
     required TResult Function(String value) updateToken,
@@ -1023,6 +1381,8 @@ class _$_ChangeAvailableAccessGroups implements _ChangeAvailableAccessGroups {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? userId, String? email, bool emailVerified, bool isAnonymous)? changeSignInInfo,
+    TResult Function()? changeSignOutInfo,
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
     TResult Function(String value)? updateToken,
@@ -1041,6 +1401,8 @@ class _$_ChangeAvailableAccessGroups implements _ChangeAvailableAccessGroups {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeSignInInfo value) changeSignInInfo,
+    required TResult Function(_ChangeSignOutInfo value) changeSignOutInfo,
     required TResult Function(_ChangeLoggedIn value) changeLoggedIn,
     required TResult Function(_ChangeLoading value) changeLoading,
     required TResult Function(_UpdateToken value) updateToken,
@@ -1055,6 +1417,8 @@ class _$_ChangeAvailableAccessGroups implements _ChangeAvailableAccessGroups {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeSignInInfo value)? changeSignInInfo,
+    TResult Function(_ChangeSignOutInfo value)? changeSignOutInfo,
     TResult Function(_ChangeLoggedIn value)? changeLoggedIn,
     TResult Function(_ChangeLoading value)? changeLoading,
     TResult Function(_UpdateToken value)? updateToken,
