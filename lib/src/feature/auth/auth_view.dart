@@ -33,7 +33,7 @@ class _AuthViewState extends State<AuthView> {
 
   // dialog
   final TransientKey<String> _dialogKey = const TransientKey<String>('transient');
-  final ValueKey<String> _key = const ValueKey<String>('overlay');
+  // final ValueKey<String> _key = const ValueKey<String>('overlay');
   OverlaySupportEntry? _entry;
 
   // stream

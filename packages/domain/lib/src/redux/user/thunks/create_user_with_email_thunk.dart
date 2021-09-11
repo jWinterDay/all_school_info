@@ -41,6 +41,31 @@ Future<void> createUserWithEmailThunk(
     );
 
     print('created userState = $userState');
+
+    // TODO
+    if (userState == null) {
+      return;
+    }
+
+    store
+      ..dispatch(
+        UserAction.changeSignInInfo(
+          email: userState.email,
+          userId: userState.userId,
+          emailVerified: userState.emailVerified,
+          isAnonymous: userState.isAnonymous,
+        ),
+      )
+      ..dispatch(
+        UserAction.updateInfo(
+          firstName: userState.firstName,
+          lastName: userState.lastName,
+          email: userState.email,
+          phoneNumbers: userState.phoneNumbers,
+        ),
+      )
+      ..dispatch(UserAction.changeAccessGroups(value: userState.accessGroups))
+      ..dispatch(UserAction.changeAvailableAccessGroups(value: userState.availableAccessGroups));
   } on AuthWeakPasswordException catch (exc) {
     store.dispatch(UserAction.authException(exc));
   } on AuthEmailAlreadyInUseException catch (exc) {

@@ -112,20 +112,20 @@ class _ProfileViewState extends State<ProfileView> {
             icon: Icons.format_list_numbered,
           ),
       ],
-      if (userState.classProfile.isNotEmpty)
-        const UiProfileItem(
-          title: 'Class profile',
-          icon: Icons.format_list_numbered,
-        ),
+      // if (userState.classProfile.isNotEmpty)
+      //   const UiProfileItem(
+      //     title: 'Class profile',
+      //     icon: Icons.format_list_numbered,
+      //   ),
 
-      if (userState.userType == UserType.learner)
-        ...userState.classProfile.map((String classProfile) {
-          return UiProfileItem(
-            title: classProfile,
-            subItem: true,
-            // icon: Icons.format_list_numbered,
-          );
-        }),
+      // if (userState.userType == UserType.learner)
+      //   ...userState.classProfile.map((String classProfile) {
+      //     return UiProfileItem(
+      //       title: classProfile,
+      //       subItem: true,
+      //       // icon: Icons.format_list_numbered,
+      //     );
+      //   }),
 
       if (userState.phoneNumbers != null)
         const UiProfileItem(
@@ -268,7 +268,7 @@ class _ProfileViewState extends State<ProfileView> {
         GestureDetector(
           onTap: () {
             print('taps');
-            _bloc.createNewUser('jwinterday@mail.ru', 'SuperPassword');
+            _bloc.createNewUser('a@b.ru', 'SuperPassword');
           },
           child: Text('create'),
         ),

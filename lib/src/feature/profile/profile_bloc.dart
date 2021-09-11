@@ -14,6 +14,12 @@ class ProfileBloc {
         store,
         email: email,
         password: password,
+        accessGroups: <String>[],
+        availableAccessGroups: <String>[],
+        phoneNumbers: <String>['89123132', '89534534'],
+        classNumber: 7,
+        classLetter: 'b',
+        classProfile: <String>['phys', 'math'],
       ),
     );
   }

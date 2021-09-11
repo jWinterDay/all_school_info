@@ -109,6 +109,7 @@ class UserServiceMock implements UserService {
         classroomManagement: classroomManagement,
       );
     } on FirebaseAuthException catch (exc) {
+      print('------create service exc = $exc');
       if (exc.code == 'weak-password') {
         throw const AuthWeakPasswordException('weak-password');
       } else if (exc.code == 'email-already-in-use') {
