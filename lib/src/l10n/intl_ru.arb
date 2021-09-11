@@ -32,5 +32,8 @@
     "scheduleLastNotifications": "Последние уведомления",
     "scheduleRatings": "Оценки",
     "scheduleNews": "Новости",
-    "scheduleHomework": "Домашнее задание"
+    "scheduleHomework": "Домашнее задание",
+
+    "signIn": "Войти",
+    "authTitle": "Авторизация"
 }

@@ -3,6 +3,7 @@
 import 'package:all_school_info/src/feature/announcement/details/announcement_details_view.dart';
 import 'package:all_school_info/src/feature/announcement/edit/announcement_edit_view.dart';
 import 'package:all_school_info/src/feature/announcement/list/announcement_list_view.dart';
+import 'package:all_school_info/src/feature/auth/auth_view.dart';
 import 'package:all_school_info/src/feature/profile/profile_view.dart';
 import 'package:all_school_info/src/feature/schedule/details/schedule_details_view.dart';
 import 'package:all_school_info/src/feature/schedule/list/schedule_view.dart';
@@ -78,6 +79,11 @@ import 'package:auto_route/auto_route.dart';
       path: 'schedule/details',
       // customRouteBuilder: dialogRouteBuilder,
       page: ScheduleDetailsView,
+    ),
+
+    CupertinoRoute<Object>(
+      path: 'auth',
+      page: AuthView,
     ),
 
     RedirectRoute(path: '*', redirectTo: '/')

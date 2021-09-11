@@ -349,6 +349,26 @@ class AllSchoolInfoIntl {
       args: [],
     );
   }
+
+  /// `Войти`
+  String get signIn {
+    return Intl.message(
+      'Войти',
+      name: 'signIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Авторизация`
+  String get authTitle {
+    return Intl.message(
+      'Авторизация',
+      name: 'authTitle',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AllSchoolInfoIntl> {

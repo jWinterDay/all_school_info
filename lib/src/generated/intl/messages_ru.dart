@@ -35,6 +35,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Объявление"),
         "announcementsTabTitle":
             MessageLookupByLibrary.simpleMessage("Объявления"),
+        "authTitle": MessageLookupByLibrary.simpleMessage("Авторизация"),
         "emptySchedule":
             MessageLookupByLibrary.simpleMessage("Нет расписания в этот день"),
         "mainTitle": MessageLookupByLibrary.simpleMessage("Школа 67"),
@@ -65,6 +66,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "scheduleNews": MessageLookupByLibrary.simpleMessage("Новости"),
         "scheduleRatings": MessageLookupByLibrary.simpleMessage("Оценки"),
         "scheduleViewTitle": MessageLookupByLibrary.simpleMessage("Расписание"),
+        "signIn": MessageLookupByLibrary.simpleMessage("Войти"),
         "top": MessageLookupByLibrary.simpleMessage("Топ"),
         "unknownAnnouncementContent": MessageLookupByLibrary.simpleMessage("-"),
         "unknownAnnouncementTitle":

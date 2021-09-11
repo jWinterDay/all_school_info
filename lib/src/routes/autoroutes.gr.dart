@@ -5,14 +5,16 @@
 // **************************************************************************
 
 import 'package:auto_route/auto_route.dart' as _i1;
+import 'package:flutter/cupertino.dart' as _i11;
 import 'package:flutter/material.dart' as _i2;
 
 import '../feature/announcement/details/announcement_details_view.dart' as _i4;
 import '../feature/announcement/edit/announcement_edit_view.dart' as _i5;
-import '../feature/announcement/list/announcement_list_view.dart' as _i7;
-import '../feature/profile/profile_view.dart' as _i9;
+import '../feature/announcement/list/announcement_list_view.dart' as _i8;
+import '../feature/auth/auth_view.dart' as _i7;
+import '../feature/profile/profile_view.dart' as _i10;
 import '../feature/schedule/details/schedule_details_view.dart' as _i6;
-import '../feature/schedule/list/schedule_view.dart' as _i8;
+import '../feature/schedule/list/schedule_view.dart' as _i9;
 import '../home/home_view.dart' as _i3;
 
 class AppRouter extends _i1.RootStackRouter {
@@ -48,20 +50,25 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (_) {
           return _i6.ScheduleDetailsView();
         }),
+    AuthViewRoute.name: (routeData) => _i1.CupertinoPageX<Object>(
+        routeData: routeData,
+        builder: (_) {
+          return const _i7.AuthView();
+        }),
     AnnouncementListViewRoute.name: (routeData) => _i1.MaterialPageX<Object>(
         routeData: routeData,
         builder: (_) {
-          return const _i7.AnnouncementListView();
+          return const _i8.AnnouncementListView();
         }),
     ScheduleViewRoute.name: (routeData) => _i1.MaterialPageX<Object>(
         routeData: routeData,
         builder: (_) {
-          return _i8.ScheduleView();
+          return _i9.ScheduleView();
         }),
     ProfileViewRoute.name: (routeData) => _i1.CustomPage<Object>(
         routeData: routeData,
         builder: (_) {
-          return _i9.ProfileView();
+          return _i10.ProfileView();
         },
         opaque: true,
         barrierDismissible: false)
@@ -79,6 +86,7 @@ class AppRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(AnnouncementDetailsViewRoute.name, path: 'announcement/details/:id'),
         _i1.RouteConfig(AnnouncementEditViewRoute.name, path: 'announcement/edit/:id&mode=:mode'),
         _i1.RouteConfig(ScheduleDetailsViewRoute.name, path: 'schedule/details'),
+        _i1.RouteConfig(AuthViewRoute.name, path: 'auth'),
         _i1.RouteConfig('*#redirect', path: '*', redirectTo: '/', fullMatch: true)
       ];
 }
@@ -90,7 +98,7 @@ class HomeViewRoute extends _i1.PageRouteInfo {
 }
 
 class AnnouncementDetailsViewRoute extends _i1.PageRouteInfo<AnnouncementDetailsViewRouteArgs> {
-  AnnouncementDetailsViewRoute({_i2.Key? key, required String announcementModelId})
+  AnnouncementDetailsViewRoute({_i11.Key? key, required String announcementModelId})
       : super(name,
             path: 'announcement/details/:id',
             args: AnnouncementDetailsViewRouteArgs(key: key, announcementModelId: announcementModelId),
@@ -102,13 +110,13 @@ class AnnouncementDetailsViewRoute extends _i1.PageRouteInfo<AnnouncementDetails
 class AnnouncementDetailsViewRouteArgs {
   const AnnouncementDetailsViewRouteArgs({this.key, required this.announcementModelId});
 
-  final _i2.Key? key;
+  final _i11.Key? key;
 
   final String announcementModelId;
 }
 
 class AnnouncementEditViewRoute extends _i1.PageRouteInfo<AnnouncementEditViewRouteArgs> {
-  AnnouncementEditViewRoute({_i2.Key? key, String? announcementModelId, required String cardViewMode})
+  AnnouncementEditViewRoute({_i11.Key? key, String? announcementModelId, required String cardViewMode})
       : super(name,
             path: 'announcement/edit/:id&mode=:mode',
             args: AnnouncementEditViewRouteArgs(
@@ -121,7 +129,7 @@ class AnnouncementEditViewRoute extends _i1.PageRouteInfo<AnnouncementEditViewRo
 class AnnouncementEditViewRouteArgs {
   const AnnouncementEditViewRouteArgs({this.key, this.announcementModelId, required this.cardViewMode});
 
-  final _i2.Key? key;
+  final _i11.Key? key;
 
   final String? announcementModelId;
 
@@ -132,6 +140,12 @@ class ScheduleDetailsViewRoute extends _i1.PageRouteInfo {
   const ScheduleDetailsViewRoute() : super(name, path: 'schedule/details');
 
   static const String name = 'ScheduleDetailsViewRoute';
+}
+
+class AuthViewRoute extends _i1.PageRouteInfo {
+  const AuthViewRoute() : super(name, path: 'auth');
+
+  static const String name = 'AuthViewRoute';
 }
 
 class AnnouncementListViewRoute extends _i1.PageRouteInfo {

@@ -1,10 +1,14 @@
 import 'package:all_school_info/src/generated/l10n.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:redux/redux.dart';
 
 import 'models/ui_profile_item.dart';
 import 'profile_bloc.dart';
+import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
 import 'package:overlay_support/overlay_support.dart' as os;
 
 class ProfileView extends StatefulWidget {
@@ -22,7 +26,7 @@ class _ProfileViewState extends State<ProfileView> {
   void initState() {
     super.initState();
 
-    _bloc.refresh();
+    // _bloc.refresh();
 
     // _bloc.toggleLogged();
   }
@@ -152,6 +156,89 @@ class _ProfileViewState extends State<ProfileView> {
           ),
         ),
 
+        // sign in button
+        StoreConnector<AppState, bool>(
+          distinct: true,
+          converter: (Store<AppState> store) => store.state.userState.loggedIn,
+          builder: (_, bool loggedIn) {
+            if (!loggedIn) {
+              return Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: ElevatedButton(
+                        child: Text(AllSchoolInfoIntl.of(context).signIn),
+                        onPressed: () {
+                          AutoRouter.of(context).push(
+                            const gr.AuthViewRoute(),
+                          );
+                        },
+                        // uiAnnouncementEditInfo.publishButtonAvailable
+                        //     ? () async {
+                        //         await _bloc.publishAnnouncement();
+
+                        //         // _titleController.clear();
+                        //         // _contentController.clear();
+                        //       }
+                        //     : null,
+                      ),
+                    ),
+                  ),
+                ],
+              );
+            }
+
+            // content
+            return CustomScrollView(
+              slivers: <Widget>[],
+            );
+          },
+        ),
+
+        // Padding(
+        //   padding: const EdgeInsets.symmetric(vertical: 8),
+        //   child: Row(
+        //     children: <Widget>[
+        //       Expanded(
+        //         child: Padding(
+        //           padding: const EdgeInsets.all(8.0),
+        //           child: ElevatedButton(
+        //             child: Text(AllSchoolInfoIntl.of(context).publishAnnouncement),
+        //             onPressed: () {},
+        //             // uiAnnouncementEditInfo.publishButtonAvailable
+        //             //     ? () async {
+        //             //         await _bloc.publishAnnouncement();
+
+        //             //         // _titleController.clear();
+        //             //         // _contentController.clear();
+        //             //       }
+        //             //     : null,
+        //           ),
+        //         ),
+        //       ),
+        //       // Padding(
+        //       //   padding: const EdgeInsets.only(left: 8),
+        //       //   child: Text(AllSchoolInfoIntl.of(context).top),
+        //       // ),
+        //       // GestureDetector(
+        //       //   onTap: _bloc.toggleDraftPublishToTop,
+        //       //   child: Padding(
+        //       //     padding: const EdgeInsets.only(left: 8, right: 4),
+        //       //     child: uiAnnouncementEditInfo.publishTop
+        //       //         ? const Icon(Icons.check_box_outlined)
+        //       //         : const Icon(Icons.check_box_outline_blank),
+        //       //   ),
+        //       // ),
+        //     ],
+        //   ),
+        // ),
+
+        // content
+        // CustomScrollView(
+        //   slivers: <Widget>[],
+        // ),
+
         // GestureDetector(
         //   onTap: () {
         //     print('taps');
@@ -168,45 +255,45 @@ class _ProfileViewState extends State<ProfileView> {
         //   child: Text('sign in'),
         // ),
 
-        Padding(
-          padding: const EdgeInsets.only(top: 150),
-          child: GestureDetector(
-            onTap: () {
-              _entry = os.showSimpleNotification(
-                Text("this is a message from simple notification gfd gdfg dfgdfgdfg dgd fgd g fgdf gdfgdfg dg dgf"),
-                key: _dialogKey,
-                autoDismiss: false,
-                slideDismissDirection: DismissDirection.horizontal,
-                trailing: Text('trailing'),
-                subtitle: Text('subtitle'),
-                leading: Text('leading'),
-                background: Colors.green,
-                position: os.NotificationPosition.top,
-                // trailing: Builder(
-                //   builder: (context) {
-                //     return FlatButton(
-                //       onPressed: () {
-                //         os.OverlaySupportEntry.of(context)?.dismiss();
-                //         // toast("You Click $_count");
-                //       },
-                //       child: Text("Click Me"),
-                //     );
-                //   },
-                // ),
-              );
+        // Padding(
+        //   padding: const EdgeInsets.only(top: 150),
+        //   child: GestureDetector(
+        //     onTap: () {
+        //       _entry = os.showSimpleNotification(
+        //         Text("this is a message from simple notification gfd gdfg dfgdfgdfg dgd fgd g fgdf gdfgdfg dg dgf"),
+        //         key: _dialogKey,
+        //         autoDismiss: false,
+        //         slideDismissDirection: DismissDirection.horizontal,
+        //         trailing: Text('trailing'),
+        //         subtitle: Text('subtitle'),
+        //         leading: Text('leading'),
+        //         background: Colors.green,
+        //         position: os.NotificationPosition.top,
+        //         // trailing: Builder(
+        //         //   builder: (context) {
+        //         //     return FlatButton(
+        //         //       onPressed: () {
+        //         //         os.OverlaySupportEntry.of(context)?.dismiss();
+        //         //         // toast("You Click $_count");
+        //         //       },
+        //         //       child: Text("Click Me"),
+        //         //     );
+        //         //   },
+        //         // ),
+        //       );
 
-              // os.s
-            },
-            child: Text('show overlay'),
-          ),
-        ),
+        //       // os.s
+        //     },
+        //     child: Text('show overlay'),
+        //   ),
+        // ),
 
-        GestureDetector(
-          onTap: () {
-            _entry?.dismiss();
-          },
-          child: Text('close overlay'),
-        )
+        // GestureDetector(
+        //   onTap: () {
+        //     _entry?.dismiss();
+        //   },
+        //   child: Text('close overlay'),
+        // )
 
         // scroll content
         // StoreConnector<AppState, UserState>(
