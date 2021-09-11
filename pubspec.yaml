@@ -64,7 +64,7 @@ flutter:
   assets:
     - assets/
     - assets/theme/
-    - assets/splash/
+    # - assets/splash/
 
 flutter_intl:
   enabled: true # Disable when push

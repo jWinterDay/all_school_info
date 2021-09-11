@@ -146,7 +146,6 @@ class _AuthViewState extends State<AuthView> {
                       controller: _emailController,
                       autofocus: true,
                       clearButtonMode: OverlayVisibilityMode.editing,
-                      // maxLength: uiAnnouncementEditInfo.announcementMaxTitleLength,
                     ),
                   ),
                 ),
@@ -163,8 +162,6 @@ class _AuthViewState extends State<AuthView> {
                     controller: _passwordController,
                     clearButtonMode: OverlayVisibilityMode.editing,
                     obscureText: true,
-                    // maxLines: 10,
-                    // maxLength: uiAnnouncementEditInfo.announcementMaxContentLength,
                   ),
                 ),
 

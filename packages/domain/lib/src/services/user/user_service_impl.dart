@@ -4,7 +4,7 @@ import 'user_service.dart';
 
 class UserServiceImpl implements UserService {
   @override
-  Future<UserState> fetchUser() {
+  Future<UserState?> fetchUser() {
     throw UnimplementedError();
   }
 

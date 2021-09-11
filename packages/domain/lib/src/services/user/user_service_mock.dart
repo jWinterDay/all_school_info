@@ -8,23 +8,19 @@ import 'user_service.dart';
 
 class UserServiceMock implements UserService {
   @override
-  Future<UserState> fetchUser() async {
-    // final Computer computer = getIt.get<Computer>();
-    // await computer.compute<void, void>(_someExpensiveMethod);
-    // await Future<void>.delayed(const Duration(seconds: 1));
+  Future<UserState?> fetchUser() async {
+    // try {
+    final FirebaseAuth instance = FirebaseAuth.instance;
 
-    // sleep(const Duration(seconds: 1));
+    final User? user = instance.currentUser;
 
-    return const UserState(
-      userId: 'some_unique_id',
-      firstName: 'Vasya',
-      lastName: 'Vasilich',
-      classLetter: 'b',
-      classNumber: 11,
-      classProfile: <String>['phys', 'math'],
-      email: 'vasya@example.com',
-      phoneNumbers: <String>['8916123', '89169876'],
-      userType: UserType.guest,
+    if (user == null) {
+      return null;
+    }
+
+    return UserState(
+      userId: user.uid,
+      email: user.email,
       accessGroups: <String>[
         'class_7',
       ],
