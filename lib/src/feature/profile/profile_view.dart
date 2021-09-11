@@ -10,6 +10,7 @@ import 'package:redux/redux.dart';
 
 import 'models/ui_profile_item.dart';
 import 'profile_bloc.dart';
+import 'widgets/profile_item_sliver_list.dart';
 
 class ProfileView extends StatefulWidget {
   @override
@@ -38,110 +39,6 @@ class _ProfileViewState extends State<ProfileView> {
     super.dispose();
   }
 
-  List<UiProfileItem> _itemList(UserState userState) {
-    // logged in
-    if (!userState.loggedIn) {
-      return <UiProfileItem>[
-        UiProfileItem(
-          title: AllSchoolInfoIntl.of(context).notLoggedIn,
-          icon: Icons.login,
-        ),
-      ];
-    }
-
-    return <UiProfileItem>[
-      // management
-      if (userState.accessGroups.isNotEmpty)
-        const UiProfileItem(
-          title: 'my access group',
-          icon: Icons.manage_accounts,
-        ),
-      if (userState.accessGroups.isNotEmpty)
-        ...userState.accessGroups.map((String accessGroup) {
-          return UiProfileItem(
-            title: accessGroup,
-            subItem: true,
-            // icon: Icons.format_list_numbered,
-          );
-        }),
-
-      UiProfileItem(
-        title: 'type: ${userState.userType.toString()}',
-        icon: Icons.manage_accounts,
-      ),
-
-      if (userState.availableAccessGroups.isNotEmpty)
-        const UiProfileItem(
-          title: 'available access groups',
-          icon: Icons.manage_accounts,
-        ),
-      if (userState.availableAccessGroups.isNotEmpty)
-        ...userState.availableAccessGroups.map((String accessGroup) {
-          return UiProfileItem(
-            title: accessGroup,
-            subItem: true,
-            // icon: Icons.format_list_numbered,
-          );
-        }),
-
-      // first name
-      if (userState.firstName != null)
-        UiProfileItem(
-          title: userState.firstName!,
-          icon: Icons.near_me_sharp,
-        ),
-      // last name
-      if (userState.lastName != null)
-        UiProfileItem(
-          title: userState.lastName!,
-          icon: Icons.h_plus_mobiledata,
-        ),
-
-      // email
-      if (userState.email != null)
-        UiProfileItem(
-          title: userState.email!,
-          icon: Icons.radar,
-        ),
-
-      if (userState.userType == UserType.learner) ...<UiProfileItem>[
-        // class number
-        if (userState.userType == UserType.learner)
-          UiProfileItem(
-            title: 'Class Number: ${userState.classNumber} (${userState.classLetter})',
-            icon: Icons.format_list_numbered,
-          ),
-      ],
-      // if (userState.classProfile.isNotEmpty)
-      //   const UiProfileItem(
-      //     title: 'Class profile',
-      //     icon: Icons.format_list_numbered,
-      //   ),
-
-      // if (userState.userType == UserType.learner)
-      //   ...userState.classProfile.map((String classProfile) {
-      //     return UiProfileItem(
-      //       title: classProfile,
-      //       subItem: true,
-      //       // icon: Icons.format_list_numbered,
-      //     );
-      //   }),
-
-      if (userState.phoneNumbers != null)
-        const UiProfileItem(
-          title: 'Phone numbers',
-          icon: Icons.format_list_numbered,
-        ),
-      ...userState.phoneNumbers!.map((String phone) {
-        return UiProfileItem(
-          title: phone,
-          subItem: true,
-          // icon: Icons.format_list_numbered,
-        );
-      }),
-    ];
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -156,222 +53,53 @@ class _ProfileViewState extends State<ProfileView> {
           ),
         ),
 
-        // sign in button
-        StoreConnector<AppState, bool>(
-          distinct: true,
-          converter: (Store<AppState> store) => store.state.userState.loggedIn,
-          builder: (_, bool loggedIn) {
-            if (!loggedIn) {
-              return Row(
-                children: <Widget>[
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8),
-                      child: ElevatedButton(
-                        child: Text(AllSchoolInfoIntl.of(context).signIn),
-                        onPressed: () {
-                          AutoRouter.of(context).push(
-                            const gr.AuthViewRoute(),
-                          );
-                        },
-                        // uiAnnouncementEditInfo.publishButtonAvailable
-                        //     ? () async {
-                        //         await _bloc.publishAnnouncement();
+        // content
+        Expanded(
+          child: CustomScrollView(
+            slivers: <Widget>[
+              CupertinoSliverRefreshControl(
+                onRefresh: () async {
+                  // _bloc.refresh();
+                },
+              ),
 
-                        //         // _titleController.clear();
-                        //         // _contentController.clear();
-                        //       }
-                        //     : null,
-                      ),
-                    ),
-                  ),
-                ],
-              );
-            }
+              // items
+              const ProfileItemSliverList(),
 
-            // content
-            return Expanded(
-              child: CustomScrollView(
-                slivers: <Widget>[
-                  SliverToBoxAdapter(
-                    child: Row(
+              // sign in / sign out
+              SliverToBoxAdapter(
+                child: StoreConnector<AppState, bool>(
+                  distinct: true,
+                  converter: (Store<AppState> store) => store.state.userState.loggedIn,
+                  builder: (_, bool loggedIn) {
+                    return Row(
                       children: <Widget>[
                         Expanded(
                           child: Padding(
                             padding: const EdgeInsets.all(8),
-                            child: ElevatedButton(
-                              child: Text(AllSchoolInfoIntl.of(context).signOut),
-                              onPressed: _bloc.signOut,
-                              // uiAnnouncementEditInfo.publishButtonAvailable
-                              //     ? () async {
-                              //         await _bloc.publishAnnouncement();
-
-                              //         // _titleController.clear();
-                              //         // _contentController.clear();
-                              //       }
-                              //     : null,
-                            ),
+                            child: loggedIn
+                                ? ElevatedButton(
+                                    child: Text(AllSchoolInfoIntl.of(context).signOut),
+                                    onPressed: _bloc.signOut,
+                                  )
+                                : ElevatedButton(
+                                    child: Text(AllSchoolInfoIntl.of(context).signIn),
+                                    onPressed: () {
+                                      AutoRouter.of(context).push(
+                                        const gr.AuthViewRoute(),
+                                      );
+                                    },
+                                  ),
                           ),
                         ),
                       ],
-                    ),
-                  ),
-                ],
+                    );
+                  },
+                ),
               ),
-            );
-          },
+            ],
+          ),
         ),
-
-        // Padding(
-        //   padding: const EdgeInsets.symmetric(vertical: 8),
-        //   child: Row(
-        //     children: <Widget>[
-        //       Expanded(
-        //         child: Padding(
-        //           padding: const EdgeInsets.all(8.0),
-        //           child: ElevatedButton(
-        //             child: Text(AllSchoolInfoIntl.of(context).publishAnnouncement),
-        //             onPressed: () {},
-        //             // uiAnnouncementEditInfo.publishButtonAvailable
-        //             //     ? () async {
-        //             //         await _bloc.publishAnnouncement();
-
-        //             //         // _titleController.clear();
-        //             //         // _contentController.clear();
-        //             //       }
-        //             //     : null,
-        //           ),
-        //         ),
-        //       ),
-        //       // Padding(
-        //       //   padding: const EdgeInsets.only(left: 8),
-        //       //   child: Text(AllSchoolInfoIntl.of(context).top),
-        //       // ),
-        //       // GestureDetector(
-        //       //   onTap: _bloc.toggleDraftPublishToTop,
-        //       //   child: Padding(
-        //       //     padding: const EdgeInsets.only(left: 8, right: 4),
-        //       //     child: uiAnnouncementEditInfo.publishTop
-        //       //         ? const Icon(Icons.check_box_outlined)
-        //       //         : const Icon(Icons.check_box_outline_blank),
-        //       //   ),
-        //       // ),
-        //     ],
-        //   ),
-        // ),
-
-        // content
-        // CustomScrollView(
-        //   slivers: <Widget>[],
-        // ),
-
-        GestureDetector(
-          onTap: () {
-            print('taps');
-            _bloc.createNewUser('a@b.ru', 'SuperPassword');
-          },
-          child: Text('create'),
-        ),
-
-        // GestureDetector(
-        //   onTap: () {
-        //     print('taps sign');
-        //     _bloc.signIn('jwinterday@mail.ru', 'SuperPassword');
-        //   },
-        //   child: Text('sign in'),
-        // ),
-
-        // Padding(
-        //   padding: const EdgeInsets.only(top: 150),
-        //   child: GestureDetector(
-        //     onTap: () {
-        //       _entry = os.showSimpleNotification(
-        //         Text("this is a message from simple notification gfd gdfg dfgdfgdfg dgd fgd g fgdf gdfgdfg dg dgf"),
-        //         key: _dialogKey,
-        //         autoDismiss: false,
-        //         slideDismissDirection: DismissDirection.horizontal,
-        //         trailing: Text('trailing'),
-        //         subtitle: Text('subtitle'),
-        //         leading: Text('leading'),
-        //         background: Colors.green,
-        //         position: os.NotificationPosition.top,
-        //         // trailing: Builder(
-        //         //   builder: (context) {
-        //         //     return FlatButton(
-        //         //       onPressed: () {
-        //         //         os.OverlaySupportEntry.of(context)?.dismiss();
-        //         //         // toast("You Click $_count");
-        //         //       },
-        //         //       child: Text("Click Me"),
-        //         //     );
-        //         //   },
-        //         // ),
-        //       );
-
-        //       // os.s
-        //     },
-        //     child: Text('show overlay'),
-        //   ),
-        // ),
-
-        // GestureDetector(
-        //   onTap: () {
-        //     _entry?.dismiss();
-        //   },
-        //   child: Text('close overlay'),
-        // )
-
-        // scroll content
-        // StoreConnector<AppState, UserState>(
-        //   distinct: true,
-        //   converter: (Store<AppState> store) => store.state.userState,
-        //   builder: (_, UserState userState) {
-        //     return Expanded(
-        //       child: Padding(
-        //         padding: const EdgeInsets.only(top: 4),
-        //         child: Stack(
-        //           children: <Widget>[
-        //             // content
-        //             CustomScrollView(
-        //               slivers: <Widget>[
-        //                 // refresh
-        //                 CupertinoSliverRefreshControl(
-        //                   onRefresh: () async {
-        //                     _bloc.refresh();
-        //                   },
-        //                 ),
-
-        //                 SliverList(
-        //                   delegate: SliverChildListDelegate(
-        //                     _itemList(userState).map((UiProfileItem uiProfileItem) {
-        //                       return Padding(
-        //                         padding: const EdgeInsets.only(bottom: 2),
-        //                         child: ProfileItem(
-        //                           uiProfileItem: uiProfileItem,
-        //                         ),
-        //                       );
-        //                     }).toList(),
-        //                   ),
-        //                 ),
-
-        //                 // padding
-        //                 const SliverPadding(padding: EdgeInsets.only(bottom: 120)),
-        //               ],
-        //             ),
-
-        //             // loading
-        //             if (userState.loading)
-        //               const Center(
-        //                 child: CupertinoActivityIndicator(
-        //                   radius: 42,
-        //                 ),
-        //               ),
-        //           ],
-        //         ),
-        //       ),
-        //     );
-        //   },
-        // ),
       ],
     );
   }

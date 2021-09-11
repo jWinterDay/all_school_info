@@ -43,5 +43,8 @@
     "password": "Пароль",
     "wrongPasswordExc": "Неверный пароль",
     "userNotFoundExc": "Пользователь не найден",
-    "invalidEmailExc": "Неверный формат email"
+    "invalidEmailExc": "Неверный формат email",
+    "classFullStr": "Класс: {number}",
+    "classFullStrWithLetter": "Класс: {number} ({letter})",
+    "classProfile": "Профиль класса"
 }
