@@ -120,6 +120,16 @@ class AllSchoolInfoIntl {
     );
   }
 
+  /// `Неизвестная ошибка`
+  String get unknownException {
+    return Intl.message(
+      'Неизвестная ошибка',
+      name: 'unknownException',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Нет объявлений`
   String get noAnnouncement {
     return Intl.message(
@@ -385,6 +395,36 @@ class AllSchoolInfoIntl {
     return Intl.message(
       'Пароль',
       name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Неверный пароль`
+  String get wrongPasswordExc {
+    return Intl.message(
+      'Неверный пароль',
+      name: 'wrongPasswordExc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Пользователь не найден`
+  String get userNotFoundExc {
+    return Intl.message(
+      'Пользователь не найден',
+      name: 'userNotFoundExc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Неверный формат email`
+  String get invalidEmailExc {
+    return Intl.message(
+      'Неверный формат email',
+      name: 'invalidEmailExc',
       desc: '',
       args: [],
     );

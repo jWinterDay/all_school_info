@@ -39,6 +39,8 @@ class _$UserStateTearOff {
           bool loading = false,
       @JsonKey(name: 'phone_numbers')
           List<String>? phoneNumbers,
+      @JsonKey(ignore: true)
+          Exception? authException,
       @JsonKey(name: 'user_type', defaultValue: UserType.guest)
           UserType userType = UserType.guest,
       @JsonKey(name: 'class_number', defaultValue: 1)
@@ -61,6 +63,7 @@ class _$UserStateTearOff {
       accessGroups: accessGroups,
       loading: loading,
       phoneNumbers: phoneNumbers,
+      authException: authException,
       userType: userType,
       classNumber: classNumber,
       classLetter: classLetter,
@@ -97,7 +100,9 @@ mixin _$UserState {
   @JsonKey(name: 'loading', defaultValue: false)
   bool get loading => throw _privateConstructorUsedError;
   @JsonKey(name: 'phone_numbers')
-  List<String>? get phoneNumbers => throw _privateConstructorUsedError; // class additional info
+  List<String>? get phoneNumbers => throw _privateConstructorUsedError; // common
+  @JsonKey(ignore: true)
+  Exception? get authException => throw _privateConstructorUsedError; // class additional info
   @JsonKey(name: 'user_type', defaultValue: UserType.guest)
   UserType get userType => throw _privateConstructorUsedError;
   @JsonKey(name: 'class_number', defaultValue: 1)
@@ -129,6 +134,7 @@ abstract class $UserStateCopyWith<$Res> {
       @JsonKey(name: 'access_groups', defaultValue: const <String>[]) List<String> accessGroups,
       @JsonKey(name: 'loading', defaultValue: false) bool loading,
       @JsonKey(name: 'phone_numbers') List<String>? phoneNumbers,
+      @JsonKey(ignore: true) Exception? authException,
       @JsonKey(name: 'user_type', defaultValue: UserType.guest) UserType userType,
       @JsonKey(name: 'class_number', defaultValue: 1) int classNumber,
       @JsonKey(name: 'class_letter') String? classLetter,
@@ -156,6 +162,7 @@ class _$UserStateCopyWithImpl<$Res> implements $UserStateCopyWith<$Res> {
     Object? accessGroups = freezed,
     Object? loading = freezed,
     Object? phoneNumbers = freezed,
+    Object? authException = freezed,
     Object? userType = freezed,
     Object? classNumber = freezed,
     Object? classLetter = freezed,
@@ -200,6 +207,10 @@ class _$UserStateCopyWithImpl<$Res> implements $UserStateCopyWith<$Res> {
           ? _value.phoneNumbers
           : phoneNumbers // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      authException: authException == freezed
+          ? _value.authException
+          : authException // ignore: cast_nullable_to_non_nullable
+              as Exception?,
       userType: userType == freezed
           ? _value.userType
           : userType // ignore: cast_nullable_to_non_nullable
@@ -242,6 +253,7 @@ abstract class _$UserStateCopyWith<$Res> implements $UserStateCopyWith<$Res> {
       @JsonKey(name: 'access_groups', defaultValue: const <String>[]) List<String> accessGroups,
       @JsonKey(name: 'loading', defaultValue: false) bool loading,
       @JsonKey(name: 'phone_numbers') List<String>? phoneNumbers,
+      @JsonKey(ignore: true) Exception? authException,
       @JsonKey(name: 'user_type', defaultValue: UserType.guest) UserType userType,
       @JsonKey(name: 'class_number', defaultValue: 1) int classNumber,
       @JsonKey(name: 'class_letter') String? classLetter,
@@ -269,6 +281,7 @@ class __$UserStateCopyWithImpl<$Res> extends _$UserStateCopyWithImpl<$Res> imple
     Object? accessGroups = freezed,
     Object? loading = freezed,
     Object? phoneNumbers = freezed,
+    Object? authException = freezed,
     Object? userType = freezed,
     Object? classNumber = freezed,
     Object? classLetter = freezed,
@@ -313,6 +326,10 @@ class __$UserStateCopyWithImpl<$Res> extends _$UserStateCopyWithImpl<$Res> imple
           ? _value.phoneNumbers
           : phoneNumbers // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      authException: authException == freezed
+          ? _value.authException
+          : authException // ignore: cast_nullable_to_non_nullable
+              as Exception?,
       userType: userType == freezed
           ? _value.userType
           : userType // ignore: cast_nullable_to_non_nullable
@@ -363,6 +380,8 @@ class _$_UserState extends _UserState {
           this.loading = false,
       @JsonKey(name: 'phone_numbers')
           this.phoneNumbers,
+      @JsonKey(ignore: true)
+          this.authException,
       @JsonKey(name: 'user_type', defaultValue: UserType.guest)
           this.userType = UserType.guest,
       @JsonKey(name: 'class_number', defaultValue: 1)
@@ -406,6 +425,9 @@ class _$_UserState extends _UserState {
   @override
   @JsonKey(name: 'phone_numbers')
   final List<String>? phoneNumbers;
+  @override // common
+  @JsonKey(ignore: true)
+  final Exception? authException;
   @override // class additional info
   @JsonKey(name: 'user_type', defaultValue: UserType.guest)
   final UserType userType;
@@ -427,7 +449,7 @@ class _$_UserState extends _UserState {
 
   @override
   String toString() {
-    return 'UserState(loggedIn: $loggedIn, userId: $userId, firstName: $firstName, lastName: $lastName, email: $email, token: $token, accessGroups: $accessGroups, loading: $loading, phoneNumbers: $phoneNumbers, userType: $userType, classNumber: $classNumber, classLetter: $classLetter, classProfile: $classProfile, classroomManagement: $classroomManagement, availableAccessGroups: $availableAccessGroups)';
+    return 'UserState(loggedIn: $loggedIn, userId: $userId, firstName: $firstName, lastName: $lastName, email: $email, token: $token, accessGroups: $accessGroups, loading: $loading, phoneNumbers: $phoneNumbers, authException: $authException, userType: $userType, classNumber: $classNumber, classLetter: $classLetter, classProfile: $classProfile, classroomManagement: $classroomManagement, availableAccessGroups: $availableAccessGroups)';
   }
 
   @override
@@ -446,6 +468,8 @@ class _$_UserState extends _UserState {
             (identical(other.loading, loading) || const DeepCollectionEquality().equals(other.loading, loading)) &&
             (identical(other.phoneNumbers, phoneNumbers) ||
                 const DeepCollectionEquality().equals(other.phoneNumbers, phoneNumbers)) &&
+            (identical(other.authException, authException) ||
+                const DeepCollectionEquality().equals(other.authException, authException)) &&
             (identical(other.userType, userType) || const DeepCollectionEquality().equals(other.userType, userType)) &&
             (identical(other.classNumber, classNumber) ||
                 const DeepCollectionEquality().equals(other.classNumber, classNumber)) &&
@@ -471,6 +495,7 @@ class _$_UserState extends _UserState {
       const DeepCollectionEquality().hash(accessGroups) ^
       const DeepCollectionEquality().hash(loading) ^
       const DeepCollectionEquality().hash(phoneNumbers) ^
+      const DeepCollectionEquality().hash(authException) ^
       const DeepCollectionEquality().hash(userType) ^
       const DeepCollectionEquality().hash(classNumber) ^
       const DeepCollectionEquality().hash(classLetter) ^
@@ -508,6 +533,8 @@ abstract class _UserState extends UserState {
           bool loading,
       @JsonKey(name: 'phone_numbers')
           List<String>? phoneNumbers,
+      @JsonKey(ignore: true)
+          Exception? authException,
       @JsonKey(name: 'user_type', defaultValue: UserType.guest)
           UserType userType,
       @JsonKey(name: 'class_number', defaultValue: 1)
@@ -551,6 +578,9 @@ abstract class _UserState extends UserState {
   @override
   @JsonKey(name: 'phone_numbers')
   List<String>? get phoneNumbers => throw _privateConstructorUsedError;
+  @override // common
+  @JsonKey(ignore: true)
+  Exception? get authException => throw _privateConstructorUsedError;
   @override // class additional info
   @JsonKey(name: 'user_type', defaultValue: UserType.guest)
   UserType get userType => throw _privateConstructorUsedError;

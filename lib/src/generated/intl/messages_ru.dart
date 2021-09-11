@@ -39,6 +39,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emptySchedule":
             MessageLookupByLibrary.simpleMessage("Нет расписания в этот день"),
+        "invalidEmailExc":
+            MessageLookupByLibrary.simpleMessage("Неверный формат email"),
         "mainTitle": MessageLookupByLibrary.simpleMessage("Школа 67"),
         "modifyAnnouncement":
             MessageLookupByLibrary.simpleMessage("Редактировать объявление"),
@@ -73,7 +75,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "unknownAnnouncementContent": MessageLookupByLibrary.simpleMessage("-"),
         "unknownAnnouncementTitle":
             MessageLookupByLibrary.simpleMessage("Объявление не существует"),
+        "unknownException":
+            MessageLookupByLibrary.simpleMessage("Неизвестная ошибка"),
         "unreadAnnouncements": m0,
+        "userNotFoundExc":
+            MessageLookupByLibrary.simpleMessage("Пользователь не найден"),
+        "wrongPasswordExc":
+            MessageLookupByLibrary.simpleMessage("Неверный пароль"),
         "yes": MessageLookupByLibrary.simpleMessage("Да")
       };
 }

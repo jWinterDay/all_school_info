@@ -5,6 +5,9 @@ UserState userReducer(UserState s, dynamic a) {
   if (a is UserAction) {
     return a.maybeMap<UserState>(
       // ignore: always_specify_types
+      authException: (actionEvent) => s.copyWith(authException: actionEvent.value),
+
+      // ignore: always_specify_types
       changeLoading: (actionEvent) => s.copyWith(loading: actionEvent.value),
       // ignore: always_specify_types
       changeLoggedIn: (actionEvent) => s.copyWith(loggedIn: actionEvent.value),

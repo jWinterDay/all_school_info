@@ -12,13 +12,14 @@ Future<void> signinUserWwithEmailThunk(
   try {
     store.dispatch(const UserAction.changeLoading(value: true));
 
+    print('thunk email = $email pass = $password');
     final FirebaseAuth instance = FirebaseAuth.instance;
 
     final UserCredential userCredential = await instance.signInWithEmailAndPassword(
       email: email,
       password: password,
     );
-    print('userCredential = ${userCredential.user}');
+    print('userCredential = ${userCredential}');
 
     // view user
     // final User? currentUser = FirebaseAuth.instance.currentUser;
@@ -33,16 +34,22 @@ Future<void> signinUserWwithEmailThunk(
     // if (user != null && !user.emailVerified) {
     //   await user.sendEmailVerification();
     // }
-  } on FirebaseAuthException catch (e) {
-    // print(
-    //     'e = ${e.credential} > ${e.email} > ${e.phoneNumber} | ${e.tenantId} ; ${e.code} % ${e.message} ^ ${e.plugin}');
-    if (e.code == 'weak-password') {
-      print('The password provided is too weak.');
-    } else if (e.code == 'email-already-in-use') {
-      print('The account already exists for that email.');
+  } on FirebaseAuthException catch (exc) {
+    if (exc.code == 'user-not-found') {
+      store.dispatch(const UserAction.authException(AuthUserNotFoundException('user-not-found')));
+      // throw const AuthUserNotFoundException('user-not-found');
+    } else if (exc.code == 'wrong-password') {
+      store.dispatch(const UserAction.authException(AuthWrongPasswordException('wrong-password')));
+      // throw const AuthWrongPasswordException('wrong-password');
+    } else if (exc.code == 'invalid-email') {
+      store.dispatch(const UserAction.authException(AuthInvalidEmailException('invalid-email')));
+      // throw const AuthWrongPasswordException('wrong-password');
+    } else {
+      store.dispatch(const UserAction.authException(AuthUnknownException('unknown-error')));
     }
-  } catch (e) {
-    print(e);
+  } catch (exc) {
+    store.dispatch(UserAction.authException(AuthUnexpectedException(exc.toString())));
+    // rethrow;
   } finally {
     store.dispatch(const UserAction.changeLoading(value: false));
   }

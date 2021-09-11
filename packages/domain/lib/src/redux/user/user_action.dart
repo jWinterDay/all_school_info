@@ -7,6 +7,7 @@ class UserAction with _$UserAction {
   const factory UserAction.changeLoggedIn({required bool value}) = _ChangeLoggedIn;
   const factory UserAction.changeLoading({required bool value}) = _ChangeLoading;
   const factory UserAction.updateToken({required String value}) = _UpdateToken;
+  const factory UserAction.authException(Exception? value) = _AuthException;
 
   const factory UserAction.updateInfo({
     String? firstName,

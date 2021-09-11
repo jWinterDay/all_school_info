@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:all_school_info/src/feature/announcement/default/default_announcement_view.dart';
 import 'package:all_school_info/src/generated/l10n.dart';
-// import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
+import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
+import 'package:auto_route/auto_route.dart';
 // import 'package:auto_route/auto_route.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:design/design.dart';
@@ -9,7 +12,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
-// import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:overlay_support/overlay_support.dart';
 
 import 'auth_bloc.dart';
 
@@ -28,26 +31,88 @@ class _AuthViewState extends State<AuthView> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+  // dialog
+  final TransientKey<String> _dialogKey = const TransientKey<String>('transient');
+  final ValueKey<String> _key = const ValueKey<String>('overlay');
+  OverlaySupportEntry? _entry;
+
+  // stream
+  StreamSubscription<bool>? _loggedInSub;
+  StreamSubscription<Exception?>? _exceptionSub;
+
+  String _exceptionStr(Exception? exc) {
+    if (exc is AuthWrongPasswordException) {
+      return AllSchoolInfoIntl.of(context).wrongPasswordExc;
+    }
+
+    if (exc is AuthUserNotFoundException) {
+      return AllSchoolInfoIntl.of(context).userNotFoundExc;
+    }
+
+    if (exc is AuthInvalidEmailException) {
+      return AllSchoolInfoIntl.of(context).invalidEmailExc;
+    }
+
+    if (exc is AuthUnknownException) {
+      return AllSchoolInfoIntl.of(context).unknownException;
+    }
+
+    return 'Unknown error';
+  }
+
   @override
   void initState() {
     super.initState();
 
-    // _emailController.text = _bloc.title;
-    _emailController.addListener(() {
-      // _bloc.title = _titleController.text;
-      // _bloc.saveDraftContent();
-    });
+    WidgetsBinding.instance?.addPostFrameCallback((_) {
+      // logged in
+      _loggedInSub = _bloc.loggedInStream.listen((bool loggedIn) {
+        if (loggedIn) {
+          AutoRouter.of(context).pop();
+        }
+      });
 
-    // _passwordController.text = _bloc.content;
-    _passwordController.addListener(() {
-      // _bloc.content = _contentController.text;
-      // _bloc.saveDraftContent();
+      // exception
+      _exceptionSub = _bloc.exceptionStream.where((Exception? exception) {
+        return exception != null;
+      }).listen((Exception? exception) {
+        _entry = showSimpleNotification(
+          Text(_exceptionStr(exception)),
+          key: _dialogKey,
+          autoDismiss: false,
+          slideDismissDirection: DismissDirection.horizontal,
+          // trailing: Text('trailing'),
+          // subtitle: Text('subtitle'),
+          // leading: Text('leading'),
+          position: NotificationPosition.bottom,
+          background: context.design.palette.primary12,
+          trailing: Builder(
+            builder: (_) {
+              return CupertinoButton(
+                child: const Icon(Icons.close),
+                onPressed: () {
+                  _entry?.dismiss();
+                },
+              );
+            },
+          ),
+        );
+      });
     });
+  }
+
+  @override
+  void deactivate() {
+    super.deactivate();
+
+    _entry?.dismiss();
   }
 
   @override
   void dispose() {
     _bloc.dispose();
+    _loggedInSub?.cancel();
+    _exceptionSub?.cancel();
 
     super.dispose();
   }
@@ -97,6 +162,7 @@ class _AuthViewState extends State<AuthView> {
                   child: CupertinoTextField(
                     controller: _passwordController,
                     clearButtonMode: OverlayVisibilityMode.editing,
+                    obscureText: true,
                     // maxLines: 10,
                     // maxLength: uiAnnouncementEditInfo.announcementMaxContentLength,
                   ),

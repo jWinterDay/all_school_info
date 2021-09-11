@@ -20,6 +20,9 @@ class UserState with _$UserState {
     @JsonKey(name: 'loading', defaultValue: false) @Default(false) bool loading,
     @JsonKey(name: 'phone_numbers') List<String>? phoneNumbers,
 
+    // common
+    @JsonKey(ignore: true) Exception? authException,
+
     // class additional info
     @JsonKey(name: 'user_type', defaultValue: UserType.guest) @Default(UserType.guest) UserType userType,
     @JsonKey(name: 'class_number', defaultValue: 1) @Default(1) int classNumber,

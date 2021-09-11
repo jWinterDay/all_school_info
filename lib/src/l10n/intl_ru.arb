@@ -6,6 +6,7 @@
     "saveTemplate": "Сохранить шаблон?",
     "yes": "Да",
     "no": "Нет",
+    "unknownException": "Неизвестная ошибка",
 
     "noAnnouncement": "Нет объявлений",
     "announcementViewTitle": "Объявление",
@@ -37,5 +38,8 @@
     "signIn": "Войти",
     "authTitle": "Авторизация",
     "email": "Email",
-    "password": "Пароль"
+    "password": "Пароль",
+    "wrongPasswordExc": "Неверный пароль",
+    "userNotFoundExc": "Пользователь не найден",
+    "invalidEmailExc": "Неверный формат email"
 }

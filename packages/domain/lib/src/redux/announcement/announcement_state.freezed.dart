@@ -92,10 +92,8 @@ mixin _$AnnouncementState {
   @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[])
   List<AnnouncementModel> get list => throw _privateConstructorUsedError;
   @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
-  List<AnnouncementModel> get topList => throw _privateConstructorUsedError; // // TODO remove
-// @JsonKey(name: 'unread_list', defaultValue: <AnnouncementModel>[])
-// @Default(<AnnouncementModel>[])
-//     List<AnnouncementModel> unreadList,
+  List<AnnouncementModel> get topList => throw _privateConstructorUsedError;
+
   /// `create new announement. save draft of it`
   @JsonKey(name: 'draft_new_title')
   String? get draftNewTitle => throw _privateConstructorUsedError;
@@ -384,10 +382,8 @@ class _$_AnnouncementState extends _AnnouncementState {
   @override
   @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
   final List<AnnouncementModel> topList;
-  @override // // TODO remove
-// @JsonKey(name: 'unread_list', defaultValue: <AnnouncementModel>[])
-// @Default(<AnnouncementModel>[])
-//     List<AnnouncementModel> unreadList,
+  @override
+
   /// `create new announement. save draft of it`
   @JsonKey(name: 'draft_new_title')
   final String? draftNewTitle;
@@ -514,10 +510,8 @@ abstract class _AnnouncementState extends AnnouncementState {
   @override
   @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
   List<AnnouncementModel> get topList => throw _privateConstructorUsedError;
-  @override // // TODO remove
-// @JsonKey(name: 'unread_list', defaultValue: <AnnouncementModel>[])
-// @Default(<AnnouncementModel>[])
-//     List<AnnouncementModel> unreadList,
+  @override
+
   /// `create new announement. save draft of it`
   @JsonKey(name: 'draft_new_title')
   String? get draftNewTitle => throw _privateConstructorUsedError;

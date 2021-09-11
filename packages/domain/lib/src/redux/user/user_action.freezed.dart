@@ -34,6 +34,12 @@ class _$UserActionTearOff {
     );
   }
 
+  _AuthException authException(Exception? value) {
+    return _AuthException(
+      value,
+    );
+  }
+
   _UpdateInfo updateInfo({String? firstName, String? lastName, String? email, List<String>? phoneNumbers}) {
     return _UpdateInfo(
       firstName: firstName,
@@ -66,6 +72,7 @@ mixin _$UserAction {
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
     required TResult Function(String value) updateToken,
+    required TResult Function(Exception? value) authException,
     required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
         updateInfo,
     required TResult Function(List<String> value) changeAccessGroups,
@@ -77,6 +84,7 @@ mixin _$UserAction {
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
     TResult Function(String value)? updateToken,
+    TResult Function(Exception? value)? authException,
     TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
     TResult Function(List<String> value)? changeAccessGroups,
     TResult Function(List<String> value)? changeAvailableAccessGroups,
@@ -88,6 +96,7 @@ mixin _$UserAction {
     required TResult Function(_ChangeLoggedIn value) changeLoggedIn,
     required TResult Function(_ChangeLoading value) changeLoading,
     required TResult Function(_UpdateToken value) updateToken,
+    required TResult Function(_AuthException value) authException,
     required TResult Function(_UpdateInfo value) updateInfo,
     required TResult Function(_ChangeAccessGroups value) changeAccessGroups,
     required TResult Function(_ChangeAvailableAccessGroups value) changeAvailableAccessGroups,
@@ -98,6 +107,7 @@ mixin _$UserAction {
     TResult Function(_ChangeLoggedIn value)? changeLoggedIn,
     TResult Function(_ChangeLoading value)? changeLoading,
     TResult Function(_UpdateToken value)? updateToken,
+    TResult Function(_AuthException value)? authException,
     TResult Function(_UpdateInfo value)? updateInfo,
     TResult Function(_ChangeAccessGroups value)? changeAccessGroups,
     TResult Function(_ChangeAvailableAccessGroups value)? changeAvailableAccessGroups,
@@ -183,6 +193,7 @@ class _$_ChangeLoggedIn implements _ChangeLoggedIn {
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
     required TResult Function(String value) updateToken,
+    required TResult Function(Exception? value) authException,
     required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
         updateInfo,
     required TResult Function(List<String> value) changeAccessGroups,
@@ -197,6 +208,7 @@ class _$_ChangeLoggedIn implements _ChangeLoggedIn {
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
     TResult Function(String value)? updateToken,
+    TResult Function(Exception? value)? authException,
     TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
     TResult Function(List<String> value)? changeAccessGroups,
     TResult Function(List<String> value)? changeAvailableAccessGroups,
@@ -214,6 +226,7 @@ class _$_ChangeLoggedIn implements _ChangeLoggedIn {
     required TResult Function(_ChangeLoggedIn value) changeLoggedIn,
     required TResult Function(_ChangeLoading value) changeLoading,
     required TResult Function(_UpdateToken value) updateToken,
+    required TResult Function(_AuthException value) authException,
     required TResult Function(_UpdateInfo value) updateInfo,
     required TResult Function(_ChangeAccessGroups value) changeAccessGroups,
     required TResult Function(_ChangeAvailableAccessGroups value) changeAvailableAccessGroups,
@@ -227,6 +240,7 @@ class _$_ChangeLoggedIn implements _ChangeLoggedIn {
     TResult Function(_ChangeLoggedIn value)? changeLoggedIn,
     TResult Function(_ChangeLoading value)? changeLoading,
     TResult Function(_UpdateToken value)? updateToken,
+    TResult Function(_AuthException value)? authException,
     TResult Function(_UpdateInfo value)? updateInfo,
     TResult Function(_ChangeAccessGroups value)? changeAccessGroups,
     TResult Function(_ChangeAvailableAccessGroups value)? changeAvailableAccessGroups,
@@ -310,6 +324,7 @@ class _$_ChangeLoading implements _ChangeLoading {
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
     required TResult Function(String value) updateToken,
+    required TResult Function(Exception? value) authException,
     required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
         updateInfo,
     required TResult Function(List<String> value) changeAccessGroups,
@@ -324,6 +339,7 @@ class _$_ChangeLoading implements _ChangeLoading {
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
     TResult Function(String value)? updateToken,
+    TResult Function(Exception? value)? authException,
     TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
     TResult Function(List<String> value)? changeAccessGroups,
     TResult Function(List<String> value)? changeAvailableAccessGroups,
@@ -341,6 +357,7 @@ class _$_ChangeLoading implements _ChangeLoading {
     required TResult Function(_ChangeLoggedIn value) changeLoggedIn,
     required TResult Function(_ChangeLoading value) changeLoading,
     required TResult Function(_UpdateToken value) updateToken,
+    required TResult Function(_AuthException value) authException,
     required TResult Function(_UpdateInfo value) updateInfo,
     required TResult Function(_ChangeAccessGroups value) changeAccessGroups,
     required TResult Function(_ChangeAvailableAccessGroups value) changeAvailableAccessGroups,
@@ -354,6 +371,7 @@ class _$_ChangeLoading implements _ChangeLoading {
     TResult Function(_ChangeLoggedIn value)? changeLoggedIn,
     TResult Function(_ChangeLoading value)? changeLoading,
     TResult Function(_UpdateToken value)? updateToken,
+    TResult Function(_AuthException value)? authException,
     TResult Function(_UpdateInfo value)? updateInfo,
     TResult Function(_ChangeAccessGroups value)? changeAccessGroups,
     TResult Function(_ChangeAvailableAccessGroups value)? changeAvailableAccessGroups,
@@ -435,6 +453,7 @@ class _$_UpdateToken implements _UpdateToken {
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
     required TResult Function(String value) updateToken,
+    required TResult Function(Exception? value) authException,
     required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
         updateInfo,
     required TResult Function(List<String> value) changeAccessGroups,
@@ -449,6 +468,7 @@ class _$_UpdateToken implements _UpdateToken {
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
     TResult Function(String value)? updateToken,
+    TResult Function(Exception? value)? authException,
     TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
     TResult Function(List<String> value)? changeAccessGroups,
     TResult Function(List<String> value)? changeAvailableAccessGroups,
@@ -466,6 +486,7 @@ class _$_UpdateToken implements _UpdateToken {
     required TResult Function(_ChangeLoggedIn value) changeLoggedIn,
     required TResult Function(_ChangeLoading value) changeLoading,
     required TResult Function(_UpdateToken value) updateToken,
+    required TResult Function(_AuthException value) authException,
     required TResult Function(_UpdateInfo value) updateInfo,
     required TResult Function(_ChangeAccessGroups value) changeAccessGroups,
     required TResult Function(_ChangeAvailableAccessGroups value) changeAvailableAccessGroups,
@@ -479,6 +500,7 @@ class _$_UpdateToken implements _UpdateToken {
     TResult Function(_ChangeLoggedIn value)? changeLoggedIn,
     TResult Function(_ChangeLoading value)? changeLoading,
     TResult Function(_UpdateToken value)? updateToken,
+    TResult Function(_AuthException value)? authException,
     TResult Function(_UpdateInfo value)? updateInfo,
     TResult Function(_ChangeAccessGroups value)? changeAccessGroups,
     TResult Function(_ChangeAvailableAccessGroups value)? changeAvailableAccessGroups,
@@ -497,6 +519,137 @@ abstract class _UpdateToken implements UserAction {
   String get value => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$UpdateTokenCopyWith<_UpdateToken> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$AuthExceptionCopyWith<$Res> {
+  factory _$AuthExceptionCopyWith(_AuthException value, $Res Function(_AuthException) then) =
+      __$AuthExceptionCopyWithImpl<$Res>;
+  $Res call({Exception? value});
+}
+
+/// @nodoc
+class __$AuthExceptionCopyWithImpl<$Res> extends _$UserActionCopyWithImpl<$Res>
+    implements _$AuthExceptionCopyWith<$Res> {
+  __$AuthExceptionCopyWithImpl(_AuthException _value, $Res Function(_AuthException) _then)
+      : super(_value, (v) => _then(v as _AuthException));
+
+  @override
+  _AuthException get _value => super._value as _AuthException;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_AuthException(
+      value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as Exception?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AuthException implements _AuthException {
+  const _$_AuthException(this.value);
+
+  @override
+  final Exception? value;
+
+  @override
+  String toString() {
+    return 'UserAction.authException(value: $value)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _AuthException &&
+            (identical(other.value, value) || const DeepCollectionEquality().equals(other.value, value)));
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+
+  @JsonKey(ignore: true)
+  @override
+  _$AuthExceptionCopyWith<_AuthException> get copyWith =>
+      __$AuthExceptionCopyWithImpl<_AuthException>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(bool value) changeLoggedIn,
+    required TResult Function(bool value) changeLoading,
+    required TResult Function(String value) updateToken,
+    required TResult Function(Exception? value) authException,
+    required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
+        updateInfo,
+    required TResult Function(List<String> value) changeAccessGroups,
+    required TResult Function(List<String> value) changeAvailableAccessGroups,
+  }) {
+    return authException(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(bool value)? changeLoggedIn,
+    TResult Function(bool value)? changeLoading,
+    TResult Function(String value)? updateToken,
+    TResult Function(Exception? value)? authException,
+    TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
+    TResult Function(List<String> value)? changeAccessGroups,
+    TResult Function(List<String> value)? changeAvailableAccessGroups,
+    required TResult orElse(),
+  }) {
+    if (authException != null) {
+      return authException(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeLoggedIn value) changeLoggedIn,
+    required TResult Function(_ChangeLoading value) changeLoading,
+    required TResult Function(_UpdateToken value) updateToken,
+    required TResult Function(_AuthException value) authException,
+    required TResult Function(_UpdateInfo value) updateInfo,
+    required TResult Function(_ChangeAccessGroups value) changeAccessGroups,
+    required TResult Function(_ChangeAvailableAccessGroups value) changeAvailableAccessGroups,
+  }) {
+    return authException(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeLoggedIn value)? changeLoggedIn,
+    TResult Function(_ChangeLoading value)? changeLoading,
+    TResult Function(_UpdateToken value)? updateToken,
+    TResult Function(_AuthException value)? authException,
+    TResult Function(_UpdateInfo value)? updateInfo,
+    TResult Function(_ChangeAccessGroups value)? changeAccessGroups,
+    TResult Function(_ChangeAvailableAccessGroups value)? changeAvailableAccessGroups,
+    required TResult orElse(),
+  }) {
+    if (authException != null) {
+      return authException(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AuthException implements UserAction {
+  const factory _AuthException(Exception? value) = _$_AuthException;
+
+  Exception? get value => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$AuthExceptionCopyWith<_AuthException> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -590,6 +743,7 @@ class _$_UpdateInfo implements _UpdateInfo {
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
     required TResult Function(String value) updateToken,
+    required TResult Function(Exception? value) authException,
     required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
         updateInfo,
     required TResult Function(List<String> value) changeAccessGroups,
@@ -604,6 +758,7 @@ class _$_UpdateInfo implements _UpdateInfo {
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
     TResult Function(String value)? updateToken,
+    TResult Function(Exception? value)? authException,
     TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
     TResult Function(List<String> value)? changeAccessGroups,
     TResult Function(List<String> value)? changeAvailableAccessGroups,
@@ -621,6 +776,7 @@ class _$_UpdateInfo implements _UpdateInfo {
     required TResult Function(_ChangeLoggedIn value) changeLoggedIn,
     required TResult Function(_ChangeLoading value) changeLoading,
     required TResult Function(_UpdateToken value) updateToken,
+    required TResult Function(_AuthException value) authException,
     required TResult Function(_UpdateInfo value) updateInfo,
     required TResult Function(_ChangeAccessGroups value) changeAccessGroups,
     required TResult Function(_ChangeAvailableAccessGroups value) changeAvailableAccessGroups,
@@ -634,6 +790,7 @@ class _$_UpdateInfo implements _UpdateInfo {
     TResult Function(_ChangeLoggedIn value)? changeLoggedIn,
     TResult Function(_ChangeLoading value)? changeLoading,
     TResult Function(_UpdateToken value)? updateToken,
+    TResult Function(_AuthException value)? authException,
     TResult Function(_UpdateInfo value)? updateInfo,
     TResult Function(_ChangeAccessGroups value)? changeAccessGroups,
     TResult Function(_ChangeAvailableAccessGroups value)? changeAvailableAccessGroups,
@@ -721,6 +878,7 @@ class _$_ChangeAccessGroups implements _ChangeAccessGroups {
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
     required TResult Function(String value) updateToken,
+    required TResult Function(Exception? value) authException,
     required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
         updateInfo,
     required TResult Function(List<String> value) changeAccessGroups,
@@ -735,6 +893,7 @@ class _$_ChangeAccessGroups implements _ChangeAccessGroups {
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
     TResult Function(String value)? updateToken,
+    TResult Function(Exception? value)? authException,
     TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
     TResult Function(List<String> value)? changeAccessGroups,
     TResult Function(List<String> value)? changeAvailableAccessGroups,
@@ -752,6 +911,7 @@ class _$_ChangeAccessGroups implements _ChangeAccessGroups {
     required TResult Function(_ChangeLoggedIn value) changeLoggedIn,
     required TResult Function(_ChangeLoading value) changeLoading,
     required TResult Function(_UpdateToken value) updateToken,
+    required TResult Function(_AuthException value) authException,
     required TResult Function(_UpdateInfo value) updateInfo,
     required TResult Function(_ChangeAccessGroups value) changeAccessGroups,
     required TResult Function(_ChangeAvailableAccessGroups value) changeAvailableAccessGroups,
@@ -765,6 +925,7 @@ class _$_ChangeAccessGroups implements _ChangeAccessGroups {
     TResult Function(_ChangeLoggedIn value)? changeLoggedIn,
     TResult Function(_ChangeLoading value)? changeLoading,
     TResult Function(_UpdateToken value)? updateToken,
+    TResult Function(_AuthException value)? authException,
     TResult Function(_UpdateInfo value)? updateInfo,
     TResult Function(_ChangeAccessGroups value)? changeAccessGroups,
     TResult Function(_ChangeAvailableAccessGroups value)? changeAvailableAccessGroups,
@@ -850,6 +1011,7 @@ class _$_ChangeAvailableAccessGroups implements _ChangeAvailableAccessGroups {
     required TResult Function(bool value) changeLoggedIn,
     required TResult Function(bool value) changeLoading,
     required TResult Function(String value) updateToken,
+    required TResult Function(Exception? value) authException,
     required TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)
         updateInfo,
     required TResult Function(List<String> value) changeAccessGroups,
@@ -864,6 +1026,7 @@ class _$_ChangeAvailableAccessGroups implements _ChangeAvailableAccessGroups {
     TResult Function(bool value)? changeLoggedIn,
     TResult Function(bool value)? changeLoading,
     TResult Function(String value)? updateToken,
+    TResult Function(Exception? value)? authException,
     TResult Function(String? firstName, String? lastName, String? email, List<String>? phoneNumbers)? updateInfo,
     TResult Function(List<String> value)? changeAccessGroups,
     TResult Function(List<String> value)? changeAvailableAccessGroups,
@@ -881,6 +1044,7 @@ class _$_ChangeAvailableAccessGroups implements _ChangeAvailableAccessGroups {
     required TResult Function(_ChangeLoggedIn value) changeLoggedIn,
     required TResult Function(_ChangeLoading value) changeLoading,
     required TResult Function(_UpdateToken value) updateToken,
+    required TResult Function(_AuthException value) authException,
     required TResult Function(_UpdateInfo value) updateInfo,
     required TResult Function(_ChangeAccessGroups value) changeAccessGroups,
     required TResult Function(_ChangeAvailableAccessGroups value) changeAvailableAccessGroups,
@@ -894,6 +1058,7 @@ class _$_ChangeAvailableAccessGroups implements _ChangeAvailableAccessGroups {
     TResult Function(_ChangeLoggedIn value)? changeLoggedIn,
     TResult Function(_ChangeLoading value)? changeLoading,
     TResult Function(_UpdateToken value)? updateToken,
+    TResult Function(_AuthException value)? authException,
     TResult Function(_UpdateInfo value)? updateInfo,
     TResult Function(_ChangeAccessGroups value)? changeAccessGroups,
     TResult Function(_ChangeAvailableAccessGroups value)? changeAvailableAccessGroups,
