@@ -36,6 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "announcementsTabTitle":
             MessageLookupByLibrary.simpleMessage("Объявления"),
         "authTitle": MessageLookupByLibrary.simpleMessage("Авторизация"),
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emptySchedule":
             MessageLookupByLibrary.simpleMessage("Нет расписания в этот день"),
         "mainTitle": MessageLookupByLibrary.simpleMessage("Школа 67"),
@@ -47,6 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "noContentYet":
             MessageLookupByLibrary.simpleMessage("Еще ничего не загружено"),
         "notLoggedIn": MessageLookupByLibrary.simpleMessage("Залогиниться"),
+        "password": MessageLookupByLibrary.simpleMessage("Пароль"),
         "profileTabTitle": MessageLookupByLibrary.simpleMessage("Профиль"),
         "profileViewTitle":
             MessageLookupByLibrary.simpleMessage("Профиль пользователя"),

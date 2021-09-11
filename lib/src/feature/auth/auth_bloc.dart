@@ -8,7 +8,7 @@ class AuthBloc {
 
   Store<AppState> get _store => getIt.get<AppDomain>().appStore;
 
-  void refresh() {
+  void signin({required String email, required String password}) {
     // if (_store.state.userState.loggedIn) {
     //   _store.dispatch(
     //     (Store<AppState> store) => fetchAnnouncementsThunk(
@@ -19,7 +19,7 @@ class AuthBloc {
     // }
   }
 
-  void getMore() {
+  void signout() {
     // if (!_store.state.announcementState.loading) {
     //   _store.dispatch(
     //     (Store<AppState> store) => fetchAnnouncementsThunk(

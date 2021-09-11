@@ -369,6 +369,26 @@ class AllSchoolInfoIntl {
       args: [],
     );
   }
+
+  /// `Email`
+  String get email {
+    return Intl.message(
+      'Email',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Пароль`
+  String get password {
+    return Intl.message(
+      'Пароль',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AllSchoolInfoIntl> {

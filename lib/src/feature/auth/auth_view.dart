@@ -24,15 +24,25 @@ class AuthView extends StatefulWidget {
 
 class _AuthViewState extends State<AuthView> {
   final AuthBloc _bloc = AuthBloc();
-  // static final double _offset = 120;
-  // final ScrollController _scrollController = ScrollController();
-  // RefreshController _refreshController = RefreshController();
+
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
 
-    // _bloc.refresh();
+    // _emailController.text = _bloc.title;
+    _emailController.addListener(() {
+      // _bloc.title = _titleController.text;
+      // _bloc.saveDraftContent();
+    });
+
+    // _passwordController.text = _bloc.content;
+    _passwordController.addListener(() {
+      // _bloc.content = _contentController.text;
+      // _bloc.saveDraftContent();
+    });
   }
 
   @override
@@ -49,146 +59,88 @@ class _AuthViewState extends State<AuthView> {
         title: Text(AllSchoolInfoIntl.of(context).authTitle),
         centerTitle: true,
       ),
-      body: Text('fsd'),
+      body: Stack(
+        children: <Widget>[
+          // content
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: CustomScrollView(
+              physics: const ClampingScrollPhysics(),
+              slivers: <Widget>[
+                // email
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 8, bottom: 4),
+                    child: Text(AllSchoolInfoIntl.of(context).email),
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 4, right: 4, bottom: 8),
+                    child: CupertinoTextField(
+                      controller: _emailController,
+                      autofocus: true,
+                      clearButtonMode: OverlayVisibilityMode.editing,
+                      // maxLength: uiAnnouncementEditInfo.announcementMaxTitleLength,
+                    ),
+                  ),
+                ),
+
+                // password
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 8, bottom: 4),
+                    child: Text(AllSchoolInfoIntl.of(context).password),
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: CupertinoTextField(
+                    controller: _passwordController,
+                    clearButtonMode: OverlayVisibilityMode.editing,
+                    // maxLines: 10,
+                    // maxLength: uiAnnouncementEditInfo.announcementMaxContentLength,
+                  ),
+                ),
+
+                // button
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 32),
+                    child: ElevatedButton(
+                      child: Text(AllSchoolInfoIntl.of(context).signIn),
+                      onPressed: () {
+                        _bloc.signin(
+                          email: _emailController.text,
+                          password: _passwordController.text,
+                        );
+                      },
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          // loading
+          StoreConnector<AppState, bool>(
+            distinct: true,
+            converter: (Store<AppState> store) => store.state.userState.loading,
+            builder: (_, bool loading) {
+              if (loading) {
+                return SizedBox(
+                  width: context.width,
+                  height: context.height,
+                  child: const CupertinoActivityIndicator(
+                    radius: 42,
+                  ),
+                );
+              }
+
+              return const SizedBox();
+            },
+          ),
+        ],
+      ),
     );
-
-    // return StoreConnector<AppState, UiAnnouncementInfo>(
-    //   distinct: true,
-    //   converter: (Store<AppState> store) {
-    //     return UiAnnouncementInfo(
-    //       announcementState: store.state.announcementState,
-    //       topAnnouncementCount: store.state.commonState.topAnnouncementCount,
-    //       loggedIn: store.state.userState.loggedIn,
-    //     );
-    //   },
-    //   builder: (_, UiAnnouncementInfo uiAnnouncementInfo) {
-    //     if (!uiAnnouncementInfo.loggedIn) {
-    //       return const DefaultAnnouncementView();
-    //     }
-
-    //     // final int unreadLen = uiAnnouncementInfo.unreadAnnouncementList.length;
-
-    //     return Column(
-    //       children: <Widget>[
-    //         // top events
-    //         if (uiAnnouncementInfo.announcementState.topList.isNotEmpty)
-    //           CarouselSlider(
-    //             options: CarouselOptions(
-    //               height: 120,
-    //               autoPlay: true,
-    //             ),
-    //             items: uiAnnouncementInfo.topAnnouncementList.map(
-    //               (AnnouncementModel topAnnouncement) {
-    //                 return AnnouncementCard(
-    //                   announcementModel: topAnnouncement,
-    //                   topCard: true,
-    //                 );
-    //               },
-    //             ).toList(),
-    //           ),
-
-    //         // there are new messages button
-    //         // if (uiAnnouncementInfo.unreadAnnouncementList.isNotEmpty)
-    //         //   GestureDetector(
-    //         //     onTap: _bloc.clearUnreadAnnouncements,
-    //         //     child: Padding(
-    //         //       padding: const EdgeInsets.only(top: 8),
-    //         //       child: ColoredBox(
-    //         //         color: context.design.palette.gray12,
-    //         //         child: Text(
-    //         //           AllSchoolInfoIntl.of(context).unreadAnnouncements(unreadLen),
-    //         //         ),
-    //         //       ),
-    //         //     ),
-    //         //   ),
-
-    //         // scroll content
-    //         Expanded(
-    //           child: Padding(
-    //             padding: const EdgeInsets.only(top: 4, left: 4, right: 4),
-    //             child: Stack(
-    //               children: <Widget>[
-    //                 // content
-    //                 NotificationListener<ScrollNotification>(
-    //                   onNotification: (ScrollNotification scrollInfo) {
-    //                     // if (_scrollController.offset < 100) {
-    //                     //   return false;
-    //                     // }
-
-    //                     // print(_scrollController.offset);
-    //                     // print('--scrollInfo = ${scrollInfo.metrics} max = ${scrollInfo.metrics.maxScrollExtent}');
-    //                     // if (scrollInfo is! ScrollStartNotification &&
-    //                     //     scrollInfo is! UserScrollNotification &&
-    //                     //     scrollInfo.metrics.pixels == scrollInfo.metrics.maxScrollExtent &&
-    //                     //     uiAnnouncementInfo.announcementState.list.isNotEmpty) {
-    //                     //   _bloc.getMore();
-    //                     // }
-
-    //                     return false;
-    //                   },
-    //                   child: CustomScrollView(
-    //                     controller: _scrollController,
-    //                     physics: const AlwaysScrollableScrollPhysics(),
-    //                     slivers: <Widget>[
-    //                       CupertinoSliverRefreshControl(
-    //                         onRefresh: () async {
-    //                           _bloc.refresh();
-    //                         },
-    //                       ),
-
-    //                       if (uiAnnouncementInfo.announcementState.errorModel != null)
-    //                         SliverToBoxAdapter(
-    //                           child: Text(
-    //                             'Error: ${uiAnnouncementInfo.errorMessage}',
-    //                           ),
-    //                         )
-    //                       // else if (uiAnnouncementInfo.announcementState.firstLoading)
-    //                       //   SliverFillRemaining(
-    //                       //     child: Center(
-    //                       //       child: Text(AllSchoolInfoIntl.of(context).noContentYet),
-    //                       //     ),
-    //                       //   )
-    //                       else if (uiAnnouncementInfo.announcementState.list.isEmpty)
-    //                         SliverFillRemaining(
-    //                           child: Center(
-    //                             child: Text(AllSchoolInfoIntl.of(context).noAnnouncement),
-    //                           ),
-    //                         )
-    //                       else
-    //                         SliverList(
-    //                           delegate: SliverChildListDelegate(
-    //                             uiAnnouncementInfo.announcementState.list.map((AnnouncementModel e) {
-    //                               return AnnouncementCard(announcementModel: e);
-    //                             }).toList(),
-    //                           ),
-    //                         ),
-
-    //                       // refresh
-    //                       if (uiAnnouncementInfo.announcementState.loading)
-    //                         const SliverToBoxAdapter(
-    //                           child: CupertinoActivityIndicator(radius: 24),
-    //                         )
-    //                       // padding
-    //                       // SliverPadding(padding: EdgeInsets.only(bottom: _offset))
-    //                     ],
-    //                   ),
-    //                 ),
-
-    //                 // loading
-    //                 if ( //uiAnnouncementInfo.announcementState.firstLoading ||
-    //                 uiAnnouncementInfo.announcementState.loading)
-    //                   SizedBox(
-    //                     width: context.width,
-    //                     height: context.height,
-    //                     child: const CupertinoActivityIndicator(radius: 42),
-    //                   ),
-    //               ],
-    //             ),
-    //           ),
-    //         ),
-    //       ],
-    //     );
-    //   },
-    // );
   }
 }

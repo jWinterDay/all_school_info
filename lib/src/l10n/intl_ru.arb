@@ -35,5 +35,7 @@
     "scheduleHomework": "Домашнее задание",
 
     "signIn": "Войти",
-    "authTitle": "Авторизация"
+    "authTitle": "Авторизация",
+    "email": "Email",
+    "password": "Пароль"
 }
