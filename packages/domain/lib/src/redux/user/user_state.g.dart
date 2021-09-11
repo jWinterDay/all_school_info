@@ -19,10 +19,10 @@ _$_UserState _$_$_UserStateFromJson(Map<String, dynamic> json) {
     accessGroups: (json['access_groups'] as List<dynamic>?)?.map((e) => e as String).toList() ?? [],
     loading: json['loading'] as bool? ?? false,
     phoneNumbers: (json['phone_numbers'] as List<dynamic>?)?.map((e) => e as String).toList(),
-    userType: _$enumDecodeNullable(_$UserTypeEnumMap, json['user_type']) ?? UserType.guest,
-    classNumber: json['class_number'] as int? ?? 1,
+    userType: _$enumDecodeNullable(_$UserTypeEnumMap, json['user_type']),
+    classNumber: json['class_number'] as int?,
     classLetter: json['class_letter'] as String?,
-    classProfile: (json['class_profile'] as List<dynamic>?)?.map((e) => e as String).toList() ?? [],
+    classProfile: (json['class_profile'] as List<dynamic>?)?.map((e) => e as String).toList(),
     classroomManagement: json['classroom_management'] as bool? ?? false,
     availableAccessGroups: (json['available_access_groups'] as List<dynamic>?)?.map((e) => e as String).toList() ?? [],
   );

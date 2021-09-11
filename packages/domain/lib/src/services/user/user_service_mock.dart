@@ -1,6 +1,5 @@
 // import 'package:computer/computer.dart';
 import 'package:domain/domain.dart';
-import 'package:domain/src/redux/user/models/user_type.dart';
 import 'package:domain/src/redux/user/user_state.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -10,9 +9,7 @@ class UserServiceMock implements UserService {
   @override
   Future<UserState?> fetchUser() async {
     // try {
-    final FirebaseAuth instance = FirebaseAuth.instance;
-
-    final User? user = instance.currentUser;
+    final User? user = FirebaseAuth.instance.currentUser;
 
     if (user == null) {
       return null;
@@ -67,25 +64,59 @@ class UserServiceMock implements UserService {
 
   @override
   Future<void> signOut() async {
-    print('service');
-
     try {
       final FirebaseAuth instance = FirebaseAuth.instance;
 
       await instance.signOut();
+    } catch (exc) {
+      throw AuthUnexpectedException(exc.toString());
     }
-    //  on FirebaseAuthException catch (exc) {
-    //   if (exc.code == 'user-not-found') {
-    //     throw const AuthUserNotFoundException('user-not-found');
-    //   } else if (exc.code == 'wrong-password') {
-    //     throw const AuthWrongPasswordException('wrong-password');
-    //   } else if (exc.code == 'invalid-email') {
-    //     throw const AuthInvalidEmailException('invalid-email');
-    //   } else {
-    //     throw const AuthUnknownException('unknown-error');
-    //   }
-    // }
-    catch (exc) {
+  }
+
+  @override
+  Future<UserState> createUserWithEmail({
+    required String email,
+    required String password,
+    String? firstName,
+    String? lastName,
+    List<String> accessGroups = const <String>[],
+    List<String> availableAccessGroups = const <String>[],
+    List<String>? phoneNumbers = const <String>[],
+    int? classNumber,
+    String? classLetter,
+    List<String>? classProfile,
+    bool classroomManagement = false,
+  }) async {
+    try {
+      final FirebaseAuth instance = FirebaseAuth.instance;
+
+      final UserCredential userCredential = await instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      return UserState(
+        userId: userCredential.user?.uid,
+        email: userCredential.user?.email,
+        firstName: firstName,
+        lastName: lastName,
+        accessGroups: accessGroups,
+        availableAccessGroups: availableAccessGroups,
+        phoneNumbers: phoneNumbers,
+        classNumber: classNumber,
+        classLetter: classLetter,
+        classProfile: classProfile,
+        classroomManagement: classroomManagement,
+      );
+    } on FirebaseAuthException catch (exc) {
+      if (exc.code == 'weak-password') {
+        throw const AuthWeakPasswordException('weak-password');
+      } else if (exc.code == 'email-already-in-use') {
+        throw const AuthEmailAlreadyInUseException('email-already-in-use');
+      } else {
+        throw const AuthUnknownException('unknown-error');
+      }
+    } catch (exc) {
       throw AuthUnexpectedException(exc.toString());
     }
   }

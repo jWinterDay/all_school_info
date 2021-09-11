@@ -1,3 +1,4 @@
+// sign in
 class AuthWrongPasswordException implements Exception {
   const AuthWrongPasswordException(this.message);
 
@@ -41,4 +42,23 @@ class AuthUnexpectedException implements Exception {
 
   @override
   String toString() => 'AuthUnexpectedException: $message';
+}
+
+// registration
+class AuthWeakPasswordException implements Exception {
+  const AuthWeakPasswordException(this.message);
+
+  final String message;
+
+  @override
+  String toString() => 'AuthWeakPasswordException: $message';
+}
+
+class AuthEmailAlreadyInUseException implements Exception {
+  const AuthEmailAlreadyInUseException(this.message);
+
+  final String message;
+
+  @override
+  String toString() => 'AuthEmailAlreadyInUseException: $message';
 }

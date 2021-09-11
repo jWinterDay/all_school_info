@@ -13,28 +13,11 @@ void fetchUserThunk(Store<AppState> store) async {
     final UserService userService = getIt.get<UserService>();
     final UserState? userState = await userService.fetchUser();
 
-    // TODO
     if (userState == null) {
       return;
     }
 
-    print('[thunk] userState = $userState');
-
-    // userId: user.uid,
-    //   email: user.email,
-    //   accessGroups: <String>[
-    //     'class_7',
-    //   ],
-    //   availableAccessGroups: <String>[
-    //     'class_1',
-    //     'class_2',
-    //     'class_7',
-    //   ],
-
-    // emailVerified: userState.emailVerified,
-    //     isAnonymous: userState.isAnonymous,
-    //     email: userState.email,
-    //     userId: userState.userId,
+    // print('[thunk] userState = $userState');
 
     store
       ..dispatch(

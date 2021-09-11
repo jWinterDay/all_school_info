@@ -45,14 +45,14 @@ class _$UserStateTearOff {
           List<String>? phoneNumbers,
       @JsonKey(ignore: true)
           Exception? authException,
-      @JsonKey(name: 'user_type', defaultValue: UserType.guest)
-          UserType userType = UserType.guest,
-      @JsonKey(name: 'class_number', defaultValue: 1)
-          int classNumber = 1,
+      @JsonKey(name: 'user_type')
+          UserType? userType,
+      @JsonKey(name: 'class_number')
+          int? classNumber,
       @JsonKey(name: 'class_letter')
           String? classLetter,
-      @JsonKey(name: 'class_profile', defaultValue: const <String>[])
-          List<String> classProfile = const <String>[],
+      @JsonKey(name: 'class_profile')
+          List<String>? classProfile,
       @JsonKey(name: 'classroom_management', defaultValue: false)
           bool classroomManagement = false,
       @JsonKey(name: 'available_access_groups', defaultValue: const <String>[])
@@ -112,15 +112,15 @@ mixin _$UserState {
   @JsonKey(name: 'phone_numbers')
   List<String>? get phoneNumbers => throw _privateConstructorUsedError; // common
   @JsonKey(ignore: true)
-  Exception? get authException => throw _privateConstructorUsedError; // class additional info
-  @JsonKey(name: 'user_type', defaultValue: UserType.guest)
-  UserType get userType => throw _privateConstructorUsedError;
-  @JsonKey(name: 'class_number', defaultValue: 1)
-  int get classNumber => throw _privateConstructorUsedError;
+  Exception? get authException => throw _privateConstructorUsedError; // class additional info (for learners)
+  @JsonKey(name: 'user_type')
+  UserType? get userType => throw _privateConstructorUsedError;
+  @JsonKey(name: 'class_number')
+  int? get classNumber => throw _privateConstructorUsedError;
   @JsonKey(name: 'class_letter')
   String? get classLetter => throw _privateConstructorUsedError;
-  @JsonKey(name: 'class_profile', defaultValue: const <String>[])
-  List<String> get classProfile => throw _privateConstructorUsedError;
+  @JsonKey(name: 'class_profile')
+  List<String>? get classProfile => throw _privateConstructorUsedError;
   @JsonKey(name: 'classroom_management', defaultValue: false)
   bool get classroomManagement => throw _privateConstructorUsedError; // management
   @JsonKey(name: 'available_access_groups', defaultValue: const <String>[])
@@ -147,10 +147,10 @@ abstract class $UserStateCopyWith<$Res> {
       @JsonKey(name: 'loading', defaultValue: false) bool loading,
       @JsonKey(name: 'phone_numbers') List<String>? phoneNumbers,
       @JsonKey(ignore: true) Exception? authException,
-      @JsonKey(name: 'user_type', defaultValue: UserType.guest) UserType userType,
-      @JsonKey(name: 'class_number', defaultValue: 1) int classNumber,
+      @JsonKey(name: 'user_type') UserType? userType,
+      @JsonKey(name: 'class_number') int? classNumber,
       @JsonKey(name: 'class_letter') String? classLetter,
-      @JsonKey(name: 'class_profile', defaultValue: const <String>[]) List<String> classProfile,
+      @JsonKey(name: 'class_profile') List<String>? classProfile,
       @JsonKey(name: 'classroom_management', defaultValue: false) bool classroomManagement,
       @JsonKey(name: 'available_access_groups', defaultValue: const <String>[]) List<String> availableAccessGroups});
 }
@@ -236,11 +236,11 @@ class _$UserStateCopyWithImpl<$Res> implements $UserStateCopyWith<$Res> {
       userType: userType == freezed
           ? _value.userType
           : userType // ignore: cast_nullable_to_non_nullable
-              as UserType,
+              as UserType?,
       classNumber: classNumber == freezed
           ? _value.classNumber
           : classNumber // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       classLetter: classLetter == freezed
           ? _value.classLetter
           : classLetter // ignore: cast_nullable_to_non_nullable
@@ -248,7 +248,7 @@ class _$UserStateCopyWithImpl<$Res> implements $UserStateCopyWith<$Res> {
       classProfile: classProfile == freezed
           ? _value.classProfile
           : classProfile // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
       classroomManagement: classroomManagement == freezed
           ? _value.classroomManagement
           : classroomManagement // ignore: cast_nullable_to_non_nullable
@@ -278,10 +278,10 @@ abstract class _$UserStateCopyWith<$Res> implements $UserStateCopyWith<$Res> {
       @JsonKey(name: 'loading', defaultValue: false) bool loading,
       @JsonKey(name: 'phone_numbers') List<String>? phoneNumbers,
       @JsonKey(ignore: true) Exception? authException,
-      @JsonKey(name: 'user_type', defaultValue: UserType.guest) UserType userType,
-      @JsonKey(name: 'class_number', defaultValue: 1) int classNumber,
+      @JsonKey(name: 'user_type') UserType? userType,
+      @JsonKey(name: 'class_number') int? classNumber,
       @JsonKey(name: 'class_letter') String? classLetter,
-      @JsonKey(name: 'class_profile', defaultValue: const <String>[]) List<String> classProfile,
+      @JsonKey(name: 'class_profile') List<String>? classProfile,
       @JsonKey(name: 'classroom_management', defaultValue: false) bool classroomManagement,
       @JsonKey(name: 'available_access_groups', defaultValue: const <String>[]) List<String> availableAccessGroups});
 }
@@ -367,11 +367,11 @@ class __$UserStateCopyWithImpl<$Res> extends _$UserStateCopyWithImpl<$Res> imple
       userType: userType == freezed
           ? _value.userType
           : userType // ignore: cast_nullable_to_non_nullable
-              as UserType,
+              as UserType?,
       classNumber: classNumber == freezed
           ? _value.classNumber
           : classNumber // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       classLetter: classLetter == freezed
           ? _value.classLetter
           : classLetter // ignore: cast_nullable_to_non_nullable
@@ -379,7 +379,7 @@ class __$UserStateCopyWithImpl<$Res> extends _$UserStateCopyWithImpl<$Res> imple
       classProfile: classProfile == freezed
           ? _value.classProfile
           : classProfile // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
       classroomManagement: classroomManagement == freezed
           ? _value.classroomManagement
           : classroomManagement // ignore: cast_nullable_to_non_nullable
@@ -420,14 +420,14 @@ class _$_UserState extends _UserState {
           this.phoneNumbers,
       @JsonKey(ignore: true)
           this.authException,
-      @JsonKey(name: 'user_type', defaultValue: UserType.guest)
-          this.userType = UserType.guest,
-      @JsonKey(name: 'class_number', defaultValue: 1)
-          this.classNumber = 1,
+      @JsonKey(name: 'user_type')
+          this.userType,
+      @JsonKey(name: 'class_number')
+          this.classNumber,
       @JsonKey(name: 'class_letter')
           this.classLetter,
-      @JsonKey(name: 'class_profile', defaultValue: const <String>[])
-          this.classProfile = const <String>[],
+      @JsonKey(name: 'class_profile')
+          this.classProfile,
       @JsonKey(name: 'classroom_management', defaultValue: false)
           this.classroomManagement = false,
       @JsonKey(name: 'available_access_groups', defaultValue: const <String>[])
@@ -472,18 +472,18 @@ class _$_UserState extends _UserState {
   @override // common
   @JsonKey(ignore: true)
   final Exception? authException;
-  @override // class additional info
-  @JsonKey(name: 'user_type', defaultValue: UserType.guest)
-  final UserType userType;
+  @override // class additional info (for learners)
+  @JsonKey(name: 'user_type')
+  final UserType? userType;
   @override
-  @JsonKey(name: 'class_number', defaultValue: 1)
-  final int classNumber;
+  @JsonKey(name: 'class_number')
+  final int? classNumber;
   @override
   @JsonKey(name: 'class_letter')
   final String? classLetter;
   @override
-  @JsonKey(name: 'class_profile', defaultValue: const <String>[])
-  final List<String> classProfile;
+  @JsonKey(name: 'class_profile')
+  final List<String>? classProfile;
   @override
   @JsonKey(name: 'classroom_management', defaultValue: false)
   final bool classroomManagement;
@@ -589,14 +589,14 @@ abstract class _UserState extends UserState {
           List<String>? phoneNumbers,
       @JsonKey(ignore: true)
           Exception? authException,
-      @JsonKey(name: 'user_type', defaultValue: UserType.guest)
-          UserType userType,
-      @JsonKey(name: 'class_number', defaultValue: 1)
-          int classNumber,
+      @JsonKey(name: 'user_type')
+          UserType? userType,
+      @JsonKey(name: 'class_number')
+          int? classNumber,
       @JsonKey(name: 'class_letter')
           String? classLetter,
-      @JsonKey(name: 'class_profile', defaultValue: const <String>[])
-          List<String> classProfile,
+      @JsonKey(name: 'class_profile')
+          List<String>? classProfile,
       @JsonKey(name: 'classroom_management', defaultValue: false)
           bool classroomManagement,
       @JsonKey(name: 'available_access_groups', defaultValue: const <String>[])
@@ -641,18 +641,18 @@ abstract class _UserState extends UserState {
   @override // common
   @JsonKey(ignore: true)
   Exception? get authException => throw _privateConstructorUsedError;
-  @override // class additional info
-  @JsonKey(name: 'user_type', defaultValue: UserType.guest)
-  UserType get userType => throw _privateConstructorUsedError;
+  @override // class additional info (for learners)
+  @JsonKey(name: 'user_type')
+  UserType? get userType => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'class_number', defaultValue: 1)
-  int get classNumber => throw _privateConstructorUsedError;
+  @JsonKey(name: 'class_number')
+  int? get classNumber => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'class_letter')
   String? get classLetter => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'class_profile', defaultValue: const <String>[])
-  List<String> get classProfile => throw _privateConstructorUsedError;
+  @JsonKey(name: 'class_profile')
+  List<String>? get classProfile => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'classroom_management', defaultValue: false)
   bool get classroomManagement => throw _privateConstructorUsedError;

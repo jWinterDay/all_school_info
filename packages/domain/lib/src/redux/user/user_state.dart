@@ -25,11 +25,11 @@ class UserState with _$UserState {
     // common
     @JsonKey(ignore: true) Exception? authException,
 
-    // class additional info
-    @JsonKey(name: 'user_type', defaultValue: UserType.guest) @Default(UserType.guest) UserType userType,
-    @JsonKey(name: 'class_number', defaultValue: 1) @Default(1) int classNumber,
+    // class additional info (for learners)
+    @JsonKey(name: 'user_type') UserType? userType,
+    @JsonKey(name: 'class_number') int? classNumber,
     @JsonKey(name: 'class_letter') String? classLetter,
-    @JsonKey(name: 'class_profile', defaultValue: <String>[]) @Default(<String>[]) List<String> classProfile,
+    @JsonKey(name: 'class_profile') List<String>? classProfile,
     @JsonKey(name: 'classroom_management', defaultValue: false) @Default(false) bool classroomManagement,
 
     // management

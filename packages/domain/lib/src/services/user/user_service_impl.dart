@@ -17,4 +17,22 @@ class UserServiceImpl implements UserService {
   Future<void> signOut() {
     throw UnimplementedError();
   }
+
+  @override
+  Future<UserState> createUserWithEmail({
+    required String email,
+    required String password,
+    String? firstName,
+    String? lastName,
+    List<String> accessGroups = const <String>[],
+    List<String> availableAccessGroups = const <String>[],
+    List<String>? phoneNumbers = const <String>[],
+    int? classNumber,
+    String? classLetter,
+    List<String>? classProfile,
+    bool classroomManagement = false,
+  }) {
+    // TODO: implement createUserWithEmail
+    throw UnimplementedError();
+  }
 }

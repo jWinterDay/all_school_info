@@ -11,8 +11,6 @@ class AuthBloc {
   Store<AppState> get _store => getIt.get<AppDomain>().appStore;
 
   Stream<bool> get loggedInStream => _store.onChange.map((AppState appState) => appState.userState.loggedIn).distinct();
-
-  // final StreamController<Exception?> _exceptionController = StreamController<Exception?>();
   Stream<Exception?> get exceptionStream {
     return _store.onChange.map((AppState appState) => appState.userState.authException).distinct();
   }
@@ -27,17 +25,6 @@ class AuthBloc {
         password: password,
       ),
     );
-  }
-
-  void signout() {
-    // if (!_store.state.announcementState.loading) {
-    //   _store.dispatch(
-    //     (Store<AppState> store) => fetchAnnouncementsThunk(
-    //       store: store,
-    //       collectionAddType: CollectionAddType.down,
-    //     ),
-    //   );
-    // }
   }
 
   void dispose() {
