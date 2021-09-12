@@ -1,4 +1,5 @@
 // import 'package:computer/computer.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:domain/domain.dart';
 import 'package:domain/src/redux/user/user_state.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -6,26 +7,52 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'user_service.dart';
 
 class UserServiceMock implements UserService {
+  static const String _collectionName = 'users';
+  CollectionReference<Map<String, dynamic>> get _fbCollection => FirebaseFirestore.instance.collection(_collectionName);
+
   @override
   Future<UserState?> fetchUser() async {
-    // try {
+    // firebase auth
     final User? user = FirebaseAuth.instance.currentUser;
 
     if (user == null) {
       return null;
     }
 
+    // firestore
+    final QuerySnapshot<Map<String, dynamic>> userFullInfo = await _fbCollection
+        .where(
+          'user_id',
+          isEqualTo: user.uid,
+        )
+        .get();
+
+    if (userFullInfo.docs.isEmpty) {
+      throw const AuthUserNotFoundException('No provided additional info about user');
+    }
+    if (userFullInfo.docs.length > 1) {
+      throw const AuthMultiplyRowsException('There are multiply users with the same ids');
+    }
+
+    final QueryDocumentSnapshot<Map<String, dynamic>> dataSnapshot = userFullInfo.docs.first;
+    final UserState addUserState = UserState.fromJson(dataSnapshot.data());
+
     return UserState(
       userId: user.uid,
       email: user.email,
-      accessGroups: <String>[
-        'class_7',
-      ],
-      availableAccessGroups: <String>[
-        'class_1',
-        'class_2',
-        'class_7',
-      ],
+      emailVerified: user.emailVerified,
+      isAnonymous: user.isAnonymous,
+
+      //
+      firstName: addUserState.firstName,
+      lastName: addUserState.lastName,
+      phoneNumbers: addUserState.phoneNumbers,
+      classNumber: addUserState.classNumber,
+      classLetter: addUserState.classLetter,
+      classProfile: addUserState.classProfile,
+      accessGroups: addUserState.accessGroups,
+      availableAccessGroups: addUserState.availableAccessGroups,
+      classroomManagement: addUserState.classroomManagement,
     );
   }
 
@@ -34,13 +61,35 @@ class UserServiceMock implements UserService {
     try {
       final FirebaseAuth instance = FirebaseAuth.instance;
 
+      // firebase auth
       final UserCredential userCredential = await instance.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
 
-      // print('[service] userCredential = ${userCredential}');
+      // firestore
+      if (userCredential.user?.uid == null) {
+        throw const AuthUnexpectedException('Failed to receive user credentials');
+      }
 
+      final QuerySnapshot<Map<String, dynamic>> userFullInfo = await _fbCollection
+          .where(
+            'user_id',
+            isEqualTo: userCredential.user!.uid,
+          )
+          .get();
+
+      if (userFullInfo.docs.isEmpty) {
+        throw const AuthUserNotFoundException('No provided additional info about user');
+      }
+      if (userFullInfo.docs.length > 1) {
+        throw const AuthMultiplyRowsException('There are multiply users with the same ids');
+      }
+
+      final QueryDocumentSnapshot<Map<String, dynamic>> dataSnapshot = userFullInfo.docs.first;
+      final UserState addUserState = UserState.fromJson(dataSnapshot.data());
+
+      // result
       return UserState(
         userId: userCredential.user?.uid,
         email: email,
@@ -48,20 +97,15 @@ class UserServiceMock implements UserService {
         isAnonymous: userCredential.user?.isAnonymous ?? true,
 
         //
-        firstName: 'Vasya',
-        lastName: 'Sidorov',
-        phoneNumbers: <String>['8913131', '84353453'],
-        classNumber: 7,
-        classLetter: 'b',
-        classProfile: <String>['math', 'phys'],
-        accessGroups: <String>[
-          'class_7',
-        ],
-        availableAccessGroups: <String>[
-          'class_1',
-          'class_2',
-          'class_7',
-        ],
+        firstName: addUserState.firstName,
+        lastName: addUserState.lastName,
+        phoneNumbers: addUserState.phoneNumbers,
+        classNumber: addUserState.classNumber,
+        classLetter: addUserState.classLetter,
+        classProfile: addUserState.classProfile,
+        accessGroups: addUserState.accessGroups,
+        availableAccessGroups: addUserState.availableAccessGroups,
+        classroomManagement: addUserState.classroomManagement,
       );
     } on FirebaseAuthException catch (exc) {
       if (exc.code == 'user-not-found') {
@@ -106,10 +150,29 @@ class UserServiceMock implements UserService {
     try {
       final FirebaseAuth instance = FirebaseAuth.instance;
 
+      // firebase auth
       final UserCredential userCredential = await instance.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
+
+      // firestore
+      final UserState addUserData = UserState(
+        userId: userCredential.user?.uid,
+        firstName: firstName,
+        lastName: lastName,
+        accessGroups: accessGroups,
+        availableAccessGroups: availableAccessGroups,
+        phoneNumbers: phoneNumbers,
+        classNumber: classNumber,
+        classLetter: classLetter,
+        classProfile: classProfile,
+        classroomManagement: classroomManagement,
+      );
+      final Map<String, dynamic> fullInfoData = addUserData.toJson();
+
+      // final DocumentReference<Map<String, dynamic>> result =
+      await _fbCollection.add(fullInfoData);
 
       return UserState(
         userId: userCredential.user?.uid,
@@ -128,8 +191,8 @@ class UserServiceMock implements UserService {
       print('------create service exc = $exc');
       if (exc.code == 'weak-password') {
         throw const AuthWeakPasswordException('weak-password');
-      } else if (exc.code == 'email-already-in-use') {
-        throw const AuthEmailAlreadyInUseException('email-already-in-use');
+      } else if (exc.code == 'Password should be at least 6 characters') {
+        throw const AuthEmailAlreadyInUseException('The email address is already in use by another account');
       } else {
         throw const AuthUnknownException('unknown-error');
       }

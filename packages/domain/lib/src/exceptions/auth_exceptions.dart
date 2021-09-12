@@ -44,6 +44,15 @@ class AuthUnexpectedException implements Exception {
   String toString() => 'AuthUnexpectedException: $message';
 }
 
+class AuthMultiplyRowsException implements Exception {
+  const AuthMultiplyRowsException(this.message);
+
+  final String message;
+
+  @override
+  String toString() => 'AuthMultiplyRowsException: $message';
+}
+
 // registration
 class AuthWeakPasswordException implements Exception {
   const AuthWeakPasswordException(this.message);

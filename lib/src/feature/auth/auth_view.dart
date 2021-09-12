@@ -1,18 +1,14 @@
 import 'dart:async';
 
-import 'package:all_school_info/src/feature/announcement/default/default_announcement_view.dart';
 import 'package:all_school_info/src/generated/l10n.dart';
-import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
 import 'package:auto_route/auto_route.dart';
-// import 'package:auto_route/auto_route.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:design/design.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:redux/redux.dart';
 import 'package:overlay_support/overlay_support.dart';
+import 'package:redux/redux.dart';
 
 import 'auth_bloc.dart';
 
@@ -28,8 +24,8 @@ class AuthView extends StatefulWidget {
 class _AuthViewState extends State<AuthView> {
   final AuthBloc _bloc = AuthBloc();
 
-  final TextEditingController _emailController = TextEditingController()..text = 'jwinterday@mail.ru';
-  final TextEditingController _passwordController = TextEditingController()..text = 'SuperPassword';
+  final TextEditingController _emailController = TextEditingController()..text = 'f@t.com';
+  final TextEditingController _passwordController = TextEditingController()..text = 'SuperSecurePassword';
 
   // dialog
   final TransientKey<String> _dialogKey = const TransientKey<String>('transient');
