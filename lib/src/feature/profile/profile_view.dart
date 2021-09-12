@@ -59,7 +59,7 @@ class _ProfileViewState extends State<ProfileView> {
             slivers: <Widget>[
               CupertinoSliverRefreshControl(
                 onRefresh: () async {
-                  print('refr');
+                  print('refr1');
                   // _bloc.refresh();
                 },
               ),
