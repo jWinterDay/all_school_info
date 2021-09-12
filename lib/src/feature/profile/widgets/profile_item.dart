@@ -14,7 +14,7 @@ class ProfileItem extends StatelessWidget {
     return Container(
       height: 44,
       padding: const EdgeInsets.symmetric(horizontal: 8),
-      color: context.palette.gray12,
+      // color: context.palette.gray12,
       child: Row(
         children: <Widget>[
           if (!uiProfileItem.subItem)

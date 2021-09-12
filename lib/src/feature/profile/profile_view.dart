@@ -1,5 +1,6 @@
 import 'package:all_school_info/src/generated/l10n.dart';
 import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
+import 'package:all_school_info/src/ui_utils/ui_utils.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter/cupertino.dart';
@@ -41,72 +42,75 @@ class _ProfileViewState extends State<ProfileView> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        // title
-        Padding(
-          padding: const EdgeInsets.all(8),
-          child: Center(
-            child: Text(
-              AllSchoolInfoIntl.of(context).profileViewTitle,
+    return Container(
+      decoration: UiUtils.homeBgDecoration(context),
+      child: Column(
+        children: <Widget>[
+          // title
+          Padding(
+            padding: const EdgeInsets.all(8),
+            child: Center(
+              child: Text(
+                AllSchoolInfoIntl.of(context).profileViewTitle,
+              ),
             ),
           ),
-        ),
 
-        // content
-        Expanded(
-          child: CustomScrollView(
-            slivers: <Widget>[
-              CupertinoSliverRefreshControl(
-                onRefresh: () async {
-                  print('refr1');
-                  // _bloc.refresh();
-                },
-              ),
-
-              // items
-              const ProfileItemSliverList(),
-
-              // sign in / sign out
-              SliverToBoxAdapter(
-                child: StoreConnector<AppState, bool>(
-                  distinct: true,
-                  converter: (Store<AppState> store) => store.state.userState.loggedIn,
-                  builder: (_, bool loggedIn) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8),
-                      child: loggedIn
-                          ? ElevatedButton(
-                              child: Text(AllSchoolInfoIntl.of(context).signOut),
-                              onPressed: _bloc.signOut,
-                            )
-                          : ElevatedButton(
-                              child: Text(AllSchoolInfoIntl.of(context).signIn),
-                              onPressed: () {
-                                AutoRouter.of(context).push(
-                                  const gr.AuthViewRoute(),
-                                );
-                              },
-                            ),
-                    );
+          // content
+          Expanded(
+            child: CustomScrollView(
+              slivers: <Widget>[
+                CupertinoSliverRefreshControl(
+                  onRefresh: () async {
+                    print('refr1');
+                    // _bloc.refresh();
                   },
                 ),
-              ),
 
-              // create (test mode)
-              SliverToBoxAdapter(
-                child: Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: ElevatedButton(
-                    child: const Text('Create (test mode)'),
-                    onPressed: () => _bloc.createNewUser('f@t.com', 'SuperSecurePassword'),
+                // items
+                const ProfileItemSliverList(),
+
+                // sign in / sign out
+                SliverToBoxAdapter(
+                  child: StoreConnector<AppState, bool>(
+                    distinct: true,
+                    converter: (Store<AppState> store) => store.state.userState.loggedIn,
+                    builder: (_, bool loggedIn) {
+                      return Padding(
+                        padding: const EdgeInsets.all(8),
+                        child: loggedIn
+                            ? ElevatedButton(
+                                child: Text(AllSchoolInfoIntl.of(context).signOut),
+                                onPressed: _bloc.signOut,
+                              )
+                            : ElevatedButton(
+                                child: Text(AllSchoolInfoIntl.of(context).signIn),
+                                onPressed: () {
+                                  AutoRouter.of(context).push(
+                                    const gr.AuthViewRoute(),
+                                  );
+                                },
+                              ),
+                      );
+                    },
                   ),
                 ),
-              ),
-            ],
+
+                // create (test mode)
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: ElevatedButton(
+                      child: const Text('Create (test mode)'),
+                      onPressed: () => _bloc.createNewUser('f@t.com', 'SuperSecurePassword'),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

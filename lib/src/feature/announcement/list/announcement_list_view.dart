@@ -1,5 +1,6 @@
 import 'package:all_school_info/src/feature/announcement/default/default_announcement_view.dart';
 import 'package:all_school_info/src/generated/l10n.dart';
+import 'package:all_school_info/src/ui_utils/ui_utils.dart';
 // import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
 // import 'package:auto_route/auto_route.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -62,125 +63,128 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
 
         // final int unreadLen = uiAnnouncementInfo.unreadAnnouncementList.length;
 
-        return Column(
-          children: <Widget>[
-            // top events
-            if (uiAnnouncementInfo.announcementState.topList.isNotEmpty)
-              CarouselSlider(
-                options: CarouselOptions(
-                  height: 120,
-                  autoPlay: true,
+        return Container(
+          decoration: UiUtils.homeBgDecoration(context),
+          child: Column(
+            children: <Widget>[
+              // top events
+              if (uiAnnouncementInfo.announcementState.topList.isNotEmpty)
+                CarouselSlider(
+                  options: CarouselOptions(
+                    height: 120,
+                    autoPlay: true,
+                  ),
+                  items: uiAnnouncementInfo.topAnnouncementList.map(
+                    (AnnouncementModel topAnnouncement) {
+                      return AnnouncementCard(
+                        announcementModel: topAnnouncement,
+                        topCard: true,
+                      );
+                    },
+                  ).toList(),
                 ),
-                items: uiAnnouncementInfo.topAnnouncementList.map(
-                  (AnnouncementModel topAnnouncement) {
-                    return AnnouncementCard(
-                      announcementModel: topAnnouncement,
-                      topCard: true,
-                    );
-                  },
-                ).toList(),
-              ),
 
-            // there are new messages button
-            // if (uiAnnouncementInfo.unreadAnnouncementList.isNotEmpty)
-            //   GestureDetector(
-            //     onTap: _bloc.clearUnreadAnnouncements,
-            //     child: Padding(
-            //       padding: const EdgeInsets.only(top: 8),
-            //       child: ColoredBox(
-            //         color: context.design.palette.gray12,
-            //         child: Text(
-            //           AllSchoolInfoIntl.of(context).unreadAnnouncements(unreadLen),
-            //         ),
-            //       ),
-            //     ),
-            //   ),
+              // there are new messages button
+              // if (uiAnnouncementInfo.unreadAnnouncementList.isNotEmpty)
+              //   GestureDetector(
+              //     onTap: _bloc.clearUnreadAnnouncements,
+              //     child: Padding(
+              //       padding: const EdgeInsets.only(top: 8),
+              //       child: ColoredBox(
+              //         color: context.design.palette.gray12,
+              //         child: Text(
+              //           AllSchoolInfoIntl.of(context).unreadAnnouncements(unreadLen),
+              //         ),
+              //       ),
+              //     ),
+              //   ),
 
-            // scroll content
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 4, left: 4, right: 4),
-                child: Stack(
-                  children: <Widget>[
-                    // content
-                    NotificationListener<ScrollNotification>(
-                      onNotification: (ScrollNotification scrollInfo) {
-                        // if (_scrollController.offset < 100) {
-                        //   return false;
-                        // }
+              // scroll content
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 4, left: 4, right: 4),
+                  child: Stack(
+                    children: <Widget>[
+                      // content
+                      NotificationListener<ScrollNotification>(
+                        onNotification: (ScrollNotification scrollInfo) {
+                          // if (_scrollController.offset < 100) {
+                          //   return false;
+                          // }
 
-                        // print(_scrollController.offset);
-                        // print('--scrollInfo = ${scrollInfo.metrics} max = ${scrollInfo.metrics.maxScrollExtent}');
-                        // if (scrollInfo is! ScrollStartNotification &&
-                        //     scrollInfo is! UserScrollNotification &&
-                        //     scrollInfo.metrics.pixels == scrollInfo.metrics.maxScrollExtent &&
-                        //     uiAnnouncementInfo.announcementState.list.isNotEmpty) {
-                        //   _bloc.getMore();
-                        // }
+                          // print(_scrollController.offset);
+                          // print('--scrollInfo = ${scrollInfo.metrics} max = ${scrollInfo.metrics.maxScrollExtent}');
+                          // if (scrollInfo is! ScrollStartNotification &&
+                          //     scrollInfo is! UserScrollNotification &&
+                          //     scrollInfo.metrics.pixels == scrollInfo.metrics.maxScrollExtent &&
+                          //     uiAnnouncementInfo.announcementState.list.isNotEmpty) {
+                          //   _bloc.getMore();
+                          // }
 
-                        return false;
-                      },
-                      child: CustomScrollView(
-                        controller: _scrollController,
-                        physics: const AlwaysScrollableScrollPhysics(),
-                        slivers: <Widget>[
-                          CupertinoSliverRefreshControl(
-                            onRefresh: () async {
-                              _bloc.refresh();
-                            },
-                          ),
-
-                          if (uiAnnouncementInfo.announcementState.errorModel != null)
-                            SliverToBoxAdapter(
-                              child: Text(
-                                'Error: ${uiAnnouncementInfo.errorMessage}',
-                              ),
-                            )
-                          // else if (uiAnnouncementInfo.announcementState.firstLoading)
-                          //   SliverFillRemaining(
-                          //     child: Center(
-                          //       child: Text(AllSchoolInfoIntl.of(context).noContentYet),
-                          //     ),
-                          //   )
-                          else if (uiAnnouncementInfo.announcementState.list.isEmpty)
-                            SliverFillRemaining(
-                              child: Center(
-                                child: Text(AllSchoolInfoIntl.of(context).noAnnouncement),
-                              ),
-                            )
-                          else
-                            SliverList(
-                              delegate: SliverChildListDelegate(
-                                uiAnnouncementInfo.announcementState.list.map((AnnouncementModel e) {
-                                  return AnnouncementCard(announcementModel: e);
-                                }).toList(),
-                              ),
+                          return false;
+                        },
+                        child: CustomScrollView(
+                          controller: _scrollController,
+                          physics: const AlwaysScrollableScrollPhysics(),
+                          slivers: <Widget>[
+                            CupertinoSliverRefreshControl(
+                              onRefresh: () async {
+                                _bloc.refresh();
+                              },
                             ),
 
-                          // refresh
-                          if (uiAnnouncementInfo.announcementState.loading)
-                            const SliverToBoxAdapter(
-                              child: CupertinoActivityIndicator(radius: 24),
-                            )
-                          // padding
-                          // SliverPadding(padding: EdgeInsets.only(bottom: _offset))
-                        ],
-                      ),
-                    ),
+                            if (uiAnnouncementInfo.announcementState.errorModel != null)
+                              SliverToBoxAdapter(
+                                child: Text(
+                                  'Error: ${uiAnnouncementInfo.errorMessage}',
+                                ),
+                              )
+                            // else if (uiAnnouncementInfo.announcementState.firstLoading)
+                            //   SliverFillRemaining(
+                            //     child: Center(
+                            //       child: Text(AllSchoolInfoIntl.of(context).noContentYet),
+                            //     ),
+                            //   )
+                            else if (uiAnnouncementInfo.announcementState.list.isEmpty)
+                              SliverFillRemaining(
+                                child: Center(
+                                  child: Text(AllSchoolInfoIntl.of(context).noAnnouncement),
+                                ),
+                              )
+                            else
+                              SliverList(
+                                delegate: SliverChildListDelegate(
+                                  uiAnnouncementInfo.announcementState.list.map((AnnouncementModel e) {
+                                    return AnnouncementCard(announcementModel: e);
+                                  }).toList(),
+                                ),
+                              ),
 
-                    // loading
-                    if ( //uiAnnouncementInfo.announcementState.firstLoading ||
-                    uiAnnouncementInfo.announcementState.loading)
-                      SizedBox(
-                        width: context.width,
-                        height: context.height,
-                        child: const CupertinoActivityIndicator(radius: 42),
+                            // refresh
+                            if (uiAnnouncementInfo.announcementState.loading)
+                              const SliverToBoxAdapter(
+                                child: CupertinoActivityIndicator(radius: 24),
+                              )
+                            // padding
+                            // SliverPadding(padding: EdgeInsets.only(bottom: _offset))
+                          ],
+                        ),
                       ),
-                  ],
+
+                      // loading
+                      if ( //uiAnnouncementInfo.announcementState.firstLoading ||
+                      uiAnnouncementInfo.announcementState.loading)
+                        SizedBox(
+                          width: context.width,
+                          height: context.height,
+                          child: const CupertinoActivityIndicator(radius: 42),
+                        ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         );
       },
     );

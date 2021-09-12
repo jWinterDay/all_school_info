@@ -1,5 +1,6 @@
 import 'package:all_school_info/src/generated/l10n.dart';
 import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
+import 'package:all_school_info/src/ui_utils/ui_utils.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:design/design.dart';
 import 'package:domain/domain.dart';
@@ -40,10 +41,7 @@ class AnnouncementCard extends StatelessWidget {
         },
         child: Container(
           constraints: const BoxConstraints(minHeight: kMinHeight, maxHeight: 200),
-          decoration: BoxDecoration(
-            color: topCard ? context.palette.gray40 : context.palette.gray22,
-            borderRadius: const BorderRadius.all(Radius.circular(8)),
-          ),
+          decoration: UiUtils.announcementCardBgDecoration(context),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[

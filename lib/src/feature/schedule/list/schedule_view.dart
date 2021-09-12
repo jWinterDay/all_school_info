@@ -1,5 +1,6 @@
 import 'package:all_school_info/src/generated/l10n.dart';
 import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
+import 'package:all_school_info/src/ui_utils/ui_utils.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:design/design.dart';
 import 'package:domain/domain.dart';
@@ -93,23 +94,26 @@ class _ScheduleViewState extends State<ScheduleView> {
       distinct: true,
       converter: (Store<AppState> store) => store.state.scheduleState,
       builder: (_, ScheduleState scheduleState) {
-        return CustomScrollView(
-          physics: const ClampingScrollPhysics(),
-          slivers: <Widget>[
-            // content
-            SliverList(
-              delegate: SliverChildListDelegate(
-                _itemList(scheduleState).map((UiScheduleItem uiScheduleItem) {
-                  return ScheduleItem(
-                    uiScheduleItem: uiScheduleItem,
-                  );
-                }).toList(),
+        return Container(
+          decoration: UiUtils.homeBgDecoration(context),
+          child: CustomScrollView(
+            physics: const ClampingScrollPhysics(),
+            slivers: <Widget>[
+              // content
+              SliverList(
+                delegate: SliverChildListDelegate(
+                  _itemList(scheduleState).map((UiScheduleItem uiScheduleItem) {
+                    return ScheduleItem(
+                      uiScheduleItem: uiScheduleItem,
+                    );
+                  }).toList(),
+                ),
               ),
-            ),
 
-            // padding
-            const SliverPadding(padding: EdgeInsets.only(bottom: 120)),
-          ],
+              // padding
+              const SliverPadding(padding: EdgeInsets.only(bottom: 120)),
+            ],
+          ),
         );
       },
     );
