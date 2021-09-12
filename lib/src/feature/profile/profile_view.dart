@@ -99,7 +99,7 @@ class _ProfileViewState extends State<ProfileView> {
                   padding: const EdgeInsets.all(8),
                   child: ElevatedButton(
                     child: const Text('Create (test mode)'),
-                    onPressed: () => _bloc.createNewUser('f@t.com', 'f'), //SuperSecurePassword'),
+                    onPressed: () => _bloc.createNewUser('f@t.com', 'SuperSecurePassword'),
                   ),
                 ),
               ),
