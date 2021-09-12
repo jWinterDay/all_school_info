@@ -49,6 +49,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "invalidEmailExc":
             MessageLookupByLibrary.simpleMessage("Неверный формат email"),
         "mainTitle": MessageLookupByLibrary.simpleMessage("Школа 67"),
+        "makeSureWannaQuit": MessageLookupByLibrary.simpleMessage(
+            "Вы уверены, что хотите выйти?"),
         "modifyAnnouncement":
             MessageLookupByLibrary.simpleMessage("Редактировать объявление"),
         "no": MessageLookupByLibrary.simpleMessage("Нет"),

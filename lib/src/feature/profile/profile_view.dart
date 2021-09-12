@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:overlay_support/overlay_support.dart' as os;
 import 'package:redux/redux.dart';
+import 'package:design/design.dart';
 
 import 'models/ui_profile_item.dart';
 import 'profile_bloc.dart';
@@ -81,7 +82,38 @@ class _ProfileViewState extends State<ProfileView> {
                         child: loggedIn
                             ? ElevatedButton(
                                 child: Text(AllSchoolInfoIntl.of(context).signOut),
-                                onPressed: _bloc.signOut,
+                                onPressed: () async {
+                                  final bool? result = await showDialog<bool>(
+                                    context: context,
+                                    builder: (_) {
+                                      return AlertDialog(
+                                        content: Text(AllSchoolInfoIntl.of(context).makeSureWannaQuit),
+                                        actions: <Widget>[
+                                          ElevatedButton(
+                                            child: Text(AllSchoolInfoIntl.of(context).yes),
+                                            style: ElevatedButton.styleFrom(
+                                              primary: context.design.palette.gray12,
+                                              onPrimary: Colors.black,
+                                            ),
+                                            onPressed: () {
+                                              Navigator.of(context).pop(true);
+                                            },
+                                          ),
+                                          ElevatedButton(
+                                            child: Text(AllSchoolInfoIntl.of(context).no),
+                                            onPressed: () {
+                                              Navigator.of(context).pop(false);
+                                            },
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+
+                                  if (result == true) {
+                                    _bloc.signOut();
+                                  }
+                                },
                               )
                             : ElevatedButton(
                                 child: Text(AllSchoolInfoIntl.of(context).signIn),

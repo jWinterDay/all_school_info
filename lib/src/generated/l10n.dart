@@ -100,6 +100,16 @@ class AllSchoolInfoIntl {
     );
   }
 
+  /// `Вы уверены, что хотите выйти?`
+  String get makeSureWannaQuit {
+    return Intl.message(
+      'Вы уверены, что хотите выйти?',
+      name: 'makeSureWannaQuit',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Да`
   String get yes {
     return Intl.message(
