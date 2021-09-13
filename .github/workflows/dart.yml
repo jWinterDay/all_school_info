@@ -18,13 +18,13 @@ jobs:
 
       - uses: subosito/flutter-action@v1
         with:
-          flutter-version: '2.0.5'
+          flutter-version: '2.5.0'
 
       - name: Install dependencies
-        run: flutter upgrade && flutter pub get
+        run: flutter pub get #flutter upgrade && 
 
       - name: Verify formatting
-        run: dart format -l 120 --output=none --set-exit-if-changed .
+        run: flutter format -l 120 lib --set-exit-if-changed .
 
       # - name: Analyze project source
       #   run: dart analyze
