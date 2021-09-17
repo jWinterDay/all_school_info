@@ -12,18 +12,18 @@
             "preLaunchTask": "prepare_debug",
         },
         {
-            "name": "Mock debug test fb services",
-            "request": "launch",
-            "type": "dart",
-            "program": "lib/main_mock.dart",
-            "preLaunchTask": "prepare_test_fb_services",
-        },
-        {
             "name": "Mock debug",
             "request": "launch",
             "type": "dart",
             "program": "lib/main_mock.dart",
             "preLaunchTask": "prepare_mock",
+        },
+        {
+            "name": "Mock debug production services",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main_mock.dart",
+            "preLaunchTask": "prepare_production_services",
         },
     ]
 }

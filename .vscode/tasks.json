@@ -15,9 +15,9 @@
       "command": "bash scripts/app.sh mock"
     },
     {
-      "label": "prepare_test_fb_services",
+      "label": "prepare_production_services",
       "type": "shell",
-      "command": "bash scripts/app.sh test_fb_services"
+      "command": "bash scripts/app.sh production_services"
     },
   ]
 }
