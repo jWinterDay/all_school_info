@@ -3,7 +3,6 @@ import 'package:domain/src/redux/app/app_state.dart';
 import 'package:domain/src/redux/user/user_action.dart';
 import 'package:domain/src/redux/user/user_state.dart';
 import 'package:domain/src/services/user/user_service.dart';
-import 'package:firebase_core_platform_interface/firebase_core_platform_interface.dart';
 import 'package:redux/redux.dart';
 import 'package:utils/logger.dart';
 
@@ -58,14 +57,7 @@ void fetchUserThunk(Store<AppState> store) async {
   } catch (exc, stackTrace) {
     logger.e('exc $exc', exc.runtimeType, stackTrace);
 
-    // TODO remove to service
-    if (exc is FirebaseException) {
-      // permission-denied
-      // The caller does not have permission to execute the specified operation.
-      print('code = ${exc.code} mess = ${exc.message}');
-    }
-
-    // store.dispatch(UserAction.authException(AuthUnexpectedException(exc.toString())));
+    store.dispatch(UserAction.authException(AuthUnexpectedException(exc.toString())));
   } finally {
     store.dispatch(const UserAction.changeLoading(value: false));
   }
