@@ -1,5 +1,7 @@
 // import 'dart:developer';
 
+import 'dart:developer';
+
 import 'package:domain/src/init_domain_di.dart';
 import 'package:domain/src/models/error_model.dart';
 import 'package:domain/src/redux/announcement/announcement_action.dart';
@@ -38,10 +40,13 @@ void fetchAnnouncementsThunk({
       limit: limit,
       dateUnixMsThreshold: dateUnixMsThreshold,
     );
-    store.dispatch(AnnouncementAction.addAnnouncementList(
-      value: list,
-      collectionAddType: collectionAddType,
-    ));
+
+    store.dispatch(
+      AnnouncementAction.addAnnouncementList(
+        value: list,
+        collectionAddType: collectionAddType,
+      ),
+    );
 
     // change date threshold
     if (list.isNotEmpty) {
@@ -49,7 +54,7 @@ void fetchAnnouncementsThunk({
       store.dispatch(AnnouncementAction.changeDateUnixMsThreshold(value: lastDateTime));
     }
   } catch (exc, stackTrace) {
-    // log(exc.toString());
+    log(exc.toString());
     logger.e('exc: $exc', exc.runtimeType, stackTrace);
 
     store.dispatch(

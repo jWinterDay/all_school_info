@@ -32,6 +32,7 @@ function creating_links {
 
     # production_services
     if [[ "$APP_TYPE" == "production_services" ]]; then
+        printf "${RED_COLOR}PRODUCTION FB SERVICES${NO_COLOR}\n"
         # folder under with production google service settings
         cd ../env/all_school_info/
         ENV_PATH=$(pwd)
