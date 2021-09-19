@@ -27,55 +27,36 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "addAnnouncement":
-            MessageLookupByLibrary.simpleMessage("Создать объявление"),
-        "announcementEditContent":
-            MessageLookupByLibrary.simpleMessage("Содержимое"),
-        "announcementEditGroups":
-            MessageLookupByLibrary.simpleMessage("Группы для рассылки"),
-        "announcementEditTitle":
-            MessageLookupByLibrary.simpleMessage("Заголовок"),
-        "announcementViewTitle":
-            MessageLookupByLibrary.simpleMessage("Объявление"),
-        "announcementsTabTitle":
-            MessageLookupByLibrary.simpleMessage("Объявления"),
+        "addAnnouncement": MessageLookupByLibrary.simpleMessage("Создать объявление"),
+        "announcementEditContent": MessageLookupByLibrary.simpleMessage("Содержимое"),
+        "announcementEditGroups": MessageLookupByLibrary.simpleMessage("Группы для рассылки"),
+        "announcementEditTitle": MessageLookupByLibrary.simpleMessage("Заголовок"),
+        "announcementViewTitle": MessageLookupByLibrary.simpleMessage("Объявление"),
+        "announcementsTabTitle": MessageLookupByLibrary.simpleMessage("Объявления"),
         "authTitle": MessageLookupByLibrary.simpleMessage("Авторизация"),
         "classFullStr": m0,
         "classFullStrWithLetter": m1,
         "classProfile": MessageLookupByLibrary.simpleMessage("Профиль класса"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
-        "emptySchedule":
-            MessageLookupByLibrary.simpleMessage("Нет расписания в этот день"),
-        "invalidEmailExc":
-            MessageLookupByLibrary.simpleMessage("Неверный формат email"),
+        "emptySchedule": MessageLookupByLibrary.simpleMessage("Нет расписания в этот день"),
+        "invalidEmailExc": MessageLookupByLibrary.simpleMessage("Неверный формат email"),
         "mainTitle": MessageLookupByLibrary.simpleMessage("Школа 67"),
-        "makeSureWannaQuit": MessageLookupByLibrary.simpleMessage(
-            "Вы уверены, что хотите выйти?"),
-        "modifyAnnouncement":
-            MessageLookupByLibrary.simpleMessage("Редактировать объявление"),
+        "makeSureWannaQuit": MessageLookupByLibrary.simpleMessage("Вы уверены, что хотите выйти?"),
+        "modifyAnnouncement": MessageLookupByLibrary.simpleMessage("Редактировать объявление"),
         "no": MessageLookupByLibrary.simpleMessage("Нет"),
-        "noAnnouncement":
-            MessageLookupByLibrary.simpleMessage("Нет объявлений"),
-        "noContentYet":
-            MessageLookupByLibrary.simpleMessage("Еще ничего не загружено"),
+        "noAnnouncement": MessageLookupByLibrary.simpleMessage("Нет объявлений"),
+        "noContentYet": MessageLookupByLibrary.simpleMessage("Еще ничего не загружено"),
         "notLoggedIn": MessageLookupByLibrary.simpleMessage("Залогиниться"),
         "password": MessageLookupByLibrary.simpleMessage("Пароль"),
         "profileTabTitle": MessageLookupByLibrary.simpleMessage("Профиль"),
-        "profileViewTitle":
-            MessageLookupByLibrary.simpleMessage("Профиль пользователя"),
-        "publishAnnouncement":
-            MessageLookupByLibrary.simpleMessage("Опубликовать"),
-        "removeAnnouncement":
-            MessageLookupByLibrary.simpleMessage("Удалить объявление"),
+        "profileViewTitle": MessageLookupByLibrary.simpleMessage("Профиль пользователя"),
+        "publishAnnouncement": MessageLookupByLibrary.simpleMessage("Опубликовать"),
+        "removeAnnouncement": MessageLookupByLibrary.simpleMessage("Удалить объявление"),
         "save": MessageLookupByLibrary.simpleMessage("Сохранить"),
-        "saveFields":
-            MessageLookupByLibrary.simpleMessage("Сохранить изменения?"),
-        "saveTemplate":
-            MessageLookupByLibrary.simpleMessage("Сохранить шаблон?"),
-        "scheduleHomework":
-            MessageLookupByLibrary.simpleMessage("Домашнее задание"),
-        "scheduleLastNotifications":
-            MessageLookupByLibrary.simpleMessage("Последние уведомления"),
+        "saveFields": MessageLookupByLibrary.simpleMessage("Сохранить изменения?"),
+        "saveTemplate": MessageLookupByLibrary.simpleMessage("Сохранить шаблон?"),
+        "scheduleHomework": MessageLookupByLibrary.simpleMessage("Домашнее задание"),
+        "scheduleLastNotifications": MessageLookupByLibrary.simpleMessage("Последние уведомления"),
         "scheduleNews": MessageLookupByLibrary.simpleMessage("Новости"),
         "scheduleRatings": MessageLookupByLibrary.simpleMessage("Оценки"),
         "scheduleViewTitle": MessageLookupByLibrary.simpleMessage("Расписание"),
@@ -83,15 +64,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "signOut": MessageLookupByLibrary.simpleMessage("Выйти"),
         "top": MessageLookupByLibrary.simpleMessage("Топ"),
         "unknownAnnouncementContent": MessageLookupByLibrary.simpleMessage("-"),
-        "unknownAnnouncementTitle":
-            MessageLookupByLibrary.simpleMessage("Объявление не существует"),
-        "unknownException":
-            MessageLookupByLibrary.simpleMessage("Неизвестная ошибка"),
+        "unknownAnnouncementTitle": MessageLookupByLibrary.simpleMessage("Объявление не существует"),
+        "unknownException": MessageLookupByLibrary.simpleMessage("Неизвестная ошибка"),
         "unreadAnnouncements": m2,
-        "userNotFoundExc":
-            MessageLookupByLibrary.simpleMessage("Пользователь не найден"),
-        "wrongPasswordExc":
-            MessageLookupByLibrary.simpleMessage("Неверный пароль"),
+        "userNotFoundExc": MessageLookupByLibrary.simpleMessage("Пользователь не найден"),
+        "wrongPasswordExc": MessageLookupByLibrary.simpleMessage("Неверный пароль"),
         "yes": MessageLookupByLibrary.simpleMessage("Да"),
         "youAreNotLoggedIn": MessageLookupByLibrary.simpleMessage(
             "Вы не зарегистрированы в системе. Войдите в систему для использования всех возможностей")

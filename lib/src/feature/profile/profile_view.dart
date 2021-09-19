@@ -2,15 +2,14 @@ import 'package:all_school_info/src/generated/l10n.dart';
 import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
 import 'package:all_school_info/src/ui_utils/ui_utils.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:design/design.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:overlay_support/overlay_support.dart' as os;
 import 'package:redux/redux.dart';
-import 'package:design/design.dart';
 
-import 'models/ui_profile_item.dart';
 import 'profile_bloc.dart';
 import 'widgets/profile_item_sliver_list.dart';
 

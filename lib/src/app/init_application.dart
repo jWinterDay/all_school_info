@@ -4,8 +4,10 @@ import 'package:computer/computer.dart';
 import 'package:design/design.dart';
 import 'package:domain/domain.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
+import 'package:flutter/foundation.dart';
 import 'package:utils/logger.dart';
 
 Future<Palette> initPalette() async {
@@ -29,9 +31,19 @@ Future<void> initApp({bool useMock = false}) async {
     ..init()
     ..appStore.dispatch(SettingsAction.changeTestMode(value: useMock));
 
+  // firebase
+  await Firebase.initializeApp();
   await _setupRemoteConfig();
   await _pushNotifications();
   await _cloudStorage();
+  await _setupCrashlitics();
+}
+
+/// `crashlitics`
+Future<void> _setupCrashlitics() async {
+  FlutterError.onError = (FlutterErrorDetails details) async {
+    await FirebaseCrashlytics.instance.recordFlutterError(details);
+  };
 }
 
 /// `di`
@@ -48,7 +60,6 @@ Future<void> _initAppDI() async {
 
 /// `firebase remote config`
 Future<void> _setupRemoteConfig() async {
-  await Firebase.initializeApp();
   final RemoteConfig remoteConfig = RemoteConfig.instance;
 
   await remoteConfig.setConfigSettings(
@@ -120,12 +131,10 @@ Future<void> _pushNotifications() async {
 }
 
 Future<dynamic> _backgroundMessageHandler(RemoteMessage remoteMessage) async {
-  await Firebase.initializeApp();
-
   print('------- backgroundMessageHandler ${remoteMessage.data}');
 }
 
 /// `cloud storage`
 Future<void> _cloudStorage() async {
-  await Firebase.initializeApp();
+  //
 }

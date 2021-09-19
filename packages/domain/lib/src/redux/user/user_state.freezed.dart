@@ -37,7 +37,7 @@ class _$UserStateTearOff {
           bool isAnonymous = false,
       @JsonKey(name: 'token')
           String? token,
-      @JsonKey(name: 'access_groups', defaultValue: const <String>[])
+      @JsonKey(name: 'access_groups', defaultValue: <String>[])
           List<String> accessGroups = const <String>[],
       @JsonKey(name: 'loading', defaultValue: false)
           bool loading = false,
@@ -55,7 +55,7 @@ class _$UserStateTearOff {
           List<String>? classProfile,
       @JsonKey(name: 'classroom_management', defaultValue: false)
           bool classroomManagement = false,
-      @JsonKey(name: 'available_access_groups', defaultValue: const <String>[])
+      @JsonKey(name: 'available_access_groups', defaultValue: <String>[])
           List<String> availableAccessGroups = const <String>[]}) {
     return _UserState(
       loggedIn: loggedIn,
@@ -105,7 +105,7 @@ mixin _$UserState {
   bool get isAnonymous => throw _privateConstructorUsedError;
   @JsonKey(name: 'token')
   String? get token => throw _privateConstructorUsedError; // token for push notifications
-  @JsonKey(name: 'access_groups', defaultValue: const <String>[])
+  @JsonKey(name: 'access_groups', defaultValue: <String>[])
   List<String> get accessGroups => throw _privateConstructorUsedError; // own
   @JsonKey(name: 'loading', defaultValue: false)
   bool get loading => throw _privateConstructorUsedError;
@@ -123,7 +123,7 @@ mixin _$UserState {
   List<String>? get classProfile => throw _privateConstructorUsedError;
   @JsonKey(name: 'classroom_management', defaultValue: false)
   bool get classroomManagement => throw _privateConstructorUsedError; // management
-  @JsonKey(name: 'available_access_groups', defaultValue: const <String>[])
+  @JsonKey(name: 'available_access_groups', defaultValue: <String>[])
   List<String> get availableAccessGroups => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -143,7 +143,7 @@ abstract class $UserStateCopyWith<$Res> {
       @JsonKey(name: 'email_verified', defaultValue: false) bool emailVerified,
       @JsonKey(name: 'is_anonymous', defaultValue: false) bool isAnonymous,
       @JsonKey(name: 'token') String? token,
-      @JsonKey(name: 'access_groups', defaultValue: const <String>[]) List<String> accessGroups,
+      @JsonKey(name: 'access_groups', defaultValue: <String>[]) List<String> accessGroups,
       @JsonKey(name: 'loading', defaultValue: false) bool loading,
       @JsonKey(name: 'phone_numbers') List<String>? phoneNumbers,
       @JsonKey(ignore: true) Exception? authException,
@@ -152,7 +152,7 @@ abstract class $UserStateCopyWith<$Res> {
       @JsonKey(name: 'class_letter') String? classLetter,
       @JsonKey(name: 'class_profile') List<String>? classProfile,
       @JsonKey(name: 'classroom_management', defaultValue: false) bool classroomManagement,
-      @JsonKey(name: 'available_access_groups', defaultValue: const <String>[]) List<String> availableAccessGroups});
+      @JsonKey(name: 'available_access_groups', defaultValue: <String>[]) List<String> availableAccessGroups});
 }
 
 /// @nodoc
@@ -274,7 +274,7 @@ abstract class _$UserStateCopyWith<$Res> implements $UserStateCopyWith<$Res> {
       @JsonKey(name: 'email_verified', defaultValue: false) bool emailVerified,
       @JsonKey(name: 'is_anonymous', defaultValue: false) bool isAnonymous,
       @JsonKey(name: 'token') String? token,
-      @JsonKey(name: 'access_groups', defaultValue: const <String>[]) List<String> accessGroups,
+      @JsonKey(name: 'access_groups', defaultValue: <String>[]) List<String> accessGroups,
       @JsonKey(name: 'loading', defaultValue: false) bool loading,
       @JsonKey(name: 'phone_numbers') List<String>? phoneNumbers,
       @JsonKey(ignore: true) Exception? authException,
@@ -283,7 +283,7 @@ abstract class _$UserStateCopyWith<$Res> implements $UserStateCopyWith<$Res> {
       @JsonKey(name: 'class_letter') String? classLetter,
       @JsonKey(name: 'class_profile') List<String>? classProfile,
       @JsonKey(name: 'classroom_management', defaultValue: false) bool classroomManagement,
-      @JsonKey(name: 'available_access_groups', defaultValue: const <String>[]) List<String> availableAccessGroups});
+      @JsonKey(name: 'available_access_groups', defaultValue: <String>[]) List<String> availableAccessGroups});
 }
 
 /// @nodoc
@@ -412,7 +412,7 @@ class _$_UserState extends _UserState {
           this.isAnonymous = false,
       @JsonKey(name: 'token')
           this.token,
-      @JsonKey(name: 'access_groups', defaultValue: const <String>[])
+      @JsonKey(name: 'access_groups', defaultValue: <String>[])
           this.accessGroups = const <String>[],
       @JsonKey(name: 'loading', defaultValue: false)
           this.loading = false,
@@ -430,7 +430,7 @@ class _$_UserState extends _UserState {
           this.classProfile,
       @JsonKey(name: 'classroom_management', defaultValue: false)
           this.classroomManagement = false,
-      @JsonKey(name: 'available_access_groups', defaultValue: const <String>[])
+      @JsonKey(name: 'available_access_groups', defaultValue: <String>[])
           this.availableAccessGroups = const <String>[]})
       : super._();
 
@@ -461,7 +461,7 @@ class _$_UserState extends _UserState {
   @JsonKey(name: 'token')
   final String? token;
   @override // token for push notifications
-  @JsonKey(name: 'access_groups', defaultValue: const <String>[])
+  @JsonKey(name: 'access_groups', defaultValue: <String>[])
   final List<String> accessGroups;
   @override // own
   @JsonKey(name: 'loading', defaultValue: false)
@@ -488,7 +488,7 @@ class _$_UserState extends _UserState {
   @JsonKey(name: 'classroom_management', defaultValue: false)
   final bool classroomManagement;
   @override // management
-  @JsonKey(name: 'available_access_groups', defaultValue: const <String>[])
+  @JsonKey(name: 'available_access_groups', defaultValue: <String>[])
   final List<String> availableAccessGroups;
 
   @override
@@ -565,42 +565,25 @@ class _$_UserState extends _UserState {
 
 abstract class _UserState extends UserState {
   const factory _UserState(
-      {@JsonKey(name: 'logged_in', defaultValue: false)
-          bool loggedIn,
-      @JsonKey(name: 'user_id')
-          String? userId,
-      @JsonKey(name: 'first_name')
-          String? firstName,
-      @JsonKey(name: 'last_name')
-          String? lastName,
-      @JsonKey(name: 'email')
-          String? email,
-      @JsonKey(name: 'email_verified', defaultValue: false)
-          bool emailVerified,
-      @JsonKey(name: 'is_anonymous', defaultValue: false)
-          bool isAnonymous,
-      @JsonKey(name: 'token')
-          String? token,
-      @JsonKey(name: 'access_groups', defaultValue: const <String>[])
-          List<String> accessGroups,
-      @JsonKey(name: 'loading', defaultValue: false)
-          bool loading,
-      @JsonKey(name: 'phone_numbers')
-          List<String>? phoneNumbers,
-      @JsonKey(ignore: true)
-          Exception? authException,
-      @JsonKey(name: 'user_type')
-          UserType? userType,
-      @JsonKey(name: 'class_number')
-          int? classNumber,
-      @JsonKey(name: 'class_letter')
-          String? classLetter,
-      @JsonKey(name: 'class_profile')
-          List<String>? classProfile,
-      @JsonKey(name: 'classroom_management', defaultValue: false)
-          bool classroomManagement,
-      @JsonKey(name: 'available_access_groups', defaultValue: const <String>[])
-          List<String> availableAccessGroups}) = _$_UserState;
+          {@JsonKey(name: 'logged_in', defaultValue: false) bool loggedIn,
+          @JsonKey(name: 'user_id') String? userId,
+          @JsonKey(name: 'first_name') String? firstName,
+          @JsonKey(name: 'last_name') String? lastName,
+          @JsonKey(name: 'email') String? email,
+          @JsonKey(name: 'email_verified', defaultValue: false) bool emailVerified,
+          @JsonKey(name: 'is_anonymous', defaultValue: false) bool isAnonymous,
+          @JsonKey(name: 'token') String? token,
+          @JsonKey(name: 'access_groups', defaultValue: <String>[]) List<String> accessGroups,
+          @JsonKey(name: 'loading', defaultValue: false) bool loading,
+          @JsonKey(name: 'phone_numbers') List<String>? phoneNumbers,
+          @JsonKey(ignore: true) Exception? authException,
+          @JsonKey(name: 'user_type') UserType? userType,
+          @JsonKey(name: 'class_number') int? classNumber,
+          @JsonKey(name: 'class_letter') String? classLetter,
+          @JsonKey(name: 'class_profile') List<String>? classProfile,
+          @JsonKey(name: 'classroom_management', defaultValue: false) bool classroomManagement,
+          @JsonKey(name: 'available_access_groups', defaultValue: <String>[]) List<String> availableAccessGroups}) =
+      _$_UserState;
   const _UserState._() : super._();
 
   factory _UserState.fromJson(Map<String, dynamic> json) = _$_UserState.fromJson;
@@ -630,7 +613,7 @@ abstract class _UserState extends UserState {
   @JsonKey(name: 'token')
   String? get token => throw _privateConstructorUsedError;
   @override // token for push notifications
-  @JsonKey(name: 'access_groups', defaultValue: const <String>[])
+  @JsonKey(name: 'access_groups', defaultValue: <String>[])
   List<String> get accessGroups => throw _privateConstructorUsedError;
   @override // own
   @JsonKey(name: 'loading', defaultValue: false)
@@ -657,7 +640,7 @@ abstract class _UserState extends UserState {
   @JsonKey(name: 'classroom_management', defaultValue: false)
   bool get classroomManagement => throw _privateConstructorUsedError;
   @override // management
-  @JsonKey(name: 'available_access_groups', defaultValue: const <String>[])
+  @JsonKey(name: 'available_access_groups', defaultValue: <String>[])
   List<String> get availableAccessGroups => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

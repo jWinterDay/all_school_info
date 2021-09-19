@@ -148,7 +148,9 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
                             else if (uiAnnouncementInfo.announcementState.list.isEmpty)
                               SliverFillRemaining(
                                 child: Center(
-                                  child: Text(AllSchoolInfoIntl.of(context).noAnnouncement),
+                                  child: Text(
+                                    AllSchoolInfoIntl.of(context).noAnnouncement,
+                                  ),
                                 ),
                               )
                             else

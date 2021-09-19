@@ -33,15 +33,15 @@ class _$AnnouncementStateTearOff {
           int limit = 15,
       @JsonKey(name: 'date_unix_ms_threshold')
           int? dateUnixMsThreshold,
-      @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[])
+      @JsonKey(name: 'list', defaultValue: <AnnouncementModel>[])
           List<AnnouncementModel> list = const <AnnouncementModel>[],
-      @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
+      @JsonKey(name: 'top_list', defaultValue: <AnnouncementModel>[])
           List<AnnouncementModel> topList = const <AnnouncementModel>[],
       @JsonKey(name: 'draft_new_title')
           String? draftNewTitle,
       @JsonKey(name: 'draft_new_content')
           String? draftNewContent,
-      @JsonKey(name: 'draft_new_groups', defaultValue: const <String>{})
+      @JsonKey(name: 'draft_new_groups', defaultValue: <String>{})
           Set<String> draftNewGroups = const <String>{},
       @JsonKey(name: 'draft_publish_to_top', defaultValue: false)
           bool draftPublishToTop = false,
@@ -89,9 +89,9 @@ mixin _$AnnouncementState {
   int get limit => throw _privateConstructorUsedError;
   @JsonKey(name: 'date_unix_ms_threshold')
   int? get dateUnixMsThreshold => throw _privateConstructorUsedError;
-  @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[])
+  @JsonKey(name: 'list', defaultValue: <AnnouncementModel>[])
   List<AnnouncementModel> get list => throw _privateConstructorUsedError;
-  @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
+  @JsonKey(name: 'top_list', defaultValue: <AnnouncementModel>[])
   List<AnnouncementModel> get topList => throw _privateConstructorUsedError;
 
   /// `create new announement. save draft of it`
@@ -99,7 +99,7 @@ mixin _$AnnouncementState {
   String? get draftNewTitle => throw _privateConstructorUsedError;
   @JsonKey(name: 'draft_new_content')
   String? get draftNewContent => throw _privateConstructorUsedError;
-  @JsonKey(name: 'draft_new_groups', defaultValue: const <String>{})
+  @JsonKey(name: 'draft_new_groups', defaultValue: <String>{})
   Set<String> get draftNewGroups => throw _privateConstructorUsedError;
   @JsonKey(name: 'draft_publish_to_top', defaultValue: false)
   bool get draftPublishToTop => throw _privateConstructorUsedError;
@@ -124,11 +124,11 @@ abstract class $AnnouncementStateCopyWith<$Res> {
       @JsonKey(name: 'error_model') ErrorModel? errorModel,
       @JsonKey(name: 'limit', defaultValue: 15) int limit,
       @JsonKey(name: 'date_unix_ms_threshold') int? dateUnixMsThreshold,
-      @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> list,
-      @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> topList,
+      @JsonKey(name: 'list', defaultValue: <AnnouncementModel>[]) List<AnnouncementModel> list,
+      @JsonKey(name: 'top_list', defaultValue: <AnnouncementModel>[]) List<AnnouncementModel> topList,
       @JsonKey(name: 'draft_new_title') String? draftNewTitle,
       @JsonKey(name: 'draft_new_content') String? draftNewContent,
-      @JsonKey(name: 'draft_new_groups', defaultValue: const <String>{}) Set<String> draftNewGroups,
+      @JsonKey(name: 'draft_new_groups', defaultValue: <String>{}) Set<String> draftNewGroups,
       @JsonKey(name: 'draft_publish_to_top', defaultValue: false) bool draftPublishToTop,
       @JsonKey(name: 'publish_loading', defaultValue: false) bool publishLoading});
 
@@ -239,11 +239,11 @@ abstract class _$AnnouncementStateCopyWith<$Res> implements $AnnouncementStateCo
       @JsonKey(name: 'error_model') ErrorModel? errorModel,
       @JsonKey(name: 'limit', defaultValue: 15) int limit,
       @JsonKey(name: 'date_unix_ms_threshold') int? dateUnixMsThreshold,
-      @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> list,
-      @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> topList,
+      @JsonKey(name: 'list', defaultValue: <AnnouncementModel>[]) List<AnnouncementModel> list,
+      @JsonKey(name: 'top_list', defaultValue: <AnnouncementModel>[]) List<AnnouncementModel> topList,
       @JsonKey(name: 'draft_new_title') String? draftNewTitle,
       @JsonKey(name: 'draft_new_content') String? draftNewContent,
-      @JsonKey(name: 'draft_new_groups', defaultValue: const <String>{}) Set<String> draftNewGroups,
+      @JsonKey(name: 'draft_new_groups', defaultValue: <String>{}) Set<String> draftNewGroups,
       @JsonKey(name: 'draft_publish_to_top', defaultValue: false) bool draftPublishToTop,
       @JsonKey(name: 'publish_loading', defaultValue: false) bool publishLoading});
 
@@ -343,11 +343,11 @@ class _$_AnnouncementState extends _AnnouncementState {
       @JsonKey(name: 'error_model') this.errorModel,
       @JsonKey(name: 'limit', defaultValue: 15) this.limit = 15,
       @JsonKey(name: 'date_unix_ms_threshold') this.dateUnixMsThreshold,
-      @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[]) this.list = const <AnnouncementModel>[],
-      @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[]) this.topList = const <AnnouncementModel>[],
+      @JsonKey(name: 'list', defaultValue: <AnnouncementModel>[]) this.list = const <AnnouncementModel>[],
+      @JsonKey(name: 'top_list', defaultValue: <AnnouncementModel>[]) this.topList = const <AnnouncementModel>[],
       @JsonKey(name: 'draft_new_title') this.draftNewTitle,
       @JsonKey(name: 'draft_new_content') this.draftNewContent,
-      @JsonKey(name: 'draft_new_groups', defaultValue: const <String>{}) this.draftNewGroups = const <String>{},
+      @JsonKey(name: 'draft_new_groups', defaultValue: <String>{}) this.draftNewGroups = const <String>{},
       @JsonKey(name: 'draft_publish_to_top', defaultValue: false) this.draftPublishToTop = false,
       @JsonKey(name: 'publish_loading', defaultValue: false) this.publishLoading = false})
       : super._();
@@ -377,10 +377,10 @@ class _$_AnnouncementState extends _AnnouncementState {
   @JsonKey(name: 'date_unix_ms_threshold')
   final int? dateUnixMsThreshold;
   @override
-  @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[])
+  @JsonKey(name: 'list', defaultValue: <AnnouncementModel>[])
   final List<AnnouncementModel> list;
   @override
-  @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
+  @JsonKey(name: 'top_list', defaultValue: <AnnouncementModel>[])
   final List<AnnouncementModel> topList;
   @override
 
@@ -391,7 +391,7 @@ class _$_AnnouncementState extends _AnnouncementState {
   @JsonKey(name: 'draft_new_content')
   final String? draftNewContent;
   @override
-  @JsonKey(name: 'draft_new_groups', defaultValue: const <String>{})
+  @JsonKey(name: 'draft_new_groups', defaultValue: <String>{})
   final Set<String> draftNewGroups;
   @override
   @JsonKey(name: 'draft_publish_to_top', defaultValue: false)
@@ -471,11 +471,11 @@ abstract class _AnnouncementState extends AnnouncementState {
       @JsonKey(name: 'error_model') ErrorModel? errorModel,
       @JsonKey(name: 'limit', defaultValue: 15) int limit,
       @JsonKey(name: 'date_unix_ms_threshold') int? dateUnixMsThreshold,
-      @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> list,
-      @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[]) List<AnnouncementModel> topList,
+      @JsonKey(name: 'list', defaultValue: <AnnouncementModel>[]) List<AnnouncementModel> list,
+      @JsonKey(name: 'top_list', defaultValue: <AnnouncementModel>[]) List<AnnouncementModel> topList,
       @JsonKey(name: 'draft_new_title') String? draftNewTitle,
       @JsonKey(name: 'draft_new_content') String? draftNewContent,
-      @JsonKey(name: 'draft_new_groups', defaultValue: const <String>{}) Set<String> draftNewGroups,
+      @JsonKey(name: 'draft_new_groups', defaultValue: <String>{}) Set<String> draftNewGroups,
       @JsonKey(name: 'draft_publish_to_top', defaultValue: false) bool draftPublishToTop,
       @JsonKey(name: 'publish_loading', defaultValue: false) bool publishLoading}) = _$_AnnouncementState;
   const _AnnouncementState._() : super._();
@@ -505,10 +505,10 @@ abstract class _AnnouncementState extends AnnouncementState {
   @JsonKey(name: 'date_unix_ms_threshold')
   int? get dateUnixMsThreshold => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'list', defaultValue: const <AnnouncementModel>[])
+  @JsonKey(name: 'list', defaultValue: <AnnouncementModel>[])
   List<AnnouncementModel> get list => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'top_list', defaultValue: const <AnnouncementModel>[])
+  @JsonKey(name: 'top_list', defaultValue: <AnnouncementModel>[])
   List<AnnouncementModel> get topList => throw _privateConstructorUsedError;
   @override
 
@@ -519,7 +519,7 @@ abstract class _AnnouncementState extends AnnouncementState {
   @JsonKey(name: 'draft_new_content')
   String? get draftNewContent => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'draft_new_groups', defaultValue: const <String>{})
+  @JsonKey(name: 'draft_new_groups', defaultValue: <String>{})
   Set<String> get draftNewGroups => throw _privateConstructorUsedError;
   @override
   @JsonKey(name: 'draft_publish_to_top', defaultValue: false)

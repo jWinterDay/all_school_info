@@ -3277,7 +3277,7 @@ class __$SaveDraftCheckedGroupsCopyWithImpl<$Res> extends _$AnnouncementActionCo
 class _$_SaveDraftCheckedGroups implements _SaveDraftCheckedGroups {
   const _$_SaveDraftCheckedGroups({this.groups = const <String>{}});
 
-  @JsonKey(defaultValue: const <String>{})
+  @JsonKey(defaultValue: <String>{})
   @override
   final Set<String> groups;
 

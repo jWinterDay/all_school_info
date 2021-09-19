@@ -148,12 +148,18 @@ class _AnnouncementEditViewState extends State<AnnouncementEditView> {
                       SliverToBoxAdapter(
                         child: Padding(
                           padding: const EdgeInsets.only(top: 8, bottom: 4),
-                          child: Text(AllSchoolInfoIntl.of(context).announcementEditTitle),
+                          child: Text(
+                            AllSchoolInfoIntl.of(context).announcementEditTitle,
+                          ),
                         ),
                       ),
                       SliverToBoxAdapter(
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 4, right: 4, bottom: 8),
+                          padding: const EdgeInsets.only(
+                            left: 4,
+                            right: 4,
+                            bottom: 8,
+                          ),
                           child: CupertinoTextField(
                             controller: _titleController,
                             autofocus: true,

@@ -1,10 +1,9 @@
 // import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
 // import 'package:auto_route/auto_route.dart';
+import 'package:all_school_info/src/generated/l10n.dart';
 import 'package:all_school_info/src/ui_utils/ui_utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:design/design.dart';
-import 'package:all_school_info/src/generated/l10n.dart';
 
 class DefaultAnnouncementView extends StatefulWidget {
   const DefaultAnnouncementView({
