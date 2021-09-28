@@ -1,0 +1,38 @@
+name: Dart
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '12.x'
+
+      - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '2.5.0'
+
+      - name: Install dependencies
+        run: flutter pub get #flutter upgrade && 
+
+      # - name: Verify formatting
+      #   run: flutter format -l 120 lib --set-exit-if-changed .
+
+      # - name: Analyze project source
+      #   run: dart analyze
+
+      # - run: flutter test
+
+      - name: telegram test
+        run: curl -s -X POST "https://api.telegram.org/bot1964599551:AAEl9OkJJ11C1Jizaa2TVbiKCr-CJIuCH6I/sendMessage" -d chat_id=-545357126 -d text="⛵️ test" -d parse_mode="HTML"
+
+      # - name: Run tests
+      #   run: dart test

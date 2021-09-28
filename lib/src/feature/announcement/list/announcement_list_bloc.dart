@@ -32,7 +32,9 @@ class AnnouncementListBloc {
 
   void dispose() {
     _store.dispatch(const AnnouncementAction.cleanUp());
-    _store.dispatch((Store<AppState> store) => subscribeAnnouncementsThunk(store, subscribe: false));
+    _store.dispatch(
+      (Store<AppState> store) => subscribeAnnouncementsThunk(store, subscribe: false),
+    );
   }
 
   void clearUnreadAnnouncements() {
@@ -40,6 +42,8 @@ class AnnouncementListBloc {
   }
 
   void _subscribe() {
-    _store.dispatch((Store<AppState> store) => subscribeAnnouncementsThunk(store, subscribe: true));
+    _store.dispatch(
+      (Store<AppState> store) => subscribeAnnouncementsThunk(store, subscribe: true),
+    );
   }
 }

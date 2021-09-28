@@ -21,22 +21,14 @@ class _$ScheduleStateTearOff {
   const _$ScheduleStateTearOff();
 
   _ScheduleState call(
-      {@JsonKey(name: 'loading', defaultValue: false)
-          bool loading = false,
-      @JsonKey(name: 'first_loading', defaultValue: true)
-          bool firstLoading = true,
-      @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[])
-          List<LessonModel> lessonList = const <LessonModel>[],
-      @JsonKey(name: 'have_schedule_upd', defaultValue: false)
-          bool haveScheduleUpd = false,
-      @JsonKey(name: 'have_last_notifications_upd', defaultValue: false)
-          bool haveLastNotificationsUpd = false,
-      @JsonKey(name: 'have_ratings_upd', defaultValue: false)
-          bool haveRatingsUpd = false,
-      @JsonKey(name: 'have_news_upd', defaultValue: false)
-          bool haveNewsUpd = false,
-      @JsonKey(name: 'have_homework_upd', defaultValue: false)
-          bool haveHomeworkUpd = false}) {
+      {@JsonKey(name: 'loading', defaultValue: false) bool loading = false,
+      @JsonKey(name: 'first_loading', defaultValue: true) bool firstLoading = true,
+      @JsonKey(name: 'lesson_list', defaultValue: <LessonModel>[]) List<LessonModel> lessonList = const <LessonModel>[],
+      @JsonKey(name: 'have_schedule_upd', defaultValue: false) bool haveScheduleUpd = false,
+      @JsonKey(name: 'have_last_notifications_upd', defaultValue: false) bool haveLastNotificationsUpd = false,
+      @JsonKey(name: 'have_ratings_upd', defaultValue: false) bool haveRatingsUpd = false,
+      @JsonKey(name: 'have_news_upd', defaultValue: false) bool haveNewsUpd = false,
+      @JsonKey(name: 'have_homework_upd', defaultValue: false) bool haveHomeworkUpd = false}) {
     return _ScheduleState(
       loading: loading,
       firstLoading: firstLoading,
@@ -63,7 +55,7 @@ mixin _$ScheduleState {
   bool get loading => throw _privateConstructorUsedError;
   @JsonKey(name: 'first_loading', defaultValue: true)
   bool get firstLoading => throw _privateConstructorUsedError;
-  @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[])
+  @JsonKey(name: 'lesson_list', defaultValue: <LessonModel>[])
   List<LessonModel> get lessonList => throw _privateConstructorUsedError; // TODO remove to subclass
   @JsonKey(name: 'have_schedule_upd', defaultValue: false)
   bool get haveScheduleUpd => throw _privateConstructorUsedError;
@@ -88,7 +80,7 @@ abstract class $ScheduleStateCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'loading', defaultValue: false) bool loading,
       @JsonKey(name: 'first_loading', defaultValue: true) bool firstLoading,
-      @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[]) List<LessonModel> lessonList,
+      @JsonKey(name: 'lesson_list', defaultValue: <LessonModel>[]) List<LessonModel> lessonList,
       @JsonKey(name: 'have_schedule_upd', defaultValue: false) bool haveScheduleUpd,
       @JsonKey(name: 'have_last_notifications_upd', defaultValue: false) bool haveLastNotificationsUpd,
       @JsonKey(name: 'have_ratings_upd', defaultValue: false) bool haveRatingsUpd,
@@ -160,7 +152,7 @@ abstract class _$ScheduleStateCopyWith<$Res> implements $ScheduleStateCopyWith<$
   $Res call(
       {@JsonKey(name: 'loading', defaultValue: false) bool loading,
       @JsonKey(name: 'first_loading', defaultValue: true) bool firstLoading,
-      @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[]) List<LessonModel> lessonList,
+      @JsonKey(name: 'lesson_list', defaultValue: <LessonModel>[]) List<LessonModel> lessonList,
       @JsonKey(name: 'have_schedule_upd', defaultValue: false) bool haveScheduleUpd,
       @JsonKey(name: 'have_last_notifications_upd', defaultValue: false) bool haveLastNotificationsUpd,
       @JsonKey(name: 'have_ratings_upd', defaultValue: false) bool haveRatingsUpd,
@@ -231,7 +223,7 @@ class _$_ScheduleState extends _ScheduleState {
   const _$_ScheduleState(
       {@JsonKey(name: 'loading', defaultValue: false) this.loading = false,
       @JsonKey(name: 'first_loading', defaultValue: true) this.firstLoading = true,
-      @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[]) this.lessonList = const <LessonModel>[],
+      @JsonKey(name: 'lesson_list', defaultValue: <LessonModel>[]) this.lessonList = const <LessonModel>[],
       @JsonKey(name: 'have_schedule_upd', defaultValue: false) this.haveScheduleUpd = false,
       @JsonKey(name: 'have_last_notifications_upd', defaultValue: false) this.haveLastNotificationsUpd = false,
       @JsonKey(name: 'have_ratings_upd', defaultValue: false) this.haveRatingsUpd = false,
@@ -248,7 +240,7 @@ class _$_ScheduleState extends _ScheduleState {
   @JsonKey(name: 'first_loading', defaultValue: true)
   final bool firstLoading;
   @override
-  @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[])
+  @JsonKey(name: 'lesson_list', defaultValue: <LessonModel>[])
   final List<LessonModel> lessonList;
   @override // TODO remove to subclass
   @JsonKey(name: 'have_schedule_upd', defaultValue: false)
@@ -319,7 +311,7 @@ abstract class _ScheduleState extends ScheduleState {
   const factory _ScheduleState(
       {@JsonKey(name: 'loading', defaultValue: false) bool loading,
       @JsonKey(name: 'first_loading', defaultValue: true) bool firstLoading,
-      @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[]) List<LessonModel> lessonList,
+      @JsonKey(name: 'lesson_list', defaultValue: <LessonModel>[]) List<LessonModel> lessonList,
       @JsonKey(name: 'have_schedule_upd', defaultValue: false) bool haveScheduleUpd,
       @JsonKey(name: 'have_last_notifications_upd', defaultValue: false) bool haveLastNotificationsUpd,
       @JsonKey(name: 'have_ratings_upd', defaultValue: false) bool haveRatingsUpd,
@@ -336,7 +328,7 @@ abstract class _ScheduleState extends ScheduleState {
   @JsonKey(name: 'first_loading', defaultValue: true)
   bool get firstLoading => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'lesson_list', defaultValue: const <LessonModel>[])
+  @JsonKey(name: 'lesson_list', defaultValue: <LessonModel>[])
   List<LessonModel> get lessonList => throw _privateConstructorUsedError;
   @override // TODO remove to subclass
   @JsonKey(name: 'have_schedule_upd', defaultValue: false)

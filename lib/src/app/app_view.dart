@@ -2,6 +2,8 @@ import 'package:all_school_info/src/generated/l10n.dart';
 import 'package:all_school_info/src/routes/autoroutes.gr.dart' as gr;
 import 'package:auto_route/auto_route.dart';
 import 'package:domain/domain.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -9,6 +11,8 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:overlay_support/overlay_support.dart';
 
 import 'app_theme.dart';
+
+FirebaseAnalytics analytics = FirebaseAnalytics();
 
 class _Observer extends AutoRouterObserver {
   @override
@@ -117,6 +121,7 @@ class _AppViewState extends State<AppView> with WidgetsBindingObserver {
             navigatorObservers: () {
               return <NavigatorObserver>[
                 _Observer(),
+                FirebaseAnalyticsObserver(analytics: analytics),
               ];
             },
           ), // _appRouter.delegate(),

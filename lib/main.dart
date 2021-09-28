@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:all_school_info/src/app/app_view.dart';
 import 'package:design/design.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:utils/logger.dart';
 
@@ -14,6 +15,8 @@ void main({bool useMock = false}) {
     () => _run(useMock: useMock),
     (Object error, StackTrace stackTrace) {
       logger.e(error, error.toString(), stackTrace);
+
+      FirebaseCrashlytics.instance.recordError(error, stackTrace);
     },
   );
 }

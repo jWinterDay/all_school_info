@@ -8,13 +8,22 @@
             "name": "Debug",
             "request": "launch",
             "type": "dart",
-            "program": "lib/main.dart"
+            "program": "lib/main.dart",
+            "preLaunchTask": "prepare_debug",
         },
         {
             "name": "Mock debug",
             "request": "launch",
             "type": "dart",
-            "program": "lib/main_mock.dart"
-        }
+            "program": "lib/main_mock.dart",
+            "preLaunchTask": "prepare_mock",
+        },
+        {
+            "name": "Mock debug production services",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main_mock.dart",
+            "preLaunchTask": "prepare_production_services",
+        },
     ]
 }

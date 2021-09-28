@@ -46,10 +46,11 @@ class _HomeViewState extends State<HomeView> {
 
         return CupertinoPageScaffold(
           navigationBar: CupertinoNavigationBar(
+            leading: const _LeftAppMenu(),
             trailing: const _TestModeLabel(),
             middle: Text(
               AllSchoolInfoIntl.of(context).mainTitle,
-              style: Theme.of(context).appBarTheme.textTheme?.caption,
+              style: Theme.of(context).appBarTheme.titleTextStyle,
             ),
             backgroundColor: context.design.palette.primary,
           ),
@@ -57,9 +58,6 @@ class _HomeViewState extends State<HomeView> {
             floatingActionButton: tabsRouter.activeIndex == 0 ? const _FloatingActionButton() : null,
             body: SizeTransition(
               sizeFactor: animation,
-              //) FadeTransition(
-              // scale: animation,
-              // opacity: animation,
               child: child,
             ),
             bottomNavigationBar: BottomNavigationBar(
@@ -109,6 +107,25 @@ class _HomeViewState extends State<HomeView> {
           ),
         );
       },
+    );
+  }
+}
+
+class _LeftAppMenu extends StatelessWidget {
+  const _LeftAppMenu({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        //
+      },
+      child: Icon(
+        Icons.keyboard_control_sharp,
+        color: context.design.palette.gray50,
+      ),
     );
   }
 }

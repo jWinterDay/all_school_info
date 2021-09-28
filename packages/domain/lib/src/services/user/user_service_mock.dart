@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:domain/domain.dart';
 import 'package:domain/src/redux/user/user_state.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:utils/logger.dart';
 
 import 'user_service.dart';
 
@@ -156,6 +157,8 @@ class UserServiceMock implements UserService {
         password: password,
       );
 
+      // print('[create service] userCredential = $userCredential');
+
       // firestore
       final UserState addUserData = UserState(
         userId: userCredential.user?.uid,
@@ -173,6 +176,7 @@ class UserServiceMock implements UserService {
 
       // final DocumentReference<Map<String, dynamic>> result =
       await _fbCollection.add(fullInfoData);
+      // print('[create service] result = $result');
 
       return UserState(
         userId: userCredential.user?.uid,
@@ -188,7 +192,7 @@ class UserServiceMock implements UserService {
         classroomManagement: classroomManagement,
       );
     } on FirebaseAuthException catch (exc) {
-      print('------create service exc = $exc');
+      // print('------create service exc = $exc');
       if (exc.code == 'weak-password') {
         throw const AuthWeakPasswordException('weak-password');
       } else if (exc.code == 'Password should be at least 6 characters') {
@@ -196,7 +200,18 @@ class UserServiceMock implements UserService {
       } else {
         throw const AuthUnknownException('unknown-error');
       }
-    } catch (exc) {
+    } on FirebaseException catch (exc) {
+      if (exc.code == 'permission-denied') {
+        throw const AuthEmailPermissionDeniedException(
+          'The caller does not have permission to execute the specified operation',
+        );
+      } else if (exc.code == 'failed-precondition') {
+        throw AuthUnexpectedException(exc.toString());
+      } else {
+        throw const AuthUnknownException('unknown-error');
+      }
+    } catch (exc, stackTrace) {
+      logger.e(exc, exc.runtimeType, stackTrace);
       throw AuthUnexpectedException(exc.toString());
     }
   }

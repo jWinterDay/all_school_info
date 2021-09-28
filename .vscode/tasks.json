@@ -1,0 +1,23 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    //
+    {
+      "label": "prepare_debug",
+      "type": "shell",
+      "command": "bash scripts/app.sh debug"
+    },
+    {
+      "label": "prepare_mock",
+      "type": "shell",
+      "command": "bash scripts/app.sh mock"
+    },
+    {
+      "label": "prepare_production_services",
+      "type": "shell",
+      "command": "bash scripts/app.sh production_services"
+    },
+  ]
+}

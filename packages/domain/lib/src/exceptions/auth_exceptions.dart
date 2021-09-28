@@ -53,6 +53,15 @@ class AuthMultiplyRowsException implements Exception {
   String toString() => 'AuthMultiplyRowsException: $message';
 }
 
+class AuthEmailPermissionDeniedException implements Exception {
+  const AuthEmailPermissionDeniedException(this.message);
+
+  final String message;
+
+  @override
+  String toString() => 'AuthEmailPermissionDeniedException: $message';
+}
+
 // registration
 class AuthWeakPasswordException implements Exception {
   const AuthWeakPasswordException(this.message);

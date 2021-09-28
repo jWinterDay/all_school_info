@@ -57,7 +57,7 @@ void fetchUserThunk(Store<AppState> store) async {
   } catch (exc, stackTrace) {
     logger.e('exc $exc', exc.runtimeType, stackTrace);
 
-    // store.dispatch(UserAction.authException(AuthUnexpectedException(exc.toString())));
+    store.dispatch(UserAction.authException(AuthUnexpectedException(exc.toString())));
   } finally {
     store.dispatch(const UserAction.changeLoading(value: false));
   }
