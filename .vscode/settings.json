@@ -1,4 +1,14 @@
 {
+  "emeraldwalk.runonsave": {
+    "commands": [
+        {
+            "match": "\\.dart$",
+            "isAsync": true,
+            "cmd": "bash ${workspaceFolder}/scripts/run_on_save_take_screenshot.sh ${fileBasename}"
+            //  "echo '>> dart ${workspaceFolder} | ${workspaceFolder} | ${file} | ${fileBasename} | ${fileDirname}'"
+        },
+    ]
+  },
   "dart.lineLength": 120,
   "[dart]": {
     "editor.formatOnSave": true,
