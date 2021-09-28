@@ -166,7 +166,7 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
                             if (uiAnnouncementInfo.announcementState.loading)
                               const SliverToBoxAdapter(
                                 child: CupertinoActivityIndicator(radius: 24),
-                              )
+                              ),
                             // padding
                             // SliverPadding(padding: EdgeInsets.only(bottom: _offset))
                           ],

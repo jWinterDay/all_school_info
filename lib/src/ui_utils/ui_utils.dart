@@ -19,12 +19,12 @@ class UiUtils {
     return BoxDecoration(
       gradient: SweepGradient(
         colors: <Color>[
-          context.design.palette.gray85.withAlpha(100),
-          context.design.palette.gray40.withAlpha(100),
+          context.design.palette.gray85.withAlpha(40),
+          context.design.palette.gray40.withAlpha(50),
         ],
         // transform: GradientRotation(0.7),
         center: Alignment.topLeft,
-        endAngle: 0.2,
+        endAngle: 0.4,
         tileMode: TileMode.mirror,
       ),
       // gradient: LinearGradient(
