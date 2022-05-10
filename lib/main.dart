@@ -28,7 +28,7 @@ Future<void> _run({bool useMock = false}) async {
   runApp(
     Design(
       palette: palette,
-      child: AppView(),
+      child: const AppView(),
     ),
   );
 }

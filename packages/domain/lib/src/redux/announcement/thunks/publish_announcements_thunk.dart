@@ -1,11 +1,9 @@
 import 'package:domain/domain.dart';
-import 'package:domain/src/redux/announcement/announcement_action.dart';
-import 'package:domain/src/redux/app/app_state.dart';
 import 'package:domain/src/services/announcement/announcement_service.dart';
 import 'package:redux/redux.dart';
 import 'package:utils/logger.dart';
 
-void publishAnnouncementsThunk(
+Future<void> publishAnnouncementsThunk(
   Store<AppState> store, {
   required String title,
   required String content,

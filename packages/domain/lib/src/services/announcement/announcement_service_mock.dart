@@ -88,7 +88,7 @@ class AnnouncementServiceMock implements AnnouncementService {
         .where((QuerySnapshot<Map<String, dynamic>> snapshot) => !snapshot.metadata.hasPendingWrites)
         .map((QuerySnapshot<Map<String, dynamic>> snapshot) {
       //
-      final List<QueryDocumentSnapshot<Map<String, dynamic>>> docList = snapshot.docs;
+      // final List<QueryDocumentSnapshot<Map<String, dynamic>>> docList = snapshot.docs;
       final List<DocumentChange<Map<String, dynamic>>> changes = snapshot.docChanges;
 
       //

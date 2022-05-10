@@ -27,6 +27,6 @@ class AnnouncementModel with _$AnnouncementModel implements Comparable<Announcem
       return 0;
     }
 
-    return (other.dateUnixMs ?? 0).compareTo(this.dateUnixMs ?? 0);
+    return (other.dateUnixMs ?? 0).compareTo(dateUnixMs ?? 0);
   }
 }

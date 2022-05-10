@@ -32,7 +32,7 @@ class UserServiceImpl implements UserService {
     List<String>? classProfile,
     bool classroomManagement = false,
   }) {
-    // TODO: implement createUserWithEmail
+    // todo: implement createUserWithEmail
     throw UnimplementedError();
   }
 }

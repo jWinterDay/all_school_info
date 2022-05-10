@@ -5,7 +5,7 @@ import 'package:domain/src/redux/schedule/schedule_action.dart';
 import 'package:domain/src/services/schedule/schedule_service.dart';
 import 'package:redux/redux.dart';
 
-void fetchScheduleThunk(Store<AppState> store) async {
+Future<void> fetchScheduleThunk(Store<AppState> store) async {
   store.dispatch(const ScheduleAction.changeLoading(value: true));
 
   final ScheduleService scheduleService = getIt.get<ScheduleService>();

@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -110,13 +109,15 @@ class CustomColors {
 
 extension MapStringToColor on String {
   Color? toColor() {
-    String stringValue = this.toString();
+    String stringValue = toString();
 
     if (stringValue.length == 6) {
       stringValue = 'FF$stringValue';
     }
     if (stringValue.length > 16) {}
-    if (stringValue.length != 8) return null;
+    if (stringValue.length != 8) {
+      return null;
+    }
 
     try {
       return Color(int.parse(stringValue, radix: 16));
@@ -131,10 +132,10 @@ extension ColorExtentions on Color {
     assert(1 <= percent && percent <= 100);
     final double diff = 1 - percent / 100;
     return Color.fromARGB(
-      this.alpha,
-      (this.red * diff).round(),
-      (this.green * diff).round(),
-      (this.blue * diff).round(),
+      alpha,
+      (red * diff).round(),
+      (green * diff).round(),
+      (blue * diff).round(),
     );
   }
 
@@ -142,10 +143,10 @@ extension ColorExtentions on Color {
     assert(1 <= percent && percent <= 100);
     final double diff = percent / 100;
     return Color.fromARGB(
-      this.alpha,
-      this.red + ((255 - this.red) * diff).round(),
-      this.green + ((255 - this.green) * diff).round(),
-      this.blue + ((255 - this.blue) * diff).round(),
+      alpha,
+      red + ((255 - red) * diff).round(),
+      green + ((255 - green) * diff).round(),
+      blue + ((255 - blue) * diff).round(),
     );
   }
 
@@ -153,6 +154,6 @@ extension ColorExtentions on Color {
     const int startIndex = 10;
     const int endIndex = 16;
 
-    return this.toString().substring(startIndex, endIndex);
+    return toString().substring(startIndex, endIndex);
   }
 }

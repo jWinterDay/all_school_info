@@ -12,6 +12,8 @@ import 'package:redux/redux.dart';
 import 'home_bloc.dart';
 
 class HomeView extends StatefulWidget {
+  const HomeView({Key? key}) : super(key: key);
+
   @override
   _HomeViewState createState() => _HomeViewState();
 }
@@ -36,6 +38,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return AutoTabsRouter(
+      // duration: Duration(seconds: 1),
       routes: const <PageRouteInfo<dynamic>>[
         gr.AnnouncementListViewRoute(),
         gr.ScheduleViewRoute(),
@@ -56,10 +59,10 @@ class _HomeViewState extends State<HomeView> {
           ),
           child: Scaffold(
             floatingActionButton: tabsRouter.activeIndex == 0 ? const _FloatingActionButton() : null,
-            body: SizeTransition(
-              sizeFactor: animation,
-              child: child,
-            ),
+            body: child, // SizeTransition(
+            //   sizeFactor: animation,// 1, //animation,
+            //   child: child,
+            // ),
             bottomNavigationBar: BottomNavigationBar(
               currentIndex: tabsRouter.activeIndex,
               onTap: tabsRouter.setActiveIndex,

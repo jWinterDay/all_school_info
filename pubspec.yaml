@@ -8,8 +8,9 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
+  j_linter: ^0.0.6
   # animated_splash_screen: ^1.1.0
-  auto_route: ^2.3.0
+  auto_route: ^3.2.4
   carousel_slider: ^4.0.0
   cloud_firestore: ^2.5.1
   collection: ^1.15.0
@@ -46,7 +47,7 @@ dependencies:
     path: packages/utils
 
 dev_dependencies:
-  auto_route_generator: ^2.3.0
+  auto_route_generator: ^3.2.3
   build: ^2.0.0
   build_runner: ^2.0.4
   built_value_generator: ^8.0.6

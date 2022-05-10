@@ -7,22 +7,24 @@ import 'package:domain/domain.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:overlay_support/overlay_support.dart' as os;
+// import 'package:overlay_support/overlay_support.dart' as os;
 import 'package:redux/redux.dart';
 
 import 'profile_bloc.dart';
 import 'widgets/profile_item_sliver_list.dart';
 
 class ProfileView extends StatefulWidget {
+  const ProfileView({Key? key}) : super(key: key);
+
   @override
   _ProfileViewState createState() => _ProfileViewState();
 }
 
 class _ProfileViewState extends State<ProfileView> {
   final ProfileBloc _bloc = ProfileBloc();
-  final os.TransientKey<String> _dialogKey = const os.TransientKey<String>('transient');
-  final ValueKey<String> _key = const ValueKey<String>('my overlay');
-  os.OverlaySupportEntry? _entry;
+  // final os.TransientKey<String> _dialogKey = const os.TransientKey<String>('transient');
+  // final ValueKey<String> _key = const ValueKey<String>('my overlay');
+  // os.OverlaySupportEntry? _entry;
 
   @override
   void initState() {
@@ -62,7 +64,7 @@ class _ProfileViewState extends State<ProfileView> {
               slivers: <Widget>[
                 CupertinoSliverRefreshControl(
                   onRefresh: () async {
-                    print('refr1');
+                    // print('refr1');
                     // _bloc.refresh();
                   },
                 ),

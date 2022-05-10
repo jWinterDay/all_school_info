@@ -17,7 +17,7 @@ import 'package:auto_route/auto_route.dart';
 @CustomAutoRouter(
   replaceInRouteName: 'View',
   // ignore: always_specify_types
-  routes: [
+  routes: <AutoRoute>[
     // MaterialRoute<Object>(
     //   path: '/',
     //   initial: true,
@@ -54,7 +54,7 @@ import 'package:auto_route/auto_route.dart';
       ],
     ),
 
-    // TODO nested navigation
+    // todo nested navigation
     // announcement detail
     CupertinoRoute<Object>(
       path: 'announcement/details/:id',
@@ -74,7 +74,7 @@ import 'package:auto_route/auto_route.dart';
     //   // fullscreenDialog: true,
     // ),
 
-    // TODO nested navigation
+    // todo nested navigation
     CupertinoRoute<Object>(
       path: 'schedule/details',
       // customRouteBuilder: dialogRouteBuilder,

@@ -1,9 +1,8 @@
-import 'dart:math';
-
-import 'package:design/design.dart';
 import 'package:flutter/material.dart';
 
 class SplashView extends StatefulWidget {
+  const SplashView({Key? key}) : super(key: key);
+
   @override
   _SplashViewState createState() => _SplashViewState();
 }
@@ -32,7 +31,7 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
-    print('w = ${context.width} h = ${context.height} max = ${max(context.width, context.height)}');
+    // print('w = ${context.width} h = ${context.height} max = ${max(context.width, context.height)}');
 
     return Image.asset('assets/splash/splash.png');
 

@@ -14,7 +14,7 @@ class ScheduleState with _$ScheduleState {
     @JsonKey(name: 'first_loading', defaultValue: true) @Default(true) bool firstLoading,
     @JsonKey(name: 'lesson_list', defaultValue: <LessonModel>[]) @Default(<LessonModel>[]) List<LessonModel> lessonList,
 
-    // TODO remove to subclass
+    // todo remove to subclass
     @JsonKey(name: 'have_schedule_upd', defaultValue: false) @Default(false) bool haveScheduleUpd,
     @JsonKey(name: 'have_last_notifications_upd', defaultValue: false) @Default(false) bool haveLastNotificationsUpd,
     @JsonKey(name: 'have_ratings_upd', defaultValue: false) @Default(false) bool haveRatingsUpd,

@@ -14,7 +14,7 @@ import 'services/user/user_service.dart';
 
 final GetIt getIt = GetIt.instance;
 
-void initDomainDI({required bool useMock}) async {
+Future<void> initDomainDI({required bool useMock}) async {
   if (useMock) {
     getIt.registerSingleton<AnnouncementService>(AnnouncementServiceMock());
     getIt.registerSingleton<UserService>(UserServiceMock());

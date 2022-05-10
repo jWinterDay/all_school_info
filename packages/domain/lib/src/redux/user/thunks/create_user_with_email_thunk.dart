@@ -1,6 +1,4 @@
 import 'package:domain/domain.dart';
-import 'package:domain/src/redux/app/app_state.dart';
-import 'package:domain/src/redux/user/user_action.dart';
 import 'package:domain/src/services/user/user_service.dart';
 import 'package:redux/redux.dart';
 import 'package:utils/logger.dart';
@@ -26,7 +24,7 @@ Future<void> createUserWithEmailThunk(
 
     final UserService userService = getIt.get<UserService>();
 
-    final UserState? userState = await userService.createUserWithEmail(
+    final UserState userState = await userService.createUserWithEmail(
       email: email,
       password: password,
       firstName: firstName,
@@ -40,12 +38,12 @@ Future<void> createUserWithEmailThunk(
       classroomManagement: classroomManagement,
     );
 
-    print('created userState = $userState');
+    // print('created userState = $userState');
 
-    // TODO
-    if (userState == null) {
-      return;
-    }
+    // todo
+    // if (userState == null) {
+    //   return;
+    // }
 
     store
       ..dispatch(

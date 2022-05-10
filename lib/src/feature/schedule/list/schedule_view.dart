@@ -13,6 +13,8 @@ import 'schedule_bloc.dart';
 import 'widgets/schedule_item.dart';
 
 class ScheduleView extends StatefulWidget {
+  const ScheduleView({Key? key}) : super(key: key);
+
   @override
   _ScheduleViewState createState() => _ScheduleViewState();
 }

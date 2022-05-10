@@ -8,7 +8,7 @@ import 'package:redux/redux.dart';
 import 'profile_item.dart';
 
 class ProfileItemSliverList extends StatelessWidget {
-  const ProfileItemSliverList();
+  const ProfileItemSliverList({Key? key}) : super(key: key);
 
   String _classFullInfoStr({
     required BuildContext context,

@@ -4,9 +4,7 @@ analyzer:
   exclude:
     - lib/**/*.gr.dart
     - lib/**/*.g.dart
-    - lib/src/generated/**
-
+  
 linter:
   rules:
-    sort_pub_dependencies: false
     always_use_package_imports: false

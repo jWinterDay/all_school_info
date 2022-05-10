@@ -1,7 +1,6 @@
 // import 'package:computer/computer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:domain/domain.dart';
-import 'package:domain/src/redux/user/user_state.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:utils/logger.dart';
 

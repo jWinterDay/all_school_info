@@ -10,7 +10,7 @@ enum CardViewMode {
 
 extension CardViewModeExtension on CardViewMode {
   String get nameStr {
-    return this.toString().split('.')[1];
+    return toString().split('.')[1];
   }
 }
 

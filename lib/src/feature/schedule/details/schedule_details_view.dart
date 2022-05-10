@@ -12,6 +12,8 @@ import 'package:redux/redux.dart';
 import 'schedule_details_bloc.dart';
 
 class ScheduleDetailsView extends StatefulWidget {
+  const ScheduleDetailsView({Key? key}) : super(key: key);
+
   @override
   _ScheduleDetailsViewState createState() => _ScheduleDetailsViewState();
 }

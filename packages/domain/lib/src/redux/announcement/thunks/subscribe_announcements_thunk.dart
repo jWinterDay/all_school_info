@@ -2,9 +2,6 @@ import 'dart:async';
 
 import 'package:domain/domain.dart';
 import 'package:domain/src/models/error_model.dart';
-import 'package:domain/src/redux/announcement/announcement_action.dart';
-import 'package:domain/src/redux/announcement/models/announcement_model.dart';
-import 'package:domain/src/redux/app/app_state.dart';
 import 'package:domain/src/services/announcement/announcement_service.dart';
 import 'package:redux/redux.dart';
 import 'package:rxdart/rxdart.dart';
@@ -27,7 +24,7 @@ class _UserChange {
   bool get needUnsubscribe => accessGroups.isEmpty || !loggedIn;
 }
 
-void subscribeAnnouncementsThunk(
+Future<void> subscribeAnnouncementsThunk(
   Store<AppState> store, {
   required bool subscribe, // subscribe or unsubscribe
 }) async {

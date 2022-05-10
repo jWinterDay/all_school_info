@@ -48,3 +48,7 @@ app.*.map.json
 # fb services
 /android/app/google-services.json
 /ios/Runner/GoogleService-Info.plist
+
+# ui_test
+/ui_test/images/actual/**
+/ui_test/images/diff/**

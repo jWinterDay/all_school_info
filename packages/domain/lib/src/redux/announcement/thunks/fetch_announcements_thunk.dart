@@ -12,7 +12,7 @@ import 'package:domain/src/services/announcement/announcement_service.dart';
 import 'package:redux/redux.dart';
 import 'package:utils/logger.dart';
 
-void fetchAnnouncementsThunk({
+Future<void> fetchAnnouncementsThunk({
   required Store<AppState> store,
   required CollectionAddType collectionAddType,
 }) async {

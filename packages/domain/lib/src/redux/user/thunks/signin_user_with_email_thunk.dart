@@ -1,6 +1,4 @@
 import 'package:domain/domain.dart';
-import 'package:domain/src/redux/app/app_state.dart';
-import 'package:domain/src/redux/user/user_action.dart';
 import 'package:domain/src/services/user/user_service.dart';
 import 'package:redux/redux.dart';
 import 'package:utils/logger.dart';

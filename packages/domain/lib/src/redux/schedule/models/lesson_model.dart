@@ -8,9 +8,9 @@ class LessonModel with _$LessonModel {
   const LessonModel._();
 
   const factory LessonModel(
-    @JsonKey(name: 'lesson_name') String lessonName, // TODO guid ????
+    @JsonKey(name: 'lesson_name') String lessonName, // todo guid ????
     @JsonKey(name: 'date_unix_ms') int dateUnixMs,
-    @JsonKey(name: 'teacher_name') String teacherName, // TODO guid ????
+    @JsonKey(name: 'teacher_name') String teacherName, // todo guid ????
     //   {
     //   @JsonKey(name: 'date_unix_ms', defaultValue: false) @Default(false) String lessonName,
     // }

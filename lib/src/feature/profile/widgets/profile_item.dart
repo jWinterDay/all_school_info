@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 
 class ProfileItem extends StatelessWidget {
   const ProfileItem({
+    Key? key,
     required this.uiProfileItem,
-  });
+  }) : super(key: key);
 
   final UiProfileItem uiProfileItem;
 

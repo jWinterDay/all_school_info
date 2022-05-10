@@ -47,5 +47,5 @@ function creating_links {
 }
 
 # call functions
-checking_flutter_version;
+# checking_flutter_version;
 creating_links;

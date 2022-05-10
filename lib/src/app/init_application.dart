@@ -23,7 +23,7 @@ Future<Palette> initPalette() async {
 /// `init app`
 Future<void> initApp({bool useMock = false}) async {
   // di
-  initDomainDI(useMock: useMock);
+  await initDomainDI(useMock: useMock);
   await _initAppDI();
 
   final AppDomain appDomain = getIt.get<AppDomain>();
@@ -95,7 +95,7 @@ Future<void> _pushNotifications() async {
   // print('User granted permission: ${settings.authorizationStatus}');
 
   final String? token = await firebaseMessaging.getToken();
-  print('fb token = $token');
+  // print('fb token = $token');
   final AppDomain appDomain = getIt.get<AppDomain>();
   appDomain.appStore.dispatch(CommonAction.setFcmToken(value: token));
 
@@ -131,7 +131,7 @@ Future<void> _pushNotifications() async {
 }
 
 Future<dynamic> _backgroundMessageHandler(RemoteMessage remoteMessage) async {
-  print('------- backgroundMessageHandler ${remoteMessage.data}');
+  // print('------- backgroundMessageHandler ${remoteMessage.data}');
 }
 
 /// `cloud storage`
